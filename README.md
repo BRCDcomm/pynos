@@ -5,7 +5,7 @@ pyNOS is a python library for working with Brocade devices running NOS.
 The following is an example usage of pyNOS. Full documentation can be found on
 the wiki.
 ```
-from pynos.netconf.device import Device
+from pynos.netconf import Device
 
 NOS_DEVICE = Device(('10.10.10.1', '22'), ('admin', 'pass'))
 
