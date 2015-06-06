@@ -1,4 +1,3 @@
-* Finish unittests
 * Add better in-code documentation/comments
 * Add logging
 * Add specific exceptions to ncclient actions
