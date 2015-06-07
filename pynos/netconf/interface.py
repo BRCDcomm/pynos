@@ -1,13 +1,25 @@
 #!/usr/bin/env python
-'''
-NetCONF serilization of Interface actions for Brocade NOS devices.
-'''
+"""
+Copyright 2015 Brocade Communications Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
 import xml.etree.ElementTree as ET
 
 class Interfaces(object):
-    '''
-    Interfaces object
-    '''
+    """
+    Expermintal Interfaces object
+    """
     def __init__(self, callback):
         self._callback = callback
         for interface in self._get_interfaces():
@@ -20,16 +32,42 @@ class Interfaces(object):
         pass
 
 class Interface(object):
-    '''
-    Main interface object.
-    '''
+    """
+    The Interface class holds all the actions assocaiated with the Interfaces of
+    a NOS device.
+
+    Attributes:
+        None
+    """
     def __init__(self, callback):
+        """
+        Interface init function.
+
+        Args:
+            callback: Callback function that will be called for each action.
+
+        Returns:
+            Interface Object
+
+        Raises:
+            None
+        """
         self._callback = callback
 
     def add_vlan_int(self, vlan_id):
-        '''
-        Create VLAN on switch.
-        '''
+        """
+        Add VLAN Interface. VLAN interfaces are required for VLANs even when not
+        wanting to use the interface for any L3 features.
+
+        Args:
+            vlan_id: ID for the VLAN interface being created. Value of 2-4096.
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         vlinterface = ET.SubElement(config, 'interface-vlan',
                                     xmlns=("urn:brocade.com:mgmt:"
@@ -38,12 +76,26 @@ class Interface(object):
         vlan = ET.SubElement(interface, 'vlan')
         name = ET.SubElement(vlan, 'name')
         name.text = vlan_id
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def del_vlan_int(self, vlan_id):
-        '''
-        Create VLAN on switch.
-        '''
+        """
+        Delete VLAN Interface.
+
+        Args:
+            vlan_id: ID for the VLAN interface being created. Value of 2-4096.
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         vlinterface = ET.SubElement(config, 'interface-vlan',
                                     xmlns=("urn:brocade.com:mgmt:"
@@ -52,12 +104,28 @@ class Interface(object):
         vlan = ET.SubElement(interface, 'vlan', operation='delete')
         name = ET.SubElement(vlan, 'name')
         name.text = vlan_id
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def enable_switchport(self, inter_type, inter):
-        '''
-        Set switchport for interface
-        '''
+        """
+        Change an interface's operation to L2.
+
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -67,12 +135,28 @@ class Interface(object):
         name.text = inter
         switchport_basic = ET.SubElement(int_type, 'switchport-basic')
         ET.SubElement(switchport_basic, 'basic')
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def disable_switchport(self, inter_type, inter):
-        '''
-        Unset switchport for interface
-        '''
+        """
+        Change an interface's operation to L3.
+
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -81,17 +165,29 @@ class Interface(object):
         name = ET.SubElement(int_type, 'name')
         name.text = inter
         ET.SubElement(int_type, 'switchport-basic', operation='delete')
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def access_vlan(self, inter_type, inter, vlan_id):
-        '''
-        Set access VLAN on Interface
+        """
+        Add a L2 Interface to a specific VLAN.
 
-        Parameters:
-            inter_type: Type of interface. Ex: gigabitethernet
-            inter: The actual interface referece. Ex: 1/0/1
-            vlan_id: The desired access VLAN.
-        '''
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
+            vlan_id: ID for the VLAN interface being modified. Value of 2-4096.
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -103,17 +199,30 @@ class Interface(object):
         access = ET.SubElement(switchport, 'access')
         accessvlan = ET.SubElement(access, 'accessvlan')
         accessvlan.text = vlan_id
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def del_access_vlan(self, inter_type, inter, vlan_id):
-        '''
-        Delete access VLAN on Interface
+        """
+        Remove a L2 Interface from a specific VLAN, placing it back into the
+        default VLAN.
 
-        Parameters:
-            inter_type: Type of interface. Ex: gigabitethernet
-            inter: The actual interface referece. Ex: 1/0/1
-            vlan_id: The desired access VLAN.
-        '''
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
+            vlan_id: ID for the VLAN interface being modified. Value of 2-4096.
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -125,17 +234,29 @@ class Interface(object):
         access = ET.SubElement(switchport, 'access')
         accessvlan = ET.SubElement(access, 'accessvlan', operation='delete')
         accessvlan.text = vlan_id
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def set_ip(self, inter_type, inter, ip_addr):
-        '''
-        Generate NETCONF from inputs to add IP to interface.
+        """
+        Set IP address of a L3 interface.
 
-        Parameters:
-            inter_type: Type of interface. Ex: gigabitethernet
-            inter: The actual interface referece. Ex: 1/0/1
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
             ip_addr: IP Address in <prefix>/<bits> format. Ex: 10.10.10.1/24
-        '''
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -150,17 +271,29 @@ class Interface(object):
         address = ET.SubElement(ip_config, 'address')
         ipaddr = ET.SubElement(address, 'address')
         ipaddr.text = ip_addr
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
 
     def del_ip(self, inter_type, inter, ip_addr):
-        '''
-        Generate NETCONF from inputs to remove IP from interface.
+        """
+        Delete IP address from a L3 interface.
 
-        Parameters:
-            inter_type: Type of interface. Ex: gigabitethernet
-            inter: The actual interface referece. Ex: 1/0/1
+        Args:
+            inter_type: The type of interface you want to configure. Ex.
+                tengigabitethernet, gigabitethernet, fortygigabitethernet.
+            inter: The ID for the interface you want to configure. Ex. 1/0/1
             ip_addr: IP Address in <prefix>/<bits> format. Ex: 10.10.10.1/24
-        '''
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        """
         config = ET.Element('config')
         interface = ET.SubElement(config, 'interface',
                                   xmlns=("urn:brocade.com:mgmt:"
@@ -175,4 +308,9 @@ class Interface(object):
         address = ET.SubElement(ip_config, 'address', operation='delete')
         ipaddr = ET.SubElement(address, 'address')
         ipaddr.text = ip_addr
-        self._callback(config)
+        try:
+            self._callback(config)
+            return True
+        #TODO add logging and narrow exception window.
+        except Exception, _:
+            return False
