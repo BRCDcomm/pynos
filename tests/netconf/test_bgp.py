@@ -15,69 +15,67 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import unittest
+from mock import Mock
 from pynos.netconf.bgp import BGP
 import xml.etree.ElementTree as ET
 
-class _Tester(object):
-    """
-    Tester class 
-    """
-    def __init__(self):
-        self.bgp = BGP(self._callback)
-        self.output = None
+_MOCK = Mock()
 
-    def _callback(self, config):
-        '''
-        Callback function to return text of XML.
-        '''
-        self.output = ET.tostring(config)
-
-TESTER = _Tester()
+def _callback(out):
+    """
+    Callback to place value inside mock for testing results.
+    """
+    _MOCK.return_value = out
 
 class TestBGP(unittest.TestCase):
-    '''
-    Testing BGP
-    '''
+    """
+    BGP unit tests. Compare expected XML to generated XML.
+    """
     def test_setup_bgp(self):
-        '''
-        Test setup BGP method.
-        '''
+        """
+        Test setup BGP.
+        """
         output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
 ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
 bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id></config>'
-        TESTER.bgp.setup_bgp()
-        self.assertEqual(TESTER.output, output)
+        bgp = BGP(_callback)
+        bgp.setup_bgp()
+        self.assertEqual(output, ET.tostring(_MOCK()))
+        _MOCK.reset_mock()
 
     def test_local_asn(self):
-        '''
-        Test Local ASN
-        '''
-        TESTER.bgp.local_asn('65000')
+        """
+        Test adding local ASN.
+        """
         output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
 ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
 bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
 ><local-as>65000</local-as></router-bgp-attributes></router-bgp-cmds-holder></b\
 gp></router></rbridge-id></config>'
 
-        self.assertEqual(TESTER.output, output)
+        bgp = BGP(_callback)
+        bgp.local_asn('65000')
+        self.assertEqual(output, ET.tostring(_MOCK()))
+        _MOCK.reset_mock()
 
     def test_remove_bgp(self):
-        '''
-        Test Remove BGP
-        '''
-        TESTER.bgp.remove_bgp()
+        """
+        Test remove BGP.
+        """
         output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
 ge"><rbridge-id>1</rbridge-id><router><bgp operation="delete" xmlns="urn:brocad\
 e.com:mgmt:brocade-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id\
 ></config>'
 
-        self.assertEqual(TESTER.output, output)
+        bgp = BGP(_callback)
+        bgp.remove_bgp()
+        self.assertEqual(output, ET.tostring(_MOCK()))
+        _MOCK.reset_mock()
 
     def test_add_neighbor(self):
-        '''
-        Test Remove BGP
-        '''
-        TESTER.bgp.add_neighbor('10.0.0.1', '65000')
+        """
+        Test adding BGP neighbor.
+        """
         output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
 ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
 bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
@@ -86,13 +84,15 @@ router-bgp-neighbor-address><remote-as>65000</remote-as></neighbor-addr></neigh\
 bor-ips></neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp></rou\
 ter></rbridge-id></config>'
 
-        self.assertEqual(TESTER.output, output)
+        bgp = BGP(_callback)
+        bgp.add_neighbor('10.0.0.1', '65000')
+        self.assertEqual(output, ET.tostring(_MOCK()))
+        _MOCK.reset_mock()
 
     def test_remove_neighbor(self):
-        '''
-        Test Remove BGP
-        '''
-        TESTER.bgp.remove_neighbor('10.0.0.1')
+        """
+        Test remove BGP neighbor.
+        """
         output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
 ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
 bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
@@ -101,4 +101,7 @@ bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
 /neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp></router></rbr\
 idge-id></config>'
 
-        self.assertEqual(TESTER.output, output)
+        bgp = BGP(_callback)
+        bgp.remove_neighbor('10.0.0.1')
+        self.assertEqual(output, ET.tostring(_MOCK()))
+        _MOCK.reset_mock()
