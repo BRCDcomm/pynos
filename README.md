@@ -14,12 +14,6 @@ NOS_DEVICE.interface.set_ip('tengigabitethernet',
                             '10.1.1.1/24')
 ```
 
-##Testing
-Tests are inteded to be run using nose
-```
-$nosetests
-```
-
 ##License
 pyNOS is released under the APACHE 2.0 license. See ./LICENSE for more
 information.
