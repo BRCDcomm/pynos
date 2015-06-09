@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import xml.etree.ElementTree as ET
+import logging
+
 
 class System(object):
     """
@@ -61,8 +63,9 @@ class System(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def del_snmp_community(self, community):
@@ -89,8 +92,9 @@ class System(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def add_snmp_host(self, host_info=(None, '162'), community='Public'):
@@ -121,8 +125,9 @@ class System(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def del_snmp_host(self, host_info=(None, '162'), community='Public'):
@@ -153,6 +158,61 @@ class System(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
+
+    @property
+    def neighbors(self):
+        """
+        Args:
+            None
+
+        Returns:
+            A list of LLDP Neighbors. Each list item is a dictionary containing
+            the following elements:
+                local-int-name: Local interface name
+                local-int-mac: Local interface MAC address
+                remote-int-name: Remote interface name
+                remote-int-mac: Remote interface MAC address
+                remote-chassis-id: Remote chassis ID
+                remote-system-name: Hostname of remote system
+
+        Raises:
+            None
+        """
+        urn = "{urn:brocade.com:mgmt:brocade-lldp-ext}"
+
+        result = []
+
+        request_lldp = ET.Element(
+            'get-lldp-neighbor-detail',
+            xmlns="urn:brocade.com:mgmt:brocade-lldp-ext"
+        )
+
+        lldp_result = self._callback(request_lldp, 'get')
+
+        for item in lldp_result.findall('%slldp-neighbor-detail' % urn):
+            local_int_name = item.find('%slocal-interface-name' % urn).text
+            local_int_mac = item.find('%slocal-interface-mac' % urn).text
+            remote_int_name = item.find('%sremote-interface-name' % urn).text
+            remote_int_mac = item.find('%sremote-interface-mac' % urn).text
+            remote_chas_id = item.find('%sremote-chassis-id' % urn).text
+            remote_sys_name = item.find('%sremote-system-name' % urn).text
+
+            if 'Fo ' in local_int_name:
+                local_int_name = local_int_name.replace(
+                    'Fo ',
+                    'FortyGigabitEthernet '
+                )
+
+            item_results = {'local-int-name': local_int_name,
+                            'local-int-mac': local_int_mac,
+                            'remote-int-name': remote_int_name,
+                            'remote-int-mac': remote_int_mac,
+                            'remote-chassis-id': remote_chas_id,
+                            'remote-system-name': remote_sys_name}
+            result.append(item_results)
+
+        return result

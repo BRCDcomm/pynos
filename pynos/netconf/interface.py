@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import xml.etree.ElementTree as ET
+import logging
+
 
 class Interfaces(object):
     """
@@ -31,10 +33,11 @@ class Interfaces(object):
         '''
         pass
 
+
 class Interface(object):
     """
-    The Interface class holds all the actions assocaiated with the Interfaces of
-    a NOS device.
+    The Interface class holds all the actions assocaiated with the Interfaces
+    of a NOS device.
 
     Attributes:
         None
@@ -56,8 +59,8 @@ class Interface(object):
 
     def add_vlan_int(self, vlan_id):
         """
-        Add VLAN Interface. VLAN interfaces are required for VLANs even when not
-        wanting to use the interface for any L3 features.
+        Add VLAN Interface. VLAN interfaces are required for VLANs even when
+        not wanting to use the interface for any L3 features.
 
         Args:
             vlan_id: ID for the VLAN interface being created. Value of 2-4096.
@@ -79,8 +82,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def del_vlan_int(self, vlan_id):
@@ -107,8 +111,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def enable_switchport(self, inter_type, inter):
@@ -138,8 +143,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def disable_switchport(self, inter_type, inter):
@@ -168,8 +174,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def access_vlan(self, inter_type, inter, vlan_id):
@@ -202,8 +209,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def del_access_vlan(self, inter_type, inter, vlan_id):
@@ -237,8 +245,9 @@ class Interface(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def set_ip(self, inter_type, inter, ip_addr):
@@ -265,17 +274,19 @@ class Interface(object):
         name = ET.SubElement(intert, 'name')
         name.text = inter
         ipel = ET.SubElement(intert, 'ip')
-        ip_config = ET.SubElement(ipel, 'ip-config',
-                                  xmlns="urn:brocade.com:mgmt:brocade-ip-config"
-                                 )
+        ip_config = ET.SubElement(
+            ipel, 'ip-config',
+            xmlns="urn:brocade.com:mgmt:brocade-ip-config"
+        )
         address = ET.SubElement(ip_config, 'address')
         ipaddr = ET.SubElement(address, 'address')
         ipaddr.text = ip_addr
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def del_ip(self, inter_type, inter, ip_addr):
@@ -302,15 +313,17 @@ class Interface(object):
         name = ET.SubElement(intert, 'name')
         name.text = inter
         ipel = ET.SubElement(intert, 'ip')
-        ip_config = ET.SubElement(ipel, 'ip-config',
-                                  xmlns="urn:brocade.com:mgmt:brocade-ip-config"
-                                 )
+        ip_config = ET.SubElement(
+            ipel, 'ip-config',
+            xmlns="urn:brocade.com:mgmt:brocade-ip-config"
+        )
         address = ET.SubElement(ip_config, 'address', operation='delete')
         ipaddr = ET.SubElement(address, 'address')
         ipaddr.text = ip_addr
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False

@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import xml.etree.ElementTree as ET
+import logging
+
 
 class BGP(object):
     """
@@ -71,13 +73,14 @@ class BGP(object):
         vrf_el = ET.SubElement(bgp, 'vrf-name')
         vrf_el.text = vrf
 
-        if ret == True:
+        if ret is True:
             return config
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def local_asn(self, local_as, vrf='default', rbridge_id='1'):
@@ -106,8 +109,9 @@ class BGP(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def remove_bgp(self, vrf='default', rbridge_id='1'):
@@ -139,8 +143,9 @@ class BGP(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def add_neighbor(self, ip_addr, remote_as, vrf='default', rbridge_id='1'):
@@ -176,8 +181,9 @@ class BGP(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
 
     def remove_neighbor(self, ip_addr, vrf='default', rbridge_id='1'):
@@ -211,6 +217,7 @@ class BGP(object):
         try:
             self._callback(config)
             return True
-        #TODO add logging and narrow exception window.
-        except Exception, _:
+        # TODO add logging and narrow exception window.
+        except Exception, error:
+            logging.error(error)
             return False
