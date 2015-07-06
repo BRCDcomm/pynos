@@ -40,7 +40,7 @@ class BGP(object):
             None
         """
         self._callback = callback
-        self._rbridge = brocade_rbridge(pynos.utilities.return_xml)
+        self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
 
     def local_asn(self, **kwargs):
         """Set BGP local ASN.

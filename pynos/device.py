@@ -21,23 +21,31 @@ from ncclient import manager
 from ncclient import xml_
 import ncclient
 
-from pynos import versions
-
+import pynos.versions.ver_5.ver_5_0_1.bgp
+import pynos.versions.ver_5.ver_5_0_1.snmp
+import pynos.versions.ver_5.ver_5_0_1.interface
+import pynos.versions.ver_5.ver_5_0_1.lldp
+import pynos.versions.ver_5.ver_5_0_1.system
+import pynos.versions.ver_6.ver_6_0_1.bgp
+import pynos.versions.ver_6.ver_6_0_1.snmp
+import pynos.versions.ver_6.ver_6_0_1.interface
+import pynos.versions.ver_6.ver_6_0_1.lldp
+import pynos.versions.ver_6.ver_6_0_1.system
 
 VERSIONS = {
     '5.0.1': {
-        'bgp': versions.ver_5.ver_5_0_1.bgp.BGP,
-        'snmp': versions.ver_5.ver_5_0_1.snmp.SNMP,
-        'interface': versions.ver_5.ver_5_0_1.interface.Interface,
-        'lldp': versions.ver_5.ver_5_0_1.lldp.LLDP,
-        'system': versions.ver_5.ver_5_0_1.system.System,
+        'bgp': pynos.versions.ver_5.ver_5_0_1.bgp.BGP,
+        'snmp': pynos.versions.ver_5.ver_5_0_1.snmp.SNMP,
+        'interface': pynos.versions.ver_5.ver_5_0_1.interface.Interface,
+        'lldp': pynos.versions.ver_5.ver_5_0_1.lldp.LLDP,
+        'system': pynos.versions.ver_5.ver_5_0_1.system.System,
         },
     '6.0.1': {
-        'bgp': versions.ver_6.ver_6_0_1.bgp.BGP,
-        'snmp': versions.ver_6.ver_6_0_1.snmp.SNMP,
-        'interface': versions.ver_6.ver_6_0_1.interface.Interface,
-        'lldp': versions.ver_6.ver_6_0_1.lldp.LLDP,
-        'lldp': versions.ver_6.ver_6_0_1.system.System,
+        'bgp': pynos.versions.ver_6.ver_6_0_1.bgp.BGP,
+        'snmp': pynos.versions.ver_6.ver_6_0_1.snmp.SNMP,
+        'interface': pynos.versions.ver_6.ver_6_0_1.interface.Interface,
+        'lldp': pynos.versions.ver_6.ver_6_0_1.lldp.LLDP,
+        'system': pynos.versions.ver_6.ver_6_0_1.system.System,
         }
     }
 
@@ -78,9 +86,9 @@ class Device(object):
         """
         self._conn = kwargs.pop('conn')
         self._auth = kwargs.pop('auth')
-        self._hostkey_verify = kwargs.pop('hostkey_verify')
-        self._auth_method = kwargs.pop('auth_method')
-        self._auth_key = kwargs.pop('auth_key')
+        self._hostkey_verify = kwargs.pop('hostkey_verify', None)
+        self._auth_method = kwargs.pop('auth_method', 'userpass')
+        self._auth_key = kwargs.pop('auth_key', None)
         self._mgr = None
 
         self.reconnect()
@@ -118,18 +126,12 @@ class Device(object):
         Raises:
             None
         """
-        urn = "{urn:brocade.com:mgmt:brocade-firmware-ext}"
+        namespace = "urn:brocade.com:mgmt:brocade-firmware-ext"
 
-        request_ver = ET.Element(
-            "show-firmware-version",
-            xmlns="urn:brocade.com:mgmt:brocade-firmware-ext"
-        )
+        request_ver = ET.Element("show-firmware-version", xmlns=namespace)
 
-        ver = self._callback(request_ver, 'get')
-
-        firmware_ver = ver.find('%sshow-firmware-version' % urn)
-
-        return firmware_ver.find('os-version')
+        ver = self._callback(request_ver, handler='get')
+        return ver.find('.//*{%s}os-version' % namespace).text
 
     def _callback(self, call, handler='edit_config', target='running',
                   source='startup'):
