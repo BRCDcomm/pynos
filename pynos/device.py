@@ -91,6 +91,20 @@ class Device(object):
             setattr(self, nos_attr, VERSIONS[ver][nos_attr](self._callback))
 
     @property
+    def mac_table(self):
+        """Returns the MAC table of the device.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    @property
     def firmware_version(self):
         """
         Returns firmware version.
@@ -205,3 +219,16 @@ class Device(object):
         self._mgr.timeout = 600
 
         return True
+
+    def find_interface_by_mac(self, **kwargs):
+        """Find the interface through which a MAC can be reached.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass

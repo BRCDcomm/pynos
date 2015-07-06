@@ -340,27 +340,29 @@ class Interface(object):
         """
         pass
 
-    def private_vlan(self, **kwargs):
-        """
-        Set PVLAN mode.
+    def private_vlan_type(self, **kwargs):
+        """Set the PVLAN type (primary, isolated, community).
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
-    def private_vlan_assoc(self, **kwargs):
-        """
-        Set interface PVLAN association.
+    def private_vlan_association(self, **kwargs):
+        """Set interface PVLAN association.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
@@ -374,36 +376,39 @@ class Interface(object):
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def switchport_pvlan_host_assoc(self, **kwargs):
-        """
-        Set switchport private vlan host association.
+        """Set switchport private vlan host association.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def trunk_allowed_vlan(self, **kwargs):
-        """
-        Set trunk allowe VLAN.
+        """Set trunk allowed VLAN. (includes ctags)
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
-    def switchport_mode(self, **kwargs):
-        """
-        Set switchport mode.
+    def private_vlan_mode(self, **kwargs):
+        """Set PVLAN mode (promiscuous, host, trunk).
 
         Args:
 
@@ -414,73 +419,274 @@ class Interface(object):
         pass
 
     def spanning_tree_state(self, **kwargs):
-        """
-        Set spanning tree state.
+        """Set spanning tree state.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def tag_native_vlan(self, **kwargs):
-        """
-        Set tagging of native VLAN on trunk.
+        """Set tagging of native VLAN on trunk.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def switchport_pvlan_mapping(self, **kwargs):
-        """
-        Switchport private VLAN mapping.
+        """Switchport private VLAN mapping.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def mtu(self, **kwargs):
-        """
-        Set Interface MTU.
+        """Set Interface MTU.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def fabric_isl(self, **kwargs):
-        """
-        Set fabric isl state.
+        """Set fabric isl state.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
         """
         pass
 
     def fabric_trunk(self, **kwargs):
-        """
-        Set fabric trunk state.
+        """Set fabric trunk state.
 
         Args:
 
         Returns:
 
         Raises:
+
+        Examples:
+        """
+        pass
+
+    def v6_nd_suppress_ra(self, **kwargs):
+        """Set fabric trunk state.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def vrrp_vip(self, **kwargs):
+        """Set VRRP VIP.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def vrrp_state(self, **kwargs):
+        """Set VRRP state (enabled, disabled).
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def vrrp_preempt(self, **kwargs):
+        """Set VRRP preempt mode (enabled, disabled).
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def vrrp_priority(self, **kwargs):
+        """Set VRRP priority.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def vrrp_advertisement_interval(self, **kwargs):
+        """Set VRRP advertisement interval.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def proxy_arp(self, **kwargs):
+        """Set proxy-arp (enabled, disabled).
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def port_channel_minimum_links(self, **kwargs):
+        """Set minimum number of links for a port channel.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def port_channel_member(self, **kwargs):
+        """Set port channel member.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def port_channel_mode(self, **kwargs):
+        """Set port channel mode.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def port_channel_type(self, **kwargs):
+        """Set port channel type.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def port_channel_vlag_ignore_split(self, **kwargs):
+        """Ignore VLAG Splits.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def trunk_no_default_native(self, **kwargs):
+        """Disable native VLAN on trunk port.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def transport_service(self, **kwargs):
+        """Configure transport service.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
+        """
+        pass
+
+    def lacp_timeout(self, **kwargs):
+        """Configure LACP timeout.
+
+        Args:
+
+        Returns:
+
+        Raises:
+
+        Examples:
         """
         pass
