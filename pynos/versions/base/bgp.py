@@ -61,22 +61,23 @@ class BGP(object):
             KeyError: if `local_as` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> output = dev.bgp.local_asn(local_as='65535',
-            ... callback=pynos.utilities.print_xml_string
-            ... ) # doctest: +NORMALIZE_WHITESPACE
+            ... callback=pynos.utilities.print_xml_string) # doctest: +SKIP
             <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
             <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">
-            <vrf-name>default</vrf-name><router-bgp-cmds-holder>
-            <router-bgp-attributes><local-as>65535</local-as>
-            </router-bgp-cmds-holder></router-bgp-attributes></bgp></router>
-            </rbridge-id></config>
-            >>> dev.bgp.local_asn(local_as='65535')
-            True
+            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp"><vrf-name>default
+            </vrf-name></bgp></router></rbridge-id></config>
+            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
+            <rbridge-id>1</rbridge-id><router>
+            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp"><vrf-name>default
+            </vrf-name><router-bgp-cmds-holder><router-bgp-attributes>
+            <local-as>65535</local-as></router-bgp-attributes>
+            </router-bgp-cmds-holder></bgp></router></rbridge-id></config>
+            >>> dev.bgp.local_asn(local_as='65535', rbridge_id='225')
             >>> dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
