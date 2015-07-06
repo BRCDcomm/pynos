@@ -14,3 +14,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from pynos.versions.base.bgp import BGP as BaseBGP
+
+
+class BGP(BaseBGP):
+    """
+    The BGP class holds all relevent methods and attributes for the BGP
+    capabilities of the NOS device.
+
+    Attributes:
+        None
+    """
+    pass

@@ -21,11 +21,13 @@ import xml.etree.ElementTree as ET
 
 _MOCK = Mock()
 
+
 def _callback(out):
     """
     Callback to place value inside mock for testing results.
     """
     _MOCK.return_value = out
+
 
 class TestInter(unittest.TestCase):
     """
@@ -35,9 +37,9 @@ class TestInter(unittest.TestCase):
         """
         Test add VLAN Interface.
         """
-        output = '<config><interface-vlan xmlns="urn:brocade.com:mgmt:brocade-i\
-nterface"><interface><vlan><name>10</name></vlan></interface></interface-vlan><\
-/config>'
+        output = '<config><interface-vlan xmlns="urn:brocade.com:mgmt:brocade-\
+interface"><interface><vlan><name>10</name></vlan></interface></interface-vlan\
+></config>'
         inter = Interface(_callback)
         inter.add_vlan_int('10')
         self.assertEqual(output, ET.tostring(_MOCK()))
@@ -47,9 +49,9 @@ nterface"><interface><vlan><name>10</name></vlan></interface></interface-vlan><\
         """
         Test delete VLAN Interface.
         """
-        output = '<config><interface-vlan xmlns="urn:brocade.com:mgmt:brocade-i\
-nterface"><interface><vlan operation="delete"><name>10</name></vlan></interface\
-></interface-vlan></config>'
+        output = '<config><interface-vlan xmlns="urn:brocade.com:mgmt:brocade-\
+interface"><interface><vlan operation="delete"><name>10</name></vlan></interfa\
+ce></interface-vlan></config>'
 
         inter = Interface(_callback)
         inter.del_vlan_int('10')
@@ -60,9 +62,9 @@ nterface"><interface><vlan operation="delete"><name>10</name></vlan></interface\
         """
         Test enabling switchport.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><switchport-basic><basic /></switchp\
-ort-basic></tengigabitethernet></interface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><switchport-basic><basic /></switc\
+hport-basic></tengigabitethernet></interface></config>'
 
         inter = Interface(_callback)
         inter.enable_switchport('tengigabitethernet', '1/0/1')
@@ -73,9 +75,9 @@ ort-basic></tengigabitethernet></interface></config>'
         """
         Test disable switchport.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><switchport-basic operation="delete"\
- /></tengigabitethernet></interface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><switchport-basic operation="delet\
+e" /></tengigabitethernet></interface></config>'
 
         inter = Interface(_callback)
         inter.disable_switchport('tengigabitethernet', '1/0/1')
@@ -86,9 +88,9 @@ ace"><tengigabitethernet><name>1/0/1</name><switchport-basic operation="delete"\
         """
         Test add access VLAN.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><switchport><access><accessvlan>10</\
-accessvlan></access></switchport></tengigabitethernet></interface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><switchport><access><accessvlan>10\
+</accessvlan></access></switchport></tengigabitethernet></interface></config>'
 
         inter = Interface(_callback)
         inter.access_vlan('tengigabitethernet', '1/0/1', '10')
@@ -99,10 +101,10 @@ accessvlan></access></switchport></tengigabitethernet></interface></config>'
         """
         Test delete access VLAN.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><switchport><access><accessvlan oper\
-ation="delete">10</accessvlan></access></switchport></tengigabitethernet></inte\
-rface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><switchport><access><accessvlan op\
+eration="delete">10</accessvlan></access></switchport></tengigabitethernet></i\
+nterface></config>'
 
         inter = Interface(_callback)
         inter.del_access_vlan('tengigabitethernet', '1/0/1', '10')
@@ -113,10 +115,10 @@ rface></config>'
         """
         Test add IP address.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><ip><ip-config xmlns="urn:brocade.co\
-m:mgmt:brocade-ip-config"><address><address>10.0.0.1/24</address></address></ip\
--config></ip></tengigabitethernet></interface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><ip><ip-config xmlns="urn:brocade.\
+com:mgmt:brocade-ip-config"><address><address>10.0.0.1/24</address></address><\
+/ip-config></ip></tengigabitethernet></interface></config>'
 
         inter = Interface(_callback)
         inter.set_ip('tengigabitethernet', '1/0/1', '10.0.0.1/24')
@@ -127,10 +129,10 @@ m:mgmt:brocade-ip-config"><address><address>10.0.0.1/24</address></address></ip\
         """
         Test delete IP address.
         """
-        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-interf\
-ace"><tengigabitethernet><name>1/0/1</name><ip><ip-config xmlns="urn:brocade.co\
-m:mgmt:brocade-ip-config"><address operation="delete"><address>10.0.0.1/24</add\
-ress></address></ip-config></ip></tengigabitethernet></interface></config>'
+        output = '<config><interface xmlns="urn:brocade.com:mgmt:brocade-inter\
+face"><tengigabitethernet><name>1/0/1</name><ip><ip-config xmlns="urn:brocade.\
+com:mgmt:brocade-ip-config"><address operation="delete"><address>10.0.0.1/24</\
+address></address></ip-config></ip></tengigabitethernet></interface></config>'
 
         inter = Interface(_callback)
         inter.del_ip('tengigabitethernet', '1/0/1', '10.0.0.1/24')

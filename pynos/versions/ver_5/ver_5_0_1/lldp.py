@@ -14,3 +14,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from pynos.versions.base.lldp import LLDP as BaseLLDP
+
+
+class LLDP(BaseLLDP):
+    """LLDP class containing LLDP methods and attributes.
+    """
+    pass

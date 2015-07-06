@@ -14,3 +14,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from pynos.versions.base.snmp import SNMP as SNMPBase
+
+
+class SNMP(SNMPBase):
+    """SNMP class containing all system level methods and attributes.
+    """
+    pass

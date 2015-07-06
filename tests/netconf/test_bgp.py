@@ -21,11 +21,13 @@ import xml.etree.ElementTree as ET
 
 _MOCK = Mock()
 
+
 def _callback(out):
     """
     Callback to place value inside mock for testing results.
     """
     _MOCK.return_value = out
+
 
 class TestBGP(unittest.TestCase):
     """
@@ -35,9 +37,9 @@ class TestBGP(unittest.TestCase):
         """
         Test setup BGP.
         """
-        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
-ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id></config>'
+        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbri\
+dge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocad\
+e-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id></config>'
         bgp = BGP(_callback)
         bgp.setup_bgp()
         self.assertEqual(output, ET.tostring(_MOCK()))
@@ -47,11 +49,11 @@ bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id></config>'
         """
         Test adding local ASN.
         """
-        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
-ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
-><local-as>65000</local-as></router-bgp-attributes></router-bgp-cmds-holder></b\
-gp></router></rbridge-id></config>'
+        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbri\
+dge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocad\
+e-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attribu\
+tes><local-as>65000</local-as></router-bgp-attributes></router-bgp-cmds-holder\
+></bgp></router></rbridge-id></config>'
 
         bgp = BGP(_callback)
         bgp.local_asn('65000')
@@ -62,10 +64,10 @@ gp></router></rbridge-id></config>'
         """
         Test remove BGP.
         """
-        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
-ge"><rbridge-id>1</rbridge-id><router><bgp operation="delete" xmlns="urn:brocad\
-e.com:mgmt:brocade-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id\
-></config>'
+        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbri\
+dge"><rbridge-id>1</rbridge-id><router><bgp operation="delete" xmlns="urn:broc\
+ade.com:mgmt:brocade-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge\
+-id></config>'
 
         bgp = BGP(_callback)
         bgp.remove_bgp()
@@ -76,13 +78,13 @@ e.com:mgmt:brocade-bgp"><vrf-name>default</vrf-name></bgp></router></rbridge-id\
         """
         Test adding BGP neighbor.
         """
-        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
-ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
-><neighbor><neighbor-ips><neighbor-addr><router-bgp-neighbor-address>10.0.0.1</\
-router-bgp-neighbor-address><remote-as>65000</remote-as></neighbor-addr></neigh\
-bor-ips></neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp></rou\
-ter></rbridge-id></config>'
+        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbri\
+dge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocad\
+e-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attribu\
+tes><neighbor><neighbor-ips><neighbor-addr><router-bgp-neighbor-address>10.0.0\
+.1</router-bgp-neighbor-address><remote-as>65000</remote-as></neighbor-addr></\
+neighbor-ips></neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp\
+></router></rbridge-id></config>'
 
         bgp = BGP(_callback)
         bgp.add_neighbor('10.0.0.1', '65000')
@@ -93,13 +95,13 @@ ter></rbridge-id></config>'
         """
         Test remove BGP neighbor.
         """
-        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbrid\
-ge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocade-\
-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attributes\
-><neighbor><neighbor-ips><neighbor-addr operation="delete"><router-bgp-neighbor\
--address>10.0.0.1</router-bgp-neighbor-address></neighbor-addr></neighbor-ips><\
-/neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp></router></rbr\
-idge-id></config>'
+        output = '<config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbri\
+dge"><rbridge-id>1</rbridge-id><router><bgp xmlns="urn:brocade.com:mgmt:brocad\
+e-bgp"><vrf-name>default</vrf-name><router-bgp-cmds-holder><router-bgp-attribu\
+tes><neighbor><neighbor-ips><neighbor-addr operation="delete"><router-bgp-neig\
+hbor-address>10.0.0.1</router-bgp-neighbor-address></neighbor-addr></neighbor-\
+ips></neighbor></router-bgp-attributes></router-bgp-cmds-holder></bgp></router\
+></rbridge-id></config>'
 
         bgp = BGP(_callback)
         bgp.remove_neighbor('10.0.0.1')

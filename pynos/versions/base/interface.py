@@ -83,7 +83,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -112,7 +112,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -144,7 +144,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -175,7 +175,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -210,7 +210,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -246,7 +246,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -285,7 +285,7 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
 
@@ -324,6 +324,163 @@ class Interface(object):
             self._callback(config)
             return True
         # TODO add logging and narrow exception window.
-        except Exception, error:
+        except Exception as error:
             logging.error(error)
             return False
+
+    def description(self, **kwargs):
+        """
+        Set interface description.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def private_vlan(self, **kwargs):
+        """
+        Set PVLAN mode.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def private_vlan_assoc(self, **kwargs):
+        """
+        Set interface PVLAN association.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def admin_state(self, **kwargs):
+        """
+        Set interface state.
+
+        Args:
+            state (bool): True to enable, false to disable.
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def switchport_pvlan_host_assoc(self, **kwargs):
+        """
+        Set switchport private vlan host association.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def trunk_allowed_vlan(self, **kwargs):
+        """
+        Set trunk allowe VLAN.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def switchport_mode(self, **kwargs):
+        """
+        Set switchport mode.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def spanning_tree_state(self, **kwargs):
+        """
+        Set spanning tree state.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def tag_native_vlan(self, **kwargs):
+        """
+        Set tagging of native VLAN on trunk.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def switchport_pvlan_mapping(self, **kwargs):
+        """
+        Switchport private VLAN mapping.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def mtu(self, **kwargs):
+        """
+        Set Interface MTU.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def fabric_isl(self, **kwargs):
+        """
+        Set fabric isl state.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass
+
+    def fabric_trunk(self, **kwargs):
+        """
+        Set fabric trunk state.
+
+        Args:
+
+        Returns:
+
+        Raises:
+        """
+        pass

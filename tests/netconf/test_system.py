@@ -21,11 +21,13 @@ import xml.etree.ElementTree as ET
 
 _MOCK = Mock()
 
+
 def _callback(out):
     """
     Callback to place value inside mock for testing results.
     """
     _MOCK.return_value = out
+
 
 class TestSystem(unittest.TestCase):
     """
@@ -35,8 +37,8 @@ class TestSystem(unittest.TestCase):
         """
         Test adding an SNMP community.
         """
-        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snmp\
-"><community><community>test</community></community></snmp-server></config>'
+        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snm\
+p"><community><community>test</community></community></snmp-server></config>'
 
         system = System(_callback)
         system.add_snmp_community('test')
@@ -47,9 +49,9 @@ class TestSystem(unittest.TestCase):
         """
         Test delete SNMP community.
         """
-        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snmp\
-"><community operation="delete"><community>test</community></community></snmp-s\
-erver></config>'
+        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snm\
+p"><community operation="delete"><community>test</community></community></snmp\
+-server></config>'
 
         system = System(_callback)
         system.del_snmp_community('test')
@@ -60,9 +62,9 @@ erver></config>'
         """
         Test add snmp host.
         """
-        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snmp\
-"><host><ip>10.0.0.1</ip><community>Public</community><udp-port>161</udp-port><\
-/host></snmp-server></config>'
+        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snm\
+p"><host><ip>10.0.0.1</ip><community>Public</community><udp-port>161</udp-port\
+></host></snmp-server></config>'
 
         system = System(_callback)
         system.add_snmp_host(('10.0.0.1', '161'))
@@ -73,9 +75,9 @@ erver></config>'
         """
         Test delete snmp host.
         """
-        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snmp\
-"><host operation="delete"><ip>10.0.0.1</ip><community>Public</community><udp-p\
-ort>161</udp-port></host></snmp-server></config>'
+        output = '<config><snmp-server xmlns="urn:brocade.com:mgmt:brocade-snm\
+p"><host operation="delete"><ip>10.0.0.1</ip><community>Public</community><udp\
+-port>161</udp-port></host></snmp-server></config>'
 
         system = System(_callback)
         system.del_snmp_host(('10.0.0.1', '161'))
