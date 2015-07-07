@@ -100,17 +100,30 @@ class Device(object):
 
     @property
     def mac_table(self):
-        """Returns the MAC table of the device.
-
-        Args:
-
-        Returns:
-
-        Raises:
-
-        Examples:
+        """list[dict]: the MAC table of the device.
         """
-        pass
+        table = []
+        namespace = 'urn:brocade.com:mgmt:brocade-mac-address-table'
+        request_mac_table = ET.Element('get-mac-address-table',
+                                       xmlns=namespace)
+        result = self._callback(request_mac_table, handler='get')
+        for entry in result.findall('{%s}mac-address-table' % namespace):
+            address = entry.find('{%s}mac-address' % namespace).text
+            vlan = entry.find('{%s}vlanid' % namespace).text
+            mac_type = entry.find('{%s}mac-type' % namespace).text
+            state = entry.find('{%s}mac-state' % namespace).text
+            interface = entry.find('{%s}forwarding-interface' % namespace)
+            interface_type = interface.find('{%s}interface-type' %
+                                            namespace).text
+            interface_name = interface.find('{%s}interface-name' %
+                                            namespace).text
+            interface = '%s%s' % (interface_type, interface_name)
+
+            table.append(dict(mac_address=address, interface=interface,
+                              state=state, vlan=vlan,
+                              type=mac_type))
+
+        return table
 
     @property
     def firmware_version(self):
@@ -226,11 +239,24 @@ class Device(object):
         """Find the interface through which a MAC can be reached.
 
         Args:
+            mac_address (str): A MAC address in 'xx:xx:xx:xx:xx:xx' format.
 
         Returns:
+            list[dict]: a list of mac table data.
 
         Raises:
+            KeyError: if `mac_address` is not specified.
 
         Examples:
+            >>> from pprint import pprint
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> x = dev.find_interface_by_mac(mac_address='01:23:45:67:89:ab')
+            >>> pprint(x) # doctest: +ELLIPSIS
+            [{'interface'...'mac_address'...'state'...'type'...'vlan'...}]
         """
-        pass
+        mac = kwargs.pop('mac_address')
+        results = [x for x in self.mac_table if x['mac_address'] == mac]
+        return results
