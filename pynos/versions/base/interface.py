@@ -451,8 +451,8 @@ class Interface(object):
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/38'
             >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.private_vlan_type(
-            ... int_type=int_type, name=name, pvlan_type='host')
+            >>> output = dev.interface.private_vlan_mode(
+            ... int_type=int_type, name=name, mode='host')
             >>> output = dev.interface.pvlan_host_association(
             ... int_type=int_type, name=name, pri_vlan='70', sec_vlan='80')
             >>> dev.interface.pvlan_host_association()
@@ -582,12 +582,69 @@ class Interface(object):
         """Set PVLAN mode (promiscuous, host, trunk).
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            mode (str): The switchport PVLAN mode.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mode` is not specified.
+            AttributeError: if `int_type`, `name`, or `mode` are invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/38'
+            >>> output = dev.interface.enable_switchport(int_type, name)
+            >>> output = dev.interface.private_vlan_mode(
+            ... int_type=int_type, name=name, mode='trunk_host')
+            >>> dev.interface.private_vlan_mode()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        mode = kwargs.pop('mode').lower()
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+        valid_modes = ['host', 'promiscuous', 'trunk_host',
+                       'trunk_basic', 'trunk_promiscuous']
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        if mode not in valid_modes:
+            raise ValueError('%s must be one of: %s' % (mode, valid_modes))
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError("Incorrect name value.")
+
+        pvlan_args = dict(name=name)
+
+        if 'trunk' in mode:
+            pvlan_mode = getattr(self._interface,
+                                 'interface_%s_switchport_mode_'
+                                 'private_vlan_private_vlan_trunk_%s' %
+                                 (int_type, mode))
+        else:
+            pvlan_mode = getattr(self._interface,
+                                 'interface_%s_switchport_mode_'
+                                 'private_vlan_%s' % (int_type, mode))
+        config = pvlan_mode(**pvlan_args)
+        return callback(config)
 
     def spanning_tree_state(self, **kwargs):
         """Set spanning tree state.
