@@ -450,6 +450,53 @@ class Interface(object):
         config = self._interface.interface_vlan_interface_vlan_private_vlan_pvlan_type_leaf(**pvlan_args)
         return callback(config)
 
+    def vlan_pvlan_association_add(self, **kwargs):
+        """Add a secondary PVLAN to a primary PVLAN.
+
+        Args:
+            name (str): VLAN number (1-4094).
+            sec_vlan (str): The secondary PVLAN.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `name` or `sec_vlan` is not specified.
+            AttributeError: if `name` or `sec_vlan` are invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '20'
+            >>> sec_vlan = '30'
+            >>> output = dev.interface.private_vlan_type(name=name,
+            ... pvlan_type='primary')
+            >>> output = dev.interface.private_vlan_type(name=sec_vlan,
+            ... pvlan_type='isolated')
+            >>> output = dev.interface.vlan_pvlan_association_add(name=name,
+            ... sec_vlan=sec_vlan)
+            >>> dev.interface.vlan_pvlan_association_add()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        name = kwargs.pop('name')
+        sec_vlan = kwargs.pop('sec_vlan')
+        callback = kwargs.pop('callback', self._callback)
+
+        if re.search('^[0-9]{1,4}$', name) is None:
+            raise ValueError("Incorrect name value.")
+
+        pvlan_args = dict(name=name, sec_assoc_add=sec_vlan)
+        config = self._interface.interface_vlan_interface_vlan_private_vlan_association_sec_assoc_add(**pvlan_args)
+        return callback(config)
+
     def pvlan_host_association(self, **kwargs):
         """Set interface PVLAN association.
 
@@ -485,6 +532,8 @@ class Interface(object):
             ... pvlan_type='primary')
             >>> output = dev.interface.private_vlan_type(name=sec_vlan,
             ... pvlan_type='isolated')
+            >>> output = dev.interface.vlan_pvlan_association_add(
+            ... name=pri_vlan, sec_vlan=sec_vlan)
             >>> output = dev.interface.enable_switchport(int_type, name)
             >>> output = dev.interface.private_vlan_mode(
             ... int_type=int_type, name=name, mode='host')
