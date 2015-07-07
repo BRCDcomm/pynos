@@ -354,26 +354,14 @@ class Interface(object):
             KeyError: if `int_type`, `name`, or `description` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> output = dev.interface.description(
             ... int_type='tengigabitethernet',
-            ... name='1/0/1',
-            ... desc='test',
-            ... callback=pynos.utilities.print_xml_string
-            ... ) # doctest: +NORMALIZE_WHITESPACE
-            <config><interface xmlns="urn:brocade.com:mgmt:brocade-interface">
-            <tengigabitethernet><name>1/0/1</name>
-            <description>Test</description></tengigabitethernet>
-            </interface></config>
-            >>> dev.interface.description(
-            ... int_type='tengigabitethernet',
-            ... name='1/0/1',
-            ... desc='Test',
-            ... ) # doctest: +NORMALIZE_WHITESPACE
-            True
+            ... name='225/0/38',
+            ... desc='test')
             >>> dev.interface.description() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
