@@ -14,6 +14,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+from __future__ import print_function
 import xml.etree.ElementTree as ET
 
 
@@ -66,12 +67,15 @@ def print_xml_string(element_tree):
         Returns:
             Element: An XML Element.
 
+        Raises:
+            AttributeError: if `element_tree` is not of type ``Element``.
+
         Examples:
             >>> import pynos.utilities
             >>> import xml.etree.ElementTree as ET
             >>> pynos.utilities.print_xml_string(ET.Element('config'))
-            '<config />'
-            >>> ele = pynos.utilities.return_xml(
+            <config />
+            >>> pynos.utilities.print_xml_string(
             ... ['hodor']) # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             AttributeError
