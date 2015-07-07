@@ -421,18 +421,72 @@ class Interface(object):
         config = self._interface.interface_vlan_interface_vlan_private_vlan_pvlan_type_leaf(**pvlan_args)
         return callback(config)
 
-    def private_vlan_association(self, **kwargs):
+    def pvlan_host_association(self, **kwargs):
         """Set interface PVLAN association.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            pri_vlan (str): The primary PVLAN.
+            sec_vlan (str): The secondary PVLAN.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan` is not
+                specified.
+            AttributeError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan`
+                are invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/38'
+            >>> output = dev.interface.enable_switchport(int_type, name)
+            >>> output = dev.interface.private_vlan_type(
+            ... int_type=int_type, name=name, pvlan_type='host')
+            >>> output = dev.interface.pvlan_host_association(
+            ... int_type=int_type, name=name, pri_vlan='70', sec_vlan='80')
+            >>> dev.interface.pvlan_host_association()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        pri_vlan = kwargs.pop('pri_vlan')
+        sec_vlan = kwargs.pop('sec_vlan')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError("Incorrect name value.")
+
+        pvlan_args = dict(name=name, host_pri_pvlan=pri_vlan)
+
+        associate_pvlan = getattr(self._interface,
+                                  'interface_%s_switchport_private_vlan_'
+                                  'host_association_host_pri_pvlan' %
+                                  int_type)
+        config = associate_pvlan(**pvlan_args)
+        sec_assoc = config.find('.//*host-association')
+        sec_assoc = ET.SubElement(sec_assoc, 'host-sec-pvlan')
+        sec_assoc.text = sec_vlan
+        return callback(config)
 
     def admin_state(self, **kwargs):
         """
@@ -449,7 +503,7 @@ class Interface(object):
         """
         pass
 
-    def switchport_pvlan_host_assoc(self, **kwargs):
+    def pvlan_trunk_association(self, **kwargs):
         """Set switchport private vlan host association.
 
         Args:
