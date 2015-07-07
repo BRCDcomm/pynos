@@ -16,6 +16,10 @@ limitations under the License.
 """
 import xml.etree.ElementTree as ET
 import logging
+import re
+
+from pynos.versions.base.yang.brocade_interface import brocade_interface
+import pynos.utilities
 
 
 class Interfaces(object):
@@ -56,6 +60,9 @@ class Interface(object):
             None
         """
         self._callback = callback
+        self._interface = brocade_interface(
+            callback=pynos.utilities.return_xml
+        )
 
     def add_vlan_int(self, vlan_id):
         """
@@ -329,16 +336,83 @@ class Interface(object):
             return False
 
     def description(self, **kwargs):
-        """
-        Set interface description.
+        """Set interface description.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            desc (str): The description of the interface.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `description` is not specified.
+
+        Examples:
+            >>> import pynos
+            >>> conn = ('10.10.1.1', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn, auth)
+            >>> output = dev.interface.description(
+            ... int_type='tengigabitethernet',
+            ... name='1/0/1',
+            ... desc='test',
+            ... callback=pynos.utilities.print_xml_string
+            ... ) # doctest: +NORMALIZE_WHITESPACE
+            <config><interface xmlns="urn:brocade.com:mgmt:brocade-interface">
+            <tengigabitethernet><name>1/0/1</name>
+            <description>Test</description></tengigabitethernet>
+            </interface></config>
+            >>> dev.interface.description(
+            ... int_type='tengigabitethernet',
+            ... name='1/0/1',
+            ... desc='Test',
+            ... ) # doctest: +NORMALIZE_WHITESPACE
+            True
+            >>> dev.interface.description() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        desc = kwargs.pop('desc')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet',
+            'port_channel',
+            'vlan'
+            ]
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        desc_args = dict(name=name, description=desc)
+
+        if int_type == "vlan":
+            if re.search('^[0-9]{1,4}$', name) is None:
+                raise ValueError("Incorrect name value.")
+
+            config = self._interface.interface_vlan_interface_vlan_description(
+                **desc_args
+                )
+        else:
+            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("Incorrect name value.")
+
+            config = getattr(
+                self._interface,
+                'interface_%s_description' % int_type
+                )(**desc_args)
+        return callback(config)
 
     def private_vlan_type(self, **kwargs):
         """Set the PVLAN type (primary, isolated, community).
@@ -351,7 +425,13 @@ class Interface(object):
 
         Examples:
         """
-        pass
+        name = kwargs.pop('name')
+        pvlan_type = kwargs.pop('pvlan_type')
+        callback = kwargs.pop('callback', self._callback)
+        pvlan_args = dict(name=name, pvlan_type_leaf=pvlan_type)
+
+        config = self._interface.interface_vlan_interface_vlan_private_vlan_pvlan_type_leaf(**pvlan_args)
+        return callback(config)
 
     def private_vlan_association(self, **kwargs):
         """Set interface PVLAN association.
