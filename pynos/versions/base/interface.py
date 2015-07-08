@@ -19,23 +19,8 @@ import logging
 import re
 
 from pynos.versions.base.yang.brocade_interface import brocade_interface
+from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
-
-
-class Interfaces(object):
-    """
-    Expermintal Interfaces object
-    """
-    def __init__(self, callback):
-        self._callback = callback
-        for interface in self._get_interfaces():
-            setattr(self, interface, Interface(callback))
-
-    def _get_interfaces(self):
-        '''
-        Get all interfaces
-        '''
-        pass
 
 
 class Interface(object):
@@ -61,6 +46,9 @@ class Interface(object):
         """
         self._callback = callback
         self._interface = brocade_interface(
+            callback=pynos.utilities.return_xml
+        )
+        self._rbridge = brocade_rbridge(
             callback=pynos.utilities.return_xml
         )
 
@@ -977,17 +965,76 @@ class Interface(object):
         return callback(config)
 
     def v6_nd_suppress_ra(self, **kwargs):
-        """Set fabric trunk state.
+        """Set interface description.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `description` is not specified.
+            ValueError: if `name` or `int_type` are not valid values.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.v6_nd_suppress_ra(
+            ... int_type='ve',
+            ... name='10',
+            ... rbridge_id='225')
+            >>> dev.interface.v6_nd_suppress_ra() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet',
+            've'
+            ]
+
+        if int_type not in int_types:
+            raise ValueError("%s must be one of: %s" %
+                             repr(int_type), repr(int_types))
+
+        if int_type == "ve":
+            if re.search('^[0-9]{1,4}$', name) is None:
+                raise ValueError("%s must be between `1` and `8191`" %
+                                 repr(name))
+
+            rbridge_id = kwargs.pop('rbridge_id', "1")
+
+            nd_suppress_args = dict(name=name, rbridge_id=rbridge_id)
+            config = self._rbridge.rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_all(
+                **nd_suppress_args
+                )
+        else:
+            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                                 "{1,3}$`" % repr(name))
+
+            nd_suppress_args = dict(name=name)
+            config = getattr(
+                self._interface,
+                'interface_%s_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_all' % int_type
+                )(**nd_suppress_args)
+        return callback(config)
 
     def vrrp_vip(self, **kwargs):
         """Set VRRP VIP.
