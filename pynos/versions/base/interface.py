@@ -1244,9 +1244,9 @@ class Interface(object):
             >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
             ... name='225/0/18', vrid='1',
             ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
-            >>> dev.interface.vrrp_priority(int_type='tengigabithethernet',
+            >>> dev.interface.vrrp_priority(int_type='tengigabitethernet',
             ... name='225/0/18', vrid='1', ip_version='4', priority='66')
-            >>> dev.interface.vrrp_priority(int_type='tengigabithethernet',
+            >>> dev.interface.vrrp_priority(int_type='tengigabitethernet',
             ... name='225/0/18', vrid='1', ip_version='6', priority='77')
         """
         int_type = kwargs.pop('int_type').lower()
