@@ -355,6 +355,7 @@ class Interface(object):
             >>> dev.interface.description() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -427,6 +428,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         name = kwargs.pop('name')
         pvlan_type = kwargs.pop('pvlan_type')
@@ -478,6 +480,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         name = kwargs.pop('name')
         sec_vlan = kwargs.pop('sec_vlan')
@@ -537,6 +540,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -594,6 +598,7 @@ class Interface(object):
             ... name='225/0/38', state='down')
             >>> dev.interface.admin_state(int_type='tengigabitethernet',
             ... name='225/0/38', state='up')
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -689,6 +694,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -777,6 +783,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -854,6 +861,7 @@ class Interface(object):
             >>> dev.interface.mtu() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -917,6 +925,7 @@ class Interface(object):
             >>> dev.interface.fabric_isl() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -987,6 +996,7 @@ class Interface(object):
             >>> dev.interface.fabric_trunk() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -1058,6 +1068,7 @@ class Interface(object):
             >>> dev.interface.v6_nd_suppress_ra() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -1134,6 +1145,7 @@ class Interface(object):
             >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
             ... name='225/0/18', vrid='1',
             ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1310,6 +1322,7 @@ class Interface(object):
             ... name='225/0/12', state='on')
             >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
             ... name='225/0/12', state='off')
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1373,6 +1386,7 @@ class Interface(object):
             >>> dev.interface.port_channel_minimum_links() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         name = str(kwargs.pop('name'))
         minimum_links = str(kwargs.pop('minimum_links'))
@@ -1426,6 +1440,7 @@ class Interface(object):
             >>> dev.interface.channel_group() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1522,6 +1537,7 @@ class Interface(object):
             >>> dev.interface.trunk_mode() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1578,6 +1594,7 @@ class Interface(object):
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         vlan = kwargs.pop('vlan')
         service_id = kwargs.pop('service_id')
@@ -1622,6 +1639,7 @@ class Interface(object):
             >>> dev.interface.lacp_timeout() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
+            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
