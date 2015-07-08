@@ -910,14 +910,71 @@ class Interface(object):
         """Set fabric trunk state.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            state (str): State to set Fabric ISL to. (up, down)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `description` is not specified.
+            ValueError: if `name` or `int_type` are not valid values.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.fabric_trunk(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/40',
+            ... state='down')
+            >>> dev.interface.fabric_trunk() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        state = str(kwargs.pop('state'))
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet'
+            ]
+
+        if int_type not in int_types:
+            raise ValueError("%s must be one of: %s" %
+                             repr(int_type), repr(int_types))
+
+        valid_states = ['up', 'down']
+        if state not in valid_states:
+            raise ValueError("%s must be one of: %s" %
+                             repr(state), repr(valid_states))
+
+        fabric_trunk_args = dict(name=name)
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                             "{1,3}$`" % repr(name))
+
+        config = getattr(
+            self._interface,
+            'interface_%s_fabric_fabric_trunk_fabric_trunk_enable' % int_type
+            )(**fabric_trunk_args)
+
+        if state == "down":
+            fabric_trunk = config.find('.//*fabric-trunk')
+            fabric_trunk.set('operation', 'delete')
+
+        return callback(config)
 
     def v6_nd_suppress_ra(self, **kwargs):
         """Set fabric trunk state.
