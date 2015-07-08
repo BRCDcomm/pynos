@@ -752,14 +752,75 @@ class Interface(object):
         """Set tagging of native VLAN on trunk.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            mode (str): Trunk port mode (trunk, trunk-no-default-native).
+            state (str): Enabled or disabled.
+            callback (function): A function executed upon completion oj the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mode` is not specified.
+            ValueError: if `int_type`, `name`, or `mode` is not valid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.trunk_mode(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38',
+            ... mode='trunk')
+            >>> output = dev.interface.tag_native_vlan(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38')
+            >>> output = dev.interface.tag_native_vlan(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38',
+            ... state='disabled')
+            >>> dev.interface.tag_native_vlan()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        state = kwargs.pop('state', 'enabled').lower()
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError("Incorrect name value.")
+
+        valid_states = ['enabled', 'disabled']
+        if state not in valid_states:
+            raise ValueError("Invalid state.")
+
+        tag_args = dict(name=name)
+        tag_native_vlan = getattr(self._interface, 'interface_%s_switchport_'
+                                  'trunk_tag_native_vlan' % int_type)
+        config = tag_native_vlan(**tag_args)
+        if state == 'disabled':
+            untag = config.find('.//*native-vlan')
+            untag.set('operation', 'delete')
+
+        try:
+            return callback(config)
+        # TODO: Catch existing 'no switchport tag native-vlan'
+        except AttributeError as (errno, errstr):
+            return None
 
     def switchport_pvlan_mapping(self, **kwargs):
         """Switchport private VLAN mapping.
@@ -996,7 +1057,7 @@ class Interface(object):
             >>> output = dev.interface.trunk_mode(
             ... int_type='tengigabitethernet',
             ... name='225/0/38',
-            ... mode='trunk-no-default-native')
+            ... mode='trunk')
             >>> dev.interface.trunk_mode() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
