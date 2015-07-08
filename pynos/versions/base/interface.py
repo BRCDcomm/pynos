@@ -373,23 +373,21 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(int_type), repr(int_types)))
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
         desc_args = dict(name=name, description=desc)
 
         if int_type == "vlan":
             if re.search('^[0-9]{1,4}$', name) is None:
-                raise ValueError("%s must be between `1` and `4096`" %
-                                 repr(name))
+                raise ValueError("`name` must be between `1` and `4096`")
 
             config = self._interface.interface_vlan_interface_vlan_description(
                 **desc_args
                 )
         else:
             if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
-                                 "{1,3}$`" % repr(name))
+                raise ValueError("`name` must match "
+                                 "`^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$`")
 
             config = getattr(
                 self._interface,
@@ -608,14 +606,14 @@ class Interface(object):
                            'port_channel']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             (repr(int_type), repr(valid_int_types)))
+            raise ValueError('`int_type` must be one of: %s' %
+                             repr(valid_int_types))
 
         if not isinstance(enabled, bool):
-            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+            raise ValueError('`enabled` must be `True` or `False`.')
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z.')
+            raise ValueError('`name` must be in the format of x/y/z.')
 
         state_args = dict(name=name)
         admin_state = getattr(self._interface,
@@ -939,17 +937,17 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(int_type), repr(int_types)))
+            raise ValueError("`int_type` must be one of: %s" %
+                             repr(int_types))
 
         if not isinstance(enabled, bool):
-            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+            raise ValueError('`enabled` must be `True` or `False`.')
 
         fabric_isl_args = dict(name=name)
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
-                             "{1,3}$`" % repr(name))
+            raise ValueError("`name` must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                             "{1,3}$`")
 
         config = getattr(
             self._interface,
@@ -1009,17 +1007,16 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(int_type), repr(int_types)))
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
         if not isinstance(enabled, bool):
-            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+            raise ValueError('`enabled` must be `True` or `False`.')
 
         fabric_trunk_args = dict(name=name)
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
-                             "{1,3}$`" % repr(name))
+            raise ValueError("`name` must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                             "{1,3}$`")
 
         config = getattr(
             self._interface,
@@ -1080,13 +1077,11 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(int_type), repr(int_types)))
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
         if int_type == "ve":
             if re.search('^[0-9]{1,4}$', name) is None:
-                raise ValueError("%s must be between `1` and `8191`" %
-                                 repr(name))
+                raise ValueError("`name` must be between `1` and `8191`")
 
             rbridge_id = kwargs.pop('rbridge_id', "1")
 
@@ -1096,8 +1091,8 @@ class Interface(object):
                 )
         else:
             if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
-                                 "{1,3}$`" % repr(name))
+                raise ValueError("`name` must match "
+                                 "`^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$`")
 
             nd_suppress_args = dict(name=name)
             config = getattr(
@@ -1154,11 +1149,11 @@ class Interface(object):
                            'port_channel']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             (repr(int_type), repr(valid_int_types)))
+            raise ValueError('`int_type` must be one of: %s' %
+                             repr(valid_int_types))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z.')
+            raise ValueError('`name` must be in the format of x/y/z.')
 
         ipaddress = ip_interface(unicode(vip))
 
@@ -1259,8 +1254,8 @@ class Interface(object):
                            'port_channel']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             (repr(int_type), repr(valid_int_types)))
+            raise ValueError('`int_type` must be one of: %s' %
+                             repr(valid_int_types))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
@@ -1332,14 +1327,14 @@ class Interface(object):
                            'port_channel']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             (repr(int_type), repr(valid_int_types)))
+            raise ValueError('`int_type` must be one of: %s' %
+                             repr(valid_int_types))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
 
         if not isinstance(enabled, bool):
-            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+            raise ValueError('`enabled` must be `True` or `False`.')
 
         state_args = dict(name=name)
         proxy_arp = getattr(self._interface, 'interface_%s_ip_ip_config_proxy_arp' % int_type)
@@ -1393,8 +1388,7 @@ class Interface(object):
         min_links_args = dict(name=name, minimum_links=minimum_links)
 
         if re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError("%s must match `^[0-9]{1,3}$"
-                             "{1,3}$`" % repr(name))
+            raise ValueError("`name` must match `^[0-9]{1,3}${1,3}$`")
 
         config = getattr(
             self._interface,
@@ -1455,20 +1449,18 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(int_type), repr(int_types)))
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
         valid_modes = ['active', 'on', 'passive']
 
         if mode not in valid_modes:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(mode), repr(valid_modes)))
+            raise ValueError("`mode` must be one of: %s" % repr(valid_modes))
 
         valid_types = ['brocade', 'standard']
 
         if channel_type not in valid_types:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(channel_type), repr(valid_types)))
+            raise ValueError("`channel_type` must be one of: %s" %
+                             repr(valid_types))
 
         if re.search('^[0-9]{1,3}$', port_int) is None:
                 raise ValueError("incorrect port_int value.")
