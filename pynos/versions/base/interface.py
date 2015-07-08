@@ -372,7 +372,7 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(int_type), repr(int_types))
+                             (repr(int_type), repr(int_types)))
 
         desc_args = dict(name=name, description=desc)
 
@@ -606,7 +606,7 @@ class Interface(object):
 
         if int_type not in valid_int_types:
             raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+                             (repr(int_type), repr(valid_int_types)))
 
         if state not in valid_states:
             raise ValueError('%s must be `up` or `down`.' % repr(state))
@@ -932,12 +932,12 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(int_type), repr(int_types))
+                             (repr(int_type), repr(int_types)))
 
         valid_states = ['up', 'down']
         if state not in valid_states:
             raise ValueError("%s must be one of: %s" %
-                             repr(state), repr(valid_states))
+                             (repr(state), repr(valid_states)))
 
         fabric_isl_args = dict(name=name)
 
@@ -1002,12 +1002,12 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(int_type), repr(int_types))
+                             (repr(int_type), repr(int_types)))
 
         valid_states = ['up', 'down']
         if state not in valid_states:
             raise ValueError("%s must be one of: %s" %
-                             repr(state), repr(valid_states))
+                             (repr(state), repr(valid_states)))
 
         fabric_trunk_args = dict(name=name)
 
@@ -1073,7 +1073,7 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(int_type), repr(int_types))
+                             (repr(int_type), repr(int_types)))
 
         if int_type == "ve":
             if re.search('^[0-9]{1,4}$', name) is None:
@@ -1146,7 +1146,7 @@ class Interface(object):
 
         if int_type not in valid_int_types:
             raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+                             (repr(int_type), repr(valid_int_types)))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
@@ -1249,7 +1249,7 @@ class Interface(object):
 
         if int_type not in valid_int_types:
             raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+                             (repr(int_type), repr(valid_int_types)))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
@@ -1322,7 +1322,7 @@ class Interface(object):
 
         if int_type not in valid_int_types:
             raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+                             (repr(int_type), repr(valid_int_types)))
 
         if state not in valid_states:
             raise ValueError('%s must be `on` or `off`.' % repr(state))
@@ -1443,19 +1443,19 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(int_type), repr(int_types))
+                             (repr(int_type), repr(int_types)))
 
         valid_modes = ['active', 'on', 'passive']
 
         if mode not in valid_modes:
             raise ValueError("%s must be one of: %s" %
-                             repr(mode), repr(valid_modes))
+                             (repr(mode), repr(valid_modes)))
 
         valid_types = ['brocade', 'standard']
 
         if channel_type not in valid_types:
             raise ValueError("%s must be one of: %s" %
-                             repr(channel_type), repr(valid_types))
+                             (repr(channel_type), repr(valid_types)))
 
         if re.search('^[0-9]{1,3}$', port_int) is None:
                 raise ValueError("incorrect port_int value.")
