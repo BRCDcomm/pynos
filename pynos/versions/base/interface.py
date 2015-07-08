@@ -734,17 +734,103 @@ class Interface(object):
         return callback(config)
 
     def spanning_tree_state(self, **kwargs):
-        """Set spanning tree state.
+        """Set Spanning Tree state.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc).
+            name (str): Name of interface or VLAN id.
+                (For interface: 1/0/5, 1/0/10 etc).
+                (For VLANs 0, 1, 100 etc).
+            enabled (bool): Is the interface enabled? (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `enabled` is not passed.
+            ValueError: if `int_type`, `name`, or `enabled` are invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/38'
+            >>> enabled = True
+            >>> output = dev.interface.enable_switchport(int_type, name)
+            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
+            ... name=name, enabled=enabled)
+            >>> enabled = False
+            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
+            ... name=name, enable=enabled)
+            >>> int_type = 'vlan'
+            >>> name = '102'
+            >>> enabled = False
+            >>> output = dev.interface.add_vlan_int(name)
+            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
+            ... name=name, enabled=enabled)
+            >>> enabled = False
+            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
+            ... name=name, enabled=enabled)
+
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        enabled = kwargs.pop('enabled')
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet',
+                           'port_channel',  'vlan']
+
+        if int_type not in valid_int_types:
+            raise ValueError('%s must be one of: %s' %
+                             repr(int_type), repr(valid_int_types))
+
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+
+        if int_type == 'vlan':
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError('%s must be between 0 to 4095.' % int_type)
+
+            state_args = dict(name=name)
+            spanning_tree_state = getattr(self._interface,
+                                          'interface_%s_interface_%s_spanning_'
+                                          'tree_stp_shutdown' % (int_type,
+                                                                 int_type))
+
+        else:
+            if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError('%s must be in the format of x/y/z.'
+                                 % int_type)
+
+            state_args = dict(name=name)
+            spanning_tree_state = getattr(self._interface,
+                                          'interface_%s_spanning_tree_'
+                                          'shutdown' % int_type)
+
+        config = spanning_tree_state(**state_args)
+
+        if enabled:
+            if int_type == 'vlan':
+                shutdown = config.find('.//*stp-shutdown')
+            else:
+                shutdown = config.find('.//*shutdown')
+            shutdown.set('operation', 'delete')
+        try:
+            return callback(config)
+        # TODO: Catch existing 'no shut'
+        # This is in place because if the interface spanning tree is already
+        # up,`ncclient` will raise an error if you try to admin up the
+        # interface again.
+        # TODO: add logic to shutdown STP at protocol level too.
+        except AttributeError as (errno, errstr):
+            return None
 
     def tag_native_vlan(self, **kwargs):
         """Set tagging of native VLAN on trunk.
