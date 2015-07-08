@@ -1587,7 +1587,7 @@ class Interface(object):
                 raise ValueError("Incorrect name value.")
 
         config = getattr(
-                self._interface,
-                'interface_%s_lacp_timeout' % int_type
-                )(**timeout_args)
+            self._interface,
+            'interface_%s_lacp_timeout' % int_type
+            )(**timeout_args)
         return callback(config)
