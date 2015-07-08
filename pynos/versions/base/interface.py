@@ -941,17 +941,67 @@ class Interface(object):
         pass
 
     def proxy_arp(self, **kwargs):
-        """Set proxy-arp (enabled, disabled).
+        """Set interface administrative state.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc).
+            name (str): Name of interface. (1/0/5, 1/0/10, etc).
+            state (str): The administrative state of the interface (up, down).
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `state` is not passed.
+            ValueError: if `int_type`, `name`, or `state` are invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
+            ... name='225/0/12', state='on')
+            >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
+            ... name='225/0/12', state='off')
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        state = kwargs.pop('state').lower()
+        callback = kwargs.pop('callback', self._callback)
+        valid_states = ['on', 'off']
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet',
+                           'port_channel']
+
+        if int_type not in valid_int_types:
+            raise ValueError('%s must be one of: %s' %
+                             repr(int_type), repr(valid_int_types))
+
+        if state not in valid_states:
+            raise ValueError('%s must be `on` or `off`.' % repr(state))
+
+        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z.')
+
+        state_args = dict(name=name)
+        proxy_arp = getattr(self._interface, 'interface_%s_ip_ip_config_proxy_arp' % int_type)
+        config = proxy_arp(**state_args)
+        if state == 'off':
+            proxy_arp = config.find('.//*proxy-arp')
+            proxy_arp.set('operation', 'delete')
+        try:
+            return callback(config)
+        # TODO: Catch existing 'no shut'
+        # This is in place because if the interface is already admin up,
+        # `ncclient` will raise an error if you try to admin up the interface
+        # again.
+        except AttributeError as (errno, errstr):
+            return None
 
     def port_channel_minimum_links(self, **kwargs):
         """Set minimum number of links for a port channel.
