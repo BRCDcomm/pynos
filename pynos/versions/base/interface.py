@@ -1176,17 +1176,50 @@ class Interface(object):
         pass
 
     def port_channel_minimum_links(self, **kwargs):
-        """Set minimum number of links for a port channel.
+        """Set minimum number of links in a port channel.
 
         Args:
+            name (str): Port-channel number. (1, 5, etc)
+            minimum_links (str): Minimum number of links in channel group.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `description` is not specified.
+            ValueError: if `name` or `int_type` are not valid values.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.port_channel_minimum_links(
+            ... name='1',
+            ... minimum_links='2')
+            >>> dev.interface.port_channel_minimum_links() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        name = str(kwargs.pop('name'))
+        minimum_links = str(kwargs.pop('minimum_links'))
+        callback = kwargs.pop('callback', self._callback)
+
+        min_links_args = dict(name=name, minimum_links=minimum_links)
+
+        if re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError("%s must match `^[0-9]{1,3}$"
+                             "{1,3}$`" % repr(name))
+
+        config = getattr(
+            self._interface,
+            'interface_port_channel_minimum_links'
+            )(**min_links_args)
+
+        return callback(config)
 
     def port_channel_member(self, **kwargs):
         """Set port channel member.
