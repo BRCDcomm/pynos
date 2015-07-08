@@ -1199,14 +1199,75 @@ class Interface(object):
         """Set VRRP priority.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc).
+            name (str): Name of interface. (1/0/5, 1/0/10, etc).
+            vrid (str): VRRPv3 ID.
+            priority (str): VRRP Priority.
+            ip_version (str): Version of IP (4, 6).
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `state` is not passed.
+            ValueError: if `int_type`, `name`, or `state` are invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.interface.set_ip('tengigabitethernet', '225/0/18',
+            ... '10.1.1.2/24')
+            True
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1', vip='10.1.1.1/24')
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1',
+            ... vip='fe80:4818:f000:1ab:cafe:beef:1000:1/64')
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1',
+            ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
+            >>> dev.interface.vrrp_priority(int_type='tengigabithethernet',
+            ... name='225/0/18', vrid='1', ip_version='4', priority='66')
+            >>> dev.interface.vrrp_priority(int_type='tengigabithethernet',
+            ... name='225/0/18', vrid='1', ip_version='6', priority='77')
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        vrid = kwargs.pop('vrid')
+        priority = kwargs.pop('priority')
+        ip_version = int(kwargs.pop('ip_version'))
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet',
+                           'port_channel']
+
+        if int_type not in valid_int_types:
+            raise ValueError('%s must be one of: %s' %
+                             repr(int_type), repr(valid_int_types))
+
+        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z.')
+
+        vrrp_args = dict(name=name,
+                         vrid=vrid,
+                         priority=priority)
+        vrrp_priority = None
+        if ip_version == 4:
+            vrrp_args['version'] = '3'
+            vrrp_priority = getattr(self._interface,
+                                    'interface_%s_vrrp_priority' % int_type)
+        elif ip_version == 6:
+            vrrp_priority = getattr(self._interface,
+                                    'interface_%s_ipv6_vrrpv3_group_priority' %
+                                    int_type)
+        config = vrrp_priority(**vrrp_args)
+        return callback(config)
 
     def vrrp_advertisement_interval(self, **kwargs):
         """Set VRRP advertisement interval.
