@@ -352,6 +352,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `description` is not specified.
+            ValueError: if `name` or `int_type` are not valid values.
 
         Examples:
             >>> import pynos.device
@@ -366,9 +367,9 @@ class Interface(object):
             Traceback (most recent call last):
             KeyError
         """
-        int_type = kwargs.pop('int_type').lower()
-        name = kwargs.pop('name')
-        desc = kwargs.pop('desc')
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        desc = str(kwargs.pop('desc'))
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
@@ -381,20 +382,23 @@ class Interface(object):
             ]
 
         if int_type not in int_types:
-            raise ValueError("Incorrect int_type value.")
+            raise ValueError("%s must be one of: %s" %
+                             repr(int_type), repr(int_types))
 
         desc_args = dict(name=name, description=desc)
 
         if int_type == "vlan":
             if re.search('^[0-9]{1,4}$', name) is None:
-                raise ValueError("Incorrect name value.")
+                raise ValueError("%s must be between `1` and `4096`" %
+                                 repr(name))
 
             config = self._interface.interface_vlan_interface_vlan_description(
                 **desc_args
                 )
         else:
             if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("Incorrect name value.")
+                raise ValueError("%s must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                                 "{1,3}$`" % repr(name))
 
             config = getattr(
                 self._interface,
