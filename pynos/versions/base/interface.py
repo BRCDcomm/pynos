@@ -775,17 +775,66 @@ class Interface(object):
         pass
 
     def mtu(self, **kwargs):
-        """Set Interface MTU.
+        """Set interface mtu.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            mtu (str): Value between 1522 and 9216
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mtu` is not specified.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.mtu(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38',
+            ... mtu='1666')
+            >>> dev.interface.mtu() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        mtu = kwargs.pop('mtu')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet',
+            'port_channel'
+            ]
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        valid_mtu = range(1522, 9216)
+        if int(mtu) not in valid_mtu:
+            raise ValueError("Incorrect mtu value 1522-9216")
+
+        mtu_args = dict(name=name, mtu=mtu)
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("Incorrect name value.")
+
+        config = getattr(
+            self._interface,
+            'interface_%s_mtu' % int_type
+            )(**mtu_args)
+        return callback(config)
 
     def fabric_isl(self, **kwargs):
         """Set fabric isl state.
