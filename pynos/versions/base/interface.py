@@ -983,17 +983,46 @@ class Interface(object):
         pass
 
     def transport_service(self, **kwargs):
-        """Configure transport service.
+        """Configure VLAN Transport Service.
 
         Args:
+            vlan (str): The VLAN ID.
+            service_id (str): The transport-service ID.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `vlan`, or `service_id` is not specified.
+            AttributeError: if `vlan`, or `service_id` is not specified.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> vlan = '6666'
+            >>> service_id = '1'
+            >>> output = dev.interface.transport_service(vlan=vlan,
+            ... service_id=service_id)
+            >>> dev.interface.transport_service()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        vlan = kwargs.pop('vlan')
+        service_id = kwargs.pop('service_id')
+        callback = kwargs.pop('callback', self._callback)
+
+        if re.search('^[0-9]{1,4}$', vlan) is None:
+            raise ValueError("Incorrect vlan value.")
+
+        service_args = dict(name=vlan, transport_service=service_id)
+        config = self._interface.interface_vlan_interface_vlan_transport_service(**service_args)
+        return callback(config)
 
     def lacp_timeout(self, **kwargs):
         """Set lacp timeout.
