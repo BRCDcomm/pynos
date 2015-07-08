@@ -576,7 +576,7 @@ class Interface(object):
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc).
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
-            state (str): The administrative state of the interface (up, down).
+            enabled (bool): Is the interface enabled? (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -585,8 +585,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `state` is not passed.
-            ValueError: if `int_type`, `name`, or `state` is invalid.
+            KeyError: if `int_type`, `name`, or `enabled` is not passed.
+            ValueError: if `int_type`, `name`, or `enabled` are invalid.
 
         Examples:
             >>> import pynos.device
@@ -594,16 +594,15 @@ class Interface(object):
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> dev.interface.admin_state(int_type='tengigabitethernet',
-            ... name='225/0/38', state='down')
+            ... name='225/0/38', enabled=False)
             >>> dev.interface.admin_state(int_type='tengigabitethernet',
-            ... name='225/0/38', state='up')
+            ... name='225/0/38', enabled=True)
             >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        state = kwargs.pop('state').lower()
+        enabled = kwargs.pop('enabled')
         callback = kwargs.pop('callback', self._callback)
-        valid_states = ['up', 'down']
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
                            'port_channel']
@@ -612,8 +611,8 @@ class Interface(object):
             raise ValueError('%s must be one of: %s' %
                              (repr(int_type), repr(valid_int_types)))
 
-        if state not in valid_states:
-            raise ValueError('%s must be `up` or `down`.' % repr(state))
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
 
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
@@ -622,7 +621,7 @@ class Interface(object):
         admin_state = getattr(self._interface,
                               'interface_%s_shutdown' % int_type)
         config = admin_state(**state_args)
-        if state == 'up':
+        if enabled:
             shutdown = config.find('.//*shutdown')
             shutdown.set('operation', 'delete')
         try:
@@ -750,7 +749,8 @@ class Interface(object):
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
             mode (str): Trunk port mode (trunk, trunk-no-default-native).
-            state (str): Enabled or disabled.
+            enabled (bool): Is tagging of the VLAN enabled on trunks?
+                (True, False)
             callback (function): A function executed upon completion oj the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -777,7 +777,7 @@ class Interface(object):
             >>> output = dev.interface.tag_native_vlan(
             ... int_type='tengigabitethernet',
             ... name='225/0/38',
-            ... state='disabled')
+            ... enabled=False)
             >>> dev.interface.tag_native_vlan()
             ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
@@ -786,7 +786,7 @@ class Interface(object):
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        state = kwargs.pop('state', 'enabled').lower()
+        enabled = kwargs.pop('enabled', True)
         callback = kwargs.pop('callback', self._callback)
 
         int_types = ['gigabitethernet', 'tengigabitethernet',
@@ -799,15 +799,14 @@ class Interface(object):
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError("Incorrect name value.")
 
-        valid_states = ['enabled', 'disabled']
-        if state not in valid_states:
+        if not isinstance(enabled, bool):
             raise ValueError("Invalid state.")
 
         tag_args = dict(name=name)
         tag_native_vlan = getattr(self._interface, 'interface_%s_switchport_'
                                   'trunk_tag_native_vlan' % int_type)
         config = tag_native_vlan(**tag_args)
-        if state == 'disabled':
+        if not enabled:
             untag = config.find('.//*native-vlan')
             untag.set('operation', 'delete')
 
@@ -901,7 +900,7 @@ class Interface(object):
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
-            state (str): State to set Fabric ISL to. (up, down)
+            enabled (bool): Is fabric ISL state enabled? (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -921,7 +920,7 @@ class Interface(object):
             >>> output = dev.interface.fabric_isl(
             ... int_type='tengigabitethernet',
             ... name='225/0/40',
-            ... state='down')
+            ... enabled=False)
             >>> dev.interface.fabric_isl() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -929,7 +928,7 @@ class Interface(object):
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
-        state = str(kwargs.pop('state'))
+        enabled = kwargs.pop('enabled', True)
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
@@ -943,10 +942,8 @@ class Interface(object):
             raise ValueError("%s must be one of: %s" %
                              (repr(int_type), repr(int_types)))
 
-        valid_states = ['up', 'down']
-        if state not in valid_states:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(state), repr(valid_states)))
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
 
         fabric_isl_args = dict(name=name)
 
@@ -959,7 +956,7 @@ class Interface(object):
             'interface_%s_fabric_fabric_isl_fabric_isl_enable' % int_type
             )(**fabric_isl_args)
 
-        if state == "down":
+        if not enabled:
             fabric_isl = config.find('.//*fabric-isl')
             fabric_isl.set('operation', 'delete')
 
@@ -972,7 +969,7 @@ class Interface(object):
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
-            state (str): State to set Fabric ISL to. (up, down)
+            enabled (bool): Is Fabric trunk enabled? (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -992,15 +989,16 @@ class Interface(object):
             >>> output = dev.interface.fabric_trunk(
             ... int_type='tengigabitethernet',
             ... name='225/0/40',
-            ... state='down')
-            >>> dev.interface.fabric_trunk() # doctest: +IGNORE_EXCEPTION_DETAIL
+            ... enabled=False)
+            >>> dev.interface.fabric_trunk()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
             >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
-        state = str(kwargs.pop('state'))
+        enabled = kwargs.pop('enabled', True)
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
@@ -1014,10 +1012,8 @@ class Interface(object):
             raise ValueError("%s must be one of: %s" %
                              (repr(int_type), repr(int_types)))
 
-        valid_states = ['up', 'down']
-        if state not in valid_states:
-            raise ValueError("%s must be one of: %s" %
-                             (repr(state), repr(valid_states)))
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
 
         fabric_trunk_args = dict(name=name)
 
@@ -1030,7 +1026,7 @@ class Interface(object):
             'interface_%s_fabric_fabric_trunk_fabric_trunk_enable' % int_type
             )(**fabric_trunk_args)
 
-        if state == "down":
+        if not enabled:
             fabric_trunk = config.find('.//*fabric-trunk')
             fabric_trunk.set('operation', 'delete')
 
@@ -1304,7 +1300,7 @@ class Interface(object):
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc).
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
-            state (str): The administrative state of the interface (up, down).
+            enabled (bool): Is proxy-arp enabled? (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1322,16 +1318,15 @@ class Interface(object):
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
-            ... name='225/0/12', state='on')
+            ... name='225/0/12', enabled=True)
             >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
-            ... name='225/0/12', state='off')
+            ... name='225/0/12', enabled=False)
             >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        state = kwargs.pop('state').lower()
+        enabled = kwargs.pop('enabled', True)
         callback = kwargs.pop('callback', self._callback)
-        valid_states = ['on', 'off']
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
                            'port_channel']
@@ -1340,16 +1335,16 @@ class Interface(object):
             raise ValueError('%s must be one of: %s' %
                              (repr(int_type), repr(valid_int_types)))
 
-        if state not in valid_states:
-            raise ValueError('%s must be `on` or `off`.' % repr(state))
-
         if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z.')
+
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
 
         state_args = dict(name=name)
         proxy_arp = getattr(self._interface, 'interface_%s_ip_ip_config_proxy_arp' % int_type)
         config = proxy_arp(**state_args)
-        if state == 'off':
+        if not enabled:
             proxy_arp = config.find('.//*proxy-arp')
             proxy_arp.set('operation', 'delete')
         try:
