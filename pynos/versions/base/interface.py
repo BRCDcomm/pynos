@@ -969,18 +969,62 @@ class Interface(object):
         """
         pass
 
-    def trunk_no_default_native(self, **kwargs):
-        """Disable native VLAN on trunk port.
+    def trunk_mode(self, **kwargs):
+        """Set trunk mode (trunk, trunk-no-default-vlan).
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            mode (str): Trunk port mode (trunk, trunk-no-default-native).
+            callback (function): A function executed upon completion oj the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mode` is not specified.
+            ValueError: if `int_type`, `name`, or `mode` is not valid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.trunk_mode(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38',
+            ... mode='trunk-no-default-native')
+            >>> dev.interface.trunk_mode() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        mode = kwargs.pop('mode').lower()
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        valid_modes = ['trunk', 'trunk-no-default-native']
+        if mode not in valid_modes:
+            raise ValueError("Incorrect mode value")
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("Incorrect name value.")
+
+        mode_args = dict(name=name, vlan_mode=mode)
+        switchport_mode = getattr(self._interface, 'interface_%s_switchport_'
+                                  'mode_vlan_mode' % int_type)
+        config = switchport_mode(**mode_args)
+        return callback(config)
 
     def transport_service(self, **kwargs):
         """Configure transport service.
