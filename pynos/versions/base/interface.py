@@ -1297,44 +1297,92 @@ class Interface(object):
         """
         pass
 
-    def port_channel_member(self, **kwargs):
-        """Set port channel member.
+    def channel_group(self, **kwargs):
+        """set channel group mode.
 
-        Args:
+        args:
+            int_type (str): type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): name of interface. (1/0/5, 1/0/10, etc)
+            port_int (str): name of interface. (1/0/5, 1/0/10, etc)
+            channel_type (str): name of interface. (1/0/5, 1/0/10, etc)
+            mode (str): mode of channel group.
+            callback (function): a function executed upon completion of the
+                method.  the only parameter passed to `callback` will be the
+                ``elementtree`` `config`.
 
-        Returns:
+        returns:
+            return value of `callback`.
 
-        Raises:
+        raises:
+            keyerror: if `int_type`, `name`, or `description` is not specified.
+            valueerror: if `name` or `int_type` are not valid values.
 
-        Examples:
+        examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.channel_group(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/20',
+            ... port_int='1',
+            ... channel_type='standard',
+            ... mode='active')
+            >>> dev.interface.channel_group() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        channel_type = kwargs.pop('channel_type')
+        port_int = kwargs.pop('port_int')
+        mode = kwargs.pop('mode')
+        callback = kwargs.pop('callback', self._callback)
 
-    def port_channel_mode(self, **kwargs):
-        """Set port channel mode.
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet'
+            ]
 
-        Args:
+        if int_type not in int_types:
+            raise ValueError("%s must be one of: %s" %
+                             repr(int_type), repr(int_types))
 
-        Returns:
+        valid_modes = ['active', 'on', 'passive']
 
-        Raises:
+        if mode not in valid_modes:
+            raise ValueError("%s must be one of: %s" %
+                             repr(mode), repr(valid_modes))
 
-        Examples:
-        """
-        pass
+        valid_types = ['brocade', 'standard']
 
-    def port_channel_type(self, **kwargs):
-        """Set port channel type.
+        if channel_type not in valid_types:
+            raise ValueError("%s must be one of: %s" %
+                             repr(channel_type), repr(valid_types))
 
-        Args:
+        if re.search('^[0-9]{1,3}$', port_int) is None:
+                raise ValueError("incorrect port_int value.")
 
-        Returns:
+        channel_group_args = dict(name=name, mode=mode)
 
-        Raises:
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("incorrect name value.")
 
-        Examples:
-        """
-        pass
+        config = getattr(
+            self._interface,
+            'interface_%s_channel_group_mode' % int_type
+            )(**channel_group_args)
+
+        channel_group = config.find('.//*channel-group')
+        port_int_el = ET.SubElement(channel_group, 'port-int')
+        port_int_el.text = port_int
+        port_type_el = ET.SubElement(channel_group, 'type')
+        port_type_el.text = channel_type
+
+        return callback(config)
 
     def port_channel_vlag_ignore_split(self, **kwargs):
         """Ignore VLAG Splits.
