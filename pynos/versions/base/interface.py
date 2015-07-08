@@ -18,6 +18,7 @@ import xml.etree.ElementTree as ET
 import logging
 import re
 
+from ipaddress import ip_interface
 from pynos.versions.base.yang.brocade_interface import brocade_interface
 from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
@@ -1101,14 +1102,72 @@ class Interface(object):
         """Set VRRP VIP.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc).
+            name (str): Name of interface. (1/0/5, 1/0/10, etc).
+            vr_id (str): VRRPv3 ID.
+            vip (str): IPv4/IPv6 Virtual IP Address.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `state` is not passed.
+            ValueError: if `int_type`, `name`, or `state` are invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.interface.set_ip('tengigabitethernet', '225/0/18',
+            ... '10.1.1.2/24')
+            True
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1', vip='10.1.1.1/24')
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1',
+            ... vip='fe80:4818:f000:1ab:cafe:beef:1000:1/64')
+            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ... name='225/0/18', vrid='1',
+            ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        vrid = kwargs.pop('vrid')
+        vip = kwargs.pop('vip')
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet',
+                           'port_channel']
+
+        if int_type not in valid_int_types:
+            raise ValueError('%s must be one of: %s' %
+                             repr(int_type), repr(valid_int_types))
+
+        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z.')
+
+        ipaddress = ip_interface(unicode(vip))
+
+        vrrp_args = dict(name=name,
+                         vrid=vrid,
+                         virtual_ipaddr=str(ipaddress.ip))
+        vrrp_vip = None
+        if ipaddress.version == 4:
+            vrrp_args['version'] = '3'
+            vrrp_vip = getattr(self._interface,
+                               'interface_%s_vrrp_virtual_ip_'
+                               'virtual_ipaddr' % int_type)
+        elif ipaddress.version == 6:
+            vrrp_vip = getattr(self._interface,
+                               'interface_%s_ipv6_vrrpv3_group_virtual_ip_'
+                               'virtual_ipaddr' % int_type)
+        config = vrrp_vip(**vrrp_args)
+        return callback(config)
 
     def vrrp_state(self, **kwargs):
         """Set VRRP state (enabled, disabled).
