@@ -340,8 +340,9 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `description` is not specified.
-            ValueError: if `name` or `int_type` are not valid values.
+            KeyError: if `int_type`, `name`, or `desc` is not specified.
+            ValueError: if `name`, `int_type`, or `desc` is not a valid
+                value.
 
         Examples:
             >>> import pynos.device
@@ -410,10 +411,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan` is not
-                specified.
-            AttributeError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan`
-                are invalid.
+            KeyError: if `name` or `pvlan_type` is not specified.
+            ValueError: if `name` or `pvlan_type` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -460,7 +459,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `name` or `sec_vlan` is not specified.
-            AttributeError: if `name` or `sec_vlan` are invalid.
+            ValueError: if `name` or `sec_vlan` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -512,8 +511,8 @@ class Interface(object):
         Raises:
             KeyError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan` is not
                 specified.
-            AttributeError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan`
-                are invalid.
+            ValueError: if `int_type`, `name`, `pri_vlan`, or `sec_vlan`
+                is invalid.
 
         Examples:
             >>> import pynos.device
@@ -587,7 +586,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `state` is not passed.
-            ValueError: if `int_type`, `name`, or `state` are invalid.
+            ValueError: if `int_type`, `name`, or `state` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -678,7 +677,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `mode` is not specified.
-            AttributeError: if `int_type`, `name`, or `mode` are invalid.
+            ValueError: if `int_type`, `name`, or `mode` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -760,8 +759,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `mode` is not specified.
-            ValueError: if `int_type`, `name`, or `mode` is not valid.
+            KeyError: if `int_type`, `name`, or `state` is not specified.
+            ValueError: if `int_type`, `name`, or `state` is not valid.
 
         Examples:
             >>> import pynos.device
@@ -848,6 +847,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `mtu` is not specified.
+            ValueError: if `int_type`, `name`, or `mtu` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -910,8 +910,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `description` is not specified.
-            ValueError: if `name` or `int_type` are not valid values.
+            KeyError: if `int_type`, `name`, or `state` is not specified.
+            ValueError: if `int_type`, `name`, or `state` is not a valid value.
 
         Examples:
             >>> import pynos.device
@@ -981,8 +981,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `description` is not specified.
-            ValueError: if `name` or `int_type` are not valid values.
+            KeyError: if `int_type`, `name`, or `state` is not specified.
+            ValueError: if `int_type`, `name`, or `state` is not a valid value.
 
         Examples:
             >>> import pynos.device
@@ -1053,8 +1053,9 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `description` is not specified.
-            ValueError: if `name` or `int_type` are not valid values.
+            KeyError: if `int_type`, `name`, or `rbridge_id` is not specified.
+            ValueError: if `int_type`, `name`, or `rbridge_id` is not a valid
+                value.
 
         Examples:
             >>> import pynos.device
@@ -1116,7 +1117,7 @@ class Interface(object):
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc).
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
-            vr_id (str): VRRPv3 ID.
+            vrid (str): VRRPv3 ID.
             vip (str): IPv4/IPv6 Virtual IP Address.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
@@ -1126,8 +1127,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `state` is not passed.
-            ValueError: if `int_type`, `name`, or `state` are invalid.
+            KeyError: if `int_type`, `name`, `vrid`, or `vip` is not passed.
+            ValueError: if `int_type`, `name`, `vrid`, or `vip` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -1225,8 +1226,10 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `state` is not passed.
-            ValueError: if `int_type`, `name`, or `state` are invalid.
+            KeyError: if `int_type`, `name`, `vrid`, `priority`, or
+                `ip_version` is not passed.
+            ValueError: if `int_type`, `name`, `vrid`, `priority`, or
+                `ip_version` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -1311,7 +1314,7 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `state` is not passed.
-            ValueError: if `int_type`, `name`, or `state` are invalid.
+            ValueError: if `int_type`, `name`, or `state` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -1372,8 +1375,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `description` is not specified.
-            ValueError: if `name` or `int_type` are not valid values.
+            KeyError: if `name` or `minimum_links` is not specified.
+            ValueError: if `name` is not a valid value.
 
         Examples:
             >>> import pynos.device
@@ -1412,9 +1415,9 @@ class Interface(object):
             int_type (str): type of interface. (gigabitethernet,
                 tengigabitethernet, etc)
             name (str): name of interface. (1/0/5, 1/0/10, etc)
-            port_int (str): name of interface. (1/0/5, 1/0/10, etc)
-            channel_type (str): name of interface. (1/0/5, 1/0/10, etc)
-            mode (str): mode of channel group.
+            port_int (str): port-channel number (1, 2, 3, etc).
+            channel_type (str): tiype of port-channel (standard, brocade)
+            mode (str): mode of channel group (active, on, passive).
             callback (function): a function executed upon completion of the
                 method.  the only parameter passed to `callback` will be the
                 ``elementtree`` `config`.
@@ -1578,8 +1581,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `vlan`, or `service_id` is not specified.
-            AttributeError: if `vlan`, or `service_id` is not specified.
+            KeyError: if `vlan` or `service_id` is not specified.
+            ValueError: if `vlan` is invalid.
 
         Examples:
             >>> import pynos.device
@@ -1624,7 +1627,6 @@ class Interface(object):
 
         Raises:
             KeyError: if `int_type`, `name`, or `timeout` is not specified.
-
             ValueError: if `int_type`, `name`, or `timeout is not valid.
 
         Examples:
