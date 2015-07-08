@@ -8,6 +8,7 @@ class brocade_rbridge(object):
     def __init__(self, **kwargs):
         self._callback = kwargs.pop('callback')
 
+            
     def rbridge_id_rbridge_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -18,7 +19,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_swbd_number(self, **kwargs):
         """Auto Generated Code
         """
@@ -31,7 +32,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_nodespecific_ns_vlan(self, **kwargs):
         """Auto Generated Code
         """
@@ -45,7 +46,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_nodespecific_ns_ethernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -59,7 +60,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -78,7 +79,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_seq_keyword(self, **kwargs):
         """Auto Generated Code
         """
@@ -97,7 +98,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -116,7 +117,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_action_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -137,7 +138,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_prefix_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -158,7 +159,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_ge_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -179,7 +180,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_prefix_list_le_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -200,7 +201,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_as_path_access_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -220,7 +221,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_as_path_access_list_seq_keyword(self, **kwargs):
         """Auto Generated Code
         """
@@ -240,7 +241,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_as_path_access_list_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -260,7 +261,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_as_path_access_list_ip_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -282,7 +283,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_as_path_access_list_ip_reg_expr(self, **kwargs):
         """Auto Generated Code
         """
@@ -304,7 +305,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_standard_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -324,7 +325,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_standard_seq_keyword(self, **kwargs):
         """Auto Generated Code
         """
@@ -344,7 +345,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_standard_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -364,7 +365,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_standard_ip_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -386,7 +387,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_standard_std_community_expr(self, **kwargs):
         """Auto Generated Code
         """
@@ -408,7 +409,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_extended_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -428,7 +429,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_extended_seq_keyword(self, **kwargs):
         """Auto Generated Code
         """
@@ -448,7 +449,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_extended_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -468,7 +469,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_extended_ip_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -490,7 +491,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_community_list_extended_ip_community_reg_expr(self, **kwargs):
         """Auto Generated Code
         """
@@ -512,7 +513,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_extcommunity_list_extcommunity_list_num(self, **kwargs):
         """Auto Generated Code
         """
@@ -527,7 +528,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_extcommunity_list_ext_community_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -544,7 +545,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_extcommunity_list_ext_community_expr(self, **kwargs):
         """Auto Generated Code
         """
@@ -560,7 +561,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_router_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -575,7 +576,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_load_sharing(self, **kwargs):
         """Auto Generated Code
         """
@@ -590,7 +591,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -609,7 +610,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -628,7 +629,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -650,7 +651,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -672,7 +673,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -694,7 +695,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_vrf_static_route_next_vrf_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -715,7 +716,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_vrf_next_hop_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -736,7 +737,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_nh_vrf_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -757,7 +758,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -778,7 +779,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_static_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -799,7 +800,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_static_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -820,7 +821,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -844,7 +845,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -868,7 +869,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_rtm_config_route_static_route_oif_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -892,7 +893,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_imprt_routes_src_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -910,7 +911,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ip_imprt_routes_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -928,7 +929,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -944,7 +945,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_area_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -963,7 +964,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_normal(self, **kwargs):
         """Auto Generated Code
         """
@@ -983,7 +984,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_metric_nssa_area_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -1006,7 +1007,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_area_default_information_originate_area_default_information_originate_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -1029,7 +1030,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_area_default_information_originate_area_default_information_originate_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -1052,7 +1053,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_no_redistribution(self, **kwargs):
         """Auto Generated Code
         """
@@ -1073,7 +1074,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_nssa_area_no_summary(self, **kwargs):
         """Auto Generated Code
         """
@@ -1094,7 +1095,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_translator_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -1115,7 +1116,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_nssa_translator_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -1137,7 +1138,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_stub_stub_area_no_summary(self, **kwargs):
         """Auto Generated Code
         """
@@ -1158,7 +1159,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_stub_stub_area_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -1180,7 +1181,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_spi(self, **kwargs):
         """Auto Generated Code
         """
@@ -1203,7 +1204,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah(self, **kwargs):
         """Auto Generated Code
         """
@@ -1228,7 +1229,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1252,7 +1253,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1277,7 +1278,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp(self, **kwargs):
         """Auto Generated Code
         """
@@ -1302,7 +1303,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1326,7 +1327,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1351,7 +1352,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth(self, **kwargs):
         """Auto Generated Code
         """
@@ -1376,7 +1377,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1400,7 +1401,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1425,7 +1426,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_virtual_link_neighbor(self, **kwargs):
         """Auto Generated Code
         """
@@ -1447,7 +1448,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_link_interval_properties_hello_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -1473,7 +1474,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_link_interval_properties_dead_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -1499,7 +1500,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_link_interval_properties_hello_jitter(self, **kwargs):
         """Auto Generated Code
         """
@@ -1525,7 +1526,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_link_interval_properties_retransmit_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -1551,7 +1552,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_link_interval_properties_transmit_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -1577,7 +1578,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_spi(self, **kwargs):
         """Auto Generated Code
         """
@@ -1604,7 +1605,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah(self, **kwargs):
         """Auto Generated Code
         """
@@ -1633,7 +1634,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1661,7 +1662,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1690,7 +1691,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp(self, **kwargs):
         """Auto Generated Code
         """
@@ -1719,7 +1720,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1747,7 +1748,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1776,7 +1777,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth(self, **kwargs):
         """Auto Generated Code
         """
@@ -1805,7 +1806,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -1833,7 +1834,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_virtual_link_link_properties_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -1862,7 +1863,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_area_range_range_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -1884,7 +1885,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_area_range_range_effect(self, **kwargs):
         """Auto Generated Code
         """
@@ -1908,7 +1909,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_area_area_range_range_cost(self, **kwargs):
         """Auto Generated Code
         """
@@ -1932,7 +1933,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_auto_cost_reference_bandwidth(self, **kwargs):
         """Auto Generated Code
         """
@@ -1951,7 +1952,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_database_overflow_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -1969,7 +1970,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_global_default_information_originate_global_default_information_originate_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -1987,7 +1988,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_global_default_information_originate_global_default_information_originate_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2006,7 +2007,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_global_default_information_originate_global_default_information_originate_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2025,7 +2026,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_default_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2043,7 +2044,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_default_passive_interface(self, **kwargs):
         """Auto Generated Code
         """
@@ -2060,7 +2061,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distance_route_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2079,7 +2080,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distance_distance_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -2100,7 +2101,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distribute_list_route_map_distribute_list_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -2120,7 +2121,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distribute_list_route_map_distribute_list_route_map_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -2139,7 +2140,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distribute_list_prefix_list_distribute_list_prefix_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -2159,7 +2160,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_distribute_list_prefix_list_distribute_list_prefix_list_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -2178,7 +2179,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_external_lsdb_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -2196,7 +2197,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_graceful_restart_helper_graceful_restart_helper_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -2215,7 +2216,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_graceful_restart_helper_graceful_restart_helper_strict_lsa_checking(self, **kwargs):
         """Auto Generated Code
         """
@@ -2234,7 +2235,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_key_add_remove_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -2252,7 +2253,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_key_rollover_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -2270,7 +2271,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_log_status_change(self, **kwargs):
         """Auto Generated Code
         """
@@ -2287,7 +2288,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_global_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2305,7 +2306,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_connected_connected_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -2325,7 +2326,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_connected_redistribute_connected_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2345,7 +2346,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_connected_redistribute_connected_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2365,7 +2366,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_static_static_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -2385,7 +2386,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_static_redistribute_static_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2405,7 +2406,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_static_redistribute_static_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2425,7 +2426,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_bgp_bgp_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -2445,7 +2446,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_bgp_redistribute_bgp_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2465,7 +2466,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_bgp_redistribute_bgp_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2485,7 +2486,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_ospf_ospf_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -2505,7 +2506,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_ospf_redistribute_ospf_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2525,7 +2526,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_redistribute_redistribute_ospf_redistribute_ospf_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2545,7 +2546,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_summary_address_summary_address_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -2564,7 +2565,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_timers_lsa_group_pacing(self, **kwargs):
         """Auto Generated Code
         """
@@ -2583,7 +2584,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_timers_spf_spf_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -2603,7 +2604,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_timers_spf_spf_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -2623,7 +2624,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_nonstop_routing(self, **kwargs):
         """Auto Generated Code
         """
@@ -2640,7 +2641,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_router_ospf_maximum_paths(self, **kwargs):
         """Auto Generated Code
         """
@@ -2658,7 +2659,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_ipv6route_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -2674,7 +2675,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_ipv6route_route_next_ipv6_hop_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -2694,7 +2695,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -2713,7 +2714,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_seq_keyword(self, **kwargs):
         """Auto Generated Code
         """
@@ -2732,7 +2733,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -2751,7 +2752,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_action_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -2772,7 +2773,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_ipv6_prefix_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -2793,7 +2794,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_ge_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -2814,7 +2815,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_prefix_list_le_ipp(self, **kwargs):
         """Auto Generated Code
         """
@@ -2835,7 +2836,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_ipv6_global_cmds_nd_global_dad_global_dad_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -2852,7 +2853,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -2870,7 +2871,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -2888,7 +2889,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -2909,7 +2910,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -2930,7 +2931,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -2951,7 +2952,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -2971,7 +2972,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_static_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -2991,7 +2992,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_static_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -3011,7 +3012,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -3034,7 +3035,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -3057,7 +3058,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_oif_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -3080,7 +3081,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_link_local_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -3102,7 +3103,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_link_local_nexthop(self, **kwargs):
         """Auto Generated Code
         """
@@ -3124,7 +3125,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_link_local_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -3146,7 +3147,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_link_local_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -3168,7 +3169,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -3193,7 +3194,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -3218,7 +3219,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_link_local_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -3243,7 +3244,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_vrf_static_route_next_vrf_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -3263,7 +3264,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_vrf_next_hop_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -3283,7 +3284,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_route_static_route_nh_vrf_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -3303,7 +3304,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_imprt_routes_src_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -3321,7 +3322,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_imprt_routes_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -3339,7 +3340,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_proto_vrrpv3_vrrp(self, **kwargs):
         """Auto Generated Code
         """
@@ -3353,7 +3354,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ipv6_proto_vrrpv3_vrrp_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -3367,7 +3368,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_vrf_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -3382,7 +3383,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_local_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -3401,7 +3402,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_always_compare_med(self, **kwargs):
         """Auto Generated Code
         """
@@ -3419,7 +3420,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_compare_med_empty_aspath(self, **kwargs):
         """Auto Generated Code
         """
@@ -3437,7 +3438,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_med_missing_as_worst(self, **kwargs):
         """Auto Generated Code
         """
@@ -3455,7 +3456,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_as_path_ignore(self, **kwargs):
         """Auto Generated Code
         """
@@ -3473,7 +3474,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_compare_routerid(self, **kwargs):
         """Auto Generated Code
         """
@@ -3491,7 +3492,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_install_igp_cost(self, **kwargs):
         """Auto Generated Code
         """
@@ -3509,7 +3510,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_cluster_id_ch_cluster_id_ca_cluster_id_cluster_id_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -3531,7 +3532,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_cluster_id_ch_cluster_id_ca_cluster_id_ipv4_address_cluster_id_ipv4_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -3553,7 +3554,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_default_local_preference(self, **kwargs):
         """Auto Generated Code
         """
@@ -3572,7 +3573,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_distance_ext_route_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -3592,7 +3593,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_distance_int_route_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -3612,7 +3613,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_distance_lcl_route_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -3632,7 +3633,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_capability_as4_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -3651,7 +3652,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_maxas_limit_in_cg_num_as_in_path(self, **kwargs):
         """Auto Generated Code
         """
@@ -3672,7 +3673,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_enforce_first_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -3690,7 +3691,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_fast_external_fallover(self, **kwargs):
         """Auto Generated Code
         """
@@ -3708,7 +3709,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_timers_keep_alive(self, **kwargs):
         """Auto Generated Code
         """
@@ -3728,7 +3729,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_timers_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -3748,7 +3749,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_log_dampening_debug(self, **kwargs):
         """Auto Generated Code
         """
@@ -3766,7 +3767,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_confederation_identifier(self, **kwargs):
         """Auto Generated Code
         """
@@ -3786,7 +3787,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_router_bgp_neighbor_peer_grp(self, **kwargs):
         """Auto Generated Code
         """
@@ -3808,7 +3809,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_peer_group_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -3831,7 +3832,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_remote_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -3855,7 +3856,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_update_source_ch_update_source_ca_ipv4_sip_ipv4_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -3882,7 +3883,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_update_source_ch_update_source_ca_eth_ethernet_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -3910,7 +3911,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_update_source_ch_update_source_ca_eth_ethernet_interface_ethernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -3938,7 +3939,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_update_source_ch_update_source_ca_loopback_loopback(self, **kwargs):
         """Auto Generated Code
         """
@@ -3965,7 +3966,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_update_source_ch_update_source_ca_ve_ve_interface(self, **kwargs):
         """Auto Generated Code
         """
@@ -3992,7 +3993,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -4016,7 +4017,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_local_as_local_as_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -4041,7 +4042,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_local_as_no_prepend(self, **kwargs):
         """Auto Generated Code
         """
@@ -4065,7 +4066,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_always_next_hop_self_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -4091,7 +4092,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_status_next_hop_self_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -4117,7 +4118,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_advertisement_interval_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -4142,7 +4143,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_ebgp_btsh(self, **kwargs):
         """Auto Generated Code
         """
@@ -4165,7 +4166,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_flag_ebgp_multihop_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -4191,7 +4192,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_count_ebgp_multihop_count(self, **kwargs):
         """Auto Generated Code
         """
@@ -4218,7 +4219,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_enable_num_as_in_as_path(self, **kwargs):
         """Auto Generated Code
         """
@@ -4246,7 +4247,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_disable_maxas_limit_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -4273,7 +4274,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_password(self, **kwargs):
         """Auto Generated Code
         """
@@ -4297,7 +4298,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_enforce_first_as_nei_enforce_first_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -4321,7 +4322,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_enforce_first_as_nei_enforce_first_as_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -4345,7 +4346,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_neighbor_capability_as4_neighbor_as4_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -4370,7 +4371,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_neighbor_capability_as4_neighbor_as4_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -4395,7 +4396,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_timers_nei_keep_alive(self, **kwargs):
         """Auto Generated Code
         """
@@ -4420,7 +4421,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_timers_nei_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -4445,7 +4446,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_remove_private_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -4468,7 +4469,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_as_override(self, **kwargs):
         """Auto Generated Code
         """
@@ -4491,7 +4492,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_soft_reconfiguration_inbound(self, **kwargs):
         """Auto Generated Code
         """
@@ -4515,7 +4516,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_static_network_edge(self, **kwargs):
         """Auto Generated Code
         """
@@ -4538,7 +4539,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_peer_grps_neighbor_peer_grp_shutdown_shutdown_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -4562,7 +4563,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_router_bgp_neighbor_ipv6_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -4584,7 +4585,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_remote_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -4608,7 +4609,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_associate_peer_group(self, **kwargs):
         """Auto Generated Code
         """
@@ -4632,7 +4633,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_update_source_ch_update_source_ca_ipv6_sip_ipv6_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -4659,7 +4660,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_update_source_ch_update_source_ca_eth_ethernet_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -4687,7 +4688,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_update_source_ch_update_source_ca_eth_ethernet_interface_ethernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -4715,7 +4716,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_update_source_ch_update_source_ca_loopback_loopback(self, **kwargs):
         """Auto Generated Code
         """
@@ -4742,7 +4743,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_update_source_ch_update_source_ca_ve_ve_interface(self, **kwargs):
         """Auto Generated Code
         """
@@ -4769,7 +4770,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -4793,7 +4794,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_local_as_local_as_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -4818,7 +4819,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_local_as_no_prepend(self, **kwargs):
         """Auto Generated Code
         """
@@ -4842,7 +4843,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_always_next_hop_self_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -4868,7 +4869,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_status_next_hop_self_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -4894,7 +4895,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_advertisement_interval_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -4919,7 +4920,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_ebgp_btsh(self, **kwargs):
         """Auto Generated Code
         """
@@ -4942,7 +4943,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_flag_ebgp_multihop_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -4968,7 +4969,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_count_ebgp_multihop_count(self, **kwargs):
         """Auto Generated Code
         """
@@ -4995,7 +4996,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_enable_num_as_in_as_path(self, **kwargs):
         """Auto Generated Code
         """
@@ -5023,7 +5024,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_disable_maxas_limit_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5050,7 +5051,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_password(self, **kwargs):
         """Auto Generated Code
         """
@@ -5074,7 +5075,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_enforce_first_as_nei_enforce_first_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -5098,7 +5099,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_enforce_first_as_nei_enforce_first_as_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5122,7 +5123,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_neighbor_capability_as4_neighbor_as4_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5147,7 +5148,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_neighbor_capability_as4_neighbor_as4_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5172,7 +5173,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_timers_nei_keep_alive(self, **kwargs):
         """Auto Generated Code
         """
@@ -5197,7 +5198,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_timers_nei_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -5222,7 +5223,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_remove_private_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -5245,7 +5246,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_as_override(self, **kwargs):
         """Auto Generated Code
         """
@@ -5268,7 +5269,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_soft_reconfiguration_inbound(self, **kwargs):
         """Auto Generated Code
         """
@@ -5292,7 +5293,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_static_network_edge(self, **kwargs):
         """Auto Generated Code
         """
@@ -5315,7 +5316,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_shutdown_shutdown_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -5339,7 +5340,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ipv6s_neighbor_ipv6_addr_shutdown_generate_rib_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -5363,7 +5364,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_router_bgp_neighbor_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -5385,7 +5386,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_remote_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -5409,7 +5410,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_associate_peer_group(self, **kwargs):
         """Auto Generated Code
         """
@@ -5433,7 +5434,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_update_source_ch_update_source_ca_ipv4_sip_ipv4_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -5460,7 +5461,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_update_source_ch_update_source_ca_eth_ethernet_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -5488,7 +5489,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_update_source_ch_update_source_ca_eth_ethernet_interface_ethernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -5516,7 +5517,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_update_source_ch_update_source_ca_loopback_loopback(self, **kwargs):
         """Auto Generated Code
         """
@@ -5543,7 +5544,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_update_source_ch_update_source_ca_ve_ve_interface(self, **kwargs):
         """Auto Generated Code
         """
@@ -5570,7 +5571,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -5594,7 +5595,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_local_as_local_as_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -5619,7 +5620,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_local_as_no_prepend(self, **kwargs):
         """Auto Generated Code
         """
@@ -5643,7 +5644,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_always_next_hop_self_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -5669,7 +5670,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_next_hop_self_ch_next_hop_self_type_ca_next_hop_self_status_next_hop_self_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -5695,7 +5696,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_advertisement_interval_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -5720,7 +5721,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_ebgp_btsh(self, **kwargs):
         """Auto Generated Code
         """
@@ -5743,7 +5744,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_flag_ebgp_multihop_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -5769,7 +5770,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_ebgp_multihop_ch_ebgp_multihop_type_ca_ebgp_multihop_count_ebgp_multihop_count(self, **kwargs):
         """Auto Generated Code
         """
@@ -5796,7 +5797,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_enable_num_as_in_as_path(self, **kwargs):
         """Auto Generated Code
         """
@@ -5824,7 +5825,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_maxas_limit_in_cg_ch_maxas_limit_ca_maxas_limit_disable_maxas_limit_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5851,7 +5852,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_password(self, **kwargs):
         """Auto Generated Code
         """
@@ -5875,7 +5876,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_enforce_first_as_nei_enforce_first_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -5899,7 +5900,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_enforce_first_as_nei_enforce_first_as_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5923,7 +5924,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_neighbor_capability_as4_neighbor_as4_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5948,7 +5949,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_neighbor_capability_as4_neighbor_as4_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -5973,7 +5974,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_timers_nei_keep_alive(self, **kwargs):
         """Auto Generated Code
         """
@@ -5998,7 +5999,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_timers_nei_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -6023,7 +6024,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_remove_private_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -6046,7 +6047,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_as_override(self, **kwargs):
         """Auto Generated Code
         """
@@ -6069,7 +6070,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_soft_reconfiguration_inbound(self, **kwargs):
         """Auto Generated Code
         """
@@ -6093,7 +6094,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_static_network_edge(self, **kwargs):
         """Auto Generated Code
         """
@@ -6116,7 +6117,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_shutdown_shutdown_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -6140,7 +6141,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_shutdown_generate_rib_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -6164,7 +6165,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_bgp_redistribute_internal(self, **kwargs):
         """Auto Generated Code
         """
@@ -6185,7 +6186,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_connected_redistribute_connected(self, **kwargs):
         """Auto Generated Code
         """
@@ -6208,7 +6209,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_connected_unicast_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -6232,7 +6233,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_connected_redistribute_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6256,7 +6257,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_redistribute_ospf(self, **kwargs):
         """Auto Generated Code
         """
@@ -6279,7 +6280,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_internal(self, **kwargs):
         """Auto Generated Code
         """
@@ -6303,7 +6304,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_external1(self, **kwargs):
         """Auto Generated Code
         """
@@ -6327,7 +6328,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_external2(self, **kwargs):
         """Auto Generated Code
         """
@@ -6351,7 +6352,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_ospf_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -6375,7 +6376,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_ospf_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6399,7 +6400,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_static_redistribute_static(self, **kwargs):
         """Auto Generated Code
         """
@@ -6422,7 +6423,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_static_unicast_static_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -6446,7 +6447,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_ipv4_uc_and_vrf_cmds_call_point_holder_redistribute_static_static_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6470,7 +6471,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_static_network_static_network_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -6492,7 +6493,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_static_network_static_network_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -6516,7 +6517,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_aggregate_ip_prefix(self, **kwargs):
         """Auto Generated Code
         """
@@ -6538,7 +6539,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_advertise_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6562,7 +6563,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_as_set(self, **kwargs):
         """Auto Generated Code
         """
@@ -6585,7 +6586,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_attribute_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6609,7 +6610,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_summary_only(self, **kwargs):
         """Auto Generated Code
         """
@@ -6632,7 +6633,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_aggregate_address_suppress_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6656,7 +6657,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_network_network_ipv4_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -6678,7 +6679,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_network_network_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -6702,7 +6703,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_network_backdoor(self, **kwargs):
         """Auto Generated Code
         """
@@ -6725,7 +6726,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_network_network_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -6749,7 +6750,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_af_ipv4_neighbor_peergroup_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -6773,7 +6774,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_send_community_send_community_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -6799,7 +6800,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_send_community_both(self, **kwargs):
         """Auto Generated Code
         """
@@ -6825,7 +6826,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_send_community_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -6851,7 +6852,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_send_community_standard(self, **kwargs):
         """Auto Generated Code
         """
@@ -6877,7 +6878,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -6905,7 +6906,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_send(self, **kwargs):
         """Auto Generated Code
         """
@@ -6933,7 +6934,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_receive(self, **kwargs):
         """Auto Generated Code
         """
@@ -6961,7 +6962,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_allowas_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -6987,7 +6988,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_activate(self, **kwargs):
         """Auto Generated Code
         """
@@ -7012,7 +7013,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_filter_list_direction_in_filter_list_direction_in_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7040,7 +7041,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_filter_list_direction_in_filter_list_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -7067,7 +7068,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_filter_list_direction_out_filter_list_direction_out_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7095,7 +7096,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_filter_list_direction_out_filter_list_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -7122,7 +7123,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_maximum_prefix_max_prefix_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -7149,7 +7150,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_maximum_prefix_threshold_holder_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -7177,7 +7178,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_maximum_prefix_threshold_holder_teardown(self, **kwargs):
         """Auto Generated Code
         """
@@ -7204,7 +7205,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_default_originate_default_originate_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -7230,7 +7231,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_default_originate_default_originate_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -7257,7 +7258,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_prefix_list_direction_in_prefix_list_direction_in_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7285,7 +7286,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_prefix_list_direction_in_prefix_list_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -7312,7 +7313,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_prefix_list_direction_out_prefix_list_direction_out_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7340,7 +7341,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_prefix_list_direction_out_prefix_list_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -7367,7 +7368,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_neighbor_route_map_neighbor_route_map_direction_in_neighbor_route_map_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -7395,7 +7396,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_neighbor_route_map_neighbor_route_map_direction_out_neighbor_route_map_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -7423,7 +7424,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_route_reflector_client(self, **kwargs):
         """Auto Generated Code
         """
@@ -7448,7 +7449,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_unsuppress_map_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7475,7 +7476,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_peergroup_holder_af_ipv4_neighbor_peergroup_af_nei_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -7501,7 +7502,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_af_ipv4_neighbor_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -7525,7 +7526,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_send_community_send_community_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -7551,7 +7552,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_send_community_both(self, **kwargs):
         """Auto Generated Code
         """
@@ -7577,7 +7578,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_send_community_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -7603,7 +7604,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_send_community_standard(self, **kwargs):
         """Auto Generated Code
         """
@@ -7629,7 +7630,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -7657,7 +7658,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_send(self, **kwargs):
         """Auto Generated Code
         """
@@ -7685,7 +7686,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_receive(self, **kwargs):
         """Auto Generated Code
         """
@@ -7713,7 +7714,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_allowas_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -7739,7 +7740,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_activate(self, **kwargs):
         """Auto Generated Code
         """
@@ -7764,7 +7765,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_filter_list_direction_in_filter_list_direction_in_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7792,7 +7793,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_filter_list_direction_in_filter_list_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -7819,7 +7820,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_filter_list_direction_out_filter_list_direction_out_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -7847,7 +7848,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_filter_list_direction_out_filter_list_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -7874,7 +7875,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_maximum_prefix_max_prefix_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -7901,7 +7902,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_maximum_prefix_threshold_holder_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -7929,7 +7930,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_maximum_prefix_threshold_holder_teardown(self, **kwargs):
         """Auto Generated Code
         """
@@ -7956,7 +7957,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_default_originate_default_originate_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -7982,7 +7983,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_default_originate_default_originate_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -8009,7 +8010,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_prefix_list_direction_in_prefix_list_direction_in_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -8037,7 +8038,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_prefix_list_direction_in_prefix_list_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -8064,7 +8065,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_prefix_list_direction_out_prefix_list_direction_out_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -8092,7 +8093,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_prefix_list_direction_out_prefix_list_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -8119,7 +8120,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_neighbor_route_map_neighbor_route_map_direction_in_neighbor_route_map_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -8147,7 +8148,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_neighbor_route_map_neighbor_route_map_direction_out_neighbor_route_map_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -8175,7 +8176,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_route_reflector_client(self, **kwargs):
         """Auto Generated Code
         """
@@ -8200,7 +8201,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_unsuppress_map_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -8227,7 +8228,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_neighbor_af_ipv4_neighbor_address_holder_af_ipv4_neighbor_address_af_nei_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -8253,7 +8254,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_maximum_paths_load_sharing_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -8276,7 +8277,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_maximum_paths_ebgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -8299,7 +8300,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_maximum_paths_ibgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -8322,7 +8323,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_maximum_paths_use_load_sharing(self, **kwargs):
         """Auto Generated Code
         """
@@ -8344,7 +8345,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_multipath_multipath_ebgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -8366,7 +8367,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_multipath_multipath_ibgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -8388,7 +8389,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_multipath_multi_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -8410,7 +8411,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_always_propagate(self, **kwargs):
         """Auto Generated Code
         """
@@ -8431,7 +8432,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_default_information_originate(self, **kwargs):
         """Auto Generated Code
         """
@@ -8452,7 +8453,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_rib_route_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -8474,7 +8475,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_client_to_client_reflection(self, **kwargs):
         """Auto Generated Code
         """
@@ -8495,7 +8496,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_flag_dampening_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -8519,7 +8520,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_half_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8545,7 +8546,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_reuse_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -8571,7 +8572,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_start_suppress_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8597,7 +8598,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_max_suppress_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8623,7 +8624,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_route_map_dampening_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -8648,7 +8649,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_default_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -8670,7 +8671,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_next_hop_enable_default(self, **kwargs):
         """Auto Generated Code
         """
@@ -8691,7 +8692,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_table_map_table_map_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -8714,7 +8715,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_update_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8736,7 +8737,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_graceful_restart_graceful_restart_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -8758,7 +8759,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_graceful_restart_restart_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8781,7 +8782,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_graceful_restart_purge_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8804,7 +8805,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_af_common_cmds_holder_graceful_restart_stale_routes_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -8827,7 +8828,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv4_ipv4_unicast_next_hop_recursion(self, **kwargs):
         """Auto Generated Code
         """
@@ -8847,7 +8848,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_bgp_redistribute_internal(self, **kwargs):
         """Auto Generated Code
         """
@@ -8868,7 +8869,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_connected_redistribute_connected(self, **kwargs):
         """Auto Generated Code
         """
@@ -8891,7 +8892,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_connected_unicast_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -8915,7 +8916,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_connected_redistribute_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -8939,7 +8940,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_redistribute_ospf(self, **kwargs):
         """Auto Generated Code
         """
@@ -8962,7 +8963,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_internal(self, **kwargs):
         """Auto Generated Code
         """
@@ -8986,7 +8987,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_external1(self, **kwargs):
         """Auto Generated Code
         """
@@ -9010,7 +9011,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_match_ospf_external2(self, **kwargs):
         """Auto Generated Code
         """
@@ -9034,7 +9035,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_ospf_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -9058,7 +9059,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_ospf_ospf_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9082,7 +9083,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_static_redistribute_static(self, **kwargs):
         """Auto Generated Code
         """
@@ -9105,7 +9106,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_static_unicast_static_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -9129,7 +9130,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_ipv6_uc_and_vrf_cmds_call_point_holder_redistribute_static_static_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9153,7 +9154,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_aggregate_ip_prefix(self, **kwargs):
         """Auto Generated Code
         """
@@ -9175,7 +9176,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_advertise_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9199,7 +9200,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_as_set(self, **kwargs):
         """Auto Generated Code
         """
@@ -9222,7 +9223,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_attribute_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9246,7 +9247,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_summary_only(self, **kwargs):
         """Auto Generated Code
         """
@@ -9269,7 +9270,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_aggregate_ipv6_address_suppress_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9293,7 +9294,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_network_network_ipv6_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -9315,7 +9316,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_network_network_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -9339,7 +9340,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_network_backdoor(self, **kwargs):
         """Auto Generated Code
         """
@@ -9362,7 +9363,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_network_network_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9386,7 +9387,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_af_ipv6_neighbor_peergroup_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -9410,7 +9411,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_send_community_send_community_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -9436,7 +9437,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_send_community_both(self, **kwargs):
         """Auto Generated Code
         """
@@ -9462,7 +9463,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_send_community_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -9488,7 +9489,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_send_community_standard(self, **kwargs):
         """Auto Generated Code
         """
@@ -9514,7 +9515,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -9542,7 +9543,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_send(self, **kwargs):
         """Auto Generated Code
         """
@@ -9570,7 +9571,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_af_neighbor_capability_orf_prefixlist_prefixlist_receive(self, **kwargs):
         """Auto Generated Code
         """
@@ -9598,7 +9599,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_allowas_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -9624,7 +9625,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_activate(self, **kwargs):
         """Auto Generated Code
         """
@@ -9649,7 +9650,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_filter_list_direction_in_filter_list_direction_in_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -9677,7 +9678,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_filter_list_direction_in_filter_list_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -9704,7 +9705,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_filter_list_direction_out_filter_list_direction_out_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -9732,7 +9733,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_filter_list_direction_out_filter_list_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -9759,7 +9760,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_maximum_prefix_max_prefix_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -9786,7 +9787,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_maximum_prefix_threshold_holder_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -9814,7 +9815,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_maximum_prefix_threshold_holder_teardown(self, **kwargs):
         """Auto Generated Code
         """
@@ -9841,7 +9842,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_default_originate_default_originate_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -9867,7 +9868,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_default_originate_default_originate_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -9894,7 +9895,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_prefix_list_direction_in_prefix_list_direction_in_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -9922,7 +9923,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_prefix_list_direction_in_prefix_list_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -9949,7 +9950,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_prefix_list_direction_out_prefix_list_direction_out_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -9977,7 +9978,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_prefix_list_direction_out_prefix_list_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -10004,7 +10005,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_neighbor_route_map_neighbor_route_map_direction_in_neighbor_route_map_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -10032,7 +10033,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_neighbor_route_map_neighbor_route_map_direction_out_neighbor_route_map_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -10060,7 +10061,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_route_reflector_client(self, **kwargs):
         """Auto Generated Code
         """
@@ -10085,7 +10086,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_unsuppress_map_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10112,7 +10113,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_peergroup_holder_af_ipv6_neighbor_peergroup_af_nei_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -10138,7 +10139,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_af_ipv6_neighbor_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -10162,7 +10163,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_send_community_send_community_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -10188,7 +10189,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_send_community_both(self, **kwargs):
         """Auto Generated Code
         """
@@ -10214,7 +10215,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_send_community_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -10240,7 +10241,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_send_community_standard(self, **kwargs):
         """Auto Generated Code
         """
@@ -10266,7 +10267,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -10294,7 +10295,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_send(self, **kwargs):
         """Auto Generated Code
         """
@@ -10322,7 +10323,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_af_neighbor_capability_orf_prefixlist_prefixlist_receive(self, **kwargs):
         """Auto Generated Code
         """
@@ -10350,7 +10351,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_allowas_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -10376,7 +10377,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_activate(self, **kwargs):
         """Auto Generated Code
         """
@@ -10401,7 +10402,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_filter_list_direction_in_filter_list_direction_in_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10429,7 +10430,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_filter_list_direction_in_filter_list_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -10456,7 +10457,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_filter_list_direction_out_filter_list_direction_out_acl_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10484,7 +10485,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_filter_list_direction_out_filter_list_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -10511,7 +10512,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_maximum_prefix_max_prefix_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -10538,7 +10539,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_maximum_prefix_threshold_holder_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -10566,7 +10567,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_maximum_prefix_threshold_holder_teardown(self, **kwargs):
         """Auto Generated Code
         """
@@ -10593,7 +10594,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_default_originate_default_originate_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -10619,7 +10620,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_default_originate_default_originate_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -10646,7 +10647,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_prefix_list_direction_in_prefix_list_direction_in_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10674,7 +10675,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_prefix_list_direction_in_prefix_list_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -10701,7 +10702,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_prefix_list_direction_out_prefix_list_direction_out_prefix_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10729,7 +10730,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_prefix_list_direction_out_prefix_list_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -10756,7 +10757,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_neighbor_route_map_neighbor_route_map_direction_in_neighbor_route_map_name_direction_in(self, **kwargs):
         """Auto Generated Code
         """
@@ -10784,7 +10785,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_neighbor_route_map_neighbor_route_map_direction_out_neighbor_route_map_name_direction_out(self, **kwargs):
         """Auto Generated Code
         """
@@ -10812,7 +10813,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_route_reflector_client(self, **kwargs):
         """Auto Generated Code
         """
@@ -10837,7 +10838,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_unsuppress_map_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -10864,7 +10865,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_neighbor_af_ipv6_neighbor_address_holder_af_ipv6_neighbor_address_af_nei_weight(self, **kwargs):
         """Auto Generated Code
         """
@@ -10890,7 +10891,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_maximum_paths_load_sharing_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -10913,7 +10914,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_maximum_paths_ebgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -10936,7 +10937,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_maximum_paths_ibgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -10959,7 +10960,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_maximum_paths_use_load_sharing(self, **kwargs):
         """Auto Generated Code
         """
@@ -10981,7 +10982,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_multipath_multipath_ebgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -11003,7 +11004,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_multipath_multipath_ibgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -11025,7 +11026,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_multipath_multi_as(self, **kwargs):
         """Auto Generated Code
         """
@@ -11047,7 +11048,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_always_propagate(self, **kwargs):
         """Auto Generated Code
         """
@@ -11068,7 +11069,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_default_information_originate(self, **kwargs):
         """Auto Generated Code
         """
@@ -11089,7 +11090,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_rib_route_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -11111,7 +11112,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_client_to_client_reflection(self, **kwargs):
         """Auto Generated Code
         """
@@ -11132,7 +11133,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_flag_dampening_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -11156,7 +11157,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_half_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11182,7 +11183,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_reuse_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -11208,7 +11209,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_start_suppress_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11234,7 +11235,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_specify_values_values_max_suppress_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11260,7 +11261,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_dampening_ch_dampening_source_ca_dampening_route_map_dampening_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11285,7 +11286,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_default_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -11307,7 +11308,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_next_hop_enable_default(self, **kwargs):
         """Auto Generated Code
         """
@@ -11328,7 +11329,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_table_map_table_map_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11351,7 +11352,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_update_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11373,7 +11374,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_graceful_restart_graceful_restart_status(self, **kwargs):
         """Auto Generated Code
         """
@@ -11395,7 +11396,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_graceful_restart_restart_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11418,7 +11419,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_graceful_restart_purge_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11441,7 +11442,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_af_common_cmds_holder_graceful_restart_stale_routes_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -11464,7 +11465,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_bgp_router_bgp_cmds_holder_address_family_ipv6_ipv6_unicast_ipv6_ucast_next_hop_recursion(self, **kwargs):
         """Auto Generated Code
         """
@@ -11484,7 +11485,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -11499,7 +11500,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_database_overflow_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -11516,7 +11517,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_information_originate_always(self, **kwargs):
         """Auto Generated Code
         """
@@ -11533,7 +11534,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_information_originate_def_orig_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -11551,7 +11552,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_information_originate_def_orig_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -11569,7 +11570,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_information_originate_def_orig_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11587,7 +11588,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_passive_interface(self, **kwargs):
         """Auto Generated Code
         """
@@ -11603,7 +11604,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_default_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -11620,7 +11621,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_external_lsdb_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -11637,7 +11638,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_log_adjacency_dr_only(self, **kwargs):
         """Auto Generated Code
         """
@@ -11655,7 +11656,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_log_log_all(self, **kwargs):
         """Auto Generated Code
         """
@@ -11672,7 +11673,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_log_bad_packet_log_checksum(self, **kwargs):
         """Auto Generated Code
         """
@@ -11690,7 +11691,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_log_log_database(self, **kwargs):
         """Auto Generated Code
         """
@@ -11707,7 +11708,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_log_log_retransmit(self, **kwargs):
         """Auto Generated Code
         """
@@ -11724,7 +11725,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_ospf_metric_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -11741,7 +11742,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_neighbor_neighbor_addr(self, **kwargs):
         """Auto Generated Code
         """
@@ -11759,7 +11760,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_nssa_translator_nssa_translator_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -11776,7 +11777,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_redistribute_connected_connected_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11795,7 +11796,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_redistribute_static_static_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11814,7 +11815,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_redistribute_bgp_bgp_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11833,7 +11834,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_redistribute_redistribute_ospf_ospf_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -11852,7 +11853,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_rfc1583_compatibility_rfc1583_compatibility_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -11869,7 +11870,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_area_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -11887,7 +11888,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_normal(self, **kwargs):
         """Auto Generated Code
         """
@@ -11906,7 +11907,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_nssa_metric_nssa_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -11928,7 +11929,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_nssa_metric_no_summary1(self, **kwargs):
         """Auto Generated Code
         """
@@ -11949,7 +11950,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_nssa_default_information_originate(self, **kwargs):
         """Auto Generated Code
         """
@@ -11969,7 +11970,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_range_range_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -11992,7 +11993,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_range_range_mask(self, **kwargs):
         """Auto Generated Code
         """
@@ -12015,7 +12016,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_range_range_effect(self, **kwargs):
         """Auto Generated Code
         """
@@ -12040,7 +12041,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_range_range_cost(self, **kwargs):
         """Auto Generated Code
         """
@@ -12065,7 +12066,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_stub_metric_stub_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -12087,7 +12088,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_stub_metric_no_summary(self, **kwargs):
         """Auto Generated Code
         """
@@ -12108,7 +12109,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_virt_link_neighbor(self, **kwargs):
         """Auto Generated Code
         """
@@ -12129,7 +12130,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_authentication_key_no_encrypt_auth_key_table_no_encrypt_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -12154,7 +12155,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_authentication_key_auth_key_table_encrypttype(self, **kwargs):
         """Auto Generated Code
         """
@@ -12179,7 +12180,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_authentication_key_auth_key_table_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -12204,7 +12205,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_dead_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -12227,7 +12228,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_hello_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -12250,7 +12251,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_retransmit_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -12273,7 +12274,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_transmit_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -12296,7 +12297,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_key_activation_wait_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -12320,7 +12321,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_no_encrypt_key_table_no_encrypt_key_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -12345,7 +12346,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_no_encrypt_key_table_no_encrypt_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -12370,7 +12371,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_key_table_key_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -12395,7 +12396,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_key_table_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -12420,7 +12421,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_area_virtual_link_md5_authentication_key_table_md5_authentication_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -12445,7 +12446,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_auto_cost_reference_bandwidth_ref_bandwidth(self, **kwargs):
         """Auto Generated Code
         """
@@ -12464,7 +12465,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_auto_cost_reference_bandwidth_use_active_ports(self, **kwargs):
         """Auto Generated Code
         """
@@ -12482,7 +12483,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_distance_route_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -12500,7 +12501,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_distance_dist_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -12520,7 +12521,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_distribute_list_route_map_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -12539,7 +12540,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_distribute_list_route_map_in_cg(self, **kwargs):
         """Auto Generated Code
         """
@@ -12557,7 +12558,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_all_vrfs(self, **kwargs):
         """Auto Generated Code
         """
@@ -12575,7 +12576,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_all_lsas(self, **kwargs):
         """Auto Generated Code
         """
@@ -12593,7 +12594,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_external_lsa_external_lsa_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -12613,7 +12614,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_summary_lsa_summary_lsa_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -12633,7 +12634,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_link_all(self, **kwargs):
         """Auto Generated Code
         """
@@ -12652,7 +12653,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_link_ptp(self, **kwargs):
         """Auto Generated Code
         """
@@ -12671,7 +12672,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_link_stub(self, **kwargs):
         """Auto Generated Code
         """
@@ -12690,7 +12691,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_link_transit(self, **kwargs):
         """Auto Generated Code
         """
@@ -12709,7 +12710,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -12729,7 +12730,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_wait_for_bgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -12748,7 +12749,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_all_lsas_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12767,7 +12768,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_external_lsa_onstartup_external_lsa_val_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12788,7 +12789,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_summary_lsa_onstartup_summary_lsa_val_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12809,7 +12810,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_link_onstartup_all_link_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12829,7 +12830,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_link_onstartup_ptp_link_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12849,7 +12850,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_link_onstartup_stub_link_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12869,7 +12870,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_max_metric_router_lsa_on_startup_link_onstartup_transit_link_onstartup(self, **kwargs):
         """Auto Generated Code
         """
@@ -12889,7 +12890,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_summary_address_sum_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -12909,7 +12910,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_summary_address_sum_address_mask(self, **kwargs):
         """Auto Generated Code
         """
@@ -12929,7 +12930,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_timers_lsa_group_pacing(self, **kwargs):
         """Auto Generated Code
         """
@@ -12947,7 +12948,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_timers_throttle_spf_init_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -12967,7 +12968,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_timers_throttle_spf_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -12987,7 +12988,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_timers_throttle_spf_max_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -13007,7 +13008,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_redist_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -13028,7 +13029,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_route_option(self, **kwargs):
         """Auto Generated Code
         """
@@ -13049,7 +13050,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -13072,7 +13073,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_mask(self, **kwargs):
         """Auto Generated Code
         """
@@ -13095,7 +13096,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_set_metric_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -13118,7 +13119,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_permit_redistribute_match_metric_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -13141,7 +13142,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_redist_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -13162,7 +13163,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_route_option(self, **kwargs):
         """Auto Generated Code
         """
@@ -13183,7 +13184,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -13206,7 +13207,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_mask(self, **kwargs):
         """Auto Generated Code
         """
@@ -13229,7 +13230,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_set_metric_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -13252,7 +13253,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_deny_redistribute_match_metric_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -13275,7 +13276,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_vrf_lite_capability(self, **kwargs):
         """Auto Generated Code
         """
@@ -13291,7 +13292,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_graceful_restart_graceful_restart_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -13308,7 +13309,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_graceful_restart_helper_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -13325,7 +13326,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_graceful_restart_restart_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -13343,7 +13344,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_nonstop_routing(self, **kwargs):
         """Auto Generated Code
         """
@@ -13359,7 +13360,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_ospf_maximum_paths(self, **kwargs):
         """Auto Generated Code
         """
@@ -13376,7 +13377,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_max_mcache(self, **kwargs):
         """Auto Generated Code
         """
@@ -13392,7 +13393,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_hello_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -13408,7 +13409,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_nbr_timeout(self, **kwargs):
         """Auto Generated Code
         """
@@ -13424,7 +13425,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_inactivity_timer(self, **kwargs):
         """Auto Generated Code
         """
@@ -13440,7 +13441,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_message_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -13456,7 +13457,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_spt_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -13472,7 +13473,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_bsr_candidate_bsr_cand_interface_bsr_cand_intf_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -13492,7 +13493,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_bsr_candidate_bsr_cand_interface_bsr_cand_intf_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -13512,7 +13513,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_bsr_candidate_bsr_cand_interface_hash_mask_length(self, **kwargs):
         """Auto Generated Code
         """
@@ -13534,7 +13535,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_bsr_candidate_bsr_cand_interface_bsr_cand_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -13556,7 +13557,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_candidate_rp_cand_interface_rp_cand_intf_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -13576,7 +13577,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_candidate_rp_cand_interface_rp_cand_intf_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -13596,7 +13597,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_candidate_rp_cand_grp_prefix_rp_cand_grp_prefix_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -13618,7 +13619,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_candidate_rp_cand_grp_prefix_rp_cand_grp_prefix_ip(self, **kwargs):
         """Auto Generated Code
         """
@@ -13640,7 +13641,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_candidate_rp_cand_grp_prefix_rp_cand_grp_prefix_length(self, **kwargs):
         """Auto Generated Code
         """
@@ -13662,7 +13663,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_address_rp_ip_addr(self, **kwargs):
         """Auto Generated Code
         """
@@ -13679,7 +13680,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_router_hide_pim_holder_pim_rp_address_prefix_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -13698,7 +13699,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_switch_attributes_chassis_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -13712,7 +13713,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_switch_attributes_host_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -13726,7 +13727,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_root_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -13739,7 +13740,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_root_access(self, **kwargs):
         """Auto Generated Code
         """
@@ -13753,7 +13754,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ag_nport_menu_nport_interface_nport_agNPortNb(self, **kwargs):
         """Auto Generated Code
         """
@@ -13770,7 +13771,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ag_pg_pgid(self, **kwargs):
         """Auto Generated Code
         """
@@ -13785,7 +13786,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ag_pg_rename(self, **kwargs):
         """Auto Generated Code
         """
@@ -13802,7 +13803,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ag_timeout_fnmtovalue(self, **kwargs):
         """Auto Generated Code
         """
@@ -13817,7 +13818,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ag_counter_reliabilitycountervalue(self, **kwargs):
         """Auto Generated Code
         """
@@ -13832,7 +13833,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_protocol_hide_vrrp_holder_vrrp(self, **kwargs):
         """Auto Generated Code
         """
@@ -13846,7 +13847,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_protocol_hide_vrrp_holder_vrrp_extended(self, **kwargs):
         """Auto Generated Code
         """
@@ -13860,7 +13861,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -13875,7 +13876,990 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_mtu(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        mtu = ET.SubElement(ip_config, "mtu")
+        mtu.text = kwargs.pop('mtu')
 
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_directed_broadcast(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        directed_broadcast = ET.SubElement(ip_config, "directed-broadcast")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_proxy_arp(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        proxy_arp = ET.SubElement(ip_config, "proxy-arp")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_arp_aging_timeout(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        arp_aging_timeout = ET.SubElement(ip_config, "arp-aging-timeout")
+        arp_aging_timeout.text = kwargs.pop('arp_aging_timeout')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_address_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        address = ET.SubElement(ip_config, "address")
+        address = ET.SubElement(address, "address")
+        address.text = kwargs.pop('address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_address_secondary(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        address = ET.SubElement(ip_config, "address")
+        address_key = ET.SubElement(address, "address")
+        address_key.text = kwargs.pop('address')
+        secondary = ET.SubElement(address, "secondary")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_address_ospf_passive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        address = ET.SubElement(ip_config, "address")
+        address_key = ET.SubElement(address, "address")
+        address_key.text = kwargs.pop('address')
+        ospf_passive = ET.SubElement(address, "ospf-passive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_ip_config_address_ospf_ignore(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        address = ET.SubElement(ip_config, "address")
+        address_key = ET.SubElement(address, "address")
+        address_key.text = kwargs.pop('address')
+        ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_ve_dhcp_conf_dhcp_relay_servers_relay_ip_addr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_ve_dhcp_conf = ET.SubElement(ip, "interface-ve-dhcp-conf", xmlns="urn:brocade.com:mgmt:brocade-dhcp")
+        dhcp = ET.SubElement(interface_ve_dhcp_conf, "dhcp")
+        relay = ET.SubElement(dhcp, "relay")
+        servers = ET.SubElement(relay, "servers")
+        server_vrf_name_key = ET.SubElement(servers, "server-vrf-name")
+        server_vrf_name_key.text = kwargs.pop('server_vrf_name')
+        relay_ip_addr = ET.SubElement(servers, "relay-ip-addr")
+        relay_ip_addr.text = kwargs.pop('relay_ip_addr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_ve_dhcp_conf_dhcp_relay_servers_server_vrf_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_ve_dhcp_conf = ET.SubElement(ip, "interface-ve-dhcp-conf", xmlns="urn:brocade.com:mgmt:brocade-dhcp")
+        dhcp = ET.SubElement(interface_ve_dhcp_conf, "dhcp")
+        relay = ET.SubElement(dhcp, "relay")
+        servers = ET.SubElement(relay, "servers")
+        relay_ip_addr_key = ET.SubElement(servers, "relay-ip-addr")
+        relay_ip_addr_key.text = kwargs.pop('relay_ip_addr')
+        server_vrf_name = ET.SubElement(servers, "server-vrf-name")
+        server_vrf_name.text = kwargs.pop('server_vrf_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_icmp_echo_reply(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
+        echo_reply = ET.SubElement(icmp, "echo-reply")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_icmp_rate_limiting(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
+        rate_limiting = ET.SubElement(icmp, "rate-limiting")
+        rate_limiting.text = kwargs.pop('rate_limiting')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_icmp_unreachable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
+        unreachable = ET.SubElement(icmp, "unreachable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_icmp_redirect(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
+        redirect = ET.SubElement(icmp, "redirect")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_icmp_address_mask(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
+        address_mask = ET.SubElement(icmp, "address-mask")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_igmp_last_member_query_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
+        last_member_query_interval = ET.SubElement(igmp, "last-member-query-interval")
+        last_member_query_interval.text = kwargs.pop('last_member_query_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_igmp_query_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
+        query_interval = ET.SubElement(igmp, "query-interval")
+        query_interval.text = kwargs.pop('query_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_igmp_query_max_response_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
+        query_max_response_time = ET.SubElement(igmp, "query-max-response-time")
+        query_max_response_time.text = kwargs.pop('query_max_response_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_igmp_immediate_leave(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
+        immediate_leave = ET.SubElement(igmp, "immediate-leave")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_igmp_static_group_sg_addr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
+        static_group = ET.SubElement(igmp, "static-group")
+        sg_addr = ET.SubElement(static_group, "sg-addr")
+        sg_addr.text = kwargs.pop('sg_addr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_area(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        area = ET.SubElement(ospf1, "area")
+        area.text = kwargs.pop('area')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_auth_change_wait_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        auth_change_wait_time = ET.SubElement(ospf1, "auth-change-wait-time")
+        auth_change_wait_time.text = kwargs.pop('auth_change_wait_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_no_encrypt_auth_key_table_no_encrypt_auth_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        no_encrypt_auth_key_table = ET.SubElement(authentication_key, "no-encrypt-auth-key-table")
+        no_encrypt_auth_key = ET.SubElement(no_encrypt_auth_key_table, "no-encrypt-auth-key")
+        no_encrypt_auth_key.text = kwargs.pop('no_encrypt_auth_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_auth_key_table_encrypttype(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
+        encrypttype = ET.SubElement(auth_key_table, "encrypttype")
+        encrypttype.text = kwargs.pop('encrypttype')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_auth_key_table_auth_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
+        auth_key = ET.SubElement(auth_key_table, "auth-key")
+        auth_key.text = kwargs.pop('auth_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_dead_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        dead_interval = ET.SubElement(ospf1, "dead-interval")
+        dead_interval.text = kwargs.pop('dead_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_hello_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        hello_interval = ET.SubElement(ospf1, "hello-interval")
+        hello_interval.text = kwargs.pop('hello_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_retransmit_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        retransmit_interval = ET.SubElement(ospf1, "retransmit-interval")
+        retransmit_interval.text = kwargs.pop('retransmit_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_transmit_delay(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        transmit_delay = ET.SubElement(ospf1, "transmit-delay")
+        transmit_delay.text = kwargs.pop('transmit_delay')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_activation_wait_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_activation_wait_time = ET.SubElement(md5_authentication, "key-activation-wait-time")
+        key_activation_wait_time.text = kwargs.pop('key_activation_wait_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
+        no_encrypt_key_id = ET.SubElement(no_encrypt_key_table, "no-encrypt-key-id")
+        no_encrypt_key_id.text = kwargs.pop('no_encrypt_key_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
+        no_encrypt_key = ET.SubElement(no_encrypt_key_table, "no-encrypt-key")
+        no_encrypt_key.text = kwargs.pop('no_encrypt_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_key_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        key_id = ET.SubElement(key_table, "key-id")
+        key_id.text = kwargs.pop('key_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        key = ET.SubElement(key_table, "key")
+        key.text = kwargs.pop('key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_md5_authentication_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        md5_authentication_key = ET.SubElement(key_table, "md5-authentication-key")
+        md5_authentication_key.text = kwargs.pop('md5_authentication_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_cost(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        cost = ET.SubElement(ospf1, "cost")
+        cost.text = kwargs.pop('cost')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_out(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_out = ET.SubElement(database_filter, "all-out")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_external(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_external = ET.SubElement(database_filter, "all-external")
+        all_external.text = kwargs.pop('all_external')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_summary_external(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_summary_external = ET.SubElement(database_filter, "all-summary-external")
+        all_summary_external.text = kwargs.pop('all_summary_external')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_mtu_ignore(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        mtu_ignore = ET.SubElement(ospf1, "mtu-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_network(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        network = ET.SubElement(ospf1, "network")
+        network.text = kwargs.pop('network')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_active(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        active = ET.SubElement(ospf1, "active")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_passive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        passive = ET.SubElement(ospf1, "passive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
+        priority = ET.SubElement(ospf1, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_sparse(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
+        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
+        pim_sparse = ET.SubElement(pim_int_cmd, "pim-sparse")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_dr_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
+        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
+        pim = ET.SubElement(pim_int_cmd, "pim")
+        dr_priority = ET.SubElement(pim, "dr-priority")
+        dr_priority.text = kwargs.pop('dr_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_ttl_threshold(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
+        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
+        pim = ET.SubElement(pim_int_cmd, "pim")
+        ttl_threshold = ET.SubElement(pim, "ttl-threshold")
+        ttl_threshold.text = kwargs.pop('ttl_threshold')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_multicast_boundary(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
+        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
+        multicast_boundary = ET.SubElement(pim_int_cmd, "multicast-boundary")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_ve_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        ve = ET.SubElement(interface, "ve")
+        name_key = ET.SubElement(ve, "name")
+        name_key.text = kwargs.pop('name')
+        shutdown = ET.SubElement(ve, "shutdown", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_use_link_local_only(self, **kwargs):
         """Auto Generated Code
         """
@@ -13894,7 +14878,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_link_local_config_link_local_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -13915,7 +14899,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_link_local_config_link_local(self, **kwargs):
         """Auto Generated Code
         """
@@ -13935,7 +14919,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_ipv6_address_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -13956,7 +14940,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_ipv6_address_secondary(self, **kwargs):
         """Auto Generated Code
         """
@@ -13978,7 +14962,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_ipv6_address_eui_config_eui64(self, **kwargs):
         """Auto Generated Code
         """
@@ -14001,7 +14985,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_ipv6_address_eui_config_eui_secondary(self, **kwargs):
         """Auto Generated Code
         """
@@ -14024,7 +15008,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_address_ipv6_address_anycast(self, **kwargs):
         """Auto Generated Code
         """
@@ -14046,7 +15030,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -14065,7 +15049,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ve_dhcp_conf_dhcp_relay_servers_relay_ip_addr(self, **kwargs):
         """Auto Generated Code
         """
@@ -14087,7 +15071,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ve_dhcp_conf_dhcp_relay_servers_server_vrf_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -14111,7 +15095,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ve_dhcp_conf_dhcp_relay_servers_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -14136,7 +15120,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ve_dhcp_conf_dhcp_relay_servers_interface_interface_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -14161,7 +15145,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_icmpv6_echo_reply(self, **kwargs):
         """Auto Generated Code
         """
@@ -14179,7 +15163,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_icmpv6_rate_limiting(self, **kwargs):
         """Auto Generated Code
         """
@@ -14198,7 +15182,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_icmpv6_unreachable(self, **kwargs):
         """Auto Generated Code
         """
@@ -14216,7 +15200,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_icmpv6_redirect(self, **kwargs):
         """Auto Generated Code
         """
@@ -14234,7 +15218,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_access_group_ipv6_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -14255,7 +15239,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_access_group_ip_direction(self, **kwargs):
         """Auto Generated Code
         """
@@ -14276,7 +15260,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_access_group_traffic_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -14299,7 +15283,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_policy_route_map_ipv6_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -14319,7 +15303,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_vrrp_suppress_interface_ra(self, **kwargs):
         """Auto Generated Code
         """
@@ -14338,7 +15322,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_managed_config_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -14358,7 +15342,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_other_config_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -14378,7 +15362,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_broadcast_mac_trap(self, **kwargs):
         """Auto Generated Code
         """
@@ -14398,7 +15382,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_ra_lifetime(self, **kwargs):
         """Auto Generated Code
         """
@@ -14419,7 +15403,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_reachable_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -14440,7 +15424,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -14461,7 +15445,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_retrans_timer(self, **kwargs):
         """Auto Generated Code
         """
@@ -14482,7 +15466,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_hoplimit(self, **kwargs):
         """Auto Generated Code
         """
@@ -14503,7 +15487,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_ns_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -14524,7 +15508,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_proxy(self, **kwargs):
         """Auto Generated Code
         """
@@ -14544,7 +15528,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_flag(self, **kwargs):
         """Auto Generated Code
         """
@@ -14565,7 +15549,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -14586,7 +15570,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_all(self, **kwargs):
         """Auto Generated Code
         """
@@ -14607,7 +15591,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_ra_interval_max_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -14629,7 +15613,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_ra_interval_min(self, **kwargs):
         """Auto Generated Code
         """
@@ -14651,7 +15635,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_dad_attempts(self, **kwargs):
         """Auto Generated Code
         """
@@ -14673,7 +15657,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_dad_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -14695,7 +15679,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_nud_retry_base(self, **kwargs):
         """Auto Generated Code
         """
@@ -14718,7 +15702,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_nud_retry_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -14741,7 +15725,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_nud_retry_max_attempts(self, **kwargs):
         """Auto Generated Code
         """
@@ -14764,7 +15748,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_cache_expire(self, **kwargs):
         """Auto Generated Code
         """
@@ -14786,7 +15770,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_prefix_ipv6_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -14808,7 +15792,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_ch_valid_type_ca_no_advertise_no_advertise(self, **kwargs):
         """Auto Generated Code
         """
@@ -14834,7 +15818,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_ch_valid_type_ca_valid_lifetime_valid_lifetime(self, **kwargs):
         """Auto Generated Code
         """
@@ -14861,7 +15845,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_ch_valid_type_ca_valid_infinite_valid_infinite(self, **kwargs):
         """Auto Generated Code
         """
@@ -14887,7 +15871,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_preferred_ch_preferred_type_ca_preferred_lifetime_preferred_lifetime(self, **kwargs):
         """Auto Generated Code
         """
@@ -14915,7 +15899,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_preferred_ch_preferred_type_ca_preferred_infinite_preferred_infinite(self, **kwargs):
         """Auto Generated Code
         """
@@ -14942,7 +15926,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_preferred_prefix_flags_no_autoconfig(self, **kwargs):
         """Auto Generated Code
         """
@@ -14968,7 +15952,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_preferred_prefix_flags_no_onlink(self, **kwargs):
         """Auto Generated Code
         """
@@ -14994,7 +15978,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_prefix_lifetime_preferred_prefix_flags_off_link(self, **kwargs):
         """Auto Generated Code
         """
@@ -15020,7 +16004,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_neighbor_ipv6_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -15041,7 +16025,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_neighbor_hardware_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -15064,7 +16048,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_ipv6_ve_intf_cmds_hop_by_hop_trap(self, **kwargs):
         """Auto Generated Code
         """
@@ -15082,7 +16066,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_interface_area(self, **kwargs):
         """Auto Generated Code
         """
@@ -15101,7 +16085,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_active(self, **kwargs):
         """Auto Generated Code
         """
@@ -15119,7 +16103,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_passive(self, **kwargs):
         """Auto Generated Code
         """
@@ -15137,7 +16121,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_bfd(self, **kwargs):
         """Auto Generated Code
         """
@@ -15155,7 +16139,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_cost(self, **kwargs):
         """Auto Generated Code
         """
@@ -15174,7 +16158,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -15193,7 +16177,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_mtu_ignore(self, **kwargs):
         """Auto Generated Code
         """
@@ -15211,7 +16195,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_network(self, **kwargs):
         """Auto Generated Code
         """
@@ -15230,7 +16214,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -15249,7 +16233,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_suppress_linklsa(self, **kwargs):
         """Auto Generated Code
         """
@@ -15267,7 +16251,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_spi(self, **kwargs):
         """Auto Generated Code
         """
@@ -15288,7 +16272,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah(self, **kwargs):
         """Auto Generated Code
         """
@@ -15311,7 +16295,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -15333,7 +16317,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -15356,7 +16340,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp(self, **kwargs):
         """Auto Generated Code
         """
@@ -15379,7 +16363,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -15401,7 +16385,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -15424,7 +16408,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth(self, **kwargs):
         """Auto Generated Code
         """
@@ -15447,7 +16431,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -15469,7 +16453,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -15492,7 +16476,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_ipsec_authentication_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -15512,7 +16496,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_authentication_ipsec_ifc_key_add_remove_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -15533,7 +16517,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_link_interval_properties_hello_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -15553,7 +16537,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_link_interval_properties_dead_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -15573,7 +16557,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_link_interval_properties_hello_jitter(self, **kwargs):
         """Auto Generated Code
         """
@@ -15593,7 +16577,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_link_interval_properties_retransmit_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -15613,7 +16597,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_interface_ospfv3_conf_link_interval_properties_transmit_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -15633,7 +16617,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_vrid(self, **kwargs):
         """Auto Generated Code
         """
@@ -15652,7 +16636,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_use_v2_checksum(self, **kwargs):
         """Auto Generated Code
         """
@@ -15672,7 +16656,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_virtual_ip_virtual_ipaddr(self, **kwargs):
         """Auto Generated Code
         """
@@ -15694,7 +16678,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_track_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -15719,7 +16703,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_track_interface_interface_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -15744,7 +16728,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_track_interface_track_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -15771,7 +16755,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -15792,7 +16776,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -15812,7 +16796,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -15833,7 +16817,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_preempt_mode(self, **kwargs):
         """Auto Generated Code
         """
@@ -15853,7 +16837,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -15874,7 +16858,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -15895,7 +16879,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_vrid(self, **kwargs):
         """Auto Generated Code
         """
@@ -15914,7 +16898,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_virtual_mac_vmac(self, **kwargs):
         """Auto Generated Code
         """
@@ -15935,7 +16919,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_virtual_ip_virtual_ipaddr(self, **kwargs):
         """Auto Generated Code
         """
@@ -15957,7 +16941,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_track_network_network_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -15980,7 +16964,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_track_network_network_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -16005,7 +16989,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_track_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -16030,7 +17014,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_track_interface_interface_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -16055,7 +17039,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_track_interface_track_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -16082,7 +17066,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -16102,7 +17086,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -16123,7 +17107,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_preempt_mode(self, **kwargs):
         """Auto Generated Code
         """
@@ -16143,7 +17127,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -16164,7 +17148,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -16185,7 +17169,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_advertise_backup(self, **kwargs):
         """Auto Generated Code
         """
@@ -16205,7 +17189,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_nd_advertisement_timer(self, **kwargs):
         """Auto Generated Code
         """
@@ -16226,7 +17210,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_advertisement_interval_scale(self, **kwargs):
         """Auto Generated Code
         """
@@ -16247,7 +17231,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_backup_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -16268,7 +17252,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_vrrpe_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -16289,7 +17273,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_short_path_forwarding_basic(self, **kwargs):
         """Auto Generated Code
         """
@@ -16310,7 +17294,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ipv6_vrrpv3e_short_path_forwarding_revert_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -16332,990 +17316,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_mtu(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        mtu = ET.SubElement(ip_config, "mtu")
-        mtu.text = kwargs.pop('mtu')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_directed_broadcast(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        directed_broadcast = ET.SubElement(ip_config, "directed-broadcast")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_proxy_arp(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        proxy_arp = ET.SubElement(ip_config, "proxy-arp")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_arp_aging_timeout(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        arp_aging_timeout = ET.SubElement(ip_config, "arp-aging-timeout")
-        arp_aging_timeout.text = kwargs.pop('arp_aging_timeout')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_address_address(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        address = ET.SubElement(ip_config, "address")
-        address = ET.SubElement(address, "address")
-        address.text = kwargs.pop('address')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_address_secondary(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        address = ET.SubElement(ip_config, "address")
-        address_key = ET.SubElement(address, "address")
-        address_key.text = kwargs.pop('address')
-        secondary = ET.SubElement(address, "secondary")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_address_ospf_passive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        address = ET.SubElement(ip_config, "address")
-        address_key = ET.SubElement(address, "address")
-        address_key.text = kwargs.pop('address')
-        ospf_passive = ET.SubElement(address, "ospf-passive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_ip_config_address_ospf_ignore(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        address = ET.SubElement(ip_config, "address")
-        address_key = ET.SubElement(address, "address")
-        address_key.text = kwargs.pop('address')
-        ospf_ignore = ET.SubElement(address, "ospf-ignore")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_ve_dhcp_conf_dhcp_relay_servers_relay_ip_addr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_ve_dhcp_conf = ET.SubElement(ip, "interface-ve-dhcp-conf", xmlns="urn:brocade.com:mgmt:brocade-dhcp")
-        dhcp = ET.SubElement(interface_ve_dhcp_conf, "dhcp")
-        relay = ET.SubElement(dhcp, "relay")
-        servers = ET.SubElement(relay, "servers")
-        server_vrf_name_key = ET.SubElement(servers, "server-vrf-name")
-        server_vrf_name_key.text = kwargs.pop('server_vrf_name')
-        relay_ip_addr = ET.SubElement(servers, "relay-ip-addr")
-        relay_ip_addr.text = kwargs.pop('relay_ip_addr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_ve_dhcp_conf_dhcp_relay_servers_server_vrf_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_ve_dhcp_conf = ET.SubElement(ip, "interface-ve-dhcp-conf", xmlns="urn:brocade.com:mgmt:brocade-dhcp")
-        dhcp = ET.SubElement(interface_ve_dhcp_conf, "dhcp")
-        relay = ET.SubElement(dhcp, "relay")
-        servers = ET.SubElement(relay, "servers")
-        relay_ip_addr_key = ET.SubElement(servers, "relay-ip-addr")
-        relay_ip_addr_key.text = kwargs.pop('relay_ip_addr')
-        server_vrf_name = ET.SubElement(servers, "server-vrf-name")
-        server_vrf_name.text = kwargs.pop('server_vrf_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_icmp_echo_reply(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
-        echo_reply = ET.SubElement(icmp, "echo-reply")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_icmp_rate_limiting(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
-        rate_limiting = ET.SubElement(icmp, "rate-limiting")
-        rate_limiting.text = kwargs.pop('rate_limiting')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_icmp_unreachable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
-        unreachable = ET.SubElement(icmp, "unreachable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_icmp_redirect(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
-        redirect = ET.SubElement(icmp, "redirect")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_icmp_address_mask(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        icmp = ET.SubElement(ip, "icmp", xmlns="urn:brocade.com:mgmt:brocade-icmp")
-        address_mask = ET.SubElement(icmp, "address-mask")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_igmp_last_member_query_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
-        last_member_query_interval = ET.SubElement(igmp, "last-member-query-interval")
-        last_member_query_interval.text = kwargs.pop('last_member_query_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_igmp_query_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
-        query_interval = ET.SubElement(igmp, "query-interval")
-        query_interval.text = kwargs.pop('query_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_igmp_query_max_response_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
-        query_max_response_time = ET.SubElement(igmp, "query-max-response-time")
-        query_max_response_time.text = kwargs.pop('query_max_response_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_igmp_immediate_leave(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
-        immediate_leave = ET.SubElement(igmp, "immediate-leave")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_igmp_static_group_sg_addr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        igmp = ET.SubElement(ip, "igmp", xmlns="urn:brocade.com:mgmt:brocade-igmp")
-        static_group = ET.SubElement(igmp, "static-group")
-        sg_addr = ET.SubElement(static_group, "sg-addr")
-        sg_addr.text = kwargs.pop('sg_addr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_area(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        area = ET.SubElement(ospf1, "area")
-        area.text = kwargs.pop('area')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_auth_change_wait_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        auth_change_wait_time = ET.SubElement(ospf1, "auth-change-wait-time")
-        auth_change_wait_time.text = kwargs.pop('auth_change_wait_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_no_encrypt_auth_key_table_no_encrypt_auth_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        no_encrypt_auth_key_table = ET.SubElement(authentication_key, "no-encrypt-auth-key-table")
-        no_encrypt_auth_key = ET.SubElement(no_encrypt_auth_key_table, "no-encrypt-auth-key")
-        no_encrypt_auth_key.text = kwargs.pop('no_encrypt_auth_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_auth_key_table_encrypttype(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
-        encrypttype = ET.SubElement(auth_key_table, "encrypttype")
-        encrypttype.text = kwargs.pop('encrypttype')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_authentication_key_auth_key_table_auth_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
-        auth_key = ET.SubElement(auth_key_table, "auth-key")
-        auth_key.text = kwargs.pop('auth_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_dead_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        dead_interval = ET.SubElement(ospf1, "dead-interval")
-        dead_interval.text = kwargs.pop('dead_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_hello_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        hello_interval = ET.SubElement(ospf1, "hello-interval")
-        hello_interval.text = kwargs.pop('hello_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_retransmit_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        retransmit_interval = ET.SubElement(ospf1, "retransmit-interval")
-        retransmit_interval.text = kwargs.pop('retransmit_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_transmit_delay(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        transmit_delay = ET.SubElement(ospf1, "transmit-delay")
-        transmit_delay.text = kwargs.pop('transmit_delay')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_activation_wait_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_activation_wait_time = ET.SubElement(md5_authentication, "key-activation-wait-time")
-        key_activation_wait_time.text = kwargs.pop('key_activation_wait_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key_id(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
-        no_encrypt_key_id = ET.SubElement(no_encrypt_key_table, "no-encrypt-key-id")
-        no_encrypt_key_id.text = kwargs.pop('no_encrypt_key_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
-        no_encrypt_key = ET.SubElement(no_encrypt_key_table, "no-encrypt-key")
-        no_encrypt_key.text = kwargs.pop('no_encrypt_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_key_id(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        key_id = ET.SubElement(key_table, "key-id")
-        key_id.text = kwargs.pop('key_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        key = ET.SubElement(key_table, "key")
-        key.text = kwargs.pop('key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_md5_authentication_key_table_md5_authentication_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        md5_authentication_key = ET.SubElement(key_table, "md5-authentication-key")
-        md5_authentication_key.text = kwargs.pop('md5_authentication_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_cost(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        cost = ET.SubElement(ospf1, "cost")
-        cost.text = kwargs.pop('cost')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_out(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_out = ET.SubElement(database_filter, "all-out")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_external(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_external = ET.SubElement(database_filter, "all-external")
-        all_external.text = kwargs.pop('all_external')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_database_filter_all_summary_external(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_summary_external = ET.SubElement(database_filter, "all-summary-external")
-        all_summary_external.text = kwargs.pop('all_summary_external')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_mtu_ignore(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        mtu_ignore = ET.SubElement(ospf1, "mtu-ignore")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_network(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        network = ET.SubElement(ospf1, "network")
-        network.text = kwargs.pop('network')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_active(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        active = ET.SubElement(ospf1, "active")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_passive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        passive = ET.SubElement(ospf1, "passive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_interface_vlan_ospf_conf_ospf1_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_vlan_ospf_conf = ET.SubElement(ip, "interface-vlan-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_vlan_ospf_conf, "ospf1")
-        priority = ET.SubElement(ospf1, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_sparse(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
-        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
-        pim_sparse = ET.SubElement(pim_int_cmd, "pim-sparse")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_dr_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
-        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
-        pim = ET.SubElement(pim_int_cmd, "pim")
-        dr_priority = ET.SubElement(pim, "dr-priority")
-        dr_priority.text = kwargs.pop('dr_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_pim_ttl_threshold(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
-        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
-        pim = ET.SubElement(pim_int_cmd, "pim")
-        ttl_threshold = ET.SubElement(pim, "ttl-threshold")
-        ttl_threshold.text = kwargs.pop('ttl_threshold')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_ip_pim_intf_vlan_cont_pim_int_cmd_multicast_boundary(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(ve, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        pim_intf_vlan_cont = ET.SubElement(ip, "pim-intf-vlan-cont", xmlns="urn:brocade.com:mgmt:brocade-pim")
-        pim_int_cmd = ET.SubElement(pim_intf_vlan_cont, "pim-int-cmd")
-        multicast_boundary = ET.SubElement(pim_int_cmd, "multicast-boundary")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_ve_shutdown(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        ve = ET.SubElement(interface, "ve")
-        name_key = ET.SubElement(ve, "name")
-        name_key.text = kwargs.pop('name')
-        shutdown = ET.SubElement(ve, "shutdown", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
+        
     def rbridge_id_interface_ve_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -17337,7 +17338,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
         """Auto Generated Code
         """
@@ -17359,7 +17360,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -17383,7 +17384,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -17404,7 +17405,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_vrid(self, **kwargs):
         """Auto Generated Code
         """
@@ -17424,7 +17425,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_version(self, **kwargs):
         """Auto Generated Code
         """
@@ -17444,7 +17445,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_use_v2_checksum(self, **kwargs):
         """Auto Generated Code
         """
@@ -17465,7 +17466,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
         """Auto Generated Code
         """
@@ -17488,7 +17489,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_track_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -17514,7 +17515,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_track_interface_interface_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -17540,7 +17541,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_track_interface_track_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -17568,7 +17569,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -17590,7 +17591,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -17611,7 +17612,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -17633,7 +17634,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_preempt_mode(self, **kwargs):
         """Auto Generated Code
         """
@@ -17654,7 +17655,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -17676,7 +17677,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrp_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -17698,7 +17699,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_vrid(self, **kwargs):
         """Auto Generated Code
         """
@@ -17716,7 +17717,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_virtual_mac(self, **kwargs):
         """Auto Generated Code
         """
@@ -17736,7 +17737,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_virtual_ip_virtual_ipaddr(self, **kwargs):
         """Auto Generated Code
         """
@@ -17757,7 +17758,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_track_interface_interface_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -17781,7 +17782,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_track_interface_interface_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -17805,7 +17806,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_track_interface_track_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -17831,7 +17832,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -17851,7 +17852,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -17870,7 +17871,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_hold_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -17890,7 +17891,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_preempt_mode(self, **kwargs):
         """Auto Generated Code
         """
@@ -17909,7 +17910,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -17929,7 +17930,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -17949,7 +17950,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_advertise_backup(self, **kwargs):
         """Auto Generated Code
         """
@@ -17968,7 +17969,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_vrrpe_garp_timer(self, **kwargs):
         """Auto Generated Code
         """
@@ -17988,7 +17989,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_backup_advertisement_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -18008,7 +18009,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_short_path_forwarding_basic(self, **kwargs):
         """Auto Generated Code
         """
@@ -18028,7 +18029,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_short_path_forwarding_revert_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -18049,7 +18050,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_ve_vrrpe_advertisement_interval_scale(self, **kwargs):
         """Auto Generated Code
         """
@@ -18069,7 +18070,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -18084,7 +18085,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_intf_loopback_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -18101,7 +18102,523 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_ip_config_address_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        ip_config = ET.SubElement(ip, "ip-config")
+        address = ET.SubElement(ip_config, "address")
+        address = ET.SubElement(address, "address")
+        address.text = kwargs.pop('address')
 
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_area(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        area = ET.SubElement(ospf1, "area")
+        area.text = kwargs.pop('area')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_auth_change_wait_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        auth_change_wait_time = ET.SubElement(ospf1, "auth-change-wait-time")
+        auth_change_wait_time.text = kwargs.pop('auth_change_wait_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_no_encrypt_auth_key_table_no_encrypt_auth_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        no_encrypt_auth_key_table = ET.SubElement(authentication_key, "no-encrypt-auth-key-table")
+        no_encrypt_auth_key = ET.SubElement(no_encrypt_auth_key_table, "no-encrypt-auth-key")
+        no_encrypt_auth_key.text = kwargs.pop('no_encrypt_auth_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_auth_key_table_encrypttype(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
+        encrypttype = ET.SubElement(auth_key_table, "encrypttype")
+        encrypttype.text = kwargs.pop('encrypttype')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_auth_key_table_auth_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        authentication_key = ET.SubElement(ospf1, "authentication-key")
+        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
+        auth_key = ET.SubElement(auth_key_table, "auth-key")
+        auth_key.text = kwargs.pop('auth_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_dead_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        dead_interval = ET.SubElement(ospf1, "dead-interval")
+        dead_interval.text = kwargs.pop('dead_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_hello_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        hello_interval = ET.SubElement(ospf1, "hello-interval")
+        hello_interval.text = kwargs.pop('hello_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_retransmit_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        retransmit_interval = ET.SubElement(ospf1, "retransmit-interval")
+        retransmit_interval.text = kwargs.pop('retransmit_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_transmit_delay(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        transmit_delay = ET.SubElement(ospf1, "transmit-delay")
+        transmit_delay.text = kwargs.pop('transmit_delay')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_activation_wait_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_activation_wait_time = ET.SubElement(md5_authentication, "key-activation-wait-time")
+        key_activation_wait_time.text = kwargs.pop('key_activation_wait_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
+        no_encrypt_key_id = ET.SubElement(no_encrypt_key_table, "no-encrypt-key-id")
+        no_encrypt_key_id.text = kwargs.pop('no_encrypt_key_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
+        no_encrypt_key = ET.SubElement(no_encrypt_key_table, "no-encrypt-key")
+        no_encrypt_key.text = kwargs.pop('no_encrypt_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_key_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        key_id = ET.SubElement(key_table, "key-id")
+        key_id.text = kwargs.pop('key_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        key = ET.SubElement(key_table, "key")
+        key.text = kwargs.pop('key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_md5_authentication_key(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
+        key_table = ET.SubElement(md5_authentication, "key-table")
+        md5_authentication_key = ET.SubElement(key_table, "md5-authentication-key")
+        md5_authentication_key.text = kwargs.pop('md5_authentication_key')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_cost(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        cost = ET.SubElement(ospf1, "cost")
+        cost.text = kwargs.pop('cost')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_out(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_out = ET.SubElement(database_filter, "all-out")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_external(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_external = ET.SubElement(database_filter, "all-external")
+        all_external.text = kwargs.pop('all_external')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_summary_external(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        database_filter = ET.SubElement(ospf1, "database-filter")
+        all_summary_external = ET.SubElement(database_filter, "all-summary-external")
+        all_summary_external.text = kwargs.pop('all_summary_external')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_mtu_ignore(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        mtu_ignore = ET.SubElement(ospf1, "mtu-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_network(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        network = ET.SubElement(ospf1, "network")
+        network.text = kwargs.pop('network')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_active(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        active = ET.SubElement(ospf1, "active")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_passive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        passive = ET.SubElement(ospf1, "passive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
+        id_key = ET.SubElement(loopback, "id")
+        id_key.text = kwargs.pop('id')
+        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
+        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
+        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
+        priority = ET.SubElement(ospf1, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_use_link_local_only(self, **kwargs):
         """Auto Generated Code
         """
@@ -18120,7 +18637,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_link_local_config_link_local_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -18141,7 +18658,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_link_local_config_link_local(self, **kwargs):
         """Auto Generated Code
         """
@@ -18161,7 +18678,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_ipv6_address_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -18182,7 +18699,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_ipv6_address_eui64(self, **kwargs):
         """Auto Generated Code
         """
@@ -18204,7 +18721,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_ipv6_config_address_ipv6_address_anycast(self, **kwargs):
         """Auto Generated Code
         """
@@ -18226,7 +18743,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_interface_area(self, **kwargs):
         """Auto Generated Code
         """
@@ -18245,7 +18762,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_active(self, **kwargs):
         """Auto Generated Code
         """
@@ -18263,7 +18780,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_passive(self, **kwargs):
         """Auto Generated Code
         """
@@ -18281,7 +18798,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_bfd(self, **kwargs):
         """Auto Generated Code
         """
@@ -18299,7 +18816,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_cost(self, **kwargs):
         """Auto Generated Code
         """
@@ -18318,7 +18835,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -18337,7 +18854,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_mtu_ignore(self, **kwargs):
         """Auto Generated Code
         """
@@ -18355,7 +18872,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_network(self, **kwargs):
         """Auto Generated Code
         """
@@ -18374,7 +18891,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -18393,7 +18910,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_suppress_linklsa(self, **kwargs):
         """Auto Generated Code
         """
@@ -18411,7 +18928,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_spi(self, **kwargs):
         """Auto Generated Code
         """
@@ -18432,7 +18949,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah(self, **kwargs):
         """Auto Generated Code
         """
@@ -18455,7 +18972,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -18477,7 +18994,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_ah_algorithm_ah_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -18500,7 +19017,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp(self, **kwargs):
         """Auto Generated Code
         """
@@ -18523,7 +19040,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -18545,7 +19062,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -18568,7 +19085,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth(self, **kwargs):
         """Auto Generated Code
         """
@@ -18591,7 +19108,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_no_encrypt(self, **kwargs):
         """Auto Generated Code
         """
@@ -18613,7 +19130,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_auth_key_config_ch_algorithm_ca_esp_algorithm_esp_auth_key(self, **kwargs):
         """Auto Generated Code
         """
@@ -18636,7 +19153,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_ipsec_authentication_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -18656,7 +19173,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_authentication_ipsec_ifc_key_add_remove_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -18677,7 +19194,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_link_interval_properties_hello_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -18697,7 +19214,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_link_interval_properties_dead_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -18717,7 +19234,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_link_interval_properties_hello_jitter(self, **kwargs):
         """Auto Generated Code
         """
@@ -18737,7 +19254,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_link_interval_properties_retransmit_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -18757,7 +19274,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_interface_loopback_ipv6_interface_ospfv3_conf_link_interval_properties_transmit_delay(self, **kwargs):
         """Auto Generated Code
         """
@@ -18777,523 +19294,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
-    def rbridge_id_interface_loopback_ip_ip_config_address_address(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        ip_config = ET.SubElement(ip, "ip-config")
-        address = ET.SubElement(ip_config, "address")
-        address = ET.SubElement(address, "address")
-        address.text = kwargs.pop('address')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_area(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        area = ET.SubElement(ospf1, "area")
-        area.text = kwargs.pop('area')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_auth_change_wait_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        auth_change_wait_time = ET.SubElement(ospf1, "auth-change-wait-time")
-        auth_change_wait_time.text = kwargs.pop('auth_change_wait_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_no_encrypt_auth_key_table_no_encrypt_auth_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        no_encrypt_auth_key_table = ET.SubElement(authentication_key, "no-encrypt-auth-key-table")
-        no_encrypt_auth_key = ET.SubElement(no_encrypt_auth_key_table, "no-encrypt-auth-key")
-        no_encrypt_auth_key.text = kwargs.pop('no_encrypt_auth_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_auth_key_table_encrypttype(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
-        encrypttype = ET.SubElement(auth_key_table, "encrypttype")
-        encrypttype.text = kwargs.pop('encrypttype')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_authentication_key_auth_key_table_auth_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        authentication_key = ET.SubElement(ospf1, "authentication-key")
-        auth_key_table = ET.SubElement(authentication_key, "auth-key-table")
-        auth_key = ET.SubElement(auth_key_table, "auth-key")
-        auth_key.text = kwargs.pop('auth_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_dead_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        dead_interval = ET.SubElement(ospf1, "dead-interval")
-        dead_interval.text = kwargs.pop('dead_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_hello_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        hello_interval = ET.SubElement(ospf1, "hello-interval")
-        hello_interval.text = kwargs.pop('hello_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_retransmit_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        retransmit_interval = ET.SubElement(ospf1, "retransmit-interval")
-        retransmit_interval.text = kwargs.pop('retransmit_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_transmit_delay(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        transmit_delay = ET.SubElement(ospf1, "transmit-delay")
-        transmit_delay.text = kwargs.pop('transmit_delay')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_activation_wait_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_activation_wait_time = ET.SubElement(md5_authentication, "key-activation-wait-time")
-        key_activation_wait_time.text = kwargs.pop('key_activation_wait_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key_id(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
-        no_encrypt_key_id = ET.SubElement(no_encrypt_key_table, "no-encrypt-key-id")
-        no_encrypt_key_id.text = kwargs.pop('no_encrypt_key_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_no_encrypt_key_table_no_encrypt_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        no_encrypt_key_table = ET.SubElement(md5_authentication, "no-encrypt-key-table")
-        no_encrypt_key = ET.SubElement(no_encrypt_key_table, "no-encrypt-key")
-        no_encrypt_key.text = kwargs.pop('no_encrypt_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_key_id(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        key_id = ET.SubElement(key_table, "key-id")
-        key_id.text = kwargs.pop('key_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        key = ET.SubElement(key_table, "key")
-        key.text = kwargs.pop('key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_md5_authentication_key_table_md5_authentication_key(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        md5_authentication = ET.SubElement(ospf1, "md5-authentication")
-        key_table = ET.SubElement(md5_authentication, "key-table")
-        md5_authentication_key = ET.SubElement(key_table, "md5-authentication-key")
-        md5_authentication_key.text = kwargs.pop('md5_authentication_key')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_cost(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        cost = ET.SubElement(ospf1, "cost")
-        cost.text = kwargs.pop('cost')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_out(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_out = ET.SubElement(database_filter, "all-out")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_external(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_external = ET.SubElement(database_filter, "all-external")
-        all_external.text = kwargs.pop('all_external')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_database_filter_all_summary_external(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        database_filter = ET.SubElement(ospf1, "database-filter")
-        all_summary_external = ET.SubElement(database_filter, "all-summary-external")
-        all_summary_external.text = kwargs.pop('all_summary_external')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_mtu_ignore(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        mtu_ignore = ET.SubElement(ospf1, "mtu-ignore")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_network(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        network = ET.SubElement(ospf1, "network")
-        network.text = kwargs.pop('network')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_active(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        active = ET.SubElement(ospf1, "active")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_passive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        passive = ET.SubElement(ospf1, "passive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
-    def rbridge_id_interface_loopback_ip_interface_loopback_ospf_conf_ospf1_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
-        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
-        rbridge_id_key.text = kwargs.pop('rbridge_id')
-        interface = ET.SubElement(rbridge_id, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        loopback = ET.SubElement(interface, "loopback", xmlns="urn:brocade.com:mgmt:brocade-intf-loopback")
-        id_key = ET.SubElement(loopback, "id")
-        id_key.text = kwargs.pop('id')
-        ip = ET.SubElement(loopback, "ip", xmlns="urn:brocade.com:mgmt:brocade-ip-config")
-        interface_loopback_ospf_conf = ET.SubElement(ip, "interface-loopback-ospf-conf", xmlns="urn:brocade.com:mgmt:brocade-ospf")
-        ospf1 = ET.SubElement(interface_loopback_ospf_conf, "ospf1")
-        priority = ET.SubElement(ospf1, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-
+        
     def rbridge_id_vrf_vrf_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -19307,7 +19308,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_route_distiniguisher(self, **kwargs):
         """Auto Generated Code
         """
@@ -19323,7 +19324,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_route_target_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -19342,7 +19343,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_route_target_target_community(self, **kwargs):
         """Auto Generated Code
         """
@@ -19361,7 +19362,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_max_route(self, **kwargs):
         """Auto Generated Code
         """
@@ -19380,7 +19381,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_arp_ip_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -19400,7 +19401,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_mac_address_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -19422,7 +19423,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacename(self, **kwargs):
         """Auto Generated Code
         """
@@ -19444,7 +19445,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacetype_GigabitEthernet_GigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -19468,7 +19469,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacetype_TenGigabitEthernet_TenGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -19492,7 +19493,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacetype_FortyGigabitEthernet_FortyGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -19516,7 +19517,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacetype_HundredGigabitEthernet_HundredGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -19540,7 +19541,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_arp_entry_interfacetype_Ve_Ve(self, **kwargs):
         """Auto Generated Code
         """
@@ -19564,7 +19565,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -19588,7 +19589,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -19612,7 +19613,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -19639,7 +19640,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -19666,7 +19667,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -19693,7 +19694,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_vrf_static_route_next_vrf_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -19719,7 +19720,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_vrf_next_hop_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -19745,7 +19746,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_nh_vrf_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -19771,7 +19772,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -19797,7 +19798,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_static_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -19823,7 +19824,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_static_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -19849,7 +19850,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -19878,7 +19879,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -19907,7 +19908,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_route_static_route_oif_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -19936,7 +19937,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_imprt_routes_src_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -19960,7 +19961,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ip_unicast_ip_imprt_routes_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -19984,7 +19985,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_max_route(self, **kwargs):
         """Auto Generated Code
         """
@@ -20003,7 +20004,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -20027,7 +20028,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -20051,7 +20052,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -20078,7 +20079,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -20105,7 +20106,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -20132,7 +20133,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -20158,7 +20159,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_static_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -20184,7 +20185,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_static_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -20210,7 +20211,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -20239,7 +20240,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -20268,7 +20269,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_oif_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -20297,7 +20298,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_link_local_static_route_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -20325,7 +20326,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_link_local_nexthop(self, **kwargs):
         """Auto Generated Code
         """
@@ -20353,7 +20354,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_link_local_route_oif_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -20381,7 +20382,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_link_local_route_oif_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -20409,7 +20410,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_route_attributes_metric(self, **kwargs):
         """Auto Generated Code
         """
@@ -20440,7 +20441,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_route_attributes_distance(self, **kwargs):
         """Auto Generated Code
         """
@@ -20471,7 +20472,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_link_local_static_route_nh_route_attributes_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -20502,7 +20503,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_vrf_static_route_next_vrf_dest(self, **kwargs):
         """Auto Generated Code
         """
@@ -20528,7 +20529,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_vrf_next_hop_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -20554,7 +20555,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_route_static_route_nh_vrf_static_route_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -20580,7 +20581,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_imprt_routes_src_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -20604,7 +20605,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_address_family_ipv6_unicast_ipv6_imprt_routes_route_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -20628,7 +20629,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrf_ip_vrf_router_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -20645,7 +20646,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_max_arp(self, **kwargs):
         """Auto Generated Code
         """
@@ -20659,7 +20660,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_arp_ip_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -20673,7 +20674,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_mac_address_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -20689,7 +20690,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacename(self, **kwargs):
         """Auto Generated Code
         """
@@ -20705,7 +20706,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacetype_GigabitEthernet_GigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -20723,7 +20724,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacetype_TenGigabitEthernet_TenGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -20741,7 +20742,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacetype_FortyGigabitEthernet_FortyGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -20759,7 +20760,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacetype_HundredGigabitEthernet_HundredGigabitEthernet(self, **kwargs):
         """Auto Generated Code
         """
@@ -20777,7 +20778,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_arp_entry_interfacetype_Ve_Ve(self, **kwargs):
         """Auto Generated Code
         """
@@ -20795,7 +20796,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vcs_auto_shut_lag(self, **kwargs):
         """Auto Generated Code
         """
@@ -20809,7 +20810,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_bp_rate_limit_heavy_bp_rate_limit_slot_range(self, **kwargs):
         """Auto Generated Code
         """
@@ -20824,7 +20825,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_chassis_virtual_ip(self, **kwargs):
         """Auto Generated Code
         """
@@ -20838,7 +20839,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_chassis_virtual_ipv6(self, **kwargs):
         """Auto Generated Code
         """
@@ -20852,7 +20853,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_chassis_oper_address_virtual_oper_Vip_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -20867,7 +20868,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_clock_timezone(self, **kwargs):
         """Auto Generated Code
         """
@@ -20881,7 +20882,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_crypto_key_label(self, **kwargs):
         """Auto Generated Code
         """
@@ -20896,7 +20897,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_crypto_key_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -20913,7 +20914,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_crypto_key_modulus(self, **kwargs):
         """Auto Generated Code
         """
@@ -20930,7 +20931,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_crypto_ca_trustpoint(self, **kwargs):
         """Auto Generated Code
         """
@@ -20945,7 +20946,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_crypto_ca_keypair(self, **kwargs):
         """Auto Generated Code
         """
@@ -20962,7 +20963,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_default_config_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -20975,7 +20976,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_ecmp_ecmp_load_balance(self, **kwargs):
         """Auto Generated Code
         """
@@ -20990,7 +20991,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_ecmp_load_balance_hash_swap(self, **kwargs):
         """Auto Generated Code
         """
@@ -21005,7 +21006,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_route_mcast_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -21021,7 +21022,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_port_channel_po_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -21036,7 +21037,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_port_channel_vlag_load_balance(self, **kwargs):
         """Auto Generated Code
         """
@@ -21053,7 +21054,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fabric_login_policy_duplicateWWN_precedence(self, **kwargs):
         """Auto Generated Code
         """
@@ -21069,7 +21070,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcsp_auth_proto_auth_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -21085,7 +21086,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcsp_auth_proto_group(self, **kwargs):
         """Auto Generated Code
         """
@@ -21101,7 +21102,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcsp_auth_proto_hash(self, **kwargs):
         """Auto Generated Code
         """
@@ -21117,7 +21118,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcsp_auth_policy_switch(self, **kwargs):
         """Auto Generated Code
         """
@@ -21133,7 +21134,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_secpolicy_defined_policy_policies_policy(self, **kwargs):
         """Auto Generated Code
         """
@@ -21149,7 +21150,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_secpolicy_defined_policy_policies_member_entry_member(self, **kwargs):
         """Auto Generated Code
         """
@@ -21168,7 +21169,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_secpolicy_active_policy_policies_policy(self, **kwargs):
         """Auto Generated Code
         """
@@ -21184,7 +21185,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_secpolicy_active_policy_policies_member_entry_member(self, **kwargs):
         """Auto Generated Code
         """
@@ -21203,7 +21204,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcoe_config_fcoe_enode_fabric_map_fcoe_enode_fabric_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -21218,7 +21219,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_fcoe_config_fcoe_max_enode(self, **kwargs):
         """Auto Generated Code
         """
@@ -21232,7 +21233,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_hardware_profile_tcam_predefined_tcam_profiletype(self, **kwargs):
         """Auto Generated Code
         """
@@ -21248,7 +21249,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_hardware_profile_route_table_predefined_routing_profiletype(self, **kwargs):
         """Auto Generated Code
         """
@@ -21264,7 +21265,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_http_server_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -21278,7 +21279,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -21296,7 +21297,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_action_rm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21314,7 +21315,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_instance(self, **kwargs):
         """Auto Generated Code
         """
@@ -21332,7 +21333,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ipv6_address_ipv6_prefix_list_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21356,7 +21357,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ipv6_address_ipv6_acl_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21380,7 +21381,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ipv6_next_hop_ipv6_prefix_list_rmm_n(self, **kwargs):
         """Auto Generated Code
         """
@@ -21404,7 +21405,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ipv6_route_source_ipv6_prefix_list_rmrs(self, **kwargs):
         """Auto Generated Code
         """
@@ -21428,7 +21429,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ip_address_prefix_list_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21452,7 +21453,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ip_address_acl_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21476,7 +21477,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ip_next_hop_prefix_list_rmm_n(self, **kwargs):
         """Auto Generated Code
         """
@@ -21500,7 +21501,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_ip_route_source_prefix_list_rmrs(self, **kwargs):
         """Auto Generated Code
         """
@@ -21524,7 +21525,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_extcommunity_extcommunity_num(self, **kwargs):
         """Auto Generated Code
         """
@@ -21547,7 +21548,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_metric_metric_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21570,7 +21571,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_route_type_route_type_rmm(self, **kwargs):
         """Auto Generated Code
         """
@@ -21593,7 +21594,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_as_path_as_path_access_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -21616,7 +21617,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_community_community_access_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -21639,7 +21640,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_next_hop_next_hop_filter_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -21662,7 +21663,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_protocol_protocol_static_container_static(self, **kwargs):
         """Auto Generated Code
         """
@@ -21685,7 +21686,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_protocol_bgp_protocol_container_protocol_bgp(self, **kwargs):
         """Auto Generated Code
         """
@@ -21708,7 +21709,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_match_protocol_bgp_protocol_container_bgp_route_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -21732,7 +21733,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_dscp_dscp_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -21756,7 +21757,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_interface_null0(self, **kwargs):
         """Auto Generated Code
         """
@@ -21779,7 +21780,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_next_hop_peer_address(self, **kwargs):
         """Auto Generated Code
         """
@@ -21802,7 +21803,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_globl_next_global_hop_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -21827,7 +21828,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_next_ip_next_hop_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -21852,7 +21853,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_next_vrf_next_vrf_list_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -21879,7 +21880,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ip_next_vrf_next_vrf_list_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -21906,7 +21907,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ipv6_interface_ipv6_null0(self, **kwargs):
         """Auto Generated Code
         """
@@ -21929,7 +21930,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ipv6_globl_next_global_hop_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -21954,7 +21955,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ipv6_next_ip_next_hop_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -21979,7 +21980,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ipv6_next_vrf_next_vrf_list_vrf(self, **kwargs):
         """Auto Generated Code
         """
@@ -22006,7 +22007,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_ipv6_next_vrf_next_vrf_list_next_hop(self, **kwargs):
         """Auto Generated Code
         """
@@ -22033,7 +22034,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_extcommunity_rt_ASN_NN_rt(self, **kwargs):
         """Auto Generated Code
         """
@@ -22057,7 +22058,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_extcommunity_soo_ASN_NN_soo(self, **kwargs):
         """Auto Generated Code
         """
@@ -22081,7 +22082,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_community_set_community_expr(self, **kwargs):
         """Auto Generated Code
         """
@@ -22104,7 +22105,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_delta_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -22127,7 +22128,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_metric_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -22150,7 +22151,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_distance_dist_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -22173,7 +22174,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_route_type_route_type_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -22196,7 +22197,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_tag_tag_rms(self, **kwargs):
         """Auto Generated Code
         """
@@ -22219,7 +22220,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_weight_weight_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -22242,7 +22243,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_as_path_aspath_tag(self, **kwargs):
         """Auto Generated Code
         """
@@ -22264,7 +22265,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_as_path_prepend(self, **kwargs):
         """Auto Generated Code
         """
@@ -22287,7 +22288,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_automatic_tag_tag_empty(self, **kwargs):
         """Auto Generated Code
         """
@@ -22309,7 +22310,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_comm_list_comm_list_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -22332,7 +22333,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_comm_list_match_comm_delete(self, **kwargs):
         """Auto Generated Code
         """
@@ -22354,7 +22355,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_dampening_half_life(self, **kwargs):
         """Auto Generated Code
         """
@@ -22377,7 +22378,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_dampening_reuse(self, **kwargs):
         """Auto Generated Code
         """
@@ -22400,7 +22401,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_dampening_suppress(self, **kwargs):
         """Auto Generated Code
         """
@@ -22423,7 +22424,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_dampening_max_suppress_time(self, **kwargs):
         """Auto Generated Code
         """
@@ -22446,7 +22447,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_local_preference_local_preference_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -22469,7 +22470,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_origin_origin_igp(self, **kwargs):
         """Auto Generated Code
         """
@@ -22491,7 +22492,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_origin_origin_incomplete(self, **kwargs):
         """Auto Generated Code
         """
@@ -22513,7 +22514,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_type_external(self, **kwargs):
         """Auto Generated Code
         """
@@ -22535,7 +22536,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_type_internal(self, **kwargs):
         """Auto Generated Code
         """
@@ -22557,7 +22558,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_type_type_1(self, **kwargs):
         """Auto Generated Code
         """
@@ -22579,7 +22580,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_set_metric_type_type_2(self, **kwargs):
         """Auto Generated Code
         """
@@ -22601,7 +22602,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_continue_holder_cont(self, **kwargs):
         """Auto Generated Code
         """
@@ -22622,7 +22623,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_route_map_content_continue_holder_continue_val(self, **kwargs):
         """Auto Generated Code
         """
@@ -22644,7 +22645,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_filter_change_update_delay_filter_delay_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -22658,7 +22659,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_global_lc_holder_linecard_linecards_linecardName(self, **kwargs):
         """Auto Generated Code
         """
@@ -22674,7 +22675,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_global_lc_holder_linecard_linecards_linecardType(self, **kwargs):
         """Auto Generated Code
         """
@@ -22692,7 +22693,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_logical_chassis_principal_priority(self, **kwargs):
         """Auto Generated Code
         """
@@ -22706,7 +22707,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_maps_enable_policy(self, **kwargs):
         """Auto Generated Code
         """
@@ -22721,7 +22722,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_maps_enable_actions(self, **kwargs):
         """Auto Generated Code
         """
@@ -22736,7 +22737,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_maps_email_email_list_email(self, **kwargs):
         """Auto Generated Code
         """
@@ -22752,7 +22753,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_maps_relay_hostip(self, **kwargs):
         """Auto Generated Code
         """
@@ -22767,7 +22768,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_maps_relay_domainname(self, **kwargs):
         """Auto Generated Code
         """
@@ -22784,7 +22785,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_qos_tx_queue_tx_queue_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -22799,7 +22800,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_qos_rcv_queue_rcv_queue_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -22814,7 +22815,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_telnet_server_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -22828,7 +22829,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_telnet_server_standby_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -22843,7 +22844,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -22857,7 +22858,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_key_exchange_protocol(self, **kwargs):
         """Auto Generated Code
         """
@@ -22873,7 +22874,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_rekey_interval(self, **kwargs):
         """Auto Generated Code
         """
@@ -22888,7 +22889,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_cipher(self, **kwargs):
         """Auto Generated Code
         """
@@ -22903,7 +22904,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_standby_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -22918,7 +22919,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_key_rsa(self, **kwargs):
         """Auto Generated Code
         """
@@ -22934,7 +22935,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_key_ecdsa(self, **kwargs):
         """Auto Generated Code
         """
@@ -22950,7 +22951,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_server_key_dsa(self, **kwargs):
         """Auto Generated Code
         """
@@ -22965,7 +22966,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_ssh_client_cipher(self, **kwargs):
         """Auto Generated Code
         """
@@ -22980,7 +22981,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_engineID_local(self, **kwargs):
         """Auto Generated Code
         """
@@ -22995,7 +22996,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_username(self, **kwargs):
         """Auto Generated Code
         """
@@ -23010,7 +23011,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_groupname(self, **kwargs):
         """Auto Generated Code
         """
@@ -23027,7 +23028,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_auth(self, **kwargs):
         """Auto Generated Code
         """
@@ -23044,7 +23045,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_auth_password(self, **kwargs):
         """Auto Generated Code
         """
@@ -23061,7 +23062,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_priv(self, **kwargs):
         """Auto Generated Code
         """
@@ -23078,7 +23079,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_priv_password(self, **kwargs):
         """Auto Generated Code
         """
@@ -23095,7 +23096,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_user_encrypted(self, **kwargs):
         """Auto Generated Code
         """
@@ -23111,7 +23112,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_hostip(self, **kwargs):
         """Auto Generated Code
         """
@@ -23128,7 +23129,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_username(self, **kwargs):
         """Auto Generated Code
         """
@@ -23145,7 +23146,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_udp_port(self, **kwargs):
         """Auto Generated Code
         """
@@ -23164,7 +23165,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_notifytype(self, **kwargs):
         """Auto Generated Code
         """
@@ -23183,7 +23184,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_engineid(self, **kwargs):
         """Auto Generated Code
         """
@@ -23202,7 +23203,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_snmp_server_v3host_severity_level(self, **kwargs):
         """Auto Generated Code
         """
@@ -23221,7 +23222,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_fan_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23237,7 +23238,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_fan_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23253,7 +23254,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_fan_alert_state(self, **kwargs):
         """Auto Generated Code
         """
@@ -23269,7 +23270,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_fan_alert_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23285,7 +23286,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_power_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23301,7 +23302,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_power_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23317,7 +23318,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_power_alert_state(self, **kwargs):
         """Auto Generated Code
         """
@@ -23333,7 +23334,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_power_alert_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23349,7 +23350,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_temp_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23365,7 +23366,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_temp_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23381,7 +23382,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_cid_card_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23397,7 +23398,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_cid_card_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23413,7 +23414,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_cid_card_alert_state(self, **kwargs):
         """Auto Generated Code
         """
@@ -23429,7 +23430,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_cid_card_alert_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23445,7 +23446,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_sfp_alert_state(self, **kwargs):
         """Auto Generated Code
         """
@@ -23461,7 +23462,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_sfp_alert_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23477,7 +23478,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_compact_flash_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23493,7 +23494,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_compact_flash_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23509,7 +23510,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_MM_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23525,7 +23526,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_MM_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23541,7 +23542,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_LineCard_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23557,7 +23558,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_LineCard_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23573,7 +23574,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_LineCard_alert_state(self, **kwargs):
         """Auto Generated Code
         """
@@ -23589,7 +23590,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_LineCard_alert_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23605,7 +23606,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_SFM_threshold_marginal_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23621,7 +23622,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_system_monitor_SFM_threshold_down_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23637,7 +23638,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_apply(self, **kwargs):
         """Auto Generated Code
         """
@@ -23652,7 +23653,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_pause(self, **kwargs):
         """Auto Generated Code
         """
@@ -23666,7 +23667,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_policy_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -23682,7 +23683,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -23703,7 +23704,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_area_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -23724,7 +23725,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_threshold_high_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23748,7 +23749,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_threshold_low_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23772,7 +23773,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_threshold_buffer(self, **kwargs):
         """Auto Generated Code
         """
@@ -23796,7 +23797,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_alert_above_above_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23821,7 +23822,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_alert_below_below_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23846,7 +23847,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_sfp_policy_area_alert_below_below_lowthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -23871,7 +23872,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_apply(self, **kwargs):
         """Auto Generated Code
         """
@@ -23886,7 +23887,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_pause(self, **kwargs):
         """Auto Generated Code
         """
@@ -23900,7 +23901,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_sec_policy_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -23916,7 +23917,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_sec_area_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -23935,7 +23936,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_timebase(self, **kwargs):
         """Auto Generated Code
         """
@@ -23956,7 +23957,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_threshold_sec_high_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -23978,7 +23979,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_threshold_sec_low_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -24000,7 +24001,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_threshold_sec_buffer(self, **kwargs):
         """Auto Generated Code
         """
@@ -24022,7 +24023,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_alert_above_sec_above_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24045,7 +24046,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_alert_below_sec_below_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24068,7 +24069,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_security_policy_area_alert_below_sec_below_lowthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24091,7 +24092,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Cpu_poll(self, **kwargs):
         """Auto Generated Code
         """
@@ -24106,7 +24107,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Cpu_retry(self, **kwargs):
         """Auto Generated Code
         """
@@ -24121,7 +24122,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Cpu_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -24136,7 +24137,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Cpu_actions(self, **kwargs):
         """Auto Generated Code
         """
@@ -24151,7 +24152,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_poll(self, **kwargs):
         """Auto Generated Code
         """
@@ -24166,7 +24167,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_retry(self, **kwargs):
         """Auto Generated Code
         """
@@ -24181,7 +24182,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -24196,7 +24197,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_high_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -24211,7 +24212,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_low_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -24226,7 +24227,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_Memory_actions(self, **kwargs):
         """Auto Generated Code
         """
@@ -24241,7 +24242,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_apply(self, **kwargs):
         """Auto Generated Code
         """
@@ -24256,7 +24257,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_pause(self, **kwargs):
         """Auto Generated Code
         """
@@ -24270,7 +24271,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_policy_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -24286,7 +24287,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -24307,7 +24308,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_area_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -24328,7 +24329,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_threshold_timebase_value(self, **kwargs):
         """Auto Generated Code
         """
@@ -24352,7 +24353,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_threshold_high_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -24376,7 +24377,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_threshold_low_threshold(self, **kwargs):
         """Auto Generated Code
         """
@@ -24400,7 +24401,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_threshold_buffer(self, **kwargs):
         """Auto Generated Code
         """
@@ -24424,7 +24425,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_alert_above_above_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24449,7 +24450,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_alert_above_above_lowthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24474,7 +24475,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_alert_below_below_highthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24499,7 +24500,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_threshold_monitor_interface_policy_area_alert_below_below_lowthresh_action(self, **kwargs):
         """Auto Generated Code
         """
@@ -24524,7 +24525,7 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
-
+        
     def rbridge_id_vrrp_rbridge_global_vrrp_acceptmode_disable(self, **kwargs):
         """Auto Generated Code
         """
@@ -24537,3 +24538,4 @@ class brocade_rbridge(object):
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
+        
