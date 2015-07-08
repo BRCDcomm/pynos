@@ -907,14 +907,64 @@ class Interface(object):
         pass
 
     def lacp_timeout(self, **kwargs):
-        """Configure LACP timeout.
+        """Set lacp timeout.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            timeout (str):  Timeout length.  (short, long)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `timeout` is not specified.
+
+            ValueError: if `int_type`, `name`, or `timeout is not valid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.lacp_timeout(
+            ... int_type='tengigabitethernet',
+            ... name='225/0/38',
+            ... timeout='long')
+            >>> dev.interface.lacp_timeout() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        timeout = kwargs.pop('timeout')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet'
+            ]
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        valid_timeouts = ['long', 'short']
+        if timeout not in valid_timeouts:
+            raise ValueError("Incorrect timeout value")
+
+        timeout_args = dict(name=name, timeout=timeout)
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+                raise ValueError("Incorrect name value.")
+
+        config = getattr(
+                self._interface,
+                'interface_%s_lacp_timeout' % int_type
+                )(**timeout_args)
+        return callback(config)
