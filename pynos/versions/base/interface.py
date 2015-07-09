@@ -1573,17 +1573,54 @@ class Interface(object):
         return callback(config)
 
     def port_channel_vlag_ignore_split(self, **kwargs):
-        """Ignore VLAG Splits.
+        """Ignore VLAG Split.
 
         Args:
+            name (str): Port-channel number. (1, 5, etc)
+            enabled (bool): Is ignore split enabled? (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `name` or `enable` is not specified.
+            ValueError: if `name` is not a valid value.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.interface.port_channel_vlag_ignore_split(
+            ... name='1', enabled=True)
+            >>> dev.interface.port_channel_vlag_ignore_split()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+            >>> output = dev._mgr.close_session()
         """
-        pass
+        name = str(kwargs.pop('name'))
+        enabled = bool(kwargs.pop('enabled'))
+        callback = kwargs.pop('callback', self._callback)
+
+        vlag_ignore_args = dict(name=name)
+
+        if re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError("`name` must match x")
+
+        config = getattr(
+            self._interface,
+            'interface_port_channel_vlag_ignore_split'
+            )(**vlag_ignore_args)
+
+        if not enabled:
+            ignore_split = config.find('.//*ignore-split')
+            ignore_split.set('operation', 'delete')
+
+        return callback(config)
 
     def trunk_mode(self, **kwargs):
         """Set trunk mode (trunk, trunk-no-default-vlan).
