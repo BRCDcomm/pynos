@@ -1713,9 +1713,17 @@ class Interface(object):
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/39'
+            >>> output = dev.interface.channel_group(
+            ... int_type=int_type,
+            ... name=name,
+            ... port_int='1',
+            ... channel_type='standard',
+            ... mode='active')
             >>> output = dev.interface.lacp_timeout(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
+            ... int_type=int_type,
+            ... name=name,
             ... timeout='long')
             >>> dev.interface.lacp_timeout() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
