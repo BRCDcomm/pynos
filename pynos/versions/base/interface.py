@@ -378,7 +378,7 @@ class Interface(object):
         desc_args = dict(name=name, description=desc)
 
         if int_type == "vlan":
-            if re.search('^[0-9]{1,4}$', name) is None:
+            if not pynos.utilities.valid_vlan_id(name):
                 raise ValueError("`name` must be between `1` and `4096`")
 
             config = self._interface.interface_vlan_interface_vlan_description(
@@ -432,7 +432,7 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
         allowed_pvlan_types = ['isolated', 'primary', 'community']
 
-        if re.search('^[0-9]{1,4}$', name) is None:
+        if not pynos.utilities.valid_vlan_id(name):
             raise ValueError("Incorrect name value.")
 
         if pvlan_type not in allowed_pvlan_types:
@@ -483,8 +483,10 @@ class Interface(object):
         sec_vlan = kwargs.pop('sec_vlan')
         callback = kwargs.pop('callback', self._callback)
 
-        if re.search('^[0-9]{1,4}$', name) is None:
+        if not pynos.utilities.valid_vlan_id(name):
             raise ValueError("Incorrect name value.")
+        if not pynos.utilities.valid_vlan_id(sec_vlan):
+            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
 
         pvlan_args = dict(name=name, sec_assoc_add=sec_vlan)
         config = self._interface.interface_vlan_interface_vlan_private_vlan_association_sec_assoc_add(**pvlan_args)
@@ -554,6 +556,11 @@ class Interface(object):
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError("Incorrect name value.")
+
+        if not pynos.utilities.valid_vlan_id(pri_vlan):
+            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
+        if not pynos.utilities.valid_vlan_id(sec_vlan):
+            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
 
         pvlan_args = dict(name=name, host_pri_pvlan=pri_vlan)
 
@@ -1590,8 +1597,9 @@ class Interface(object):
         service_id = kwargs.pop('service_id')
         callback = kwargs.pop('callback', self._callback)
 
-        if re.search('^[0-9]{1,4}$', vlan) is None:
-            raise ValueError("Incorrect vlan value.")
+        if not pynos.utilities.valid_vlan_id(vlan):
+            raise ValueError("%s must be between `1` and `4096`" %
+                             repr(vlan))
 
         service_args = dict(name=vlan, transport_service=service_id)
         config = self._interface.interface_vlan_interface_vlan_transport_service(**service_args)
