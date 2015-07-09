@@ -658,17 +658,102 @@ class Interface(object):
         pass
 
     def trunk_allowed_vlan(self, **kwargs):
-        """Set trunk allowed VLAN. (includes ctags)
+        """Modify allowed VLANs on Trunk (add, remove, none, all).
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            action (str): Action to take on trunk. (add, remove, none, all)
+            vlan (str): vlan id for action. Only valid for add and remove.
+            ctag (str): ctag range. Only valid for add and remove.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mode` is not specified.
+            ValueError: if `int_type`, `name`, or `mode` is invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.226', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '226/0/4'
+            >>> output = dev.interface.enable_switchport(int_type, name)
+            >>> output = dev.interface.trunk_mode(int_type=int_type, name=name,
+            ... mode='trunk')
+            >>> output = dev.interface.trunk_allowed_vlan(int_type=int_type,
+            ... name=name, action='add', ctag='25', vlan='8000')
+            >>> dev.interface.private_vlan_mode()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+            >>> output = dev._mgr.close_session()
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        action = kwargs.pop('action')
+        ctag = kwargs.pop('ctag', None)
+        vlan = kwargs.pop('vlan', None)
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+        valid_actions = ['add', 'remove', 'none', 'all']
+
+        if int_type not in int_types:
+            raise ValueError("`int_type` must be one of: %s" %
+                             repr(int_types))
+
+        if action not in valid_actions:
+            raise ValueError('%s must be one of: %s' % (action, valid_actions))
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
+
+        allowed_vlan_args = dict(name=name,
+                                 add=vlan,
+                                 remove=vlan,
+                                 trunk_vlan_id=vlan,
+                                 trunk_ctag_range=ctag
+                                 )
+
+        ctag_actions = ['add', 'remove']
+
+        if ctag and not vlan:
+            raise ValueError('vlan must be set when ctag is set ')
+
+        if ctag and action not in ctag_actions:
+            raise ValueError('%s must be in %s when %s is set '
+                             % (repr(action),
+                                repr(ctag_actions),
+                                repr(ctag)
+                                )
+                             )
+
+        if not ctag:
+            allowed_vlan = getattr(self._interface,
+                                   'interface_%s_switchport_trunk_'
+                                   'allowed_vlan_%s' %
+                                   (int_type, action))
+        else:
+            allowed_vlan = getattr(self._interface,
+                                   'interface_%s_switchport_trunk_trunk_vlan_'
+                                   'classification_allowed_vlan_%s_trunk_'
+                                   'ctag_range'
+                                   % ((int_type, action))
+                                   )
+        config = allowed_vlan(**allowed_vlan_args)
+        return callback(config)
 
     def private_vlan_mode(self, **kwargs):
         """Set PVLAN mode (promiscuous, host, trunk).
