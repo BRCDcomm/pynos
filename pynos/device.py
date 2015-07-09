@@ -85,7 +85,7 @@ class Device(object):
             Instance of the device object.
         """
         self._conn = kwargs.pop('conn')
-        self._auth = kwargs.pop('auth')
+        self._auth = kwargs.pop('auth', (None, None))
         self._hostkey_verify = kwargs.pop('hostkey_verify', None)
         self._auth_method = kwargs.pop('auth_method', 'userpass')
         self._auth_key = kwargs.pop('auth_key', None)
@@ -227,7 +227,8 @@ class Device(object):
         elif self._auth_method is "key":
             self._mgr = manager.connect(host=self._conn[0],
                                         port=self._conn[1],
-                                        kay_filename=self._auth_key,
+                                        username=self._auth[0],
+                                        key_filename=self._auth_key,
                                         hostkey_verify=self._hostkey_verify)
         else:
             raise ValueError("auth_method incorrect value.")
