@@ -1664,11 +1664,13 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.48.226', '22')
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> vlan = '6666'
             >>> service_id = '1'
+            >>> output = dev.interface.spanning_tree_state(int_type='vlan',
+            ... name=vlan, enabled=False)
             >>> output = dev.interface.transport_service(vlan=vlan,
             ... service_id=service_id)
             >>> dev.interface.transport_service()
@@ -1681,8 +1683,8 @@ class Interface(object):
         service_id = kwargs.pop('service_id')
         callback = kwargs.pop('callback', self._callback)
 
-        if not pynos.utilities.valid_vlan_id(vlan):
-            raise ValueError("%s must be between `1` and `4096`" %
+        if not pynos.utilities.valid_vlan_id(vlan, extended=True):
+            raise ValueError("%s must be between `1` and `8191`" %
                              repr(vlan))
 
         service_args = dict(name=vlan, transport_service=service_id)
