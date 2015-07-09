@@ -825,14 +825,78 @@ class Interface(object):
         """Switchport private VLAN mapping.
 
         Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            pri_vlan (str): The primary PVLAN.
+            sec_vlan (str): The secondary PVLAN.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
 
         Raises:
+            KeyError: if `int_type`, `name`, or `mode` is not specified.
+            ValueError: if `int_type`, `name`, or `mode` is invalid.
 
         Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/37'
+            >>> pri_vlan = '3000'
+            >>> sec_vlan = ['3001', '3002']
+            >>> output = dev.interface.private_vlan_type(name=pri_vlan,
+            ... pvlan_type='primary')
+            >>> output = dev.interface.enable_switchport(int_type, name)
+            >>> output = dev.interface.private_vlan_mode(
+            ... int_type=int_type, name=name, mode='trunk_promiscuous')
+            >>> for spvlan in sec_vlan:
+            ...     output = dev.interface.private_vlan_type(name=spvlan,
+            ...     pvlan_type='isolated')
+            ...     output = dev.interface.vlan_pvlan_association_add(
+            ...     name=pri_vlan, sec_vlan=spvlan)
+            ...     output = dev.interface.switchport_pvlan_mapping(
+            ...     int_type=int_type, name=name, pri_vlan=pri_vlan,
+            ...     sec_vlan=spvlan)
+            >>> dev.interface.switchport_pvlan_mapping()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+            >>> output = dev._mgr.close_session()
         """
-        pass
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        pri_vlan = kwargs.pop('pri_vlan')
+        sec_vlan = kwargs.pop('sec_vlan')
+        callback = kwargs.pop('callback', self._callback)
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel']
+
+        if int_type not in int_types:
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
+
+        if not re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) \
+                and not re.search('^[0-9]{1,3}$', name):
+            raise ValueError("`name` must be in the format of x/y/x for "
+                             "physical interfaces or x for port channel.")
+
+        if not pynos.utilities.valid_vlan_id(pri_vlan, extended=True):
+                raise ValueError("`pri_vlan` must be between `1` and `4096`")
+
+        if not pynos.utilities.valid_vlan_id(sec_vlan, extended=True):
+                raise ValueError("`sec_vlan` must be between `1` and `4096`")
+
+        pvlan_args = dict(name=name,
+                          promis_pri_pvlan=pri_vlan,
+                          promis_sec_pvlan_range=sec_vlan)
+        config = self._interface.interface_gigabitethernet_switchport_private_vlan_mapping_promis_sec_pvlan_range(**pvlan_args)
+        return callback(config)
 
     def mtu(self, **kwargs):
         """Set interface mtu.
