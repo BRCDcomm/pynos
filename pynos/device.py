@@ -261,3 +261,29 @@ class Device(object):
         mac = kwargs.pop('mac_address')
         results = [x for x in self.mac_table if x['mac_address'] == mac]
         return results
+
+    def close(self):
+        """Close NETCONF session.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.connection
+            True
+            >>> dev.close() # doctest: +ELLIPSIS
+            <?xml...<rpc-reply...<ok/>...
+            >>> dev.connection
+            False
+        """
+        return self._mgr.close_session()
