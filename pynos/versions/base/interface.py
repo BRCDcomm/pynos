@@ -385,9 +385,11 @@ class Interface(object):
                 **desc_args
                 )
         else:
-            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("`name` must match "
-                                 "`^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$`")
+            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                    and re.search('^[0-9]{1,3}$', name) is None:
+                raise ValueError('%s must be in the format of x/y/z for '
+                                 'physical interfaces or x for port channel.'
+                                 % repr(name))
 
             config = getattr(
                 self._interface,
@@ -554,8 +556,10 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError("Incorrect name value.")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         if not pynos.utilities.valid_vlan_id(pri_vlan):
             raise ValueError("`sec_vlan` must be between `1` and `4095`.")
@@ -619,8 +623,10 @@ class Interface(object):
         if not isinstance(enabled, bool):
             raise ValueError('`enabled` must be `True` or `False`.')
 
-        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('`name` must be in the format of x/y/z.')
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         state_args = dict(name=name)
         admin_state = getattr(self._interface,
@@ -716,8 +722,10 @@ class Interface(object):
         if mode not in valid_modes:
             raise ValueError('%s must be one of: %s' % (mode, valid_modes))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError("Incorrect name value.")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         pvlan_args = dict(name=name)
 
@@ -801,8 +809,10 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError("Incorrect name value.")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         if not isinstance(enabled, bool):
             raise ValueError("Invalid state.")
@@ -889,8 +899,10 @@ class Interface(object):
 
         mtu_args = dict(name=name, mtu=mtu)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("Incorrect name value.")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         config = getattr(
             self._interface,
@@ -1159,8 +1171,10 @@ class Interface(object):
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('`name` must be in the format of x/y/z.')
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         ipaddress = ip_interface(unicode(vip))
 
@@ -1264,8 +1278,10 @@ class Interface(object):
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z.')
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         vrrp_args = dict(name=name,
                          vrid=vrid,
@@ -1337,8 +1353,10 @@ class Interface(object):
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z.')
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         if not isinstance(enabled, bool):
             raise ValueError('`enabled` must be `True` or `False`.')
@@ -1552,8 +1570,10 @@ class Interface(object):
         if mode not in valid_modes:
             raise ValueError("Incorrect mode value")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("Incorrect name value.")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
+                re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
 
         mode_args = dict(name=name, vlan_mode=mode)
         switchport_mode = getattr(self._interface, 'interface_%s_switchport_'
