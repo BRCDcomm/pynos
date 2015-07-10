@@ -83,6 +83,21 @@ class Device(object):
 
         Returns:
             Instance of the device object.
+
+        Examples:
+            >>> from pprint import pprint
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.connection
+            True
+            >>> del dev
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     pprint(dev.mac_table) # doctest: +ELLIPSIS
+            [{'interface'...'mac_address'...'state'...'type'...'vlan'...}]
+            >>> dev.connection
+            False
         """
         self._conn = kwargs.pop('conn')
         self._auth = kwargs.pop('auth', (None, None))
@@ -97,6 +112,15 @@ class Device(object):
 
         for nos_attr in NOS_ATTRS:
             setattr(self, nos_attr, VERSIONS[ver][nos_attr](self._callback))
+
+    def __enter__(self):
+        if not self.connection:
+            self.reconnect()
+        return self
+
+    def __exit__(self, exctype, excisnt, exctb):
+        if self.connection:
+            self.close()
 
     @property
     def mac_table(self):
@@ -261,3 +285,29 @@ class Device(object):
         mac = kwargs.pop('mac_address')
         results = [x for x in self.mac_table if x['mac_address'] == mac]
         return results
+
+    def close(self):
+        """Close NETCONF session.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> dev.connection
+            True
+            >>> dev.close() # doctest: +ELLIPSIS
+            <?xml...<rpc-reply...<ok/>...
+            >>> dev.connection
+            False
+        """
+        return self._mgr.close_session()
