@@ -441,7 +441,10 @@ class Interface(object):
             raise ValueError("Incorrect pvlan_type")
 
         pvlan_args = dict(name=name, pvlan_type_leaf=pvlan_type)
-        config = self._interface.interface_vlan_interface_vlan_private_vlan_pvlan_type_leaf(**pvlan_args)
+        pvlan_type = getattr(self._interface,
+                             'interface_vlan_interface_vlan_'
+                             'private_vlan_pvlan_type_leaf')
+        config = pvlan_type(**pvlan_args)
         return callback(config)
 
     def vlan_pvlan_association_add(self, **kwargs):
@@ -491,7 +494,10 @@ class Interface(object):
             raise ValueError("`sec_vlan` must be between `1` and `4095`.")
 
         pvlan_args = dict(name=name, sec_assoc_add=sec_vlan)
-        config = self._interface.interface_vlan_interface_vlan_private_vlan_association_sec_assoc_add(**pvlan_args)
+        pvlan_assoc = getattr(self._interface,
+                              'interface_vlan_interface_vlan_'
+                              'private_vlan_association_sec_assoc_add')
+        config = pvlan_assoc(**pvlan_args)
         return callback(config)
 
     def pvlan_host_association(self, **kwargs):
@@ -641,7 +647,7 @@ class Interface(object):
         # This is in place because if the interface is already admin up,
         # `ncclient` will raise an error if you try to admin up the interface
         # again.
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def pvlan_trunk_association(self, **kwargs):
@@ -922,7 +928,7 @@ class Interface(object):
         # up,`ncclient` will raise an error if you try to admin up the
         # interface again.
         # TODO: add logic to shutdown STP at protocol level too.
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def tag_native_vlan(self, **kwargs):
@@ -999,7 +1005,7 @@ class Interface(object):
         try:
             return callback(config)
         # TODO: Catch existing 'no switchport tag native-vlan'
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def switchport_pvlan_mapping(self, **kwargs):
@@ -1076,7 +1082,10 @@ class Interface(object):
         pvlan_args = dict(name=name,
                           promis_pri_pvlan=pri_vlan,
                           promis_sec_pvlan_range=sec_vlan)
-        config = self._interface.interface_gigabitethernet_switchport_private_vlan_mapping_promis_sec_pvlan_range(**pvlan_args)
+        pvlan_mapping = getattr(self._interface,
+                                'interface_gigabitethernet_switchport_'
+                                'private_vlan_mapping_promis_sec_pvlan_range')
+        config = pvlan_mapping(**pvlan_args)
         return callback(config)
 
     def mtu(self, **kwargs):
@@ -1313,7 +1322,8 @@ class Interface(object):
             ... int_type='ve',
             ... name='10',
             ... rbridge_id='225')
-            >>> dev.interface.v6_nd_suppress_ra() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> dev.interface.v6_nd_suppress_ra()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
             >>> output = dev._mgr.close_session()
@@ -1340,19 +1350,22 @@ class Interface(object):
             rbridge_id = kwargs.pop('rbridge_id', "1")
 
             nd_suppress_args = dict(name=name, rbridge_id=rbridge_id)
-            config = self._rbridge.rbridge_id_interface_ve_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_all(
-                **nd_suppress_args
-                )
+            nd_suppress = getattr(self._rbridge,
+                                  'rbridge_id_interface_ve_ipv6_'
+                                  'ipv6_nd_ra_ipv6_intf_cmds_'
+                                  'nd_suppress_ra_suppress_ra_all')
+            config = nd_suppress(**nd_suppress_args)
         else:
             if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
                 raise ValueError("`name` must match "
                                  "`^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$`")
 
             nd_suppress_args = dict(name=name)
-            config = getattr(
-                self._interface,
-                'interface_%s_ipv6_ipv6_nd_ra_ipv6_intf_cmds_nd_suppress_ra_suppress_ra_all' % int_type
-                )(**nd_suppress_args)
+            nd_suppress = getattr(self._interface,
+                                  'interface_%s_ipv6_ipv6_nd_ra_'
+                                  'ipv6_intf_cmds_nd_suppress_ra_'
+                                  'suppress_ra_all' % int_type)
+            config = nd_suppress(**nd_suppress_args)
         return callback(config)
 
     def vrrp_vip(self, **kwargs):
@@ -1597,7 +1610,8 @@ class Interface(object):
             raise ValueError('`enabled` must be `True` or `False`.')
 
         state_args = dict(name=name)
-        proxy_arp = getattr(self._interface, 'interface_%s_ip_ip_config_proxy_arp' % int_type)
+        proxy_arp = getattr(self._interface,
+                            'interface_%s_ip_ip_config_proxy_arp' % int_type)
         config = proxy_arp(**state_args)
         if not enabled:
             proxy_arp = config.find('.//*proxy-arp')
@@ -1608,7 +1622,7 @@ class Interface(object):
         # This is in place because if the interface is already admin up,
         # `ncclient` will raise an error if you try to admin up the interface
         # again.
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def port_channel_minimum_links(self, **kwargs):
@@ -1636,7 +1650,8 @@ class Interface(object):
             >>> output = dev.interface.port_channel_minimum_links(
             ... name='1',
             ... minimum_links='2')
-            >>> dev.interface.port_channel_minimum_links() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> dev.interface.port_channel_minimum_links()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
             >>> output = dev._mgr.close_session()
@@ -1689,7 +1704,8 @@ class Interface(object):
             ... port_int='1',
             ... channel_type='standard',
             ... mode='active')
-            >>> dev.interface.channel_group() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> dev.interface.channel_group()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
             >>> output = dev._mgr.close_session()
@@ -1896,7 +1912,10 @@ class Interface(object):
                              repr(vlan))
 
         service_args = dict(name=vlan, transport_service=service_id)
-        config = self._interface.interface_vlan_interface_vlan_transport_service(**service_args)
+        transport_service = getattr(self._interface,
+                                    'interface_vlan_interface_vlan_'
+                                    'transport_service')
+        config = transport_service(**service_args)
         return callback(config)
 
     def lacp_timeout(self, **kwargs):
@@ -1935,7 +1954,8 @@ class Interface(object):
             ... int_type=int_type,
             ... name=name,
             ... timeout='long')
-            >>> dev.interface.lacp_timeout() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> dev.interface.lacp_timeout()
+            ... # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
             >>> output = dev._mgr.close_session()
