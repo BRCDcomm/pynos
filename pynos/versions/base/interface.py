@@ -760,14 +760,14 @@ class Interface(object):
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
-            >>> name = '225/0/38'
+            >>> name = '225/0/37'
             >>> enabled = True
             >>> output = dev.interface.enable_switchport(int_type, name)
             >>> output = dev.interface.spanning_tree_state(int_type=int_type,
             ... name=name, enabled=enabled)
             >>> enabled = False
             >>> output = dev.interface.spanning_tree_state(int_type=int_type,
-            ... name=name, enable=enabled)
+            ... name=name, enabled=enabled)
             >>> int_type = 'vlan'
             >>> name = '102'
             >>> enabled = False
