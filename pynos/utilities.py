@@ -83,7 +83,7 @@ def print_xml_string(element_tree):
     print(ET.tostring(element_tree))
 
 
-def valid_vlan_id(vlan_id, extended=False):
+def valid_vlan_id(vlan_id, extended=True):
     """Validates a VLAN ID.
 
     Args:
@@ -103,12 +103,12 @@ def valid_vlan_id(vlan_id, extended=False):
         >>> vlan = '565'
         >>> pynos.utilities.valid_vlan_id(vlan)
         True
-        >>> extended = True
+        >>> extended = False
         >>> vlan = '6789'
         >>> pynos.utilities.valid_vlan_id(vlan, extended=extended)
-        True
-        >>> pynos.utilities.valid_vlan_id(vlan)
         False
+        >>> pynos.utilities.valid_vlan_id(vlan)
+        True
     """
     minimum_vlan_id = 1
     maximum_vlan_id = 4095
