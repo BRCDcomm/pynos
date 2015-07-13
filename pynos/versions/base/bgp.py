@@ -121,7 +121,7 @@ class BGP(object):
 
         return callback(config)
 
-    def add_neighbor(self, **kwargs):
+    def neighbor(self, **kwargs):
         """Add BGP neighbor.
 
         Args:
@@ -130,6 +130,7 @@ class BGP(object):
             vrf (str): The VRF for this BGP process.
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -146,72 +147,37 @@ class BGP(object):
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
-            >>> output = dev.bgp.add_neighbor(ip_addr='10.10.10.10',
+            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ... remote_as='65535', rbridge_id='225')
-            >>> dev.bgp.add_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ... delete=True, rbridge_id='225')
+            >>> dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """
         ip_addr = kwargs.pop('ip_addr')
-        remote_as = kwargs.pop('remote_as')
+        remote_as = kwargs.pop('remote_as', None)
         vrf = kwargs.pop('vrf', 'default')
         rbridge_id = kwargs.pop('rbridge_id', '1')
+        delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
+
+        if not delete and remote_as is None:
+            raise ValueError('When configuring a neighbor, you must specify '
+                             'its remote-as.')
+
         neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
                              remote_as=remote_as,
                              vrf_name=vrf,
                              rbridge_id=rbridge_id)
 
-        add_neighbor = getattr(self._rbridge,
-                               'rbridge_id_router_bgp_router_bgp_cmds_holder_'
-                               'router_bgp_attributes_neighbor_neighbor_ips_'
-                               'neighbor_addr_remote_as')
-        config = add_neighbor(**neighbor_args)
-        return callback(config)
-
-    def remove_neighbor(self, **kwargs):
-        """Remove BGP neighbor.
-
-        Args:
-            ip_addr (str): IP Address of BGP neighbor.
-            vrf (str): The VRF for this BGP process.
-            rbridge_id (str): The rbridge ID of the device on which BGP will be
-                configured in a VCS fabric.
-            callback (function): A function executed upon completion of the
-                method.  The only parameter passed to `callback` will be the
-                ``ElementTree`` `config`.
-
-        Returns:
-            Return value of `callback`.
-
-        Raises:
-            KeyError: if `ip_addr` is not specified.
-
-        Examples:
-            >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
-            >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.bgp.remove_neighbor(ip_addr='10.10.10.10',
-            ... rbridge_id='225')
-            >>> dev.bgp.remove_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
-            Traceback (most recent call last):
-            KeyError
-        """
-        ip_addr = kwargs.pop('ip_addr')
-        vrf = kwargs.pop('vrf', 'default')
-        rbridge_id = kwargs.pop('rbridge_id', '1')
-        callback = kwargs.pop('callback', self._callback)
-        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
-                             vrf_name=vrf,
-                             rbridge_id=rbridge_id)
-
-        remove_neighbor = getattr(self._rbridge,
-                                  'rbridge_id_router_bgp_router_bgp_'
-                                  'cmds_holder_router_bgp_attributes_neighbor_'
-                                  'neighbor_ips_neighbor_addr_router_bgp_'
-                                  'neighbor_address')
-        config = remove_neighbor(**neighbor_args)
-        neighbor_addr = config.find('.//*neighbor-addr')
-        neighbor_addr.set('operation', 'delete')
+        neighbor = getattr(self._rbridge,
+                           'rbridge_id_router_bgp_router_bgp_cmds_holder_'
+                           'router_bgp_attributes_neighbor_ips_neighbor_addr_'
+                           'remote_as')
+        config = neighbor(**neighbor_args)
+        if delete:
+            neighbor = config.find('.//*neighbor-addr')
+            neighbor.set('operation', 'delete')
+            neighbor.remove(neighbor.find('remote-as'))
         return callback(config)
