@@ -305,3 +305,19 @@ class TestInterface(unittest.TestCase):
     def test_spanning_tree_state_exception(self):
         with self.assertRaises(KeyError):
             self.interface.spanning_tree_state(name=self.phys_name)
+
+    def test_private_vlan_mode(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><mode><private-vlan><host /></private-vlan>'\
+                   '</mode></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.private_vlan_mode(int_type=self.phys_int_type,
+                                                  name=self.phys_name,
+                                                  mode='host')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_private_vlan_mode_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.private_vlan_mode(name=self.vlan_id)
