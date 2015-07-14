@@ -15,6 +15,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 import xml.etree.ElementTree as ET
+from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
+import pynos.utilities
 
 
 class System(object):
@@ -34,6 +36,7 @@ class System(object):
             None
         """
         self._callback = callback
+        self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
 
     @property
     def uptime(self):
@@ -47,3 +50,38 @@ class System(object):
                              minutes=results.find('{%s}minutes' % namespace),
                              seconds=results.find('{%s}seconds' % namespace))
         return system_uptime
+
+    def router_id(self, **kwargs):
+        """Configures device's Router ID.
+
+        Args:
+            router_id (str): Router ID for the device.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `router_id` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
+            >>> auth = ('admin', 'password')
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.system.router_id(router_id='10.24.48.225',
+            ... rbridge_id='225')
+            >>> dev.system.router_id() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        router_id = kwargs.pop('router_id')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        rid_args = dict(rbridge_id=rbridge_id, router_id=router_id)
+        config = self._rbridge.rbridge_id_ip_rtm_config_router_id(**rid_args)
+        return callback(config)
