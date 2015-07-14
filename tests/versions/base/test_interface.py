@@ -31,6 +31,7 @@ class TestInterface(unittest.TestCase):
         self.namespace = 'urn:brocade.com:mgmt:brocade-interface'
         self.phys_int_type = 'gigabitethernet'
         self.phys_name = '1/0/0'
+        self.vlan_id = '40'
 
     def test_description(self):
         expected = '<config>'\
@@ -50,3 +51,19 @@ class TestInterface(unittest.TestCase):
         with self.assertRaises(KeyError):
             self.interface.description(int_type=self.phys_int_type,
                                        desc='Hodor')
+
+    def test_private_vlan_type(self):
+        expected = '<config>'\
+                   '<interface-vlan xmlns="{}"><interface>'\
+                   '<vlan><name>40</name><private-vlan>'\
+                   '<pvlan-type-leaf>isolated</pvlan-type-leaf>'\
+                   '</private-vlan></vlan></interface></interface-vlan>'\
+                   '</config>'.format(self.namespace)
+        result = self.interface.private_vlan_type(name=self.vlan_id,
+                                                  pvlan_type='isolated')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_private_vlan_type_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.private_vlan_type(name=self.vlan_id)
