@@ -65,19 +65,7 @@ class BGP(object):
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.bgp.local_asn(local_as='65535',
-            ... callback=pynos.utilities.print_xml_string) # doctest: +SKIP
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
-            <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp"><vrf-name>default
-            </vrf-name></bgp></router></rbridge-id></config>
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
-            <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp"><vrf-name>default
-            </vrf-name><router-bgp-cmds-holder><router-bgp-attributes>
-            <local-as>65535</local-as></router-bgp-attributes>
-            </router-bgp-cmds-holder></bgp></router></rbridge-id></config>
-            >>> dev.bgp.local_asn(local_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
             >>> dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -114,26 +102,19 @@ class BGP(object):
             None
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.remove_bgp(
-            ... callback=pynos.utilities.print_xml_string
-            ... ) # doctest: +NORMALIZE_WHITESPACE
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
-            <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp" operation="delete">
-            <vrf-name>default</vrf-name></bgp></router></rbridge-id></config>
-            >>> dev.bgp.remove_bgp()
-            True
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.remove_bgp(rbridge_id='225')
         """
         vrf = kwargs.pop('vrf', 'default')
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         bgp_args = dict(vrf_name=vrf, rbridge_id=rbridge_id)
         config = self._rbridge.rbridge_id_router_bgp_vrf_name(**bgp_args)
-        bgp = config.find('.//*{urn:brocade.com:mgmt:brocade-bgp}bgp')
+        bgp = config.find('.//*bgp')
         bgp.set('operation', 'delete')
 
         return callback(config)
@@ -158,25 +139,13 @@ class BGP(object):
             KeyError: if `remote_as` or `ip_addr` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
             >>> output = dev.bgp.add_neighbor(ip_addr='10.10.10.10',
-            ... remote_as='65535', callback=pynos.utilities.print_xml_string
-            ... ) # doctest: +NORMALIZE_WHITESPACE
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
-            <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">
-            <vrf-name>default</vrf-name><router-bgp-cmds-holder>
-            <router-bgp-attributes><neighbor><neighbor-ips><neighbor-addr>
-            <router-bgp-neighbor-address>10.10.10.10
-            </router-bgp-neighbor-address><remote-as>65535</remote-as>
-            </neighbor-addr></neighbor-ips></neighbor>
-            </router-bgp-cmds-holder></router-bgp-attributes></bgp></router>
-            </rbridge-id></config>
-            >>> dev.bgp.add_neighbor(ip_addr='10.10.10.10', remote_as='65535')
-            True
+            ... remote_as='65535', rbridge_id='225')
             >>> dev.bgp.add_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -214,25 +183,12 @@ class BGP(object):
             KeyError: if `ip_addr` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> output = dev.bgp.remove_neighbor(ip_addr='10.10.10.10',
-            ... callback=pynos.utilities.print_xml_string
-            ... ) # doctest: +NORMALIZE_WHITESPACE
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">
-            <rbridge-id>1</rbridge-id><router>
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">
-            <vrf-name>default</vrf-name><router-bgp-cmds-holder>
-            <router-bgp-attributes><neighbor><neighbor-ips>
-            <neighbor-addr operation="delete">
-            <router-bgp-neighbor-address>10.10.10.10
-            </router-bgp-neighbor-address></neighbor-addr></neighbor-ips>
-            </neighbor></router-bgp-cmds-holder></router-bgp-attributes></bgp>
-            </router></rbridge-id></config>
-            >>> dev.bgp.remove_neighbor(ip_addr='10.10.10.10')
-            True
+            ... rbridge_id='225')
             >>> dev.bgp.remove_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
