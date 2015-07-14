@@ -80,8 +80,10 @@ class BGP(object):
         local_as_args = dict(vrf_name=vrf,
                              local_as=local_as,
                              rbridge_id=rbridge_id)
-        # TODO: Fix horribly long method name.
-        config = self._rbridge.rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_local_as(**local_as_args)
+        local_as = getattr(self._rbridge,
+                           'rbridge_id_router_bgp_router_bgp_cmds_holder_'
+                           'router_bgp_attributes_local_as')
+        config = local_as(**local_as_args)
         return callback(config)
 
     def remove_bgp(self, **kwargs):
@@ -160,8 +162,11 @@ class BGP(object):
                              vrf_name=vrf,
                              rbridge_id=rbridge_id)
 
-        # TODO: Fix horribly long method name.
-        config = self._rbridge.rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_remote_as(**neighbor_args)
+        add_neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_bgp_router_bgp_cmds_holder_'
+                               'router_bgp_attributes_neighbor_neighbor_ips_'
+                               'neighbor_addr_remote_as')
+        config = add_neighbor(**neighbor_args)
         return callback(config)
 
     def remove_neighbor(self, **kwargs):
@@ -201,8 +206,12 @@ class BGP(object):
                              vrf_name=vrf,
                              rbridge_id=rbridge_id)
 
-        # TODO: Fix horribly long method name.
-        config = self._rbridge.rbridge_id_router_bgp_router_bgp_cmds_holder_router_bgp_attributes_neighbor_neighbor_ips_neighbor_addr_router_bgp_neighbor_address(**neighbor_args)
+        remove_neighbor = getattr(self._rbridge,
+                                  'rbridge_id_router_bgp_router_bgp_'
+                                  'cmds_holder_router_bgp_attributes_neighbor_'
+                                  'neighbor_ips_neighbor_addr_router_bgp_'
+                                  'neighbor_address')
+        config = remove_neighbor(**neighbor_args)
         neighbor_addr = config.find('.//*neighbor-addr')
         neighbor_addr.set('operation', 'delete')
         return callback(config)
