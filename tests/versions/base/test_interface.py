@@ -107,3 +107,29 @@ class TestInterface(unittest.TestCase):
     def test_pvlan_host_association_exception(self):
         with self.assertRaises(KeyError):
             self.interface.pvlan_host_association(name=self.vlan_id)
+
+    def test_admin_state_disabled(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<shutdown /></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.admin_state(int_type=self.phys_int_type,
+                                            name=self.phys_name,
+                                            enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_admin_state_enabled(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<shutdown operation="delete" /></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.admin_state(int_type=self.phys_int_type,
+                                            name=self.phys_name,
+                                            enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_admin_state_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.admin_state(name=self.phys_name)
