@@ -14,6 +14,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+import xml.etree.ElementTree as ET
 from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
 
@@ -41,6 +42,22 @@ class BGP(object):
         """
         self._callback = callback
         self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
+
+    @property
+    def enabled(self):
+        namespace = 'urn:ietf:params:xml:ns:netconf:base:1.0'
+        bgp_filter = 'rbridge-id/router/bgp'
+        bgp_config = ET.Element('get-config', xmlns="%s" % namespace)
+        source = ET.SubElement(bgp_config, 'source')
+        ET.SubElement(source, 'running')
+        ET.SubElement(bgp_config, 'filter',
+                      type="xpath", select="%s" % bgp_filter)
+        bgp_config = self._callback(bgp_config, handler='get')
+        namespace = 'urn:brocade.com:mgmt:brocade-bgp'
+        enabled = bgp_config.find('.//*{%s}bgp' % namespace)
+        if enabled is not None:
+            return True
+        return False
 
     def local_asn(self, **kwargs):
         """Set BGP local ASN.
