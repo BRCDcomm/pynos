@@ -346,17 +346,19 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.description(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
-            ... desc='test')
-            >>> dev.interface.description() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.description(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/38',
+            ...         desc='test')
+            ...         dev.interface.description()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -416,18 +418,19 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> name = '90'
             >>> pvlan_type = 'isolated'
-            >>> output = dev.interface.private_vlan_type(name=name,
-            ... pvlan_type=pvlan_type)
-            >>> dev.interface.private_vlan_type()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.private_vlan_type(name=name,
+            ...         pvlan_type=pvlan_type)
+            ...         dev.interface.private_vlan_type()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         name = kwargs.pop('name')
         pvlan_type = kwargs.pop('pvlan_type')
@@ -466,23 +469,24 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '20'
             >>> sec_vlan = '30'
-            >>> output = dev.interface.private_vlan_type(name=name,
-            ... pvlan_type='primary')
-            >>> output = dev.interface.private_vlan_type(name=sec_vlan,
-            ... pvlan_type='isolated')
-            >>> output = dev.interface.vlan_pvlan_association_add(name=name,
-            ... sec_vlan=sec_vlan)
-            >>> dev.interface.vlan_pvlan_association_add()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.private_vlan_type(name=name,
+            ...         pvlan_type='primary')
+            ...         output = dev.interface.private_vlan_type(name=sec_vlan,
+            ...         pvlan_type='isolated')
+            ...         output = dev.interface.vlan_pvlan_association_add(
+            ...         name=name, sec_vlan=sec_vlan)
+            ...         dev.interface.vlan_pvlan_association_add()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         name = kwargs.pop('name')
         sec_vlan = kwargs.pop('sec_vlan')
@@ -524,30 +528,32 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/38'
             >>> pri_vlan = '75'
             >>> sec_vlan = '100'
-            >>> output = dev.interface.private_vlan_type(name=pri_vlan,
-            ... pvlan_type='primary')
-            >>> output = dev.interface.private_vlan_type(name=sec_vlan,
-            ... pvlan_type='isolated')
-            >>> output = dev.interface.vlan_pvlan_association_add(
-            ... name=pri_vlan, sec_vlan=sec_vlan)
-            >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.private_vlan_mode(
-            ... int_type=int_type, name=name, mode='host')
-            >>> output = dev.interface.pvlan_host_association(
-            ... int_type=int_type, name=name, pri_vlan=pri_vlan,
-            ... sec_vlan=sec_vlan)
-            >>> dev.interface.pvlan_host_association()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.private_vlan_type(name=pri_vlan,
+            ...         pvlan_type='primary')
+            ...         output = dev.interface.private_vlan_type(name=sec_vlan,
+            ...         pvlan_type='isolated')
+            ...         output = dev.interface.vlan_pvlan_association_add(
+            ...         name=pri_vlan, sec_vlan=sec_vlan)
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.private_vlan_mode(
+            ...         int_type=int_type, name=name, mode='host')
+            ...         output = dev.interface.pvlan_host_association(
+            ...         int_type=int_type, name=name, pri_vlan=pri_vlan,
+            ...         sec_vlan=sec_vlan)
+            ...         dev.interface.pvlan_host_association()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -605,14 +611,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> dev.interface.admin_state(int_type='tengigabitethernet',
-            ... name='225/0/38', enabled=False)
-            >>> dev.interface.admin_state(int_type='tengigabitethernet',
-            ... name='225/0/38', enabled=True)
-            >>> output = dev._mgr.close_session()
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         dev.interface.admin_state(
+            ...         int_type='tengigabitethernet', name='225/0/38',
+            ...         enabled=False)
+            ...         dev.interface.admin_state(
+            ...         int_type='tengigabitethernet', name='225/0/38',
+            ...         enabled=True)
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -686,21 +695,24 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.226', '22')
+            >>> switches = ['10.24.48.226', '10.24.52.10']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '226/0/4'
-            >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.trunk_mode(int_type=int_type, name=name,
-            ... mode='trunk')
-            >>> output = dev.interface.trunk_allowed_vlan(int_type=int_type,
-            ... name=name, action='add', ctag='25', vlan='8000')
-            >>> dev.interface.private_vlan_mode()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.trunk_mode(int_type=int_type,
+            ...         name=name, mode='trunk')
+            ...         output = dev.interface.trunk_allowed_vlan(
+            ...         int_type=int_type, name=name, action='add', ctag='25',
+            ...         vlan='8000')
+            ...         dev.interface.private_vlan_mode()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -782,19 +794,21 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/38'
-            >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.private_vlan_mode(
-            ... int_type=int_type, name=name, mode='trunk_host')
-            >>> dev.interface.private_vlan_mode()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.private_vlan_mode(
+            ...         int_type=int_type, name=name, mode='trunk_host')
+            ...         dev.interface.private_vlan_mode()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -855,28 +869,30 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> int_type = 'tengigabitethernet'
-            >>> name = '225/0/37'
-            >>> enabled = True
-            >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
-            ... name=name, enabled=enabled)
-            >>> enabled = False
-            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
-            ... name=name, enabled=enabled)
-            >>> int_type = 'vlan'
-            >>> name = '102'
-            >>> enabled = False
-            >>> output = dev.interface.add_vlan_int(name)
-            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
-            ... name=name, enabled=enabled)
-            >>> enabled = False
-            >>> output = dev.interface.spanning_tree_state(int_type=int_type,
-            ... name=name, enabled=enabled)
-
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         enabled = True
+            ...         int_type = 'tengigabitethernet'
+            ...         name = '225/0/37'
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
+            ...         enabled = False
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
+            ...         int_type = 'vlan'
+            ...         name = '102'
+            ...         enabled = False
+            ...         output = dev.interface.add_vlan_int(name)
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
+            ...         enabled = False
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -954,25 +970,23 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.trunk_mode(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
-            ... mode='trunk')
-            >>> output = dev.interface.tag_native_vlan(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38')
-            >>> output = dev.interface.tag_native_vlan(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
-            ... enabled=False)
-            >>> dev.interface.tag_native_vlan()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.trunk_mode(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/38', mode='trunk')
+            ...         output = dev.interface.tag_native_vlan(name='225/0/38',
+            ...         int_type='tengigabitethernet')
+            ...         output = dev.interface.tag_native_vlan(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/38', enabled=False)
+            ...         dev.interface.tag_native_vlan()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1030,31 +1044,33 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/37'
             >>> pri_vlan = '3000'
             >>> sec_vlan = ['3001', '3002']
-            >>> output = dev.interface.private_vlan_type(name=pri_vlan,
-            ... pvlan_type='primary')
-            >>> output = dev.interface.enable_switchport(int_type, name)
-            >>> output = dev.interface.private_vlan_mode(
-            ... int_type=int_type, name=name, mode='trunk_promiscuous')
-            >>> for spvlan in sec_vlan:
-            ...     output = dev.interface.private_vlan_type(name=spvlan,
-            ...     pvlan_type='isolated')
-            ...     output = dev.interface.vlan_pvlan_association_add(
-            ...     name=pri_vlan, sec_vlan=spvlan)
-            ...     output = dev.interface.switchport_pvlan_mapping(
-            ...     int_type=int_type, name=name, pri_vlan=pri_vlan,
-            ...     sec_vlan=spvlan)
-            >>> dev.interface.switchport_pvlan_mapping()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.private_vlan_type(name=pri_vlan,
+            ...         pvlan_type='primary')
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.private_vlan_mode(
+            ...         int_type=int_type, name=name, mode='trunk_promiscuous')
+            ...         for spvlan in sec_vlan:
+            ...             output = dev.interface.private_vlan_type(
+            ...             name=spvlan, pvlan_type='isolated')
+            ...             output = dev.interface.vlan_pvlan_association_add(
+            ...             name=pri_vlan, sec_vlan=spvlan)
+            ...             output = dev.interface.switchport_pvlan_mapping(
+            ...             int_type=int_type, name=name, pri_vlan=pri_vlan,
+            ...             sec_vlan=spvlan)
+            ...         dev.interface.switchport_pvlan_mapping()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1109,17 +1125,16 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.mtu(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
-            ... mtu='1666')
-            >>> dev.interface.mtu() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.mtu(mtu='1666',
+            ...         int_type='tengigabitethernet', name='225/0/38')
+            ...         dev.interface.mtu() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1175,17 +1190,19 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.fabric_isl(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/40',
-            ... enabled=False)
-            >>> dev.interface.fabric_isl() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.fabric_isl(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/40',
+            ...         enabled=False)
+            ...         dev.interface.fabric_isl()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -1244,18 +1261,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.fabric_trunk(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/40',
-            ... enabled=False)
-            >>> dev.interface.fabric_trunk()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.fabric_trunk(name='225/0/40',
+            ...         int_type='tengigabitethernet', enabled=False)
+            ...         dev.interface.fabric_trunk()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -1315,18 +1331,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.v6_nd_suppress_ra(
-            ... int_type='ve',
-            ... name='10',
-            ... rbridge_id='225')
-            >>> dev.interface.v6_nd_suppress_ra()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.v6_nd_suppress_ra(name='10',
+            ...         int_type='ve', rbridge_id='225')
+            ...         dev.interface.v6_nd_suppress_ra()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
@@ -1390,21 +1405,21 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> dev.interface.set_ip('tengigabitethernet', '225/0/18',
-            ... '10.1.1.2/24')
-            True
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1', vip='10.1.1.1/24')
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1',
-            ... vip='fe80:4818:f000:1ab:cafe:beef:1000:1/64')
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1',
-            ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
-            >>> output = dev._mgr.close_session()
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.set_ip('tengigabitethernet',
+            ...         '225/0/18', '10.1.1.2/24')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1', vip='10.1.1.1/24')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1',
+            ...         vip='fe80::cafe:beef:1000:1/64')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1',
+            ...         vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1493,24 +1508,29 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> dev.interface.set_ip('tengigabitethernet', '225/0/18',
-            ... '10.1.1.2/24')
-            True
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1', vip='10.1.1.1/24')
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1',
-            ... vip='fe80:4818:f000:1ab:cafe:beef:1000:1/64')
-            >>> dev.interface.vrrp_vip(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1',
-            ... vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
-            >>> dev.interface.vrrp_priority(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1', ip_version='4', priority='66')
-            >>> dev.interface.vrrp_priority(int_type='tengigabitethernet',
-            ... name='225/0/18', vrid='1', ip_version='6', priority='77')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.set_ip('tengigabitethernet',
+            ...         '225/0/18', '10.1.1.2/24')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1', vip='10.1.1.1/24')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1',
+            ...         vip='fe80::cafe:beef:1000:1/64')
+            ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1',
+            ...         vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
+            ...         dev.interface.vrrp_priority(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1', ip_version='4',
+            ...         priority='66')
+            ...         dev.interface.vrrp_priority(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/18', vrid='1', ip_version='6',
+            ...         priority='77')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1580,14 +1600,15 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
-            ... name='225/0/12', enabled=True)
-            >>> dev.interface.proxy_arp(int_type='tengigabitethernet',
-            ... name='225/0/12', enabled=False)
-            >>> output = dev._mgr.close_session()
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         dev.interface.proxy_arp(int_type='tengigabitethernet',
+            ...         name='225/0/12', enabled=True)
+            ...         dev.interface.proxy_arp(int_type='tengigabitethernet',
+            ...         name='225/0/12', enabled=False)
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1644,17 +1665,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.port_channel_minimum_links(
-            ... name='1',
-            ... minimum_links='2')
-            >>> dev.interface.port_channel_minimum_links()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.port_channel_minimum_links(
+            ...         name='1', minimum_links='2')
+            ...         dev.interface.port_channel_minimum_links()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         name = str(kwargs.pop('name'))
         minimum_links = str(kwargs.pop('minimum_links'))
@@ -1695,20 +1716,18 @@ class Interface(object):
 
         examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.channel_group(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/20',
-            ... port_int='1',
-            ... channel_type='standard',
-            ... mode='active')
-            >>> dev.interface.channel_group()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.channel_group(name='225/0/20',
+            ...         int_type='tengigabitethernet',
+            ...         port_int='1', channel_type='standard', mode='active')
+            ...         dev.interface.channel_group()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1778,16 +1797,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.port_channel_vlag_ignore_split(
-            ... name='1', enabled=True)
-            >>> dev.interface.port_channel_vlag_ignore_split()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.port_channel_vlag_ignore_split(
+            ...         name='1', enabled=True)
+            ...         dev.interface.port_channel_vlag_ignore_split()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         name = str(kwargs.pop('name'))
         enabled = bool(kwargs.pop('enabled'))
@@ -1830,17 +1850,17 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.interface.trunk_mode(
-            ... int_type='tengigabitethernet',
-            ... name='225/0/38',
-            ... mode='trunk')
-            >>> dev.interface.trunk_mode() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.trunk_mode(name='225/0/38',
+            ...         int_type='tengigabitethernet', mode='trunk')
+            ...         dev.interface.trunk_mode()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1888,20 +1908,21 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.226', '22')
+            >>> switches = ['10.24.48.226', '10.24.52.10']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> vlan = '6666'
             >>> service_id = '1'
-            >>> output = dev.interface.spanning_tree_state(int_type='vlan',
-            ... name=vlan, enabled=False)
-            >>> output = dev.interface.transport_service(vlan=vlan,
-            ... service_id=service_id)
-            >>> dev.interface.transport_service()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type='vlan', name=vlan, enabled=False)
+            ...         output = dev.interface.transport_service(vlan=vlan,
+            ...         service_id=service_id)
+            ...         dev.interface.transport_service()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         vlan = kwargs.pop('vlan')
         service_id = kwargs.pop('service_id')
@@ -1939,26 +1960,22 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/39'
-            >>> output = dev.interface.channel_group(
-            ... int_type=int_type,
-            ... name=name,
-            ... port_int='1',
-            ... channel_type='standard',
-            ... mode='active')
-            >>> output = dev.interface.lacp_timeout(
-            ... int_type=int_type,
-            ... name=name,
-            ... timeout='long')
-            >>> dev.interface.lacp_timeout()
-            ... # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.channel_group(name=name,
+            ...         int_type=int_type, port_int='1',
+            ...         channel_type='standard', mode='active')
+            ...         output = dev.interface.lacp_timeout(name=name,
+            ...         int_type=int_type, timeout='long')
+            ...         dev.interface.lacp_timeout()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-            >>> output = dev._mgr.close_session()
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
