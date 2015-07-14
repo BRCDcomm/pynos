@@ -240,3 +240,68 @@ class TestInterface(unittest.TestCase):
     def test_mtu_exception(self):
         with self.assertRaises(KeyError):
             self.interface.mtu(name=self.phys_name)
+
+    def test_spanning_tree_state_phys_enabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<spanning-tree xmlns="{3}">'\
+                   '<shutdown operation="delete" /></spanning-tree></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name,
+                                                  stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(int_type=self.phys_int_type,
+                                               name=self.phys_name,
+                                               enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_phys_disabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<spanning-tree xmlns="{3}"><shutdown /></spanning-tree>'\
+                   '</{1}></interface></config>'.format(self.namespace,
+                                                        self.phys_int_type,
+                                                        self.phys_name,
+                                                        stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(int_type=self.phys_int_type,
+                                               name=self.phys_name,
+                                               enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_vlan_enabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface-vlan xmlns="{0}"><interface><vlan>'\
+                   '<name>{1}</name><spanning-tree xmlns="{2}">'\
+                   '<stp-shutdown operation="delete" /></spanning-tree>'\
+                   '</vlan></interface></interface-vlan>'\
+                   '</config>'.format(self.namespace, self.vlan_id,
+                                      stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(int_type='vlan',
+                                               name=self.vlan_id,
+                                               enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_vlan_disabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface-vlan xmlns="{0}"><interface><vlan>'\
+                   '<name>{1}</name><spanning-tree xmlns="{2}">'\
+                   '<stp-shutdown /></spanning-tree>'\
+                   '</vlan></interface></interface-vlan>'\
+                   '</config>'.format(self.namespace, self.vlan_id,
+                                      stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(int_type='vlan',
+                                               name=self.vlan_id,
+                                               enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.spanning_tree_state(name=self.phys_name)
