@@ -28,6 +28,8 @@ class TestBGP(unittest.TestCase):
     """
     def setUp(self):
         self.bgp = pynos.versions.base.bgp.BGP(pynos.utilities.return_xml)
+        self.rbridge_namespace = 'urn:brocade.com:mgmt:brocade-rbridge'
+        self.bgp_namespace = 'urn:brocade.com:mgmt:brocade-bgp'
 
     def test_local_asn(self):
         expected = '<config>'\
@@ -46,3 +48,12 @@ class TestBGP(unittest.TestCase):
     def test_local_asn_exception(self):
         with self.assertRaises(KeyError):
             self.bgp.local_asn(rbridge='2', vrf='x')
+
+    def test_remove_bgp(self):
+        expected = '<config>'\
+                   '<rbridge-id xmlns="%s"><rbridge-id>1</rbridge-id><router>'\
+                   '<bgp operation="delete" xmlns="%s">'\
+                   '<vrf-name>default</vrf-name></bgp></router></rbridge-id>'\
+                   '</config>' % (self.rbridge_namespace, self.bgp_namespace)
+        result = ET.tostring(self.bgp.remove_bgp())
+        self.assertEquals(expected, result)
