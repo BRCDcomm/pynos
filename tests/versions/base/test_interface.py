@@ -133,3 +133,95 @@ class TestInterface(unittest.TestCase):
     def test_admin_state_exception(self):
         with self.assertRaises(KeyError):
             self.interface.admin_state(name=self.phys_name)
+
+    def test_trunk_allowed_vlan_add(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><allowed><vlan><add>{3}</add></vlan>'\
+                   '</allowed></trunk></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   action='add')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_remove(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><allowed><vlan><remove>{3}</remove>'\
+                   '</vlan></allowed></trunk></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   action='remove')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_all(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><allowed><vlan><all /></vlan>'\
+                   '</allowed></trunk></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   action='all')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_none(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><allowed><vlan><none /></vlan>'\
+                   '</allowed></trunk></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   action='none')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_add_ctag(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><trunk-vlan-classification><allowed>'\
+                   '<vlan><add><trunk-vlan-id>{3}</trunk-vlan-id>'\
+                   '<trunk-ctag-range>{4}</trunk-ctag-range></add></vlan>'\
+                   '</allowed></trunk-vlan-classification></trunk>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id,
+                                      self.sec_vlan)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   ctag=self.sec_vlan,
+                                                   action='add')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_remove_ctag(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><trunk-vlan-classification><allowed>'\
+                   '<vlan><remove><trunk-vlan-id>{3}</trunk-vlan-id>'\
+                   '<trunk-ctag-range>{4}</trunk-ctag-range></remove></vlan>'\
+                   '</allowed></trunk-vlan-classification></trunk>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id,
+                                      self.sec_vlan)
+        result = self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                                   name=self.phys_name,
+                                                   vlan=self.vlan_id,
+                                                   ctag=self.sec_vlan,
+                                                   action='remove')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_allowed_vlan_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.trunk_allowed_vlan(name=self.phys_name)
