@@ -225,3 +225,18 @@ class TestInterface(unittest.TestCase):
     def test_trunk_allowed_vlan_exception(self):
         with self.assertRaises(KeyError):
             self.interface.trunk_allowed_vlan(name=self.phys_name)
+
+    def test_mtu(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<mtu>1666</mtu></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.mtu(int_type=self.phys_int_type,
+                                    name=self.phys_name,
+                                    mtu='1666')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_mtu_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.mtu(name=self.phys_name)
