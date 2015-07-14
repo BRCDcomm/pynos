@@ -86,3 +86,24 @@ class TestInterface(unittest.TestCase):
     def test_vlan_pvlan_association_add_exception(self):
         with self.assertRaises(KeyError):
             self.interface.vlan_pvlan_association_add(name=self.vlan_id)
+
+    def test_pvlan_host_association(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><private-vlan><host-association>'\
+                   '<host-pri-pvlan>{3}</host-pri-pvlan>'\
+                   '<host-sec-pvlan>{4}</host-sec-pvlan></host-association>'\
+                   '</private-vlan></switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id,
+                                      self.sec_vlan)
+        interface = self.interface
+        result = interface.pvlan_host_association(int_type=self.phys_int_type,
+                                                  name=self.phys_name,
+                                                  pri_vlan=self.vlan_id,
+                                                  sec_vlan=self.sec_vlan)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_pvlan_host_association_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.pvlan_host_association(name=self.vlan_id)
