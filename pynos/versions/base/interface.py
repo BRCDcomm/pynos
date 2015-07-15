@@ -2006,3 +2006,65 @@ class Interface(object):
             'interface_%s_lacp_timeout' % int_type
             )(**timeout_args)
         return callback(config)
+
+    def switchport(self, **kwargs):
+        """Set interface switchport status.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            enabled (bool): Is the interface enabled? (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `int_type` or `name` is not specified.
+            ValueError: if `name` or `int_type` is not a valid
+                value.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.switchport(name='225/0/19',
+            ...         int_type='tengigabitethernet')
+            ...         output = dev.interface.switchport(name='225/0/19',
+            ...         int_type='tengigabitethernet', enabled=False)
+            ...         dev.interface.switchport()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        enabled = kwargs.pop('enabled')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel', 'vlan']
+
+        if int_type not in int_types:
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                and re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.'
+                             % repr(name))
+
+        switchport_args = dict(name=name)
+        switchport = getattr(self._interface,
+                             'interface_%s_switchport_basic_basic' % int_type)
+        if not enabled:
+            switchport.find('.//*switchport-basic').set('operation', 'delete')
+        config = switchport(**switchport_args)
+        return callback(config)
