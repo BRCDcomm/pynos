@@ -14,13 +14,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
-import xml.etree.ElementTree as ET
-import logging
+from pynos.versions.ver_6.ver_6_0_1.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
-from pynos.versions.base.bgp import BGP as BaseBGP
 
 
-class BGP(BaseBGP):
+class BGP(object):
     """
     The BGP class holds all relevent methods and attributes for the BGP
     capabilities of the NOS device.
@@ -28,61 +26,21 @@ class BGP(BaseBGP):
     Attributes:
         None
     """
-    def setup_bgp(self, **kwargs):
-        """Set initial BGP state on NOS device.
-
-        This action is required first to initiate the BGP process on a NOS
-        device.
+    def __init__(self, callback):
+        """
+        BGP object init.
 
         Args:
-            rbridge_id (str): The rbridge ID of the device on which BGP will be
-                configured in a VCS fabric.
-            callback (function): A function executed upon completion of the
-                method.  The only parameter passed to `callback` will be the
-                ``ElementTree`` `config`.
+            callback: Callback function that will be called for each action.
 
         Returns:
-            Return value of `callback`.
+            BGP Object
 
         Raises:
             None
-
-        Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
-            >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.setup_bgp(
-            ... callback=pynos.utilities.print_xml_string)
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">\
-            <rbridge-id>1</rbridge-id><router>\
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">\
-            </bgp></router></rbridge-id></config>
-            >>> dev.bgp.setup_bgp()
-            True
-
         """
-        rbridge_id = kwargs.pop('rbridge_id', '1')
-        callback = kwargs.pop('callback', self._callback)
-        ret = kwargs.pop('ret', False)
-
-        config = ET.Element('config')
-        rbridge = ET.SubElement(config, 'rbridge-id',
-                                xmlns='urn:brocade.com:mgmt:brocade-rbridge')
-        rbridge_id_el = ET.SubElement(rbridge, 'rbridge-id')
-        rbridge_id_el.text = str(rbridge_id)
-
-        router = ET.SubElement(rbridge, 'router')
-        ET.SubElement(router, 'router-bgp',
-                      xmlns='urn:brocade.com:mgmt:brocade-bgp')
-
-        if ret is True:
-            return config
-        try:
-            return callback(config)
-        # TODO add logging and narrow exception window.
-        except Exception as error:
-            logging.error(error)
+        self._callback = callback
+        self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
 
     def local_asn(self, **kwargs):
         """Set BGP local ASN.
@@ -102,46 +60,37 @@ class BGP(BaseBGP):
             KeyError: if `local_as` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.52.9', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.local_asn(local_as='65535',
-            ... callback=pynos.utilities.print_xml_string)
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">\
-            <rbridge-id>1</rbridge-id><router>\
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">\
-            <router-bgp-attributes><local-as>65535</local-as>\
-            </router-bgp-attributes></bgp></router>\
-            </rbridge-id></config>
-            >>> dev.bgp.local_asn(local_as='65535')
-            True
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
             >>> dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-
         """
-        rbridge_id = kwargs.pop('rbridge_id', '1')
         local_as = kwargs.pop('local_as')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
-
-        config = self.setup_bgp(rbridge_id=rbridge_id,
-                                callback=pynos.utilities.return_xml)
-        bgp = config.find('rbridge-id').find('router').find('router-bgp')
-        bgp_attr = ET.SubElement(bgp, 'router-bgp-attributes')
-        asn = ET.SubElement(bgp_attr, 'local-as')
-        asn.text = str(local_as)
-
-        try:
-            return callback(config)
-        # TODO add logging and narrow exception window.
-        except Exception as error:
-            logging.error(error)
+        local_as_args = dict(local_as=local_as,
+                             rbridge_id=rbridge_id)
+        enable_bgp = getattr(self._rbridge,
+                             'rbridge_id_router_router_bgp_router_bgp_'
+                             'attributes_local_as')(**local_as_args)
+        bgp = enable_bgp.find('.//*.//*.//*')
+        bgp.remove(bgp.find('.//*'))
+        callback(enable_bgp)
+        local_as = getattr(self._rbridge,
+                           'rbridge_id_router_router_bgp_router_bgp_attri'
+                           'butes_local_as')
+        config = local_as(**local_as_args)
+        return callback(config)
 
     def remove_bgp(self, **kwargs):
         """Remove BGP process completely.
 
         Args:
+            vrf (str): The VRF for this BGP process.
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
             callback (function): A function executed upon completion of the
@@ -155,40 +104,26 @@ class BGP(BaseBGP):
             None
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.52.9', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.remove_bgp(
-            ... callback=pynos.utilities.print_xml_string)
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">\
-            <rbridge-id>1</rbridge-id><router>\
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp" operation="delete">\
-            </bgp></router></rbridge-id></config>
-            >>> dev.bgp.remove_bgp()
-            True
-
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.remove_bgp(rbridge_id='225')
         """
         rbridge_id = kwargs.pop('rbridge_id', '1')
-        config = ET.Element('config')
         callback = kwargs.pop('callback', self._callback)
+        disable_args = dict(rbridge_id=rbridge_id, local_as='65000')
+        config = getattr(self._rbridge,
+                         'rbridge_id_router_router_bgp_router_bgp_'
+                         'attributes_local_as')(**disable_args)
+        bgp = config.find('.//*.//*.//*')
+        bgp.remove(bgp.find('.//*'))
+        bgp.set('operation', 'delete')
 
-        rbridge = ET.SubElement(config, 'rbridge-id',
-                                xmlns='urn:brocade.com:mgmt:brocade-rbridge')
-        rbridge_id_el = ET.SubElement(rbridge, 'rbridge-id')
-        rbridge_id_el.text = str(rbridge_id)
-        router = ET.SubElement(rbridge, 'router')
-        ET.SubElement(router, 'router-bgp',
-                      xmlns='urn:brocade.com:mgmt:brocade-bgp',
-                      operation='delete')
+        return callback(config)
 
-        try:
-            return callback(config)
-        # TODO add logging and narrow exception window.
-        except Exception as error:
-            logging.error(error)
-
-    def add_neighbor(self, **kwargs):
+    def neighbor(self, **kwargs):
         """Add BGP neighbor.
 
         Args:
@@ -196,6 +131,7 @@ class BGP(BaseBGP):
             remote_as (str): Remote ASN of BGP neighbor.
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -207,110 +143,39 @@ class BGP(BaseBGP):
             KeyError: if `remote_as` or `ip_addr` is not specified.
 
         Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
+            >>> import pynos.device
+            >>> conn = ('10.24.52.9', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.add_neighbor(ip_addr='10.10.10.10',
-            ... remote_as='65535', callback=pynos.utilities.print_xml_string)
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">\
-            <rbridge-id>1</rbridge-id><router>\
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">\
-            <router-bgp-attributes><neighbor><neighbor-ips><neighbor-addr>\
-            <router-bgp-neighbor-address>10.10.10.10\
-            </router-bgp-neighbor-address><remote-as>65535</remote-as>\
-            </neighbor-addr></neighbor-ips></neighbor>\
-            </router-bgp-attributes></bgp></router>\
-            </rbridge-id></config>
-            >>> dev.bgp.add_neighbor(ip_addr='10.10.10.10', remote_as='65535')
-            True
-            >>> dev.bgp.add_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> dev = pynos.device.Device(conn=conn, auth=auth)
+            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ... remote_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ... delete=True, rbridge_id='225')
+            >>> dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
-
         """
-        rbridge_id = kwargs.pop('rbridge_id', '1')
         ip_addr = kwargs.pop('ip_addr')
-        remote_as = kwargs.pop('remote_as')
+        remote_as = kwargs.pop('remote_as', None)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
 
-        config = self.setup_bgp(rbridge_id=rbridge_id,
-                                callback=pynos.utilities.return_xml)
-        bgp = config.find('rbridge-id').find('router').find('router-bgp')
-        bgp_attr = ET.SubElement(bgp, 'router-bgp-attributes')
-        bgp_neighbor = ET.SubElement(bgp_attr, 'neighbor')
-        neighbor_ips = ET.SubElement(bgp_neighbor, 'neighbor-ips')
-        neighbor_addr = ET.SubElement(neighbor_ips, 'neighbor-addr')
-        neighbor_ip = ET.SubElement(neighbor_addr,
-                                    'router-bgp-neighbor-address')
-        neighbor_ip.text = ip_addr
-        neighbor_asn = ET.SubElement(neighbor_addr, 'remote-as')
-        neighbor_asn.text = remote_as
+        if not delete and remote_as is None:
+            raise ValueError('When configuring a neighbor, you must specify '
+                             'its remote-as.')
 
-        try:
-            return callback(config)
-        # TODO add logging and narrow exception window.
-        except Exception as error:
-            logging.error(error)
+        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
+                             remote_as=remote_as,
+                             rbridge_id=rbridge_id)
 
-    def remove_neighbor(self, **kwargs):
-        """Remove BGP neighbor.
-
-        Args:
-            ip_addr (str): IP Address of BGP neighbor.
-            rbridge_id (str): The rbridge ID of the device on which BGP will be
-                configured in a VCS fabric.
-            callback (function): A function executed upon completion of the
-                method.  The only parameter passed to `callback` will be the
-                ``ElementTree`` `config`.
-
-        Returns:
-            Return value of `callback`.
-
-        Raises:
-            KeyError: if `ip_addr` is not specified.
-
-        Examples:
-            >>> import pynos
-            >>> conn = ('10.10.1.1', '22')
-            >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn, auth)
-            >>> output = dev.bgp.remove_neighbor(ip_addr='10.10.10.10',
-            ... callback=pynos.utilities.print_xml_string)
-            <config><rbridge-id xmlns="urn:brocade.com:mgmt:brocade-rbridge">\
-            <rbridge-id>1</rbridge-id><router>\
-            <bgp xmlns="urn:brocade.com:mgmt:brocade-bgp">\
-            <router-bgp-attributes><neighbor><neighbor-ips>\
-            <neighbor-addr operation="delete">\
-            <router-bgp-neighbor-address>10.10.10.10\
-            </router-bgp-neighbor-address></neighbor-addr></neighbor-ips>\
-            </neighbor></router-bgp-attributes></bgp>\
-            </router></rbridge-id></config>
-            >>> dev.bgp.remove_neighbor(ip_addr='10.10.10.10')
-            True
-            >>> dev.bgp.remove_neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
-            Traceback (most recent call last):
-            KeyError
-
-        """
-        rbridge_id = kwargs.pop('rbridge_id', '1')
-        ip_addr = kwargs.pop('ip_addr')
-        callback = kwargs.pop('callback', self._callback)
-
-        config = self.setup_bgp(rbridge_id=rbridge_id,
-                                callback=pynos.utilities.return_xml)
-        bgp = config.find('rbridge-id').find('router').find('router-bgp')
-        bgp_attr = ET.SubElement(bgp, 'router-bgp-attributes')
-        bgp_neighbor = ET.SubElement(bgp_attr, 'neighbor')
-        neighbor_ips = ET.SubElement(bgp_neighbor, 'neighbor-ips')
-        neighbor_addr = ET.SubElement(neighbor_ips, 'neighbor-addr',
-                                      operation='delete')
-        neighbor_ip = ET.SubElement(neighbor_addr,
-                                    'router-bgp-neighbor-address')
-        neighbor_ip.text = ip_addr
-
-        try:
-            return callback(config)
-        # TODO add logging and narrow exception window.
-        except Exception as error:
-            logging.error(error)
+        neighbor = getattr(self._rbridge,
+                           'rbridge_id_router_router_bgp_router_bgp_attributes'
+                           '_neighbor_neighbor_ips_neighbor_addr_remote_as')
+        config = neighbor(**neighbor_args)
+        if delete:
+            neighbor = config.find('.//*neighbor-addr')
+            neighbor.set('operation', 'delete')
+            neighbor.remove(neighbor.find('remote-as'))
+        return callback(config)
