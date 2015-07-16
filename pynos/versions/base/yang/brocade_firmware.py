@@ -68,14 +68,14 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_autoupgrade_params_pass(self, **kwargs):
+    def firmware_autoupgrade_params_pss(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware = ET.SubElement(config, "firmware", xmlns="urn:brocade.com:mgmt:brocade-firmware")
         autoupgrade_params = ET.SubElement(firmware, "autoupgrade-params")
-        pass = ET.SubElement(autoupgrade_params, "pass")
-        pass.text = kwargs.pop('pass')
+        pss = ET.SubElement(autoupgrade_params, "pass")
+        pss.text = kwargs.pop('pss')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -802,14 +802,14 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_autoupgrade_params_pass(self, **kwargs):
+    def firmware_autoupgrade_params_pss(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware = ET.SubElement(config, "firmware", xmlns="urn:brocade.com:mgmt:brocade-firmware")
         autoupgrade_params = ET.SubElement(firmware, "autoupgrade-params")
-        pass = ET.SubElement(autoupgrade_params, "pass")
-        pass.text = kwargs.pop('pass')
+        pss = ET.SubElement(autoupgrade_params, "pass")
+        pss.text = kwargs.pop('pss')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
