@@ -2047,14 +2047,12 @@ class Interface(object):
         name = kwargs.pop('name')
         enabled = kwargs.pop('enabled')
         callback = kwargs.pop('callback', self._callback)
-
         int_types = ['gigabitethernet', 'tengigabitethernet',
                      'fortygigabitethernet', 'hundredgigabitethernet',
                      'port_channel', 'vlan']
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
-
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                 and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for '
@@ -2064,7 +2062,70 @@ class Interface(object):
         switchport_args = dict(name=name)
         switchport = getattr(self._interface,
                              'interface_%s_switchport_basic_basic' % int_type)
+
         if not enabled:
             switchport.find('.//*switchport-basic').set('operation', 'delete')
         config = switchport(**switchport_args)
+        return callback(config)
+
+    def acc_vlan(self, **kwargs):
+        """Set access VLAN on a port.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            vlan (str): VLAN ID to set as the access VLAN.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `int_type`, `name`, or `vlan` is not specified.
+            ValueError: if `int_type`, `name`, or `vlan` is not valid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> auth = ('admin', 'password')
+            >>> int_type = 'tengigabitethernet'
+            >>> name = '225/0/31'
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.add_vlan_int('736')
+            ...         output = dev.interface.enable_switchport(int_type,
+            ...         name)
+            ...         output = dev.interface.acc_vlan(int_type=int_type,
+            ...         name=name, vlan='736')
+            ...         dev.interface.acc_vlan()
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        int_type = kwargs.pop('int_type')
+        name = kwargs.pop('name')
+        vlan = kwargs.pop('vlan')
+        callback = kwargs.pop('callback', self._callback)
+        int_types = ['gigabitethernet', 'tengigabitethernet',
+                     'fortygigabitethernet', 'hundredgigabitethernet',
+                     'port_channel', 'vlan']
+
+        if int_type not in int_types:
+            raise ValueError("`int_type` must be one of: %s" % repr(int_types))
+        if not pynos.utilities.valid_vlan_id(vlan):
+            raise ValueError("`name` must be between `1` and `4096`")
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                and re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.'
+                             % repr(name))
+
+        vlan_args = dict(name=name, accessvlan=vlan)
+        access_vlan = getattr(self._interface,
+                              'interface_%s_switchport_access_accessvlan' %
+                              int_type)
+        config = access_vlan(**vlan_args)
         return callback(config)
