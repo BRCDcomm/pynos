@@ -32,6 +32,7 @@ class TestInterface(unittest.TestCase):
         self.phys_int_type = 'gigabitethernet'
         self.phys_name = '1/0/0'
         self.vlan_id = '40'
+        self.sec_vlan = '50'
 
     def test_description(self):
         expected = '<config>'\
@@ -67,3 +68,21 @@ class TestInterface(unittest.TestCase):
     def test_private_vlan_type_exception(self):
         with self.assertRaises(KeyError):
             self.interface.private_vlan_type(name=self.vlan_id)
+
+    def test_vlan_pvlan_association_add(self):
+        expected = '<config><interface-vlan xmlns="{}"><interface><vlan>'\
+                   '<name>{}</name><private-vlan><association>'\
+                   '<sec-assoc-add>{}</sec-assoc-add></association>'\
+                   '</private-vlan></vlan></interface></interface-vlan>'\
+                   '</config>'.format(self.namespace,
+                                      self.vlan_id,
+                                      self.sec_vlan)
+        interface = self.interface
+        result = interface.vlan_pvlan_association_add(name=self.vlan_id,
+                                                      sec_vlan=self.sec_vlan)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_vlan_pvlan_association_add_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.vlan_pvlan_association_add(name=self.vlan_id)
