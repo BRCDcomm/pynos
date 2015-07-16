@@ -1456,23 +1456,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(gigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_gigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -1602,6 +1585,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(gigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -4594,6 +4594,501 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_gigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(gigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_gigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -4834,80 +5329,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(gigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_gigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -5041,62 +5462,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(gigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -5675,7 +6040,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_sflow_enable(self, **kwargs):
+    def interface_gigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -5683,38 +6048,8 @@ class brocade_interface(object):
         gigabitethernet = ET.SubElement(interface, "gigabitethernet")
         name_key = ET.SubElement(gigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(gigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -5753,281 +6088,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -7956,23 +8016,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(tengigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_tengigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -8102,6 +8145,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(tengigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -11108,6 +11168,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_tengigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -11348,140 +11963,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_tengigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -11615,62 +12096,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(tengigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -12304,7 +12729,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_sflow_enable(self, **kwargs):
+    def interface_tengigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -12312,38 +12737,8 @@ class brocade_interface(object):
         tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
         name_key = ET.SubElement(tengigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(tengigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -12382,281 +12777,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -14557,23 +14677,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(fortygigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_fortygigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -14703,6 +14806,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(fortygigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -17695,6 +17815,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_fortygigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -17935,140 +18610,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_fortygigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -18202,62 +18743,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(fortygigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -18755,7 +19240,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_sflow_enable(self, **kwargs):
+    def interface_fortygigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -18763,38 +19248,8 @@ class brocade_interface(object):
         fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
         name_key = ET.SubElement(fortygigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(fortygigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -18833,281 +19288,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -21008,23 +21188,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(hundredgigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_hundredgigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -21154,6 +21317,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(hundredgigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -23603,6 +23783,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_hundredgigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -23843,140 +24578,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_hundredgigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -24110,62 +24711,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(hundredgigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -24663,7 +25208,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_sflow_enable(self, **kwargs):
+    def interface_hundredgigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -24671,38 +25216,8 @@ class brocade_interface(object):
         hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
         name_key = ET.SubElement(hundredgigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(hundredgigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -24741,281 +25256,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -26678,22 +26918,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_ip_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(port_channel, "ip")
-        arp = ET.SubElement(ip, "arp", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_port_channel_ip_hide_ip_holder_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -26793,6 +27017,22 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         secondary = ET.SubElement(address, "secondary")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_ip_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(port_channel, "ip")
+        arp = ET.SubElement(ip, "arp", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -27545,6 +27785,332 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_port_channel_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_port_channel_fcoeport_fcoeport_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -27613,62 +28179,6 @@ class brocade_interface(object):
         ip_access_list_key.text = kwargs.pop('ip_access_list')
         ip_direction_key = ET.SubElement(access_group, "ip-direction")
         ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
         traffic_type = ET.SubElement(access_group, "traffic-type")
         traffic_type.text = kwargs.pop('traffic_type')
 
@@ -28077,276 +28587,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -30408,6 +30648,301 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_ip_gw_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id.text = kwargs.pop('ip_gw_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_ipv4_gateway_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        ipv4_gateway_address = ET.SubElement(ip_anycast_gateway, "ipv4-gateway-address")
+        ipv4_gateway_address.text = kwargs.pop('ipv4_gateway_address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_gratuitous_arp_gve_timer(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        gratuitous_arp = ET.SubElement(ip_anycast_gateway, "gratuitous-arp")
+        gve_timer = ET.SubElement(gratuitous_arp, "gve-timer")
+        gve_timer.text = kwargs.pop('gve_timer')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        hold_time = ET.SubElement(ip_anycast_gateway, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_load_balancing_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        load_balancing_disable = ET.SubElement(ip_anycast_gateway, "load-balancing-disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        enable = ET.SubElement(ip_anycast_gateway, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        description = ET.SubElement(ip_anycast_gateway, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_ipv6_gw_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id.text = kwargs.pop('ipv6_gw_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_ipv6_gateway_address_ipv6_gw_addr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        ipv6_gateway_address = ET.SubElement(ipv6_anycast_gateway, "ipv6-gateway-address")
+        ipv6_gw_addr = ET.SubElement(ipv6_gateway_address, "ipv6-gw-addr")
+        ipv6_gw_addr.text = kwargs.pop('ipv6_gw_addr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_gratuitous_arp_gve_timer(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        gratuitous_arp = ET.SubElement(ipv6_anycast_gateway, "gratuitous-arp")
+        gve_timer = ET.SubElement(gratuitous_arp, "gve-timer")
+        gve_timer.text = kwargs.pop('gve_timer')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        hold_time = ET.SubElement(ipv6_anycast_gateway, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_load_balancing_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        load_balancing_disable = ET.SubElement(ipv6_anycast_gateway, "load-balancing-disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        enable = ET.SubElement(ipv6_anycast_gateway, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        description = ET.SubElement(ipv6_anycast_gateway, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_attach_rbridge_id_rb_add(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        attach = ET.SubElement(ve, "attach", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        rbridge_id = ET.SubElement(attach, "rbridge-id")
+        rb_add = ET.SubElement(rbridge_id, "rb-add")
+        rb_add.text = kwargs.pop('rb_add')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_attach_rbridge_id_rb_remove(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        attach = ET.SubElement(ve, "attach", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        rbridge_id = ET.SubElement(attach, "rbridge-id")
+        rb_remove = ET.SubElement(rbridge_id, "rb-remove")
+        rb_remove.text = kwargs.pop('rb_remove')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def protocol_edge_loop_detection_pdu_rx_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -30941,6 +31476,41 @@ class brocade_interface(object):
         advertise = ET.SubElement(profile, "advertise")
         optional_tlv = ET.SubElement(advertise, "optional-tlv")
         adv_tlv_system_name = ET.SubElement(optional_tlv, "adv-tlv-system-name")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_hello(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        hello = ET.SubElement(udld, "hello")
+        hello.text = kwargs.pop('hello')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_multiplier(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        multiplier = ET.SubElement(udld, "multiplier")
+        multiplier.text = kwargs.pop('multiplier')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        shutdown = ET.SubElement(udld, "shutdown")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -33297,23 +33867,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(gigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_gigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -33443,6 +33996,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(gigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -36435,6 +37005,501 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_gigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(gigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(gigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_gigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
+        name_key = ET.SubElement(gigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_gigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -36675,80 +37740,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(gigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(gigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_gigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -36882,62 +37873,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(gigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(gigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -37516,7 +38451,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_gigabitethernet_sflow_enable(self, **kwargs):
+    def interface_gigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -37524,38 +38459,8 @@ class brocade_interface(object):
         gigabitethernet = ET.SubElement(interface, "gigabitethernet")
         name_key = ET.SubElement(gigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(gigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(gigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -37594,281 +38499,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_gigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        gigabitethernet = ET.SubElement(interface, "gigabitethernet")
-        name_key = ET.SubElement(gigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(gigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -39797,23 +40427,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(tengigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_tengigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -39943,6 +40556,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(tengigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -42949,6 +43579,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(tengigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_tengigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -43189,140 +44374,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(tengigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(tengigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_tengigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -43456,62 +44507,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(tengigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(tengigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -44145,7 +45140,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_tengigabitethernet_sflow_enable(self, **kwargs):
+    def interface_tengigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -44153,38 +45148,8 @@ class brocade_interface(object):
         tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
         name_key = ET.SubElement(tengigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(tengigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(tengigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -44223,281 +45188,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_tengigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
-        name_key = ET.SubElement(tengigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(tengigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -46398,23 +47088,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(fortygigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_fortygigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -46544,6 +47217,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(fortygigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -49536,6 +50226,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(fortygigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_fortygigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -49776,140 +51021,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(fortygigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(fortygigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_fortygigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -50043,62 +51154,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(fortygigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(fortygigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -50596,7 +51651,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_fortygigabitethernet_sflow_enable(self, **kwargs):
+    def interface_fortygigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -50604,38 +51659,8 @@ class brocade_interface(object):
         fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
         name_key = ET.SubElement(fortygigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(fortygigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(fortygigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -50674,281 +51699,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_fortygigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
-        name_key = ET.SubElement(fortygigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(fortygigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -52849,23 +53599,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(hundredgigabitethernet, "ip")
-        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        arp = ET.SubElement(arp_node_config, "arp")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_hundredgigabitethernet_ip_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -52995,6 +53728,23 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         ospf_ignore = ET.SubElement(address, "ospf-ignore")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_arp_node_config_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(hundredgigabitethernet, "ip")
+        arp_node_config = ET.SubElement(ip, "arp-node-config", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        arp = ET.SubElement(arp_node_config, "arp")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -55444,6 +56194,561 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_isl = ET.SubElement(fabric, "fabric-isl")
+        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
+        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
+        disable = ET.SubElement(neighbor_discovery, "disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fabric_dport = ET.SubElement(fabric, "fabric-dport")
+        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
+        fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_logical_instance_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        logical_instance_id = ET.SubElement(openflow_interface_cfg, "logical-instance-id")
+        logical_instance_id.text = kwargs.pop('logical_instance_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_openflow_enable_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        enable = ET.SubElement(openflow_enable, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_openflow_interface_cfg_openflow_enable_match_profile(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        openflow_interface_cfg = ET.SubElement(hundredgigabitethernet, "openflow-interface-cfg", xmlns="urn:brocade.com:mgmt:brocade-openflow")
+        openflow_enable = ET.SubElement(openflow_interface_cfg, "openflow-enable")
+        match_profile = ET.SubElement(openflow_enable, "match-profile")
+        match_profile.text = kwargs.pop('match_profile')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        enable = ET.SubElement(sflow, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_polling_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        polling_interval = ET.SubElement(sflow, "polling-interval")
+        polling_interval.text = kwargs.pop('polling_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_sflow_sample_rate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
+        sample_rate = ET.SubElement(sflow, "sample-rate")
+        sample_rate.text = kwargs.pop('sample_rate')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        ip_access_list = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list.text = kwargs.pop('ip_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction = ET.SubElement(access_group, "ip-direction")
+        ip_direction.text = kwargs.pop('ip_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
+        ip = ET.SubElement(ip_acl_interface, "ip")
+        access_group = ET.SubElement(ip, "access-group")
+        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
+        ip_access_list_key.text = kwargs.pop('ip_access_list')
+        ip_direction_key = ET.SubElement(access_group, "ip-direction")
+        ip_direction_key.text = kwargs.pop('ip_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_hundredgigabitethernet_storm_control_ingress_protocol_type(self, **kwargs):
         """Auto Generated Code
         """
@@ -55684,140 +56989,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_fabric_fabric_isl_fabric_isl_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_isl = ET.SubElement(fabric, "fabric-isl")
-        fabric_isl_enable = ET.SubElement(fabric_isl, "fabric-isl-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_fabric_trunk_fabric_trunk_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_trunk = ET.SubElement(fabric, "fabric-trunk")
-        fabric_trunk_enable = ET.SubElement(fabric_trunk, "fabric-trunk-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_neighbor_discovery_disable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        neighbor_discovery = ET.SubElement(fabric, "neighbor-discovery")
-        disable = ET.SubElement(neighbor_discovery, "disable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fabric_fabric_dport_fabric_dport_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fabric = ET.SubElement(hundredgigabitethernet, "fabric", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fabric_dport = ET.SubElement(fabric, "fabric-dport")
-        fabric_dport_enable = ET.SubElement(fabric_dport, "fabric-dport-enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_fcoeport_fcoeport_map(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
-        fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
-        fcoeport_map.text = kwargs.pop('fcoeport_map')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        ip_access_list = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list.text = kwargs.pop('ip_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_ip_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction = ET.SubElement(access_group, "ip-direction")
-        ip_direction.text = kwargs.pop('ip_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_ip_acl_interface_ip_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        ip_acl_interface = ET.SubElement(hundredgigabitethernet, "ip-acl-interface", xmlns="urn:brocade.com:mgmt:brocade-ip-access-list")
-        ip = ET.SubElement(ip_acl_interface, "ip")
-        access_group = ET.SubElement(ip, "access-group")
-        ip_access_list_key = ET.SubElement(access_group, "ip-access-list")
-        ip_access_list_key.text = kwargs.pop('ip_access_list')
-        ip_direction_key = ET.SubElement(access_group, "ip-direction")
-        ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_hundredgigabitethernet_ip_pbr_interface_ip_policy_route_map_route_map_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -55951,62 +57122,6 @@ class brocade_interface(object):
         lldp = ET.SubElement(hundredgigabitethernet, "lldp", xmlns="urn:brocade.com:mgmt:brocade-lldp")
         profile = ET.SubElement(lldp, "profile")
         profile.text = kwargs.pop('profile')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(hundredgigabitethernet, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -56504,7 +57619,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_hundredgigabitethernet_sflow_enable(self, **kwargs):
+    def interface_hundredgigabitethernet_udld_udld_enable(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -56512,38 +57627,8 @@ class brocade_interface(object):
         hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
         name_key = ET.SubElement(hundredgigabitethernet, "name")
         name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        enable = ET.SubElement(sflow, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_sflow_polling_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        polling_interval = ET.SubElement(sflow, "polling-interval")
-        polling_interval.text = kwargs.pop('polling_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_sflow_sample_rate(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        sflow = ET.SubElement(hundredgigabitethernet, "sflow", xmlns="urn:brocade.com:mgmt:brocade-sflow")
-        sample_rate = ET.SubElement(sflow, "sample-rate")
-        sample_rate.text = kwargs.pop('sample_rate')
+        udld = ET.SubElement(hundredgigabitethernet, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        udld_enable = ET.SubElement(udld, "udld-enable")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -56582,281 +57667,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_use_v2_checksum(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        use_v2_checksum = ET.SubElement(vrrp, "use-v2-checksum")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_hundredgigabitethernet_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
-        name_key = ET.SubElement(hundredgigabitethernet, "name")
-        name_key.text = kwargs.pop('name')
-        vrrp = ET.SubElement(hundredgigabitethernet, "vrrp", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -58519,22 +59329,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_ip_arp_inspection_trust(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ip = ET.SubElement(port_channel, "ip")
-        arp = ET.SubElement(ip, "arp", xmlns="urn:brocade.com:mgmt:brocade-dai")
-        inspection = ET.SubElement(arp, "inspection")
-        trust = ET.SubElement(inspection, "trust")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_port_channel_ip_hide_ip_holder_ip_config_mtu(self, **kwargs):
         """Auto Generated Code
         """
@@ -58634,6 +59428,22 @@ class brocade_interface(object):
         address_key = ET.SubElement(address, "address")
         address_key.text = kwargs.pop('address')
         secondary = ET.SubElement(address, "secondary")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_ip_arp_inspection_trust(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        ip = ET.SubElement(port_channel, "ip")
+        arp = ET.SubElement(ip, "arp", xmlns="urn:brocade.com:mgmt:brocade-dai")
+        inspection = ET.SubElement(arp, "inspection")
+        trust = ET.SubElement(inspection, "trust")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -59386,6 +60196,332 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_port_channel_mac_access_group_mac_access_list(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        mac_access_list = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list.text = kwargs.pop('mac_access_list')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_mac_access_group_mac_direction(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction = ET.SubElement(access_group, "mac-direction")
+        mac_direction.text = kwargs.pop('mac_direction')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_mac_access_group_traffic_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
+        access_group = ET.SubElement(mac, "access-group")
+        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
+        mac_access_list_key.text = kwargs.pop('mac_access_list')
+        mac_direction_key = ET.SubElement(access_group, "mac-direction")
+        mac_direction_key.text = kwargs.pop('mac_direction')
+        traffic_type = ET.SubElement(access_group, "traffic-type")
+        traffic_type.text = kwargs.pop('traffic_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_vrid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        vrid = ET.SubElement(vrrp, "vrid")
+        vrid.text = kwargs.pop('vrid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_version(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version = ET.SubElement(vrrp, "version")
+        version.text = kwargs.pop('version')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
+        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
+        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_type = ET.SubElement(interface, "interface-type")
+        interface_type.text = kwargs.pop('interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name = ET.SubElement(interface, "interface-name")
+        interface_name.text = kwargs.pop('interface_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_track_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        track = ET.SubElement(vrrp, "track")
+        interface = ET.SubElement(track, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        track_priority = ET.SubElement(interface, "track-priority")
+        track_priority.text = kwargs.pop('track_priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_advertisement_interval(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
+        advertisement_interval.text = kwargs.pop('advertisement_interval')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        enable = ET.SubElement(vrrp, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        hold_time = ET.SubElement(vrrp, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_preempt_mode(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_arp_unicast_request_receive(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        arp = ET.SubElement(vrrp, "arp")
+        unicast_request = ET.SubElement(arp, "unicast-request")
+        receive = ET.SubElement(unicast_request, "receive")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_priority(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        priority = ET.SubElement(vrrp, "priority")
+        priority.text = kwargs.pop('priority')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_hide_vrrp_holer_vrrp_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
+        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
+        vrid_key = ET.SubElement(vrrp, "vrid")
+        vrid_key.text = kwargs.pop('vrid')
+        version_key = ET.SubElement(vrrp, "version")
+        version_key.text = kwargs.pop('version')
+        description = ET.SubElement(vrrp, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_port_channel_fcoeport_fcoeport_map(self, **kwargs):
         """Auto Generated Code
         """
@@ -59454,62 +60590,6 @@ class brocade_interface(object):
         ip_access_list_key.text = kwargs.pop('ip_access_list')
         ip_direction_key = ET.SubElement(access_group, "ip-direction")
         ip_direction_key.text = kwargs.pop('ip_direction')
-        traffic_type = ET.SubElement(access_group, "traffic-type")
-        traffic_type.text = kwargs.pop('traffic_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_mac_access_list(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
-        mac_access_list = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list.text = kwargs.pop('mac_access_list')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_mac_direction(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction = ET.SubElement(access_group, "mac-direction")
-        mac_direction.text = kwargs.pop('mac_direction')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_mac_access_group_traffic_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        mac = ET.SubElement(port_channel, "mac", xmlns="urn:brocade.com:mgmt:brocade-mac-access-list")
-        access_group = ET.SubElement(mac, "access-group")
-        mac_access_list_key = ET.SubElement(access_group, "mac-access-list")
-        mac_access_list_key.text = kwargs.pop('mac_access_list')
-        mac_direction_key = ET.SubElement(access_group, "mac-direction")
-        mac_direction_key.text = kwargs.pop('mac_direction')
         traffic_type = ET.SubElement(access_group, "traffic-type")
         traffic_type.text = kwargs.pop('traffic_type')
 
@@ -59918,276 +60998,6 @@ class brocade_interface(object):
         groupid_key.text = kwargs.pop('groupid')
         vlan = ET.SubElement(group, "vlan")
         vlan.text = kwargs.pop('vlan')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        vrid = ET.SubElement(vrrp, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_version(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version = ET.SubElement(vrrp, "version")
-        version.text = kwargs.pop('version')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        virtual_ip = ET.SubElement(vrrp, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        track = ET.SubElement(vrrp, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        advertisement_interval = ET.SubElement(vrrp, "advertisement-interval")
-        advertisement_interval.text = kwargs.pop('advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        enable = ET.SubElement(vrrp, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        hold_time = ET.SubElement(vrrp, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        preempt_mode = ET.SubElement(vrrp, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_arp_unicast_request_receive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        arp = ET.SubElement(vrrp, "arp")
-        unicast_request = ET.SubElement(arp, "unicast-request")
-        receive = ET.SubElement(unicast_request, "receive")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        priority = ET.SubElement(vrrp, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_hide_vrrp_holer_vrrp_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        hide_vrrp_holer = ET.SubElement(port_channel, "hide-vrrp-holer", xmlns="urn:brocade.com:mgmt:brocade-vrrp")
-        vrrp = ET.SubElement(hide_vrrp_holer, "vrrp")
-        vrid_key = ET.SubElement(vrrp, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        version_key = ET.SubElement(vrrp, "version")
-        version_key.text = kwargs.pop('version')
-        description = ET.SubElement(vrrp, "description")
-        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -62249,6 +63059,301 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_ip_gw_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id.text = kwargs.pop('ip_gw_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_ipv4_gateway_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        ipv4_gateway_address = ET.SubElement(ip_anycast_gateway, "ipv4-gateway-address")
+        ipv4_gateway_address.text = kwargs.pop('ipv4_gateway_address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_gratuitous_arp_gve_timer(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        gratuitous_arp = ET.SubElement(ip_anycast_gateway, "gratuitous-arp")
+        gve_timer = ET.SubElement(gratuitous_arp, "gve-timer")
+        gve_timer.text = kwargs.pop('gve_timer')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        hold_time = ET.SubElement(ip_anycast_gateway, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_load_balancing_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        load_balancing_disable = ET.SubElement(ip_anycast_gateway, "load-balancing-disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        enable = ET.SubElement(ip_anycast_gateway, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ip_ip_anycast_gateway_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ip = ET.SubElement(ve, "ip")
+        ip_anycast_gateway = ET.SubElement(ip, "ip-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ip_gw_id_key = ET.SubElement(ip_anycast_gateway, "ip-gw-id")
+        ip_gw_id_key.text = kwargs.pop('ip_gw_id')
+        description = ET.SubElement(ip_anycast_gateway, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_ipv6_gw_id(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id.text = kwargs.pop('ipv6_gw_id')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_ipv6_gateway_address_ipv6_gw_addr(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        ipv6_gateway_address = ET.SubElement(ipv6_anycast_gateway, "ipv6-gateway-address")
+        ipv6_gw_addr = ET.SubElement(ipv6_gateway_address, "ipv6-gw-addr")
+        ipv6_gw_addr.text = kwargs.pop('ipv6_gw_addr')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_gratuitous_arp_gve_timer(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        gratuitous_arp = ET.SubElement(ipv6_anycast_gateway, "gratuitous-arp")
+        gve_timer = ET.SubElement(gratuitous_arp, "gve-timer")
+        gve_timer.text = kwargs.pop('gve_timer')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_hold_time(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        hold_time = ET.SubElement(ipv6_anycast_gateway, "hold-time")
+        hold_time.text = kwargs.pop('hold_time')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_load_balancing_disable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        load_balancing_disable = ET.SubElement(ipv6_anycast_gateway, "load-balancing-disable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_enable(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        enable = ET.SubElement(ipv6_anycast_gateway, "enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_ipv6_ipv6_anycast_gateway_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        ipv6 = ET.SubElement(ve, "ipv6")
+        ipv6_anycast_gateway = ET.SubElement(ipv6, "ipv6-anycast-gateway", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        ipv6_gw_id_key = ET.SubElement(ipv6_anycast_gateway, "ipv6-gw-id")
+        ipv6_gw_id_key.text = kwargs.pop('ipv6_gw_id')
+        description = ET.SubElement(ipv6_anycast_gateway, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_attach_rbridge_id_rb_add(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        attach = ET.SubElement(ve, "attach", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        rbridge_id = ET.SubElement(attach, "rbridge-id")
+        rb_add = ET.SubElement(rbridge_id, "rb-add")
+        rb_add.text = kwargs.pop('rb_add')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_vlan_interface_ve_attach_rbridge_id_rb_remove(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface_vlan = ET.SubElement(config, "interface-vlan", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        interface = ET.SubElement(interface_vlan, "interface")
+        ve = ET.SubElement(interface, "ve")
+        gve_name_key = ET.SubElement(ve, "gve-name")
+        gve_name_key.text = kwargs.pop('gve_name')
+        attach = ET.SubElement(ve, "attach", xmlns="urn:brocade.com:mgmt:brocade-anycast-gateway")
+        rbridge_id = ET.SubElement(attach, "rbridge-id")
+        rb_remove = ET.SubElement(rbridge_id, "rb-remove")
+        rb_remove.text = kwargs.pop('rb_remove')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def protocol_edge_loop_detection_pdu_rx_limit(self, **kwargs):
         """Auto Generated Code
         """
@@ -62782,6 +63887,41 @@ class brocade_interface(object):
         advertise = ET.SubElement(profile, "advertise")
         optional_tlv = ET.SubElement(advertise, "optional-tlv")
         adv_tlv_system_name = ET.SubElement(optional_tlv, "adv-tlv-system-name")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_hello(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        hello = ET.SubElement(udld, "hello")
+        hello.text = kwargs.pop('hello')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_multiplier(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        multiplier = ET.SubElement(udld, "multiplier")
+        multiplier.text = kwargs.pop('multiplier')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def protocol_udld_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        protocol = ET.SubElement(config, "protocol", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        udld = ET.SubElement(protocol, "udld", xmlns="urn:brocade.com:mgmt:brocade-udld")
+        shutdown = ET.SubElement(udld, "shutdown")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
