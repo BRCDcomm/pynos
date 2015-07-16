@@ -37,15 +37,15 @@ class brocade_aaa(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def aaa_config_aaa_accounting_exec_defaultacc_start_stop_server_type(self, **kwargs):
+    def aaa_config_aaa_accounting_exc_defaultacc_start_stop_server_type(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         aaa_config = ET.SubElement(config, "aaa-config", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         aaa = ET.SubElement(aaa_config, "aaa")
         accounting = ET.SubElement(aaa, "accounting")
-        exec = ET.SubElement(accounting, "exec")
-        defaultacc = ET.SubElement(exec, "defaultacc")
+        exc = ET.SubElement(accounting, "exec")
+        defaultacc = ET.SubElement(exc, "defaultacc")
         start_stop = ET.SubElement(defaultacc, "start-stop")
         server_type = ET.SubElement(start_stop, "server-type")
         server_type.text = kwargs.pop('server_type')
@@ -1002,15 +1002,15 @@ class brocade_aaa(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def aaa_config_aaa_accounting_exec_defaultacc_start_stop_server_type(self, **kwargs):
+    def aaa_config_aaa_accounting_exc_defaultacc_start_stop_server_type(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         aaa_config = ET.SubElement(config, "aaa-config", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         aaa = ET.SubElement(aaa_config, "aaa")
         accounting = ET.SubElement(aaa, "accounting")
-        exec = ET.SubElement(accounting, "exec")
-        defaultacc = ET.SubElement(exec, "defaultacc")
+        exc = ET.SubElement(accounting, "exec")
+        defaultacc = ET.SubElement(exc, "defaultacc")
         start_stop = ET.SubElement(defaultacc, "start-stop")
         server_type = ET.SubElement(start_stop, "server-type")
         server_type.text = kwargs.pop('server_type')
