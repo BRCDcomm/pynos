@@ -285,6 +285,92 @@ class Interface(object):
             logging.error(error)
             return False
 
+    def ip_address(self, **kwargs):
+        """
+        Set IP Address on an Interface.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                 tengigabitethernet etc).
+            name (str): Name of interface id.
+                 (For interface: 1/0/5, 1/0/10 etc).
+            ip_addr (str): IPv4/IPv6 Virtual IP Address..
+                Ex: 10.10.10.1/24 or 2001:db8::/48
+            delete (bool): True is the IP address is added and False if its to
+                be deleted (True, False). Default value will be False if not
+                specified.
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `int_type`, `name`, or `ip_addr` is not passed.
+            ValueError: if `int_type`, `name`, or `ip_addr` are invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        int_type = 'tengigabitethernet'
+            ...        name = '225/0/3'
+            ...        ip_addr = '20.10.10.1/24'
+            ...        output = dev.interface.disable_switchport(inter_type=
+            ...        int_type, inter=name)
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr)
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr, delete=True)
+            ...        ip_addr = 'fc00:1:3:1ad3:0:0:23:a/64'
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr)
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr, delete=True)
+        """
+
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        ip_addr = str(kwargs.pop('ip_addr'))
+        delete = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet']
+
+        if int_type not in valid_int_types:
+            raise ValueError('%s must be one of: %s' %
+                             repr(int_type), repr(valid_int_types))
+
+        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces.' % repr(name))
+
+        ipaddress = ip_interface(unicode(ip_addr))
+
+        if ipaddress.version == 4:
+            ip_args = dict(name=name, address=ip_addr)
+            ip_address_attr = getattr(self._interface, 'interface_%s_ip_ip_'
+                                      'config_address_address' % int_type)
+        elif ipaddress.version == 6:
+            ip_args = dict(name=name, address=ip_addr)
+            ip_address_attr = getattr(
+                self._interface, 'interface_%s_ipv6_ipv6_config_address_ipv6_'
+                'address_address' % int_type)
+
+        config = ip_address_attr(**ip_args)
+        if delete:
+            delete_ip = config.find('.//*address')
+            delete_ip.set('operation', 'delete')
+        try:
+            return callback(config)
+        # TODO Setting IP on port channel is not done yet.
+        except AttributeError as (errno, errstr):
+            return None
+
     def del_ip(self, inter_type, inter, ip_addr):
         """
         Delete IP address from a L3 interface.
