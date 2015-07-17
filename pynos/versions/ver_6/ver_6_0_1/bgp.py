@@ -14,6 +14,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+
+from ipaddress import ip_interface
 from pynos.versions.ver_6.ver_6_0_1.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
 
@@ -150,8 +152,12 @@ class BGP(object):
             >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
             >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ... remote_as='65535', rbridge_id='225')
+            >>> output = dev.bgp.neighbor(remote_as='65535', rbridge_id='225',
+            ... ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ... delete=True, rbridge_id='225')
+            >>> output = dev.bgp.neighbor(delete=True, rbridge_id='225',
+            ... ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             >>> dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -161,21 +167,46 @@ class BGP(object):
         rbridge_id = kwargs.pop('rbridge_id', '1')
         delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
+        ip_addr = ip_interface(unicode(ip_addr))
 
         if not delete and remote_as is None:
             raise ValueError('When configuring a neighbor, you must specify '
                              'its remote-as.')
 
-        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
+        neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
                              remote_as=remote_as,
                              rbridge_id=rbridge_id)
 
-        neighbor = getattr(self._rbridge,
-                           'rbridge_id_router_router_bgp_router_bgp_attributes'
-                           '_neighbor_neighbor_ips_neighbor_addr_remote_as')
+        if ip_addr.version == 4:
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_neighbor_ips_'
+                               'neighbor_addr_remote_as')
+            ip_addr_path = './/*neighbor-addr'
+        else:
+            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_'
+                               'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
+            ip_addr_path = './/*neighbor-ipv6-addr'
+
         config = neighbor(**neighbor_args)
+
         if delete:
-            neighbor = config.find('.//*neighbor-addr')
+            neighbor = config.find(ip_addr_path)
             neighbor.set('operation', 'delete')
             neighbor.remove(neighbor.find('remote-as'))
+        if ip_addr.version == 6:
+            callback(config)
+            activate_args = dict(rbridge_id=rbridge_id,
+                                 af_ipv6_neighbor_address=str(ip_addr.ip))
+            activate_neighbor = getattr(self._rbridge,
+                                        'rbridge_id_router_router_bgp_'
+                                        'address_family_ipv6_ipv6_unicast_'
+                                        'default_vrf_neighbor_af_ipv6_'
+                                        'neighbor_address_holder_af_ipv6_'
+                                        'neighbor_address_activate')
+            config = activate_neighbor(**activate_args)
+
         return callback(config)
