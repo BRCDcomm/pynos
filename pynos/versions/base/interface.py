@@ -1703,6 +1703,7 @@ class Interface(object):
             port_int (str): port-channel number (1, 2, 3, etc).
             channel_type (str): tiype of port-channel (standard, brocade)
             mode (str): mode of channel group (active, on, passive).
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
             callback (function): a function executed upon completion of the
                 method.  the only parameter passed to `callback` will be the
                 ``elementtree`` `config`.
@@ -1734,6 +1735,7 @@ class Interface(object):
         channel_type = kwargs.pop('channel_type')
         port_int = kwargs.pop('port_int')
         mode = kwargs.pop('mode')
+        delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
@@ -1771,10 +1773,13 @@ class Interface(object):
             )(**channel_group_args)
 
         channel_group = config.find('.//*channel-group')
-        port_int_el = ET.SubElement(channel_group, 'port-int')
-        port_int_el.text = port_int
-        port_type_el = ET.SubElement(channel_group, 'type')
-        port_type_el.text = channel_type
+        if delete is True:
+            channel_group.set('operation', 'delete')
+        else:
+            port_int_el = ET.SubElement(channel_group, 'port-int')
+            port_int_el.text = port_int
+            port_type_el = ET.SubElement(channel_group, 'type')
+            port_type_el.text = channel_type
 
         return callback(config)
 
