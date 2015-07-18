@@ -83,9 +83,10 @@ class BGP(object):
             >>> import pynos.device
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
-            >>> dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """
@@ -126,9 +127,10 @@ class BGP(object):
             >>> import pynos.device
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
-            >>> output = dev.bgp.remove_bgp(rbridge_id='225')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.remove_bgp(rbridge_id='225')
         """
         vrf = kwargs.pop('vrf', 'default')
         rbridge_id = kwargs.pop('rbridge_id', '1')
@@ -164,17 +166,19 @@ class BGP(object):
             >>> import pynos.device
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.bgp.local_asn(local_as='65535', rbridge_id='225')
-            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ... remote_as='65535', rbridge_id='225')
-            >>> output = dev.bgp.neighbor(remote_as='65535', rbridge_id='225',
-            ... ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            >>> output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ... delete=True, rbridge_id='225')
-            >>> output = dev.bgp.neighbor(delete=True, rbridge_id='225',
-            ... ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            >>> dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225')
+            ...     output = dev.bgp.neighbor(delete=True, rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """
