@@ -2050,7 +2050,7 @@ class Interface(object):
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        enabled = kwargs.pop('enabled')
+        enabled = kwargs.pop('enabled', True)
         callback = kwargs.pop('callback', self._callback)
         int_types = ['gigabitethernet', 'tengigabitethernet',
                      'fortygigabitethernet', 'hundredgigabitethernet',
