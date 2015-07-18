@@ -2068,9 +2068,9 @@ class Interface(object):
         switchport = getattr(self._interface,
                              'interface_%s_switchport_basic_basic' % int_type)
 
-        if not enabled:
-            switchport.find('.//*switchport-basic').set('operation', 'delete')
         config = switchport(**switchport_args)
+        if not enabled:
+            config.find('.//*switchport-basic').set('operation', 'delete')
         return callback(config)
 
     def acc_vlan(self, **kwargs):
