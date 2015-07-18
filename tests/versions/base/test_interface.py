@@ -389,3 +389,34 @@ class TestInterface(unittest.TestCase):
     def test_vrrp_priority_exception(self):
         with self.assertRaises(KeyError):
             self.interface.vrrp_priority()
+
+    def test_proxy_arp_enabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-ip-config'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ip><ip-config xmlns="{3}"><proxy-arp /></ip-config></ip>'\
+                   '</{1}></interface></config>'.format(self.namespace,
+                                                        self.phys_int_type,
+                                                        self.phys_name,
+                                                        namespace)
+        result = self.interface.proxy_arp(int_type=self.phys_int_type,
+                                          name=self.phys_name, enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_proxy_arp_disabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-ip-config'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ip><ip-config xmlns="{3}">'\
+                   '<proxy-arp operation="delete" /></ip-config></ip>'\
+                   '</{1}></interface></config>'.format(self.namespace,
+                                                        self.phys_int_type,
+                                                        self.phys_name,
+                                                        namespace)
+        result = self.interface.proxy_arp(int_type=self.phys_int_type,
+                                          name=self.phys_name, enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_proxy_arp_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.proxy_arp()
