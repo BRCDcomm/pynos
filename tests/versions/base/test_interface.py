@@ -450,3 +450,17 @@ class TestInterface(unittest.TestCase):
     def test_lacp_timeout_exception(self):
         with self.assertRaises(KeyError):
             self.interface.lacp_timeout()
+
+    def test_transport_service(self):
+        expected = '<config><interface-vlan xmlns="{0}"><interface><vlan>'\
+                   '<name>{1}</name><transport-service>1</transport-service>'\
+                   '</vlan></interface></interface-vlan>'\
+                   '</config>'.format(self.namespace, self.vlan_id)
+        result = self.interface.transport_service(vlan=self.vlan_id,
+                                                  service_id='1')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_transport_service_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.transport_service()
