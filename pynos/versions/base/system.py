@@ -72,10 +72,10 @@ class System(object):
             >>> import pynos.device
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> output = dev.system.router_id(router_id='10.24.48.225',
-            ... rbridge_id='225')
-            >>> dev.system.router_id() # doctest: +IGNORE_EXCEPTION_DETAIL
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.system.router_id(router_id='10.24.48.225',
+            ...     rbridge_id='225')
+            ...     dev.system.router_id() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """

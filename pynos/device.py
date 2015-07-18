@@ -277,9 +277,10 @@ class Device(object):
             >>> import pynos.device
             >>> conn = ('10.24.48.225', '22')
             >>> auth = ('admin', 'password')
-            >>> dev = pynos.device.Device(conn=conn, auth=auth)
-            >>> x = dev.find_interface_by_mac(mac_address='01:23:45:67:89:ab')
-            >>> pprint(x) # doctest: +ELLIPSIS
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     x = dev.find_interface_by_mac(
+            ...     mac_address='01:23:45:67:89:ab')
+            ...     pprint(x) # doctest: +ELLIPSIS
             [{'interface'...'mac_address'...'state'...'type'...'vlan'...}]
         """
         mac = kwargs.pop('mac_address')
