@@ -420,3 +420,33 @@ class TestInterface(unittest.TestCase):
     def test_proxy_arp_exception(self):
         with self.assertRaises(KeyError):
             self.interface.proxy_arp()
+
+    def test_lacp_timeout_short(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-lacp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<lacp xmlns="{3}"><timeout>short</timeout></lacp></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name, namespace)
+        result = self.interface.lacp_timeout(int_type=self.phys_int_type,
+                                             name=self.phys_name,
+                                             timeout='short')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_lacp_timeout_long(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-lacp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<lacp xmlns="{3}"><timeout>long</timeout></lacp></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name, namespace)
+        result = self.interface.lacp_timeout(int_type=self.phys_int_type,
+                                             name=self.phys_name,
+                                             timeout='long')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_lacp_timeout_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.lacp_timeout()
