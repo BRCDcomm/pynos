@@ -356,3 +356,36 @@ class TestInterface(unittest.TestCase):
     def test_vrrp_vip_exception(self):
         with self.assertRaises(KeyError):
             self.interface.vrrp_vip()
+
+    def test_vrrp_priority_ipv4(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-vrrp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<vrrp xmlns="{3}"><vrid>1</vrid><version>3</version>'\
+                   '<priority>50</priority></vrrp></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, namespace)
+        result = self.interface.vrrp_priority(int_type=self.phys_int_type,
+                                              name=self.phys_name,
+                                              priority='50', vrid='1',
+                                              ip_version='4')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_vrrp_priority_ipv6(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-vrrpv3'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ipv6><vrrpv3-group xmlns="{3}"><vrid>1</vrid>'\
+                   '<priority>50</priority></vrrpv3-group></ipv6></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name, namespace)
+        result = self.interface.vrrp_priority(int_type=self.phys_int_type,
+                                              name=self.phys_name,
+                                              priority='50', vrid='1',
+                                              ip_version='6')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_vrrp_priority_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.vrrp_priority()
