@@ -538,3 +538,34 @@ class TestInterface(unittest.TestCase):
     def test_fabric_trunk_exception(self):
         with self.assertRaises(KeyError):
             self.interface.fabric_trunk()
+
+    def test_channel_group_brocade(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<channel-group><mode>active</mode><port-int>5</port-int>'\
+                   '<type>brocade</type></channel-group></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.channel_group(int_type=self.phys_int_type,
+                                              name=self.phys_name,
+                                              mode='active', port_int='5',
+                                              channel_type='brocade')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_channel_group_brocade(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<channel-group><mode>active</mode><port-int>5</port-int>'\
+                   '<type>standard</type></channel-group></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.channel_group(int_type=self.phys_int_type,
+                                              name=self.phys_name,
+                                              mode='active', port_int='5',
+                                              channel_type='standard')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+
+    def test_channel_group_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.channel_group()
