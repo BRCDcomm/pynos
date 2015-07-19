@@ -620,3 +620,36 @@ class TestInterface(unittest.TestCase):
     def test_tag_native_vlan_exception(self):
         with self.assertRaises(KeyError):
             self.interface.tag_native_vlan()
+
+    def test_v6_nd_suppress_ra(self):
+        ra_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-nd-ra'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ipv6><ipv6-nd-ra xmlns="{3}"><ipv6-intf-cmds><nd>'\
+                   '<suppress-ra><suppress-ra-all /></suppress-ra></nd>'\
+                   '</ipv6-intf-cmds></ipv6-nd-ra></ipv6></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, ra_namespace)
+        result = self.interface.v6_nd_suppress_ra(int_type=self.phys_int_type,
+                                                  name=self.phys_name)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_v6_nd_suppress_ra_interface_ve(self):
+        rbridge_namespace = 'urn:brocade.com:mgmt:brocade-rbridge'
+        ipv6_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-config'
+        ra_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-nd-ra'
+        expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>1'\
+                   '</rbridge-id><interface xmlns="{1}"><ve><name>7</name>'\
+                   '<ipv6 xmlns="{2}"><ipv6-nd-ra xmlns="{3}">'\
+                   '<ipv6-intf-cmds><nd><suppress-ra><suppress-ra-all />'\
+                   '</suppress-ra></nd></ipv6-intf-cmds></ipv6-nd-ra></ipv6>'\
+                   '</ve></interface></rbridge-id>'\
+                   '</config>'.format(rbridge_namespace, self.namespace,
+                                      ipv6_namespace, ra_namespace)
+        result = self.interface.v6_nd_suppress_ra(int_type='ve', name='7')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_v6_nd_suppress_ra_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.tag_native_vlan()
