@@ -1210,7 +1210,6 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
-            'gigabitethernet',
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
@@ -1279,7 +1278,6 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
 
         int_types = [
-            'gigabitethernet',
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
