@@ -592,3 +592,31 @@ class TestInterface(unittest.TestCase):
     def test_port_channel_vlag_ignore_split_exception(self):
         with self.assertRaises(KeyError):
             self.interface.port_channel_vlag_ignore_split()
+
+    def test_tag_native_vlan_enabled(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><tag><native-vlan /></tag></trunk>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.tag_native_vlan(int_type=self.phys_int_type,
+                                                name=self.phys_name)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_tag_native_vlan_disabled(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><trunk><tag>'\
+                   '<native-vlan operation="delete" /></tag></trunk>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.tag_native_vlan(int_type=self.phys_int_type,
+                                                name=self.phys_name,
+                                                enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_tag_native_vlan_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.tag_native_vlan()
