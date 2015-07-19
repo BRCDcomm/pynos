@@ -477,3 +477,33 @@ class TestInterface(unittest.TestCase):
     def test_port_channel_minimum_links_exception(self):
         with self.assertRaises(KeyError):
             self.interface.port_channel_minimum_links()
+
+    def test_fabric_isl_enabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-fcoe'
+        expected = '<config><interface xmlns="{0}"><tengigabitethernet><name>'\
+                   '{1}</name><fabric xmlns="{2}"><fabric-isl>'\
+                   '<fabric-isl-enable /></fabric-isl></fabric>'\
+                   '</tengigabitethernet></interface>'\
+                   '</config>'.format(self.namespace, self.phys_name,
+                                      namespace)
+        result = self.interface.fabric_isl(int_type='tengigabitethernet',
+                                           name=self.phys_name)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_fabric_isl_disabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-fcoe'
+        expected = '<config><interface xmlns="{0}"><tengigabitethernet><name>'\
+                   '{1}</name><fabric xmlns="{2}">'\
+                   '<fabric-isl operation="delete"><fabric-isl-enable />'\
+                   '</fabric-isl></fabric></tengigabitethernet></interface>'\
+                   '</config>'.format(self.namespace, self.phys_name,
+                                      namespace)
+        result = self.interface.fabric_isl(int_type='tengigabitethernet',
+                                           name=self.phys_name, enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_fabric_isl_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.fabric_isl()
