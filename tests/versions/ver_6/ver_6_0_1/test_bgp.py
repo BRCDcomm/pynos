@@ -47,3 +47,13 @@ class TestBGP(unittest.TestCase):
     def test_local_asn_exception(self):
         with self.assertRaises(KeyError):
             self.bgp.local_asn(rbridge='2', vrf='x')
+
+    def test_remove_bgp(self):
+        expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>{1}'\
+                   '</rbridge-id><router>'\
+                   '<router-bgp operation="delete" xmlns="{2}" /></router>'\
+                   '</rbridge-id></config>'.format(self.rbridge_namespace,
+                                                   self.rbridge_id,
+                                                   self.bgp_namespace)
+        result = ET.tostring(self.bgp.remove_bgp(rbridge_id=self.rbridge_id))
+        self.assertEquals(expected, result)
