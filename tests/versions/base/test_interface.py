@@ -507,3 +507,34 @@ class TestInterface(unittest.TestCase):
     def test_fabric_isl_exception(self):
         with self.assertRaises(KeyError):
             self.interface.fabric_isl()
+
+    def test_fabric_trunk_enabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-fcoe'
+        expected = '<config><interface xmlns="{0}"><tengigabitethernet><name>'\
+                   '{1}</name><fabric xmlns="{2}"><fabric-trunk>'\
+                   '<fabric-trunk-enable /></fabric-trunk></fabric>'\
+                   '</tengigabitethernet></interface>'\
+                   '</config>'.format(self.namespace, self.phys_name,
+                                      namespace)
+        result = self.interface.fabric_trunk(int_type='tengigabitethernet',
+                                             name=self.phys_name)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_fabric_trunk_disabled(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-fcoe'
+        expected = '<config><interface xmlns="{0}"><tengigabitethernet><name>'\
+                   '{1}</name><fabric xmlns="{2}">'\
+                   '<fabric-trunk operation="delete"><fabric-trunk-enable />'\
+                   '</fabric-trunk></fabric></tengigabitethernet></interface>'\
+                   '</config>'.format(self.namespace, self.phys_name,
+                                      namespace)
+        result = self.interface.fabric_trunk(int_type='tengigabitethernet',
+                                             name=self.phys_name,
+                                             enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_fabric_trunk_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.fabric_trunk()
