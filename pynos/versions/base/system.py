@@ -42,13 +42,13 @@ class System(object):
     def uptime(self):
         """dict: device uptime
         """
-        namespace = 'urn:brocade.com:mgmt:brocade-system'
-        get_system_uptime = ET.Element('get-system-uptime', xmlns=namespace)
+        ns = 'urn:brocade.com:mgmt:brocade-system'
+        get_system_uptime = ET.Element('get-system-uptime', xmlns=ns)
         results = self._callback(get_system_uptime, handler='get')
-        system_uptime = dict(days=results.find('{%s}days' % namespace),
-                             hours=results.find('{%s}hours' % namespace),
-                             minutes=results.find('{%s}minutes' % namespace),
-                             seconds=results.find('{%s}seconds' % namespace))
+        system_uptime = dict(days=results.find('.//{%s}days' % ns).text,
+                             hours=results.find('.//{%s}hours' % ns).text,
+                             minutes=results.find('.//{%s}minutes' % ns).text,
+                             seconds=results.find('.//{%s}seconds' % ns).text)
         return system_uptime
 
     def router_id(self, **kwargs):
