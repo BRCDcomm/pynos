@@ -552,7 +552,7 @@ class TestInterface(unittest.TestCase):
         result = ET.tostring(result)
         self.assertEquals(expected, result)
 
-    def test_channel_group_brocade(self):
+    def test_channel_group_standard(self):
         expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
                    '<channel-group><mode>active</mode><port-int>5</port-int>'\
                    '<type>standard</type></channel-group></{1}></interface>'\
@@ -565,7 +565,30 @@ class TestInterface(unittest.TestCase):
         result = ET.tostring(result)
         self.assertEquals(expected, result)
 
-
     def test_channel_group_exception(self):
         with self.assertRaises(KeyError):
             self.interface.channel_group()
+
+    def test_port_channel_vlag_ignore_split_enabled(self):
+        expected = '<config><interface xmlns="{0}"><port-channel>'\
+                   '<name>5</name><vlag><ignore-split /></vlag>'\
+                   '</port-channel></interface>'\
+                   '</config>'.format(self.namespace)
+        result = self.interface.port_channel_vlag_ignore_split(name='5',
+                                                               enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_port_channel_vlag_ignore_split_disabled(self):
+        expected = '<config><interface xmlns="{0}"><port-channel>'\
+                   '<name>5</name><vlag><ignore-split operation="delete" />'\
+                   '</vlag></port-channel></interface>'\
+                   '</config>'.format(self.namespace)
+        result = self.interface.port_channel_vlag_ignore_split(name='5',
+                                                               enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_port_channel_vlag_ignore_split_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.port_channel_vlag_ignore_split()
