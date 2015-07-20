@@ -176,7 +176,7 @@ class BGP(object):
                              'its remote-as.')
         if delete and ip_addr.version == 6:
             raise NotImplementedError('IPv6 Neighbor removal on NOS 6.0.1 is '
-                                      'currently not supported.'
+                                      'currently not supported.')
 
         neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
                              remote_as=remote_as,
