@@ -653,3 +653,18 @@ class TestInterface(unittest.TestCase):
     def test_v6_nd_suppress_ra_exception(self):
         with self.assertRaises(KeyError):
             self.interface.tag_native_vlan()
+
+    def test_trunk_mode(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><mode><vlan-mode>trunk</vlan-mode></mode>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.trunk_mode(int_type=self.phys_int_type,
+                                           name=self.phys_name, mode='trunk')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_trunk_mode_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.trunk_mode()
