@@ -668,3 +668,24 @@ class TestInterface(unittest.TestCase):
     def test_trunk_mode_exception(self):
         with self.assertRaises(KeyError):
             self.interface.trunk_mode()
+
+    def test_switchport_pvlan_mapping(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<switchport><private-vlan><mapping><promis-pri-pvlan>'\
+                   '{3}</promis-pri-pvlan><promis-sec-pvlan-range>{4}'\
+                   '</promis-sec-pvlan-range></mapping></private-vlan>'\
+                   '</switchport></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, self.vlan_id,
+                                      self.sec_vlan)
+        intf = self.interface
+        result = intf.switchport_pvlan_mapping(int_type=self.phys_int_type,
+                                               name=self.phys_name,
+                                               pri_vlan=self.vlan_id,
+                                               sec_vlan=self.sec_vlan)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_switchport_pvlan_mapping_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.switchport_pvlan_mapping()
