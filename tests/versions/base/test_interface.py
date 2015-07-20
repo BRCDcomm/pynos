@@ -321,3 +321,38 @@ class TestInterface(unittest.TestCase):
     def test_private_vlan_mode_exception(self):
         with self.assertRaises(KeyError):
             self.interface.private_vlan_mode(name=self.vlan_id)
+
+    def test_vrrp_vip_ipv4(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-vrrp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<vrrp xmlns="{3}"><vrid>1</vrid><version>3</version>'\
+                   '<virtual-ip><virtual-ipaddr>10.10.10.10</virtual-ipaddr>'\
+                   '</virtual-ip></vrrp></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name, namespace)
+
+        result = self.interface.vrrp_vip(int_type=self.phys_int_type, vrid='1',
+                                         name=self.phys_name,
+                                         vip='10.10.10.10/24')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_vrrp_vip_ipv6(self):
+        namespace = 'urn:brocade.com:mgmt:brocade-vrrpv3'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ipv6><vrrpv3-group xmlns="{3}"><vrid>1</vrid>'\
+                   '<virtual-ip><virtual-ipaddr>2001::1</virtual-ipaddr>'\
+                   '</virtual-ip></vrrpv3-group></ipv6></gigabitethernet>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name,
+                                                  namespace)
+
+        result = self.interface.vrrp_vip(int_type=self.phys_int_type, vrid='1',
+                                         name=self.phys_name, vip='2001::1/64')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_vrrp_vip_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.vrrp_vip()
