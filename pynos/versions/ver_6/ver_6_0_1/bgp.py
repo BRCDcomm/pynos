@@ -160,8 +160,6 @@ class BGP(object):
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ...     delete=True, rbridge_id='225')
-            ...     output = dev.bgp.neighbor(delete=True, rbridge_id='225',
-            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -176,6 +174,9 @@ class BGP(object):
         if not delete and remote_as is None:
             raise ValueError('When configuring a neighbor, you must specify '
                              'its remote-as.')
+        if delete and ip_addr.version == 6:
+            raise NotImplementedError('IPv6 Neighbor removal on NOS 6.0.1 is '
+                                      'currently not supported.'
 
         neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
                              remote_as=remote_as,
