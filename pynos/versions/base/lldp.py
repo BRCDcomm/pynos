@@ -57,7 +57,10 @@ class LLDP(object):
             remote_int_name = item.find('%sremote-interface-name' % urn).text
             remote_int_mac = item.find('%sremote-interface-mac' % urn).text
             remote_chas_id = item.find('%sremote-chassis-id' % urn).text
-            remote_sys_name = item.find('%sremote-system-name' % urn).text
+            try:
+                remote_sys_name = item.find('%sremote-system-name' % urn).text
+            except:
+                remote_sys_name = ''
 
             if 'Fo ' in local_int_name:
                 local_int_name = local_int_name.replace(
