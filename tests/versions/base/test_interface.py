@@ -464,3 +464,16 @@ class TestInterface(unittest.TestCase):
     def test_transport_service_exception(self):
         with self.assertRaises(KeyError):
             self.interface.transport_service()
+
+    def test_port_channel_minimum_links(self):
+        expected = '<config><interface xmlns="{0}"><port-channel><name>'\
+                   '3</name><minimum-links>2</minimum-links></port-channel>'\
+                   '</interface></config>'.format(self.namespace)
+        result = self.interface.port_channel_minimum_links(name='3',
+                                                           minimum_links='2')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_port_channel_minimum_links_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.port_channel_minimum_links()
