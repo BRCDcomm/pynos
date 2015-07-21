@@ -1496,6 +1496,9 @@ class Interface(object):
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...         output = dev.interface.set_ip('tengigabitethernet',
             ...         '225/0/18', '10.1.1.2/24')
+            ...         output = dev.interface.ip_address(name='225/0/18',
+            ...         int_type='tengigabitethernet',
+            ...         ip_addr='2001:4818:f000:1ab:cafe:beef:1000:2/64')
             ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
             ...         name='225/0/18', vrid='1', vip='10.1.1.1/24')
             ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
@@ -1599,6 +1602,9 @@ class Interface(object):
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...         output = dev.interface.set_ip('tengigabitethernet',
             ...         '225/0/18', '10.1.1.2/24')
+            ...         output = dev.interface.ip_address(name='225/0/18',
+            ...         int_type='tengigabitethernet',
+            ...         ip_addr='2001:4818:f000:1ab:cafe:beef:1000:2/64')
             ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
             ...         name='225/0/18', vrid='1', vip='10.1.1.1/24')
             ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
