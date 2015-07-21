@@ -66,9 +66,9 @@ class BGP(object):
             >>> conn = ('10.24.52.9', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
-            >>>     output = dev.bgp.local_asn(local_as='65535',
-            ...     rbridge_id='225')
-            ...     dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
+            ... output = dev.bgp.local_asn(local_as='65535',
+            ... rbridge_id='225')
+            ... dev.bgp.local_asn() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """
