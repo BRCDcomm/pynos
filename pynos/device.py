@@ -67,6 +67,8 @@ class Device(object):
         bgp: BGP related actions and attributes.
         interface: Interface related actions and attributes.
         snmp: SNMP related actions and attributes.
+        lldp: LLDP related actions and attributes.
+        system: System level actions and attributes.
     """
     def __init__(self, **kwargs):
         """
