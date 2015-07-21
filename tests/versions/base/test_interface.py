@@ -33,6 +33,10 @@ class TestInterface(unittest.TestCase):
         self.phys_name = '1/0/0'
         self.vlan_id = '40'
         self.sec_vlan = '50'
+        self.ipv4_config_namespace = 'urn:brocade.com:mgmt:brocade-ip-config'
+        self.ipv4_address = '20.10.10.1/24'
+        self.ipv6_address = 'fc00:1:3:1ad3:0:0:23:a/64'
+        self.ipv6_config_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-config'
 
     def test_description(self):
         expected = '<config>'\
@@ -689,3 +693,71 @@ class TestInterface(unittest.TestCase):
     def test_switchport_pvlan_mapping_exception(self):
         with self.assertRaises(KeyError):
             self.interface.switchport_pvlan_mapping()
+
+    def test_ip_address_exception(self):
+        with self.assertRaises(KeyError):
+            self.interface.ip_address(name=self.phys_name)
+
+    def test_ipv4_address_add(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ip><ip-config xmlns="{3}"><address><address>{4}'\
+                   '</address></address></ip-config></ip></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name,
+                                      self.ipv4_config_namespace,
+                                      self.ipv4_address)
+        result = self.interface.ip_address(int_type=self.phys_int_type,
+                                           name=self.phys_name,
+                                           ip_addr=self.ipv4_address,
+                                           delete=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_ipv4_address_delete(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ip><ip-config xmlns="{3}"><address operation="delete">'\
+                   '<address>{4}</address></address></ip-config></ip></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name,
+                                                  self.ipv4_config_namespace,
+                                                  self.ipv4_address)
+        result = self.interface.ip_address(int_type=self.phys_int_type,
+                                           name=self.phys_name,
+                                           ip_addr=self.ipv4_address,
+                                           delete=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_ipv6_address_add(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ipv6><ipv6-config xmlns="{3}"><address><ipv6-address>'\
+                   '<address>{4}</address></ipv6-address></address>'\
+                   '</ipv6-config></ipv6></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name,
+                                      self.ipv6_config_namespace,
+                                      self.ipv6_address)
+        result = self.interface.ip_address(int_type=self.phys_int_type,
+                                           name=self.phys_name,
+                                           ip_addr=self.ipv6_address,
+                                           delete=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_ipv6_address_delete(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<ipv6><ipv6-config xmlns="{3}"><address '\
+                   'operation="delete"><ipv6-address><address>{4}</address>'\
+                   '</ipv6-address></address></ipv6-config></ipv6></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_int_type,
+                                                  self.phys_name,
+                                                  self.ipv6_config_namespace,
+                                                  self.ipv6_address)
+        result = self.interface.ip_address(int_type=self.phys_int_type,
+                                           name=self.phys_name,
+                                           ip_addr=self.ipv6_address,
+                                           delete=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
