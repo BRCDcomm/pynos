@@ -202,16 +202,29 @@ class BGP(object):
             neighbor = config.find(ip_addr_path)
             neighbor.set('operation', 'delete')
             neighbor.remove(neighbor.find('remote-as'))
-        if ip_addr.version == 6:
-            callback(config)
-            activate_args = dict(rbridge_id=rbridge_id,
-                                 af_ipv6_neighbor_address=str(ip_addr.ip))
-            activate_neighbor = getattr(self._rbridge,
-                                        'rbridge_id_router_router_bgp_'
-                                        'address_family_ipv6_ipv6_unicast_'
-                                        'default_vrf_neighbor_af_ipv6_'
-                                        'neighbor_address_holder_af_ipv6_'
-                                        'neighbor_address_activate')
-            config = activate_neighbor(**activate_args)
-
+            if ip_addr.version == 6:
+                activate_args = dict(rbridge_id=rbridge_id,
+                                     af_ipv6_neighbor_address=str(ip_addr.ip))
+                activate_neighbor = getattr(self._rbridge,
+                                            'rbridge_id_router_router_bgp_'
+                                            'address_family_ipv6_ipv6_unicast_'
+                                            'default_vrf_neighbor_af_ipv6_'
+                                            'neighbor_address_holder_af_ipv6_'
+                                            'neighbor_address_activate')
+                deactivate = activate_neighbor(**activate_args)
+                ipv6_address = deactivate.find('.//*af-ipv6-neighbor-address')
+                ipv6_address.set('operation', 'delete')
+                callback(deactivate)
+        else:
+            if ip_addr.version == 6:
+                callback(config)
+                activate_args = dict(rbridge_id=rbridge_id,
+                                     af_ipv6_neighbor_address=str(ip_addr.ip))
+                activate_neighbor = getattr(self._rbridge,
+                                            'rbridge_id_router_router_bgp_'
+                                            'address_family_ipv6_ipv6_unicast_'
+                                            'default_vrf_neighbor_af_ipv6_'
+                                            'neighbor_address_holder_af_ipv6_'
+                                            'neighbor_address_activate')
+                config = activate_neighbor(**activate_args)
         return callback(config)
