@@ -1,6 +1,11 @@
 #pynos
 pynos is a python library for working with Brocade devices running NOS.
 
+##Installation
+```
+pip install pynos
+```
+
 ##Usage
 The following is an example usage of pynos. Full documentation can be found
 [here](http://pythonhosted.org/pynos/).
