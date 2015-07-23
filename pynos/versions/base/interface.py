@@ -285,6 +285,49 @@ class Interface(object):
             logging.error(error)
             return False
 
+    def remove_port_channel(self, **kwargs):
+        """
+        Remove a port channel interface.
+
+        Args:
+            port_int (str): port-channel number (1, 2, 3, etc).
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `port_int` is not passed.
+            ValueError: if `port_int` is invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        output = dev.interface.remove_port_channel(port_int='1')
+        """
+        port_int = kwargs.pop('port_int')
+        callback = kwargs.pop('callback', self._callback)
+
+        if re.search('^[0-9]{1,3}$', port_int) is None:
+            raise ValueError('%s must be in the format of x for port channel '
+                             'interfaces.' % repr(port_int))
+
+        port_channel = getattr(self._interface, 'interface_port_channel_name')
+        port_channel_args = dict(name=port_int)
+
+        config = port_channel(**port_channel_args)
+
+        delete_channel = config.find('.//*port-channel')
+        delete_channel.set('operation', 'delete')
+
+        return callback(config)
+
     def ip_address(self, **kwargs):
         """
         Set IP Address on an Interface.
