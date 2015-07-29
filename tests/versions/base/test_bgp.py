@@ -136,3 +136,7 @@ class TestBGP(unittest.TestCase):
     def test_neighbor_exception(self):
         with self.assertRaises(KeyError):
             self.bgp.neighbor()
+
+    def test_neighbor_value_error(self):
+        with self.assertRaises(ValueError):
+            self.bgp.neighbor(ip_addr='2001::1', rbridge_id=self.rbridge_id)
