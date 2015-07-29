@@ -63,7 +63,7 @@ class TestLLDP(unittest.TestCase):
                     'remote-int-name': 'port0',
                     'remote-int-mac': '8c7c.ff02.f100',
                     'remote-chassis-id': '8c7c.ff02.f100',
-                    'remote-system-name': 'placeholder'}
+                    'remote-system-name': ''}
         self.lldp._callback = self.lldp_neighbors_xml
         results = self.lldp.neighbors
         self.assertIsInstance(results, list)

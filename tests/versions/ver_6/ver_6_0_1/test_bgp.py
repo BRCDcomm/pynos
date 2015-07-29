@@ -113,24 +113,10 @@ class TestBGP(unittest.TestCase):
         self.assertEquals(expected, result)
 
     def test_neighbor_ipv6_disable(self):
-        expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>{1}'\
-                   '</rbridge-id><router><router-bgp xmlns="{2}">'\
-                   '<address-family><ipv6><ipv6-unicast><default-vrf>'\
-                   '<neighbor><af-ipv6-neighbor-address-holder>'\
-                   '<af-ipv6-neighbor-address><af-ipv6-neighbor-address>'\
-                   '2001::1</af-ipv6-neighbor-address><activate />'\
-                   '</af-ipv6-neighbor-address>'\
-                   '</af-ipv6-neighbor-address-holder></neighbor>'\
-                   '</default-vrf></ipv6-unicast></ipv6></address-family>'\
-                   '</router-bgp></router></rbridge-id>'\
-                   '</config>'.format(self.rbridge_namespace,
-                                      self.rbridge_id,
-                                      self.bgp_namespace)
-        result = self.bgp.neighbor(remote_as='65535',
-                                   rbridge_id=self.rbridge_id,
-                                   ip_addr='2001::1', delete=True)
-        result = ET.tostring(result)
-        self.assertEquals(expected, result)
+        with self.assertRaises(NotImplementedError):
+            self.bgp.neighbor(remote_as='65535',
+                              rbridge_id=self.rbridge_id,
+                              ip_addr='2001::1', delete=True)
 
     def test_neighbor_exception(self):
         with self.assertRaises(KeyError):

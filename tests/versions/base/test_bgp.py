@@ -117,16 +117,16 @@ class TestBGP(unittest.TestCase):
     def test_neighbor_ipv6_disable(self):
         expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>{1}'\
                    '</rbridge-id><router><bgp xmlns="{2}"><vrf-name>x'\
-                   '</vrf-name><router-bgp-cmds-holder><address-family><ipv6>'\
-                   '<ipv6-unicast><af-ipv6-neighbor-address-holder>'\
-                   '<af-ipv6-neighbor-address><af-ipv6-neighbor-address>'\
-                   '2001::1</af-ipv6-neighbor-address><activate />'\
-                   '</af-ipv6-neighbor-address>'\
-                   '</af-ipv6-neighbor-address-holder></ipv6-unicast></ipv6>'\
-                   '</address-family></router-bgp-cmds-holder></bgp></router>'\
-                   '</rbridge-id></config>'.format(self.rbridge_namespace,
-                                                   self.rbridge_id,
-                                                   self.bgp_namespace)
+                   '</vrf-name><router-bgp-cmds-holder>'\
+                   '<router-bgp-attributes><neighbor-ipv6s>'\
+                   '<neighbor-ipv6-addr operation="delete">'\
+                   '<router-bgp-neighbor-ipv6-address>2001::1'\
+                   '</router-bgp-neighbor-ipv6-address></neighbor-ipv6-addr>'\
+                   '</neighbor-ipv6s></router-bgp-attributes>'\
+                   '</router-bgp-cmds-holder></bgp></router></rbridge-id>'\
+                   '</config>'.format(self.rbridge_namespace,
+                                      self.rbridge_id,
+                                      self.bgp_namespace)
         result = self.bgp.neighbor(remote_as='65535',
                                    rbridge_id=self.rbridge_id,
                                    ip_addr='2001::1', vrf='x', delete=True)

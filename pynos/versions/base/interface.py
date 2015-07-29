@@ -307,9 +307,13 @@ class Interface(object):
             >>> switches = ['10.24.48.225', '10.24.52.9']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
-            ...    conn = (switch, '22')
-            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
-            ...        output = dev.interface.remove_port_channel(port_int='1')
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.channel_group(name='225/0/20',
+            ...         int_type='tengigabitethernet',
+            ...         port_int='1', channel_type='standard', mode='active')
+            ...         output = dev.interface.remove_port_channel(
+            ...         port_int='1')
         """
         port_int = kwargs.pop('port_int')
         callback = kwargs.pop('callback', self._callback)
