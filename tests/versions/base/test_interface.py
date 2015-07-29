@@ -761,3 +761,62 @@ class TestInterface(unittest.TestCase):
                                            delete=True)
         result = ET.tostring(result)
         self.assertEquals(expected, result)
+
+    def test_remove_port_channel_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.remove_port_channel(port_int='2/0/3')
+
+    def test_ip_address_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.ip_address(int_type='port_channel', name='225/0/20',
+                                      ip_addr='10.0.0.1/30')
+
+    def test_ip_address_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.ip_address(int_type='tengigabitethernet',
+                                      name='225/0', ip_addr='10.0.0.1/30')
+
+    def test_description_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.description(int_type='port-channel', name='5',
+                                       desc='hodor')
+
+    def test_description_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.description(int_type='gigabitethernet', name='5/0',
+                                       desc='hodor')
+
+    def test_description_vlan_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.description(int_type='vlan', name='5/0',
+                                       desc='hodor')
+
+    def test_description_vlan(self):
+        desc = 'Hodor'
+        expected = '<config><interface-vlan xmlns="{0}"><interface><vlan>'\
+                   '<name>{1}</name><description>{2}</description></vlan>'\
+                   '</interface></interface-vlan>'\
+                   '</config>'.format(self.namespace, self.vlan_id, desc)
+        result = self.interface.description(int_type='vlan', name=self.vlan_id,
+                                            desc=desc)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_private_vlan_type_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_type(name='225/0',
+                                             pvlan_type='primary')
+
+    def test_private_vlan_type_pvlan_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_type(name='5', pvlan_type='hodor')
+
+    def test_vlan_pvlan_association_add_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vlan_pvlan_association_add(name='225/0',
+                                                      sec_vlan='5')
+
+    def test_vlan_pvlan_association_add_sec_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vlan_pvlan_association_add(name='5',
+                                                      sec_vlan='225/0')

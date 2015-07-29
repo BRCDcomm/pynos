@@ -389,8 +389,8 @@ class Interface(object):
                            'fortygigabitethernet', 'hundredgigabitethernet']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+            raise ValueError('int_type must be one of: %s' %
+                             repr(valid_int_types))
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
