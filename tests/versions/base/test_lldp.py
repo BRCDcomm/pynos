@@ -35,7 +35,7 @@ class TestLLDP(unittest.TestCase):
         message_id = 'urn:uuid:528cdf32-2e86-11e5-bb27-080027b782e4'
         neighbor_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" '\
                        'message-id="{2}"><ns1:lldp-neighbor-detail>'\
-                       '<ns1:local-interface-name>Te 226/0/7'\
+                       '<ns1:local-interface-name>Fo 226/0/7'\
                        '</ns1:local-interface-name>'\
                        '<ns1:local-interface-ifindex>402882566'\
                        '</ns1:local-interface-ifindex>'\
@@ -58,7 +58,7 @@ class TestLLDP(unittest.TestCase):
         return ET.fromstring(neighbor_xml)
 
     def test_neighbors(self):
-        expected = {'local-int-name': 'Te 226/0/7',
+        expected = {'local-int-name': 'FortyGigabitEthernet 226/0/7',
                     'local-int-mac': '0005.33e5.d764',
                     'remote-int-name': 'port0',
                     'remote-int-mac': '8c7c.ff02.f100',
