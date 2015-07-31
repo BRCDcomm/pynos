@@ -140,3 +140,43 @@ class TestBGP(unittest.TestCase):
     def test_neighbor_value_error(self):
         with self.assertRaises(ValueError):
             self.bgp.neighbor(ip_addr='2001::1', rbridge_id=self.rbridge_id)
+
+    def test_enabled_true(self):
+        def enabled_xml(self, *args, **kwargs):
+            ietf_namespace = 'urn:ietf:params:xml:ns:netconf:base:1.0'
+            rbridge_namespace = 'urn:brocade.com:mgmt:brocade-rbridge'
+            bgp_namespace = 'urn:brocade.com:mgmt:brocade-bgp'
+            rbridge_id = '2'
+            xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" '\
+                  'xmlns:ns2="{2}"><ns0:data><ns1:rbridge-id><ns1:rbridge-id>'\
+                  '{3}</ns1:rbridge-id><ns1:router><ns2:bgp><ns2:vrf-name>'\
+                  'default</ns2:vrf-name><ns2:router-bgp-cmds-holder>'\
+                  '<ns2:router-bgp-attributes><ns2:local-as>65535'\
+                  '</ns2:local-as></ns2:router-bgp-attributes>'\
+                  '<ns2:address-family><ns2:ipv4><ns2:ipv4-unicast>'\
+                  '<ns2:af-common-cmds-holder>'\
+                  '<ns2:client-to-client-reflection />'\
+                  '</ns2:af-common-cmds-holder></ns2:ipv4-unicast></ns2:ipv4>'\
+                  '<ns2:ipv6><ns2:ipv6-unicast><ns2:af-common-cmds-holder>'\
+                  '<ns2:client-to-client-reflection />'\
+                  '</ns2:af-common-cmds-holder></ns2:ipv6-unicast></ns2:ipv6>'\
+                  '</ns2:address-family></ns2:router-bgp-cmds-holder></ns2:bgp>'\
+                  '</ns1:router></ns1:rbridge-id></ns0:data>'\
+                  '</ns0:rpc-reply>'.format(ietf_namespace, rbridge_namespace,
+                                            bgp_namespace, rbridge_id)
+
+            return ET.fromstring(xml)
+
+        self.bgp._callback = enabled_xml
+        expected = True
+        result = self.bgp.enabled
+        self.assertEquals(expected, result)
+
+    def test_enabled_false(self):
+        def disabled_xml(*args, **kwargs):
+            return ET.fromstring('<rpc-reply><data /></rpc-reply>')
+        self.bgp._callback = disabled_xml
+        expected = False
+        result = self.bgp.enabled
+        self.assertEquals(expected, result)
+        pass
