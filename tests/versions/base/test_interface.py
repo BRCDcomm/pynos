@@ -38,6 +38,12 @@ class TestInterface(unittest.TestCase):
         self.ipv6_address = 'fc00:1:3:1ad3:0:0:23:a/64'
         self.ipv6_config_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-config'
 
+    def raise_exception(self, *args, **kwargs):
+        raise Exception()
+
+    def raise_attribute_error(self, *args, **kwargs):
+        raise AttributeError()
+
     def test_description(self):
         expected = '<config>'\
                    '<interface xmlns="{}"><gigabitethernet>'\
@@ -656,7 +662,7 @@ class TestInterface(unittest.TestCase):
 
     def test_v6_nd_suppress_ra_exception(self):
         with self.assertRaises(KeyError):
-            self.interface.tag_native_vlan()
+            self.interface.v6_nd_suppress_ra()
 
     def test_trunk_mode(self):
         expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
@@ -788,7 +794,7 @@ class TestInterface(unittest.TestCase):
 
     def test_description_vlan_name_value_error(self):
         with self.assertRaises(ValueError):
-            self.interface.description(int_type='vlan', name='5/0',
+            self.interface.description(int_type='vlan', name='9000',
                                        desc='hodor')
 
     def test_description_vlan(self):
@@ -804,7 +810,7 @@ class TestInterface(unittest.TestCase):
 
     def test_private_vlan_type_vlan_value_error(self):
         with self.assertRaises(ValueError):
-            self.interface.private_vlan_type(name='225/0',
+            self.interface.private_vlan_type(name='9000',
                                              pvlan_type='primary')
 
     def test_private_vlan_type_pvlan_type_value_error(self):
@@ -813,10 +819,539 @@ class TestInterface(unittest.TestCase):
 
     def test_vlan_pvlan_association_add_vlan_value_error(self):
         with self.assertRaises(ValueError):
-            self.interface.vlan_pvlan_association_add(name='225/0',
+            self.interface.vlan_pvlan_association_add(name='9000',
                                                       sec_vlan='5')
 
     def test_vlan_pvlan_association_add_sec_vlan_value_error(self):
         with self.assertRaises(ValueError):
             self.interface.vlan_pvlan_association_add(name='5',
-                                                      sec_vlan='225/0')
+                                                      sec_vlan='9000')
+
+    def test_add_vlan_int_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.add_vlan_int(self.vlan_id)
+        self.assertEquals(expected, result)
+
+    def test_del_vlan_int_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.del_vlan_int(self.vlan_id)
+        self.assertEquals(expected, result)
+
+    def test_enable_switchport_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.enable_switchport(self.phys_int_type,
+                                                  self.phys_name)
+        self.assertEquals(expected, result)
+
+    def test_disable_switchport_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.disable_switchport(self.phys_int_type,
+                                                   self.phys_name)
+        self.assertEquals(expected, result)
+
+    def test_access_vlan_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.access_vlan(self.phys_int_type, self.phys_name,
+                                            self.vlan_id)
+        self.assertEquals(expected, result)
+
+    def test_del_access_vlan_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.del_access_vlan(self.phys_int_type,
+                                                self.phys_name,
+                                                self.vlan_id)
+        self.assertEquals(expected, result)
+
+    def test_set_ip_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.set_ip(self.phys_int_type, self.phys_name,
+                                       self.ipv4_address)
+        self.assertEquals(expected, result)
+
+    def test_del_ip_exception(self):
+        self.interface._callback = self.raise_exception
+        expected = False
+        result = self.interface.del_ip(self.phys_int_type, self.phys_name,
+                                       self.ipv4_address)
+        self.assertEquals(expected, result)
+
+    def test_ip_address_attribute_error(self):
+        self.interface._callback = self.raise_attribute_error
+        expected = None
+        result = self.interface.ip_address(int_type=self.phys_int_type,
+                                           name=self.phys_name,
+                                           ip_addr=self.ipv4_address)
+        self.assertEquals(expected, result)
+
+    def test_admin_state_attribute_error(self):
+        self.interface._callback = self.raise_attribute_error
+        expected = None
+        result = self.interface.admin_state(int_type=self.phys_int_type,
+                                            name=self.phys_name,
+                                            enabled=True)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_attribute_error(self):
+        self.interface._callback = self.raise_attribute_error
+        expected = None
+        int_type = self.phys_int_type
+        result = self.interface.spanning_tree_state(int_type=int_type,
+                                                    name=self.phys_name,
+                                                    enabled=True)
+        self.assertEquals(expected, result)
+
+    def test_tag_native_vlan_attribute_error(self):
+        self.interface._callback = self.raise_attribute_error
+        expected = None
+        result = self.interface.tag_native_vlan(int_type=self.phys_int_type,
+                                                name=self.phys_name,
+                                                mode='trunk',
+                                                enabled=True)
+        self.assertEquals(expected, result)
+
+    def test_proxy_arp_attribute_error(self):
+        self.interface._callback = self.raise_attribute_error
+        expected = None
+        result = self.interface.proxy_arp(int_type=self.phys_int_type,
+                                          name=self.phys_name,
+                                          enabled=True)
+        self.assertEquals(expected, result)
+
+    def test_pvlan_host_association_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.pvlan_host_association(int_type='port-channel',
+                                                  name='5',
+                                                  pri_vlan=self.vlan_id,
+                                                  sec_vlan=self.sec_vlan)
+
+    def test_pvlan_host_association_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.pvlan_host_association(int_type='port_channel',
+                                                  name='2/0',
+                                                  pri_vlan=self.vlan_id,
+                                                  sec_vlan=self.sec_vlan)
+
+    def test_pvlan_host_association_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.pvlan_host_association(int_type='gigabitethernet',
+                                                  name='2/0',
+                                                  pri_vlan=self.vlan_id,
+                                                  sec_vlan=self.sec_vlan)
+
+    def test_pvlan_host_association_pri_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.pvlan_host_association(int_type='gigabitethernet',
+                                                  name='2/0/1',
+                                                  pri_vlan='9000',
+                                                  sec_vlan=self.sec_vlan)
+
+    def test_pvlan_host_association_sec_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.pvlan_host_association(int_type='gigabitethernet',
+                                                  name='2/0/1',
+                                                  pri_vlan=self.vlan_id,
+                                                  sec_vlan='9000')
+
+    def test_admin_state_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.admin_state(int_type='port-channel', name='5',
+                                       enabled=True)
+
+    def test_admin_state_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.admin_state(int_type='port_channel', name='5',
+                                       enabled='True')
+
+    def test_admin_state_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.admin_state(int_type=self.phys_int_type, name='5',
+                                       enabled='True')
+
+    def test_admin_state_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.admin_state(int_type='port_channel', name='225/0/0',
+                                       enabled='True')
+
+    def test_trunk_allowed_vlan_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type='port-channel',
+                                              name='5', action='add',
+                                              vlan=self.vlan_id,
+                                              ctag=self.sec_vlan)
+
+    def test_trunk_allowed_vlan_action_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type='port_channel',
+                                              name='5', action='hodor',
+                                              vlan=self.vlan_id,
+                                              ctag=self.sec_vlan)
+
+    def test_trunk_allowed_vlan_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type=self.phys_int_type,
+                                              name='5/0', action='add',
+                                              vlan=self.vlan_id,
+                                              ctag=self.sec_vlan)
+
+    def test_trunk_allowed_vlan_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type='port_channel',
+                                              name='2/0', action='add',
+                                              vlan=self.vlan_id,
+                                              ctag=self.sec_vlan)
+
+    def test_trunk_allowed_vlan_ctag_missing_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type='port_channel',
+                                              name='2', action='add',
+                                              ctag=self.sec_vlan)
+
+    def test_trunk_allowed_vlan_ctag_action_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_allowed_vlan(int_type='port_channel',
+                                              name='2/0', action='all',
+                                              vlan=self.vlan_id,
+                                              ctag=self.sec_vlan)
+
+    def test_private_vlan_mode_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_mode(int_type='port-channel',
+                                             name='2', mode='host')
+
+    def test_private_vlan_mode_mode_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_mode(int_type='port_channel',
+                                             name='2', mode='hodor')
+
+    def test_private_vlan_mode_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_mode(int_type=self.phys_int_type,
+                                             name='2/0', mode='host')
+
+    def test_private_vlan_mode_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.private_vlan_mode(int_type='port_channel',
+                                             name='3/0', mode='host')
+
+    def test_spanning_tree_state_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.spanning_tree_state(int_type='port-channel',
+                                               name='3', enabled=True)
+
+    def test_spanning_tree_state_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.spanning_tree_state(int_type='port_channel',
+                                               name='3', enabled='hodor')
+
+    def test_spanning_tree_state_vlan_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.spanning_tree_state(int_type='vlan',
+                                               name='9000', enabled=True)
+
+    def test_spanning_tree_state_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.spanning_tree_state(int_type=self.phys_int_type,
+                                               name='9/0', enabled=True)
+
+    def test_spanning_tree_state_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.spanning_tree_state(int_type='port_channel',
+                                               name='9/0', enabled=True)
+
+    def test_tag_native_vlan_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.tag_native_vlan(int_type='hodor', name='9')
+
+    def test_tag_native_vlan_phys_int_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.tag_native_vlan(int_type=self.phys_int_type,
+                                           name='9/0')
+
+    def test_tag_native_vlan_port_channel_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.tag_native_vlan(int_type='port_channel', name='9/0')
+
+    def test_tag_native_vlan_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.tag_native_vlan(int_type='port_channel', name='9',
+                                           enabled='hodor')
+
+    def test_switchport_pvlan_mapping_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport_pvlan_mapping(int_type='port-channel',
+                                                    name='9',
+                                                    pri_vlan=self.vlan_id,
+                                                    sec_vlan=self.sec_vlan)
+
+    def test_switchport_pvlan_mapping_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            int_type = self.phys_int_type
+            self.interface.switchport_pvlan_mapping(int_type=int_type,
+                                                    name='9/0',
+                                                    pri_vlan=self.vlan_id,
+                                                    sec_vlan=self.sec_vlan)
+
+    def test_switchport_pvlan_mapping_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport_pvlan_mapping(int_type='port_channel',
+                                                    name='9/0',
+                                                    pri_vlan=self.vlan_id,
+                                                    sec_vlan=self.sec_vlan)
+
+    def test_switchport_pvlan_mapping_pri_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport_pvlan_mapping(int_type='port_channel',
+                                                    name='9', pri_vlan='9000',
+                                                    sec_vlan=self.sec_vlan)
+
+    def test_switchport_pvlan_mapping_sec_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport_pvlan_mapping(int_type='port_channel',
+                                                    name='9', sec_vlan='9000',
+                                                    pri_vlan=self.vlan_id)
+
+    def test_mtu_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type='port-channel', name='9', mtu='1522')
+
+    def test_mtu_mtu_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type='port_channel', name='9', mtu='9217')
+
+    def test_mtu_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type=self.phys_int_type, name='9/0',
+                               mtu='1522')
+
+    def test_mtu_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type='port_channel', name='9/0', mtu='1522')
+
+    def test_fabric_isl_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_isl(int_type=self.phys_int_type,
+                                      name=self.phys_name)
+
+    def test_fabric_isl_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_isl(int_type='tengigabitethernet',
+                                      name='2/0')
+
+    def test_fabric_isl_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_isl(int_type='tengigabitethernet',
+                                      name='2/0/0', enabled='hodor')
+
+    def test_fabric_trunk_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_trunk(int_type=self.phys_int_type,
+                                        name=self.phys_name)
+
+    def test_fabric_trunk_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_trunk(int_type='tengigabitethernet',
+                                        name='2/0')
+
+    def test_fabric_trunk_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.fabric_trunk(int_type='tengigabitethernet',
+                                        name='2/0/0',
+                                        enabled='hodor')
+
+    def test_v6_nd_suppress_ra_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.v6_nd_suppress_ra(int_type='port_channel', name='5')
+
+    def test_v6_nd_suppress_ra_ve_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.v6_nd_suppress_ra(int_type='ve', name='12345')
+
+    def test_v6_nd_suppress_ra_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.v6_nd_suppress_ra(int_type=self.phys_int_type,
+                                             name='2/0')
+
+    def test_vrrp_vip_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_vip(int_type='port-channel', name='5',
+                                    vrid='1', vip='10.0.0.1')
+
+    def test_vrrp_vip_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_vip(int_type=self.phys_int_type, name='2/0',
+                                    vrid='1', vip='10.0.0.1')
+
+    def test_vrrp_vip_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_vip(int_type='port_channel', name='2/0',
+                                    vrid='1', vip='10.0.0.1')
+
+    def test_vrrp_priority_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_priority(int_type='port-channel', name='5',
+                                         vrid='1', priority='75',
+                                         ip_version='4')
+
+    def test_vrrp_priority_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_priority(int_type=self.phys_int_type,
+                                         name='2/0', vrid='1', priority='75',
+                                         ip_version='4')
+
+    def test_vrrp_priority_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.vrrp_priority(int_type='port_channel', name='2/0',
+                                         vrid='1', priority='75',
+                                         ip_version='4')
+
+    def test_proxy_arp_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.proxy_arp(int_type='port-channel', name='2')
+
+    def test_proxy_arp_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.proxy_arp(int_type=self.phys_int_type, name='2/0')
+
+    def test_proxy_arp_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.proxy_arp(int_type='port_channel', name='2/0')
+
+    def test_proxy_arp_bool_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.proxy_arp(int_type='port_channel', name='2',
+                                     enabled='hodor')
+
+    def test_port_channel_minimum_links_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.port_channel_minimum_links(name=self.phys_name,
+                                                      minimum_links='3')
+
+    def test_channel_group_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.channel_group(int_type='port_channel', name='5',
+                                         channel_type='standard', port_int='7',
+                                         mode='active')
+
+    def test_channel_group_channel_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.channel_group(int_type=self.phys_int_type,
+                                         name=self.phys_name, mode='active',
+                                         channel_type='hodor', port_int='7')
+
+    def test_channel_group_mode_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.channel_group(int_type=self.phys_int_type,
+                                         name=self.phys_name, mode='hodor',
+                                         channel_type='standard', port_int='7')
+
+    def test_channel_group_port_int_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.channel_group(int_type=self.phys_int_type,
+                                         name=self.phys_name, mode='active',
+                                         channel_type='standard',
+                                         port_int='1234')
+
+    def test_channel_group_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.channel_group(int_type=self.phys_int_type,
+                                         name='2/0', mode='active',
+                                         channel_type='standard', port_int='7')
+
+    def test_channel_group_delete(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<channel-group operation="delete"><mode>active</mode>'\
+                   '</channel-group></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.channel_group(int_type=self.phys_int_type,
+                                              name=self.phys_name,
+                                              mode='active', port_int='5',
+                                              channel_type='brocade',
+                                              delete=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_port_channel_vlag_ignore_split_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.port_channel_vlag_ignore_split(name='2/0',
+                                                          enabled=True)
+
+    def test_trunk_mode_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_mode(int_type='port-channel', name='5',
+                                      mode='trunk')
+
+    def test_trunk_mode_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_mode(int_type=self.phys_int_type,
+                                      name='2/0', mode='trunk')
+
+    def test_trunk_mode_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_mode(int_type='port_channel', name='2/0',
+                                      mode='trunk')
+
+    def test_trunk_mode_mode_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.trunk_mode(int_type=self.phys_int_type,
+                                      name=self.phys_name, mode='hodor')
+
+    def test_transport_service_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.transport_service(vlan='9000', service_id='1')
+
+    def test_lacp_timeout_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.lacp_timeout(int_type='port_channel',
+                                        name='225/0/1', timeout='long')
+
+    def test_lacp_timeout_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.lacp_timeout(int_type=self.phys_int_type,
+                                        name='5',
+                                        timeout='5')
+
+    def test_lacp_timeout_timeout_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.lacp_timeout(int_type=self.phys_int_type,
+                                        name=self.phys_name, timeout='5')
+
+    def test_switchport_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport(int_type='port-channel',
+                                      name=self.phys_name)
+
+    def test_switchport_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport(int_type=self.phys_int_type, name='2/0')
+
+    def test_switchport_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.switchport(int_type='port_channel', name='2/0')
+
+    def test_acc_vlan_int_type_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.acc_vlan(int_type='port-channel', name='5',
+                                    vlan=self.vlan_id)
+
+    def test_acc_vlan_vlan_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.acc_vlan(int_type=self.phys_int_type,
+                                    name=self.phys_name, vlan='9000')
+
+    def test_acc_vlan_phys_int_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.acc_vlan(int_type=self.phys_int_type,
+                                    name='2/0', vlan=self.vlan_id)
+
+    def test_acc_vlan_port_channel_name_value_error(self):
+        with self.assertRaises(ValueError):
+            self.interface.acc_vlan(int_type='port_channel', name='2/0',
+                                    vlan=self.vlan_id)

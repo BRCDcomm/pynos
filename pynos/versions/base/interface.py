@@ -415,7 +415,7 @@ class Interface(object):
         try:
             return callback(config)
         # TODO Setting IP on port channel is not done yet.
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def del_ip(self, inter_type, inter, ip_addr):
@@ -1036,8 +1036,8 @@ class Interface(object):
                            'port_channel',  'vlan']
 
         if int_type not in valid_int_types:
-            raise ValueError('%s must be one of: %s' %
-                             repr(int_type), repr(valid_int_types))
+            raise ValueError('int_type must be one of: %s' %
+                             repr(valid_int_types))
 
         if not isinstance(enabled, bool):
             raise ValueError('%s must be `True` or `False`.' % repr(enabled))
