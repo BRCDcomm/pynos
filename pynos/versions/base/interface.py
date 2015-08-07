@@ -346,6 +346,8 @@ class Interface(object):
             delete (bool): True is the IP address is added and False if its to
                 be deleted (True, False). Default value will be False if not
                 specified.
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
             callback (function): A function executed upon completion of the
                  method.  The only parameter passed to `callback` will be the
                  ``ElementTree`` `config`.
@@ -373,49 +375,66 @@ class Interface(object):
             ...        name=name, ip_addr=ip_addr)
             ...        output = dev.interface.ip_address(int_type=int_type,
             ...        name=name, ip_addr=ip_addr, delete=True)
+            ...        output = dev.interface.add_vlan_int('86')
+            ...        output = dev.interface.ip_address(int_type='ve',
+            ...        name='86', ip_addr=ip_addr, rbridge_id='225')
+            ...        output = dev.interface.ip_address(int_type='ve',
+            ...        name='86', ip_addr=ip_addr, delete=True,
+            ...        rbridge_id='225')
             ...        ip_addr = 'fc00:1:3:1ad3:0:0:23:a/64'
             ...        output = dev.interface.ip_address(int_type=int_type,
             ...        name=name, ip_addr=ip_addr)
             ...        output = dev.interface.ip_address(int_type=int_type,
             ...        name=name, ip_addr=ip_addr, delete=True)
+            ...        output = dev.interface.ip_address(int_type='ve',
+            ...        name='86', ip_addr=ip_addr, rbridge_id='225')
+            ...        output = dev.interface.ip_address(int_type='ve',
+            ...        name='86', ip_addr=ip_addr, delete=True,
+            ...        rbridge_id='225')
         """
 
         int_type = str(kwargs.pop('int_type').lower())
         name = str(kwargs.pop('name'))
         ip_addr = str(kwargs.pop('ip_addr'))
         delete = kwargs.pop('delete', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
-        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet', 've',
                            'fortygigabitethernet', 'hundredgigabitethernet']
 
         if int_type not in valid_int_types:
             raise ValueError('int_type must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces.' % repr(name))
-
         ipaddress = ip_interface(unicode(ip_addr))
-
+        ip_args = dict(name=name, address=ip_addr)
+        method_name = None
+        method_class = self._interface
         if ipaddress.version == 4:
-            ip_args = dict(name=name, address=ip_addr)
-            ip_address_attr = getattr(self._interface, 'interface_%s_ip_ip_'
-                                      'config_address_address' % int_type)
+            method_name = 'interface_%s_ip_ip_config_address_'\
+                          'address' % int_type
         elif ipaddress.version == 6:
-            ip_args = dict(name=name, address=ip_addr)
-            ip_address_attr = getattr(
-                self._interface, 'interface_%s_ipv6_ipv6_config_address_ipv6_'
-                'address_address' % int_type)
+            method_name = 'interface_%s_ipv6_ipv6_config_address_ipv6_'\
+                          'address_address' % int_type
 
+        if int_type == 've':
+            method_name = "rbridge_id_%s" % method_name
+            method_class = self._rbridge
+            ip_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError("`name` must be between `1` and `8191`")
+        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces.')
+
+        ip_address_attr = getattr(method_class, method_name)
         config = ip_address_attr(**ip_args)
         if delete:
-            delete_ip = config.find('.//*address')
-            delete_ip.set('operation', 'delete')
+            config.find('.//*address').set('operation', 'delete')
         try:
             return callback(config)
         # TODO Setting IP on port channel is not done yet.
-        except AttributeError as (errno, errstr):
+        except AttributeError:
             return None
 
     def del_ip(self, inter_type, inter, ip_addr):
@@ -731,6 +750,8 @@ class Interface(object):
                 tengigabitethernet, etc).
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
             enabled (bool): Is the interface enabled? (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -755,14 +776,22 @@ class Interface(object):
             ...         dev.interface.admin_state(
             ...         int_type='tengigabitethernet', name='225/0/38',
             ...         enabled=True)
+            ...         output = dev.interface.add_vlan_int('87')
+            ...         output = dev.interface.ip_address(int_type='ve',
+            ...         name='87', ip_addr='10.0.0.1/24', rbridge_id='225')
+            ...         output = dev.interface.admin_state(int_type='ve',
+            ...         name='87', enabled=True, rbridge_id='225')
+            ...         output = dev.interface.admin_state(int_type='ve',
+            ...         name='87', enabled=False, rbridge_id='225')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
         enabled = kwargs.pop('enabled')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel']
+                           'port_channel', 've']
 
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
@@ -771,18 +800,24 @@ class Interface(object):
         if not isinstance(enabled, bool):
             raise ValueError('`enabled` must be `True` or `False`.')
 
+        state_args = dict(name=name)
+        method_name = 'interface_%s_shutdown' % int_type
+        method_class = self._interface
+        if int_type == 've':
+            method_name = "rbridge_id_%s" % method_name
+            method_class = self._rbridge
+            state_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError("`name` must be between `1` and `8191`")
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
                 re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
                              'interfaces or x for port channel.' % repr(name))
 
-        state_args = dict(name=name)
-        admin_state = getattr(self._interface,
-                              'interface_%s_shutdown' % int_type)
+        admin_state = getattr(method_class, method_name)
         config = admin_state(**state_args)
         if enabled:
-            shutdown = config.find('.//*shutdown')
-            shutdown.set('operation', 'delete')
+            config.find('.//*shutdown').set('operation', 'delete')
         try:
             return callback(config)
         # TODO: Catch existing 'no shut'
@@ -1523,6 +1558,8 @@ class Interface(object):
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
             vrid (str): VRRPv3 ID.
             vip (str): IPv4/IPv6 Virtual IP Address.
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1554,40 +1591,64 @@ class Interface(object):
             ...         dev.interface.vrrp_vip(int_type='tengigabitethernet',
             ...         name='225/0/18', vrid='1',
             ...         vip='2001:4818:f000:1ab:cafe:beef:1000:1/64')
+            ...         output = dev.interface.add_vlan_int('89')
+            ...         output = dev.interface.ip_address(name='89',
+            ...         int_type='ve', ip_addr='172.16.1.1/24',
+            ...         rbridge_id='225')
+            ...         output = dev.interface.ip_address(name='89',
+            ...         int_type='ve', rbridge_id='225',
+            ...         ip_addr='2002:4818:f000:1ab:cafe:beef:1000:2/64')
+            ...         dev.interface.vrrp_vip(int_type='ve', name='89',
+            ...         vrid='1', vip='172.16.1.2/24', rbridge_id='225')
+            ...         dev.interface.vrrp_vip(int_type='ve', name='89',
+            ...         vrid='1', vip='fe80::dafe:beef:1000:1/64',
+            ...         rbridge_id='225')
+            ...         dev.interface.vrrp_vip(int_type='ve', name='89',
+            ...         vrid='1', vip='2002:4818:f000:1ab:cafe:beef:1000:1/64',
+            ...         rbridge_id='225')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
         vrid = kwargs.pop('vrid')
         vip = kwargs.pop('vip')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel']
+                           'port_channel', 've']
+        ipaddress = ip_interface(unicode(vip))
+        vrrp_vip = None
+        vrrp_args = dict(name=name,
+                         vrid=vrid,
+                         virtual_ipaddr=str(ipaddress.ip))
+        method_class = self._interface
 
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
+        if ipaddress.version == 4:
+            vrrp_args['version'] = '3'
+            method_name = 'interface_%s_vrrp_virtual_ip_virtual_'\
+                          'ipaddr' % int_type
+        elif ipaddress.version == 6:
+            method_name = 'interface_%s_ipv6_vrrpv3_group_virtual_ip_'\
+                          'virtual_ipaddr' % int_type
+
+        if int_type == 've':
+            method_name = 'rbridge_id_%s' % method_name
+            if ipaddress.version == 6:
+                method_name = method_name.replace('group_', '')
+            method_class = self._rbridge
+            vrrp_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError("`name` must be between `1` and `8191`")
+        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
                              'interfaces or x for port channel.' % repr(name))
 
-        ipaddress = ip_interface(unicode(vip))
-
-        vrrp_args = dict(name=name,
-                         vrid=vrid,
-                         virtual_ipaddr=str(ipaddress.ip))
-        vrrp_vip = None
-        if ipaddress.version == 4:
-            vrrp_args['version'] = '3'
-            vrrp_vip = getattr(self._interface,
-                               'interface_%s_vrrp_virtual_ip_'
-                               'virtual_ipaddr' % int_type)
-        elif ipaddress.version == 6:
-            vrrp_vip = getattr(self._interface,
-                               'interface_%s_ipv6_vrrpv3_group_virtual_ip_'
-                               'virtual_ipaddr' % int_type)
+        vrrp_vip = getattr(method_class, method_name)
         config = vrrp_vip(**vrrp_args)
         return callback(config)
 
@@ -1668,38 +1729,66 @@ class Interface(object):
             ...         int_type='tengigabitethernet',
             ...         name='225/0/18', vrid='1', ip_version='6',
             ...         priority='77')
+            ...         output = dev.interface.add_vlan_int('88')
+            ...         output = dev.interface.ip_address(int_type='ve',
+            ...         name='88', ip_addr='172.16.10.1/24', rbridge_id='225')
+            ...         output = dev.interface.ip_address(int_type='ve',
+            ...         name='88', rbridge_id='225',
+            ...         ip_addr='2003:4818:f000:1ab:cafe:beef:1000:2/64')
+            ...         dev.interface.vrrp_vip(int_type='ve', name='88',
+            ...         vrid='1', vip='172.16.10.2/24', rbridge_id='225')
+            ...         dev.interface.vrrp_vip(int_type='ve', name='88',
+            ...         rbridge_id='225', vrid='1',
+            ...         vip='fe80::dafe:beef:1000:1/64')
+            ...         dev.interface.vrrp_vip(int_type='ve', rbridge_id='225',
+            ...         name='88', vrid='1',
+            ...         vip='2003:4818:f000:1ab:cafe:beef:1000:1/64')
+            ...         dev.interface.vrrp_priority(int_type='ve', name='88',
+            ...         rbridge_id='225', vrid='1', ip_version='4',
+            ...         priority='66')
+            ...         dev.interface.vrrp_priority(int_type='ve', name='88',
+            ...         rbridge_id='225', vrid='1', ip_version='6',
+            ...         priority='77')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
         vrid = kwargs.pop('vrid')
         priority = kwargs.pop('priority')
         ip_version = int(kwargs.pop('ip_version'))
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel']
+                           'port_channel', 've']
+        vrrp_args = dict(name=name, vrid=vrid, priority=priority)
+        vrrp_priority = None
+        method_name = None
+        method_class = self._interface
 
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
+        if ip_version == 4:
+            vrrp_args['version'] = '3'
+            method_name = 'interface_%s_vrrp_priority' % int_type
+        elif ip_version == 6:
+            method_name = 'interface_%s_ipv6_vrrpv3_group_priority' % int_type
+
+        if int_type == 've':
+            method_name = "rbridge_id_%s" % method_name
+            if ip_version == 6:
+                method_name = method_name.replace('group_', '')
+            method_class = self._rbridge
+            vrrp_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError("`name` must be between `1` and `8191`")
+        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
                              'interfaces or x for port channel.' % repr(name))
 
-        vrrp_args = dict(name=name,
-                         vrid=vrid,
-                         priority=priority)
-        vrrp_priority = None
-        if ip_version == 4:
-            vrrp_args['version'] = '3'
-            vrrp_priority = getattr(self._interface,
-                                    'interface_%s_vrrp_priority' % int_type)
-        elif ip_version == 6:
-            vrrp_priority = getattr(self._interface,
-                                    'interface_%s_ipv6_vrrpv3_group_priority' %
-                                    int_type)
+        vrrp_priority = getattr(method_class, method_name)
         config = vrrp_priority(**vrrp_args)
         return callback(config)
 
@@ -1724,6 +1813,8 @@ class Interface(object):
                 tengigabitethernet, etc).
             name (str): Name of interface. (1/0/5, 1/0/10, etc).
             enabled (bool): Is proxy-arp enabled? (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1746,40 +1837,52 @@ class Interface(object):
             ...         name='225/0/12', enabled=True)
             ...         dev.interface.proxy_arp(int_type='tengigabitethernet',
             ...         name='225/0/12', enabled=False)
+            ...         output = dev.interface.add_vlan_int('86')
+            ...         output = dev.interface.ip_address(int_type='ve',
+            ...         name='86', ip_addr='172.16.2.1/24', rbridge_id='225')
+            ...         output = dev.interface.proxy_arp(int_type='ve',
+            ...         name='86', enabled=True, rbridge_id='225')
+            ...         output = dev.interface.proxy_arp(int_type='ve',
+            ...         name='86', enabled=False, rbridge_id='225')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
         enabled = kwargs.pop('enabled', True)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel']
+                           'port_channel', 've']
 
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
-
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
-
         if not isinstance(enabled, bool):
             raise ValueError('`enabled` must be `True` or `False`.')
 
-        state_args = dict(name=name)
-        proxy_arp = getattr(self._interface,
-                            'interface_%s_ip_ip_config_proxy_arp' % int_type)
-        config = proxy_arp(**state_args)
+        method_name = 'interface_%s_ip_ip_config_proxy_arp' % int_type
+        method_class = self._interface
+        proxy_arp_args = dict(name=name)
+        if int_type == 've':
+            method_name = "rbridge_id_%s" % method_name
+            method_class = self._rbridge
+            proxy_arp_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise ValueError("`name` must be between `1` and `8191`")
+        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                and re.search('^[0-9]{1,3}$', name) is None:
+            raise ValueError('%s must be in the format of x/y/z for physical '
+                             'interfaces or x for port channel.' % repr(name))
+
+        proxy_arp = getattr(method_class, method_name)
+        config = proxy_arp(**proxy_arp_args)
         if not enabled:
-            proxy_arp = config.find('.//*proxy-arp')
-            proxy_arp.set('operation', 'delete')
+            config.find('.//*proxy-arp').set('operation', 'delete')
         try:
             return callback(config)
-        # TODO: Catch existing 'no shut'
-        # This is in place because if the interface is already admin up,
-        # `ncclient` will raise an error if you try to admin up the interface
-        # again.
+        # TODO: Catch existing 'no proxy arp'
+        # This is in place because if proxy arp is already disabled,
+        # `ncclient` will raise an error if you try to disable it again.
         except AttributeError:
             return None
 
