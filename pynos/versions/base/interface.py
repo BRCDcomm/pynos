@@ -839,6 +839,8 @@ class Interface(object):
             ...         name)
             ...         output = dev.interface.trunk_mode(int_type=int_type,
             ...         name=name, mode='trunk')
+            ...         output = dev.interface.add_vlan_int('25')
+            ...         output = dev.interface.add_vlan_int('8000')
             ...         output = dev.interface.trunk_allowed_vlan(
             ...         int_type=int_type, name=name, action='add', ctag='25',
             ...         vlan='8000')
@@ -1467,6 +1469,7 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.add_vlan_int('10')
             ...         output = dev.interface.v6_nd_suppress_ra(name='10',
             ...         int_type='ve', rbridge_id='225')
             ...         dev.interface.v6_nd_suppress_ra()
@@ -2057,6 +2060,7 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.add_vlan_int(vlan)
             ...         output = dev.interface.spanning_tree_state(
             ...         int_type='vlan', name=vlan, enabled=False)
             ...         output = dev.interface.transport_service(vlan=vlan,
