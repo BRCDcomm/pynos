@@ -47,6 +47,8 @@ class BGP(object):
 
     @property
     def enabled(self):
+        """bool: ``True`` if BGP is enabled; ``False`` if BGP is disabled.
+        """
         namespace = 'urn:ietf:params:xml:ns:netconf:base:1.0'
         bgp_filter = 'rbridge-id/router/bgp'
         bgp_config = ET.Element('get-config', xmlns="%s" % namespace)
@@ -137,8 +139,7 @@ class BGP(object):
         callback = kwargs.pop('callback', self._callback)
         bgp_args = dict(vrf_name=vrf, rbridge_id=rbridge_id)
         config = self._rbridge.rbridge_id_router_bgp_vrf_name(**bgp_args)
-        bgp = config.find('.//*bgp')
-        bgp.set('operation', 'delete')
+        config.find('.//*bgp').set('operation', 'delete')
 
         return callback(config)
 
@@ -229,8 +230,8 @@ class BGP(object):
                                             'address_holder_af_ipv6_'
                                             'neighbor_address_activate')
                 deactivate = activate_neighbor(**activate_args)
-                ipv6_address = deactivate.find('.//*af-ipv6-neighbor-address')
-                ipv6_address.set('operation', 'delete')
+                deactivate.find('.//*af-ipv6-neighbor-'
+                                'address').set('operation', 'delete')
                 callback(deactivate)
         else:
             if ip_addr.version == 6:

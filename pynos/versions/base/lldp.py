@@ -59,7 +59,7 @@ class LLDP(object):
             remote_chas_id = item.find('%sremote-chassis-id' % urn).text
             try:
                 remote_sys_name = item.find('%sremote-system-name' % urn).text
-            except:
+            except AttributeError:
                 remote_sys_name = ''
 
             if 'Fo ' in local_int_name:

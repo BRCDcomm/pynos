@@ -912,8 +912,7 @@ class Interface(object):
                                  add=vlan,
                                  remove=vlan,
                                  trunk_vlan_id=vlan,
-                                 trunk_ctag_range=ctag
-                                 )
+                                 trunk_ctag_range=ctag)
 
         ctag_actions = ['add', 'remove']
 
@@ -924,9 +923,7 @@ class Interface(object):
             raise ValueError('%s must be in %s when %s is set '
                              % (repr(action),
                                 repr(ctag_actions),
-                                repr(ctag)
-                                )
-                             )
+                                repr(ctag)))
 
         if not ctag:
             allowed_vlan = getattr(self._interface,
@@ -938,8 +935,7 @@ class Interface(object):
                                    'interface_%s_switchport_trunk_trunk_vlan_'
                                    'classification_allowed_vlan_%s_trunk_'
                                    'ctag_range'
-                                   % ((int_type, action))
-                                   )
+                                   % ((int_type, action)))
         config = allowed_vlan(**allowed_vlan_args)
         return callback(config)
 
@@ -1070,7 +1066,7 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel',  'vlan']
+                           'port_channel', 'vlan']
 
         if int_type not in valid_int_types:
             raise ValueError('int_type must be one of: %s' %
@@ -1260,10 +1256,10 @@ class Interface(object):
                              "physical interfaces or x for port channel.")
 
         if not pynos.utilities.valid_vlan_id(pri_vlan, extended=True):
-                raise ValueError("`pri_vlan` must be between `1` and `4096`")
+            raise ValueError("`pri_vlan` must be between `1` and `4096`")
 
         if not pynos.utilities.valid_vlan_id(sec_vlan, extended=True):
-                raise ValueError("`sec_vlan` must be between `1` and `4096`")
+            raise ValueError("`sec_vlan` must be between `1` and `4096`")
 
         pvlan_args = dict(name=name,
                           promis_pri_pvlan=pri_vlan,
@@ -2003,12 +1999,12 @@ class Interface(object):
                              repr(valid_types))
 
         if re.search('^[0-9]{1,3}$', port_int) is None:
-                raise ValueError("incorrect port_int value.")
+            raise ValueError("incorrect port_int value.")
 
         channel_group_args = dict(name=name, mode=mode)
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("incorrect name value.")
+            raise ValueError("incorrect name value.")
 
         config = getattr(
             self._interface,
@@ -2019,10 +2015,8 @@ class Interface(object):
         if delete is True:
             channel_group.set('operation', 'delete')
         else:
-            port_int_el = ET.SubElement(channel_group, 'port-int')
-            port_int_el.text = port_int
-            port_type_el = ET.SubElement(channel_group, 'type')
-            port_type_el.text = channel_type
+            ET.SubElement(channel_group, 'port-int').text = port_int
+            ET.SubElement(channel_group, 'type').text = channel_type
 
         return callback(config)
 
@@ -2248,7 +2242,7 @@ class Interface(object):
         timeout_args = dict(name=name, timeout=timeout)
 
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError("Incorrect name value.")
+            raise ValueError("Incorrect name value.")
 
         config = getattr(
             self._interface,
