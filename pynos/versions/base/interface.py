@@ -1473,7 +1473,7 @@ class Interface(object):
         return callback(config)
 
     def v6_nd_suppress_ra(self, **kwargs):
-        """Set interface description.
+        """Disable IPv6 Router Advertisements
 
         Args:
             int_type (str): Type of interface. (gigabitethernet,
