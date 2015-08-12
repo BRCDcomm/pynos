@@ -805,6 +805,20 @@ class TestInterface(unittest.TestCase):
         result = ET.tostring(result)
         self.assertEquals(expected, result)
 
+    def test_ip_address_int_type_exception(self):
+        with self.assertRaises(ValueError):
+            self.interface.ip_address(int_type='junk',
+                                      name=self.phys_name,
+                                      ip_addr=self.ipv6_address,
+                                      delete=False)
+
+    def test_ip_address_interface_name_exception(self):
+        with self.assertRaises(ValueError):
+            self.interface.ip_address(int_type=self.phys_int_type,
+                                      name='junk',
+                                      ip_addr=self.ipv6_address,
+                                      delete=False)
+
     def test_remove_port_channel_value_error(self):
         with self.assertRaises(ValueError):
             self.interface.remove_port_channel(port_int='2/0/3')
