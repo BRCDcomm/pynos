@@ -1343,8 +1343,9 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
 
-        valid_mtu = range(1522, 9216)
-        if int(mtu) not in valid_mtu:
+        minimum_mtu = 1522
+        maximum_mtu = 9216
+        if int(mtu) < minimum_mtu or int(mtu) > maximum_mtu:
             raise ValueError("Incorrect mtu value 1522-9216")
 
         mtu_args = dict(name=name, mtu=mtu)

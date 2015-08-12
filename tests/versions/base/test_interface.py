@@ -1415,3 +1415,34 @@ class TestInterface(unittest.TestCase):
         result = self.interface.port_channel_vlag_ignore_split(name='5')
         result = ET.tostring(result)
         self.assertEquals(expected, result)
+
+    def test_mtu_too_low(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type=self.phys_int_type, mtu='1521',
+                               name=self.phys_name)
+
+    def test_mtu_too_high(self):
+        with self.assertRaises(ValueError):
+            self.interface.mtu(int_type=self.phys_int_type, mtu='9217',
+                               name=self.phys_name)
+
+    def test_mtu_floor(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<mtu>1522</mtu></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.mtu(int_type=self.phys_int_type, mtu='1522',
+                                    name=self.phys_name)
+
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_mtu_ceiling(self):
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<mtu>9216</mtu></{1}></interface>'\
+                   '</config>'.format(self.namespace, self.phys_int_type,
+                                      self.phys_name)
+        result = self.interface.mtu(int_type=self.phys_int_type, mtu='9216',
+                                    name=self.phys_name)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
