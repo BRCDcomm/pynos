@@ -21,6 +21,7 @@ import re
 from ipaddress import ip_interface
 from pynos.versions.base.yang.brocade_interface import brocade_interface
 from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
+from pynos.exceptions import InvalidVlanId
 import pynos.utilities
 
 
@@ -424,7 +425,7 @@ class Interface(object):
             method_class = self._rbridge
             ip_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `8191`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
         elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
             raise ValueError('`name` must be in the format of x/y/z for '
                              'physical interfaces.')
@@ -535,7 +536,7 @@ class Interface(object):
 
         if int_type == "vlan":
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `4096`")
+                raise InvalidVlanId("`name` must be between `1` and `4096`")
 
             config = self._interface.interface_vlan_interface_vlan_description(
                 **desc_args
@@ -592,7 +593,7 @@ class Interface(object):
         allowed_pvlan_types = ['isolated', 'primary', 'community']
 
         if not pynos.utilities.valid_vlan_id(name):
-            raise ValueError("Incorrect name value.")
+            raise InvalidVlanId("Incorrect name value.")
 
         if pvlan_type not in allowed_pvlan_types:
             raise ValueError("Incorrect pvlan_type")
@@ -647,9 +648,9 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
 
         if not pynos.utilities.valid_vlan_id(name):
-            raise ValueError("Incorrect name value.")
+            raise InvalidVlanId("Incorrect name value.")
         if not pynos.utilities.valid_vlan_id(sec_vlan):
-            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
+            raise InvalidVlanId("`sec_vlan` must be between `1` and `4095`.")
 
         pvlan_args = dict(name=name, sec_assoc_add=sec_vlan)
         pvlan_assoc = getattr(self._interface,
@@ -728,9 +729,9 @@ class Interface(object):
                              'interfaces or x for port channel.' % repr(name))
 
         if not pynos.utilities.valid_vlan_id(pri_vlan):
-            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
+            raise InvalidVlanId("`sec_vlan` must be between `1` and `4095`.")
         if not pynos.utilities.valid_vlan_id(sec_vlan):
-            raise ValueError("`sec_vlan` must be between `1` and `4095`.")
+            raise InvalidVlanId("`sec_vlan` must be between `1` and `4095`.")
 
         pvlan_args = dict(name=name, host_pri_pvlan=pri_vlan)
 
@@ -810,7 +811,7 @@ class Interface(object):
             method_class = self._rbridge
             state_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `8191`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
                 re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
@@ -1100,7 +1101,7 @@ class Interface(object):
 
         if int_type == 'vlan':
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError('%s must be between 0 to 4095.' % int_type)
+                raise InvalidVlanId('%s must be between 0 to 4095.' % int_type)
 
             state_args = dict(name=name)
             spanning_tree_state = getattr(self._interface,
@@ -1281,10 +1282,10 @@ class Interface(object):
                              "physical interfaces or x for port channel.")
 
         if not pynos.utilities.valid_vlan_id(pri_vlan, extended=True):
-            raise ValueError("`pri_vlan` must be between `1` and `4096`")
+            raise InvalidVlanId("`pri_vlan` must be between `1` and `4096`")
 
         if not pynos.utilities.valid_vlan_id(sec_vlan, extended=True):
-            raise ValueError("`sec_vlan` must be between `1` and `4096`")
+            raise InvalidVlanId("`sec_vlan` must be between `1` and `4096`")
 
         pvlan_args = dict(name=name,
                           promis_pri_pvlan=pri_vlan,
@@ -1667,7 +1668,7 @@ class Interface(object):
             method_class = self._rbridge
             vrrp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `8191`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
         elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                 and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
@@ -1807,7 +1808,7 @@ class Interface(object):
             method_class = self._rbridge
             vrrp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `8191`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
         elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                 and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
@@ -1893,7 +1894,7 @@ class Interface(object):
             method_class = self._rbridge
             proxy_arp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
-                raise ValueError("`name` must be between `1` and `8191`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
         elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                 and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for physical '
@@ -2198,8 +2199,7 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
 
         if not pynos.utilities.valid_vlan_id(vlan, extended=True):
-            raise ValueError("%s must be between `1` and `8191`" %
-                             repr(vlan))
+            raise InvalidVlanId("vlan must be between `1` and `8191`")
 
         service_args = dict(name=vlan, transport_service=service_id)
         transport_service = getattr(self._interface,
@@ -2385,7 +2385,7 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
         if not pynos.utilities.valid_vlan_id(vlan):
-            raise ValueError("`name` must be between `1` and `4096`")
+            raise InvalidVlanId("`name` must be between `1` and `4096`")
         if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                 and re.search('^[0-9]{1,3}$', name) is None:
             raise ValueError('%s must be in the format of x/y/z for '

@@ -17,32 +17,48 @@ limitations under the License.
 
 
 class InvalidInterfaceName(Exception):
+    """Exception for invalid physical interface names.
+    """
     pass
 
 
 class InvalidInterfaceType(Exception):
+    """Exception for invalid interface types.
+    """
     pass
 
 
 class InvalidVlanId(Exception):
+    """Exception for invalid VLAN IDs.
+    """
     pass
 
 
 class InvalidPortChannelName(Exception):
+    """Exception for invalid port-channel interface names.
+    """
     pass
 
 
 class InvalidState(Exception):
+    """Exception for invalid states.
+    """
     pass
 
 
 class InvalidAction(Exception):
+    """Exception for invalid actions.
+    """
     pass
 
 
 class InvalidMode(Exception):
+    """Exception for invalid modes.
+    """
     pass
 
 
 class PynosException(Exception):
+    """Exception for unique PyNOS issues with no more specific exception.
+    """
     pass

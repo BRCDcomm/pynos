@@ -19,6 +19,7 @@ limitations under the License.
 import unittest
 import xml.etree.ElementTree as ET
 import pynos.versions.base.interface as interface
+from pynos.exceptions import InvalidVlanId
 import pynos.utilities
 
 
@@ -844,7 +845,7 @@ class TestInterface(unittest.TestCase):
                                        desc='hodor')
 
     def test_description_vlan_name_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.description(int_type='vlan', name='9000',
                                        desc='hodor')
 
@@ -860,7 +861,7 @@ class TestInterface(unittest.TestCase):
         self.assertEquals(expected, result)
 
     def test_private_vlan_type_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.private_vlan_type(name='9000',
                                              pvlan_type='primary')
 
@@ -869,12 +870,12 @@ class TestInterface(unittest.TestCase):
             self.interface.private_vlan_type(name='5', pvlan_type='hodor')
 
     def test_vlan_pvlan_association_add_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.vlan_pvlan_association_add(name='9000',
                                                       sec_vlan='5')
 
     def test_vlan_pvlan_association_add_sec_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.vlan_pvlan_association_add(name='5',
                                                       sec_vlan='9000')
 
@@ -997,14 +998,14 @@ class TestInterface(unittest.TestCase):
                                                   sec_vlan=self.sec_vlan)
 
     def test_pvlan_host_association_pri_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.pvlan_host_association(int_type='gigabitethernet',
                                                   name='2/0/1',
                                                   pri_vlan='9000',
                                                   sec_vlan=self.sec_vlan)
 
     def test_pvlan_host_association_sec_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.pvlan_host_association(int_type='gigabitethernet',
                                                   name='2/0/1',
                                                   pri_vlan=self.vlan_id,
@@ -1102,7 +1103,7 @@ class TestInterface(unittest.TestCase):
                                                name='3', enabled='hodor')
 
     def test_spanning_tree_state_vlan_name_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.spanning_tree_state(int_type='vlan',
                                                name='9000', enabled=True)
 
@@ -1157,13 +1158,13 @@ class TestInterface(unittest.TestCase):
                                                     sec_vlan=self.sec_vlan)
 
     def test_switchport_pvlan_mapping_pri_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.switchport_pvlan_mapping(int_type='port_channel',
                                                     name='9', pri_vlan='9000',
                                                     sec_vlan=self.sec_vlan)
 
     def test_switchport_pvlan_mapping_sec_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.switchport_pvlan_mapping(int_type='port_channel',
                                                     name='9', sec_vlan='9000',
                                                     pri_vlan=self.vlan_id)
@@ -1355,7 +1356,7 @@ class TestInterface(unittest.TestCase):
                                       name=self.phys_name, mode='hodor')
 
     def test_transport_service_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.transport_service(vlan='9000', service_id='1')
 
     def test_lacp_timeout_int_type_value_error(self):
@@ -1393,7 +1394,7 @@ class TestInterface(unittest.TestCase):
                                     vlan=self.vlan_id)
 
     def test_acc_vlan_vlan_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaises(InvalidVlanId):
             self.interface.acc_vlan(int_type=self.phys_int_type,
                                     name=self.phys_name, vlan='9000')
 
