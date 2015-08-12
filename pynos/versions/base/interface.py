@@ -1550,7 +1550,7 @@ class Interface(object):
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
         if int_type == "ve":
-            if re.search('^[0-9]{1,4}$', name) is None:
+            if not pynos.utilities.valid_vlan_id(name):
                 raise ValueError("`name` must be between `1` and `8191`")
 
             rbridge_id = kwargs.pop('rbridge_id', "1")
