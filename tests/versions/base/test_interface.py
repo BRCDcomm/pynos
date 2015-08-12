@@ -23,14 +23,19 @@ import pynos.utilities
 
 
 class TestInterface(unittest.TestCase):
+
     """
     Interface unit tests. Compare expected XML to generated XML.
     """
+
     def setUp(self):
         self.interface = interface.Interface(pynos.utilities.return_xml)
         self.namespace = 'urn:brocade.com:mgmt:brocade-interface'
         self.phys_int_type = 'gigabitethernet'
+        self.phys_vlan_type = 'vlan'
+        self.phys_port_channel_type = 'port-channel'
         self.phys_name = '1/0/0'
+        self.port_channel_name = '20'
         self.vlan_id = '40'
         self.sec_vlan = '50'
         self.ipv4_config_namespace = 'urn:brocade.com:mgmt:brocade-ip-config'
@@ -309,6 +314,38 @@ class TestInterface(unittest.TestCase):
         result = interface.spanning_tree_state(int_type='vlan',
                                                name=self.vlan_id,
                                                enabled=False)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_port_channel_enabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<spanning-tree xmlns="{3}">'\
+                   '<shutdown operation="delete" /></spanning-tree></{1}>'\
+                   '</interface></config>'.format(self.namespace,
+                                                  self.phys_port_channel_type,
+                                                  self.port_channel_name,
+                                                  stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(
+            int_type='port_channel', name=self.port_channel_name,
+            enabled=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
+
+    def test_spanning_tree_state_port_channel_disabled(self):
+        stp_namespace = 'urn:brocade.com:mgmt:brocade-xstp'
+        expected = '<config><interface xmlns="{0}"><{1}><name>{2}</name>'\
+                   '<spanning-tree xmlns="{3}"><shutdown /></spanning-tree>'\
+                   '</{1}></interface>'\
+                   '</config>'.format(self.namespace,
+                                      self.phys_port_channel_type,
+                                      self.port_channel_name, stp_namespace)
+        interface = self.interface
+        result = interface.spanning_tree_state(
+            int_type='port_channel',
+            name=self.port_channel_name,
+            enabled=False)
         result = ET.tostring(result)
         self.assertEquals(expected, result)
 

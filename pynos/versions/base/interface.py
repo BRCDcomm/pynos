@@ -25,6 +25,7 @@ import pynos.utilities
 
 
 class Interface(object):
+
     """
     The Interface class holds all the actions assocaiated with the Interfaces
     of a NOS device.
@@ -32,6 +33,7 @@ class Interface(object):
     Attributes:
         None
     """
+
     def __init__(self, callback):
         """
         Interface init function.
@@ -524,7 +526,7 @@ class Interface(object):
             'hundredgigabitethernet',
             'port_channel',
             'vlan'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
@@ -537,7 +539,7 @@ class Interface(object):
 
             config = self._interface.interface_vlan_interface_vlan_description(
                 **desc_args
-                )
+            )
         else:
             if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
                     and re.search('^[0-9]{1,3}$', name) is None:
@@ -548,7 +550,7 @@ class Interface(object):
             config = getattr(
                 self._interface,
                 'interface_%s_description' % int_type
-                )(**desc_args)
+            )(**desc_args)
         return callback(config)
 
     def private_vlan_type(self, **kwargs):
@@ -1017,11 +1019,12 @@ class Interface(object):
 
         Args:
             int_type (str): Type of interface. (gigabitethernet,
-                tengigabitethernet, etc).
+                tengigabitethernet, vlan, port_channel etc).
             name (str): Name of interface or VLAN id.
                 (For interface: 1/0/5, 1/0/10 etc).
                 (For VLANs 0, 1, 100 etc).
-            enabled (bool): Is the interface enabled? (True, False)
+                (For Port Channels 1, 100 etc).
+            enabled (bool): Is Spanning Tree enabled? (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1054,11 +1057,31 @@ class Interface(object):
             ...         name = '102'
             ...         enabled = False
             ...         output = dev.interface.add_vlan_int(name)
+            ...         output = dev.interface.enable_switchport(
+            ...             int_type, name)
             ...         output = dev.interface.spanning_tree_state(
             ...         int_type=int_type, name=name, enabled=enabled)
             ...         enabled = False
             ...         output = dev.interface.spanning_tree_state(
             ...         int_type=int_type, name=name, enabled=enabled)
+            ...         output = dev.interface.del_vlan_int(name)
+            ...         int_type = 'port_channel'
+            ...         name = '2'
+            ...         enabled = False
+            ...         output = dev.interface.channel_group(name='225/0/20',
+            ...                              int_type='tengigabitethernet',
+            ...                              port_int=name,
+            ...                              channel_type='standard',
+            ...                              mode='active')
+            ...         output = dev.interface.enable_switchport(
+            ...             int_type, name)
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
+            ...         enabled = False
+            ...         output = dev.interface.spanning_tree_state(
+            ...         int_type=int_type, name=name, enabled=enabled)
+            ...         output = dev.interface.remove_port_channel(
+            ...             port_int=name)
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -1086,9 +1109,11 @@ class Interface(object):
                                                                  int_type))
 
         else:
-            if re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
-                raise ValueError('%s must be in the format of x/y/z.'
-                                 % int_type)
+            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
+                    and re.search('^[0-9]{1,3}$', name) is None:
+                raise ValueError('%s must be in the format of x/y/z for '
+                                 'physical interfaces or x for port channel.'
+                                 % repr(name))
 
             state_args = dict(name=name)
             spanning_tree_state = getattr(self._interface,
@@ -1313,7 +1338,7 @@ class Interface(object):
             'fortygigabitethernet',
             'hundredgigabitethernet',
             'port_channel'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
@@ -1332,7 +1357,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_%s_mtu' % int_type
-            )(**mtu_args)
+        )(**mtu_args)
         return callback(config)
 
     def fabric_isl(self, **kwargs):
@@ -1379,7 +1404,7 @@ class Interface(object):
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" %
@@ -1397,7 +1422,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_%s_fabric_fabric_isl_fabric_isl_enable' % int_type
-            )(**fabric_isl_args)
+        )(**fabric_isl_args)
 
         if not enabled:
             fabric_isl = config.find('.//*fabric-isl')
@@ -1447,7 +1472,7 @@ class Interface(object):
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
@@ -1464,7 +1489,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_%s_fabric_fabric_trunk_fabric_trunk_enable' % int_type
-            )(**fabric_trunk_args)
+        )(**fabric_trunk_args)
 
         if not enabled:
             fabric_trunk = config.find('.//*fabric-trunk')
@@ -1518,7 +1543,7 @@ class Interface(object):
             'fortygigabitethernet',
             'hundredgigabitethernet',
             've'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
@@ -1928,7 +1953,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_port_channel_minimum_links'
-            )(**min_links_args)
+        )(**min_links_args)
 
         return callback(config)
 
@@ -1982,7 +2007,7 @@ class Interface(object):
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
@@ -2009,7 +2034,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_%s_channel_group_mode' % int_type
-            )(**channel_group_args)
+        )(**channel_group_args)
 
         channel_group = config.find('.//*channel-group')
         if delete is True:
@@ -2063,7 +2088,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_port_channel_vlag_ignore_split'
-            )(**vlag_ignore_args)
+        )(**vlag_ignore_args)
 
         if not enabled:
             ignore_split = config.find('.//*ignore-split')
@@ -2230,7 +2255,7 @@ class Interface(object):
             'tengigabitethernet',
             'fortygigabitethernet',
             'hundredgigabitethernet'
-            ]
+        ]
 
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
@@ -2247,7 +2272,7 @@ class Interface(object):
         config = getattr(
             self._interface,
             'interface_%s_lacp_timeout' % int_type
-            )(**timeout_args)
+        )(**timeout_args)
         return callback(config)
 
     def switchport(self, **kwargs):
