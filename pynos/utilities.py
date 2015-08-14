@@ -16,6 +16,7 @@ limitations under the License.
 """
 from __future__ import print_function
 import xml.etree.ElementTree as ET
+import re
 
 
 def return_xml(element_tree):
@@ -115,3 +116,18 @@ def valid_vlan_id(vlan_id, extended=True):
     if extended:
         maximum_vlan_id = 8191
     return minimum_vlan_id <= int(vlan_id) <= maximum_vlan_id
+
+
+def valid_interface(int_type, name):
+    if int_type == 'port_channel':
+        return valid_port_channel_name(name)
+    else:
+        return valid_physical_name(name)
+
+
+def valid_port_channel_name(name):
+    return re.search(r'^[0-9]{1,3}$', name) is not None
+
+
+def valid_physical_name(name):
+    return re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is not None

@@ -426,7 +426,7 @@ class Interface(object):
             ip_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
-        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+        elif not pynos.utilities.valid_interface(int_type, name):
             raise ValueError('`name` must be in the format of x/y/z for '
                              'physical interfaces.')
 
@@ -542,11 +542,9 @@ class Interface(object):
                 **desc_args
             )
         else:
-            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                    and re.search('^[0-9]{1,3}$', name) is None:
-                raise ValueError('%s must be in the format of x/y/z for '
-                                 'physical interfaces or x for port channel.'
-                                 % repr(name))
+            if not pynos.utilities.valid_interface(int_type, name):
+                raise ValueError('`name` must be in the format of x/y/z for '
+                                 'physical interfaces or x for port channel.')
 
             config = getattr(
                 self._interface,
@@ -723,10 +721,9 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         if not pynos.utilities.valid_vlan_id(pri_vlan):
             raise InvalidVlanId("`sec_vlan` must be between `1` and `4095`.")
@@ -812,10 +809,9 @@ class Interface(object):
             state_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        elif not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         admin_state = getattr(method_class, method_name)
         config = admin_state(**state_args)
@@ -906,10 +902,9 @@ class Interface(object):
         if action not in valid_actions:
             raise ValueError('%s must be one of: %s' % (action, valid_actions))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         allowed_vlan_args = dict(name=name,
                                  add=vlan,
@@ -996,10 +991,9 @@ class Interface(object):
         if mode not in valid_modes:
             raise ValueError('%s must be one of: %s' % (mode, valid_modes))
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         pvlan_args = dict(name=name)
 
@@ -1110,11 +1104,9 @@ class Interface(object):
                                                                  int_type))
 
         else:
-            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                    and re.search('^[0-9]{1,3}$', name) is None:
-                raise ValueError('%s must be in the format of x/y/z for '
-                                 'physical interfaces or x for port channel.'
-                                 % repr(name))
+            if not pynos.utilities.valid_interface(int_type, name):
+                raise ValueError('`name` must be in the format of x/y/z for '
+                                 'physical interfaces or x for port channel.')
 
             state_args = dict(name=name)
             spanning_tree_state = getattr(self._interface,
@@ -1192,10 +1184,9 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("Incorrect int_type value.")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         if not isinstance(enabled, bool):
             raise ValueError("Invalid state.")
@@ -1276,8 +1267,7 @@ class Interface(object):
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
 
-        if not re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) \
-                and not re.search('^[0-9]{1,3}$', name):
+        if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError("`name` must be in the format of x/y/x for "
                              "physical interfaces or x for port channel.")
 
@@ -1351,10 +1341,9 @@ class Interface(object):
 
         mtu_args = dict(name=name, mtu=mtu)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         config = getattr(
             self._interface,
@@ -1417,7 +1406,7 @@ class Interface(object):
 
         fabric_isl_args = dict(name=name)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError("`name` must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
                              "{1,3}$`")
 
@@ -1484,7 +1473,7 @@ class Interface(object):
 
         fabric_trunk_args = dict(name=name)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError("`name` must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
                              "{1,3}$`")
 
@@ -1563,7 +1552,7 @@ class Interface(object):
                                   'nd_suppress_ra_suppress_ra_all')
             config = nd_suppress(**nd_suppress_args)
         else:
-            if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+            if not pynos.utilities.valid_interface(int_type, name):
                 raise ValueError("`name` must match "
                                  "`^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$`")
 
@@ -1669,10 +1658,9 @@ class Interface(object):
             vrrp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
-        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                and re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        elif not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         vrrp_vip = getattr(method_class, method_name)
         config = vrrp_vip(**vrrp_args)
@@ -1809,10 +1797,9 @@ class Interface(object):
             vrrp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
-        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                and re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        elif not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         vrrp_priority = getattr(method_class, method_name)
         config = vrrp_priority(**vrrp_args)
@@ -1895,10 +1882,9 @@ class Interface(object):
             proxy_arp_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
-        elif re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                and re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        elif not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'phyiscal interfaces or x for port channel.')
 
         proxy_arp = getattr(method_class, method_name)
         config = proxy_arp(**proxy_arp_args)
@@ -1949,7 +1935,7 @@ class Interface(object):
 
         min_links_args = dict(name=name, minimum_links=minimum_links)
 
-        if re.search('^[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface('port_channel', name):
             raise ValueError("`name` must match `^[0-9]{1,3}${1,3}$`")
 
         config = getattr(
@@ -2025,12 +2011,12 @@ class Interface(object):
             raise ValueError("`channel_type` must be one of: %s" %
                              repr(valid_types))
 
-        if re.search('^[0-9]{1,3}$', port_int) is None:
+        if not pynos.utilities.valid_interface('port_channel', port_int):
             raise ValueError("incorrect port_int value.")
 
         channel_group_args = dict(name=name, mode=mode)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError("incorrect name value.")
 
         config = getattr(
@@ -2084,7 +2070,7 @@ class Interface(object):
 
         vlag_ignore_args = dict(name=name)
 
-        if re.search('^[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface('port_channel', name):
             raise ValueError("`name` must match x")
 
         config = getattr(
@@ -2147,10 +2133,9 @@ class Interface(object):
         if mode not in valid_modes:
             raise ValueError("Incorrect mode value")
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None and \
-                re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for physical '
-                             'interfaces or x for port channel.' % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         mode_args = dict(name=name, vlan_mode=mode)
         switchport_mode = getattr(self._interface, 'interface_%s_switchport_'
@@ -2267,7 +2252,7 @@ class Interface(object):
 
         timeout_args = dict(name=name, timeout=timeout)
 
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None:
+        if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError("Incorrect name value.")
 
         config = getattr(
@@ -2322,11 +2307,9 @@ class Interface(object):
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                and re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for '
-                             'physical interfaces or x for port channel.'
-                             % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         switchport_args = dict(name=name)
         switchport = getattr(self._interface,
@@ -2380,17 +2363,15 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
         int_types = ['gigabitethernet', 'tengigabitethernet',
                      'fortygigabitethernet', 'hundredgigabitethernet',
-                     'port_channel', 'vlan']
+                     'port_channel']
 
         if int_type not in int_types:
             raise ValueError("`int_type` must be one of: %s" % repr(int_types))
         if not pynos.utilities.valid_vlan_id(vlan):
             raise InvalidVlanId("`name` must be between `1` and `4096`")
-        if re.search('^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is None \
-                and re.search('^[0-9]{1,3}$', name) is None:
-            raise ValueError('%s must be in the format of x/y/z for '
-                             'physical interfaces or x for port channel.'
-                             % repr(name))
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces or x for port channel.')
 
         vlan_args = dict(name=name, accessvlan=vlan)
         access_vlan = getattr(self._interface,
