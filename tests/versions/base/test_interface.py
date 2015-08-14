@@ -1406,3 +1406,12 @@ class TestInterface(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.interface.acc_vlan(int_type='port_channel', name='2/0',
                                     vlan=self.vlan_id)
+
+    def test_port_channel_vlag_ignore_split_enabled_default_value(self):
+        expected = '<config><interface xmlns="{0}"><port-channel>'\
+                   '<name>5</name><vlag><ignore-split /></vlag>'\
+                   '</port-channel></interface>'\
+                   '</config>'.format(self.namespace)
+        result = self.interface.port_channel_vlag_ignore_split(name='5')
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)

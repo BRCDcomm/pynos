@@ -2077,7 +2077,7 @@ class Interface(object):
             KeyError
         """
         name = str(kwargs.pop('name'))
-        enabled = bool(kwargs.pop('enabled'))
+        enabled = bool(kwargs.pop('enabled', True))
         callback = kwargs.pop('callback', self._callback)
 
         vlag_ignore_args = dict(name=name)
