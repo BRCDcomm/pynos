@@ -536,7 +536,7 @@ class Interface(object):
 
         if int_type == "vlan":
             if not pynos.utilities.valid_vlan_id(name):
-                raise InvalidVlanId("`name` must be between `1` and `4096`")
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
 
             config = self._interface.interface_vlan_interface_vlan_description(
                 **desc_args
@@ -556,7 +556,7 @@ class Interface(object):
         """Set the PVLAN type (primary, isolated, community).
 
         Args:
-            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            name (str): VLAN ID.
             pvlan_type (str): PVLAN type (primary, isolated, community)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
@@ -648,7 +648,7 @@ class Interface(object):
         if not pynos.utilities.valid_vlan_id(name):
             raise InvalidVlanId("Incorrect name value.")
         if not pynos.utilities.valid_vlan_id(sec_vlan):
-            raise InvalidVlanId("`sec_vlan` must be between `1` and `4095`.")
+            raise InvalidVlanId("`sec_vlan` must be between `1` and `8191`.")
 
         pvlan_args = dict(name=name, sec_assoc_add=sec_vlan)
         pvlan_assoc = getattr(self._interface,
@@ -1095,7 +1095,7 @@ class Interface(object):
 
         if int_type == 'vlan':
             if not pynos.utilities.valid_vlan_id(name):
-                raise InvalidVlanId('%s must be between 0 to 4095.' % int_type)
+                raise InvalidVlanId('%s must be between 0 to 8191.' % int_type)
 
             state_args = dict(name=name)
             spanning_tree_state = getattr(self._interface,

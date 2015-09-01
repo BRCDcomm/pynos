@@ -126,7 +126,7 @@ def valid_interface(int_type, name):
 
 
 def valid_port_channel_name(name):
-    return re.search(r'^[0-9]{1,3}$', name) is not None
+    return re.search(r'^[0-9]{1,4}$', name) is not None
 
 
 def valid_physical_name(name):
