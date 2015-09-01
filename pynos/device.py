@@ -26,11 +26,13 @@ import pynos.versions.ver_5.ver_5_0_1.snmp
 import pynos.versions.ver_5.ver_5_0_1.interface
 import pynos.versions.ver_5.ver_5_0_1.lldp
 import pynos.versions.ver_5.ver_5_0_1.system
+import pynos.versions.ver_5.ver_5_0_1.services
 import pynos.versions.ver_6.ver_6_0_1.bgp
 import pynos.versions.ver_6.ver_6_0_1.snmp
 import pynos.versions.ver_6.ver_6_0_1.interface
 import pynos.versions.ver_6.ver_6_0_1.lldp
 import pynos.versions.ver_6.ver_6_0_1.system
+import pynos.versions.ver_6.ver_6_0_1.services
 
 VERSIONS = {
     '5.0.1': {
@@ -39,6 +41,7 @@ VERSIONS = {
         'interface': pynos.versions.ver_5.ver_5_0_1.interface.Interface,
         'lldp': pynos.versions.ver_5.ver_5_0_1.lldp.LLDP,
         'system': pynos.versions.ver_5.ver_5_0_1.system.System,
+        'services': pynos.versions.ver_5.ver_5_0_1.services.Services,
         },
     '6.0.1': {
         'bgp': pynos.versions.ver_6.ver_6_0_1.bgp.BGP,
@@ -46,10 +49,11 @@ VERSIONS = {
         'interface': pynos.versions.ver_6.ver_6_0_1.interface.Interface,
         'lldp': pynos.versions.ver_6.ver_6_0_1.lldp.LLDP,
         'system': pynos.versions.ver_6.ver_6_0_1.system.System,
+        'services': pynos.versions.ver_6.ver_6_0_1.services.Services,
         }
     }
 
-NOS_ATTRS = ['bgp', 'snmp', 'interface', 'lldp', 'system']
+NOS_ATTRS = ['bgp', 'snmp', 'interface', 'lldp', 'system', 'services']
 
 
 class DeviceCommError(Exception):
