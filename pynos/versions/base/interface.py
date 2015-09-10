@@ -2406,6 +2406,7 @@ class Interface(object):
             if "gigabitethernet" in interface_type:
                 interface_name = item.find('%sinterface-name' % urn).text
                 interface_role = item.find('%sport-role' % urn).text
+                if_name = item.find('%sif-name' % urn).text
                 interface_state = item.find('%sif-state' % urn).text
                 interface_proto_state = item.find('%sline-protocol-state' %
                                                   urn).text
@@ -2415,6 +2416,7 @@ class Interface(object):
                 item_results = {'interface-type': interface_type,
                                 'interface-name': interface_name,
                                 'interface-role': interface_role,
+                                'interface-role': if_name,
                                 'interface-state': interface_state,
                                 'interface-proto-state': interface_proto_state,
                                 'interface-mac': interface_mac}
