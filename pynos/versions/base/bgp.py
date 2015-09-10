@@ -83,7 +83,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',
@@ -127,7 +127,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',
@@ -165,7 +165,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',

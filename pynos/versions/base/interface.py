@@ -306,7 +306,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -363,7 +363,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...    conn = (switch, '22')
@@ -500,7 +500,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -572,7 +572,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> name = '90'
             >>> pvlan_type = 'isolated'
@@ -623,7 +623,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '20'
@@ -682,7 +682,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/38'
@@ -767,7 +767,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -865,7 +865,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.226', '10.24.52.10']
+            >>> switches = ['10.24.39.212', '10.24.39.202']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '226/0/4'
@@ -962,7 +962,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/38'
@@ -1038,7 +1038,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1161,7 +1161,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1235,7 +1235,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/37'
@@ -1316,7 +1316,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1382,7 +1382,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1452,7 +1452,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1521,7 +1521,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1598,7 +1598,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1728,7 +1728,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1853,7 +1853,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1930,7 +1930,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -1982,7 +1982,7 @@ class Interface(object):
 
         examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -2065,7 +2065,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -2118,7 +2118,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -2176,7 +2176,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.226', '10.24.52.10']
+            >>> switches = ['10.24.39.212', '10.24.39.202']
             >>> auth = ('admin', 'password')
             >>> vlan = '6666'
             >>> service_id = '1'
@@ -2229,7 +2229,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/39'
@@ -2298,7 +2298,7 @@ class Interface(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')
@@ -2357,7 +2357,7 @@ class Interface(object):
             ValueError: if `int_type`, `name`, or `vlan` is not valid.
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
             >>> name = '225/0/31'
@@ -2398,3 +2398,45 @@ class Interface(object):
                               int_type)
         config = access_vlan(**vlan_args)
         return callback(config)
+
+    @property
+    def interfaces(self):
+        """list[dict]: A list of dictionary items describing the operational
+        state of interfaces.
+        This method currently only lists the Physical Interfaces (
+        Gigabitethernet, tengigabitethernet, fortygigabitethernet,
+        hundredgigabitethernet) and
+        excludes VLAN interfaces, FCoE, Port-Channels, Management and Fibre
+        Channel ports.
+        """
+        urn = "{urn:brocade.com:mgmt:brocade-interface-ext}"
+
+        result = []
+
+        request_interface = ET.Element(
+            'get-interface-detail',
+            xmlns="urn:brocade.com:mgmt:brocade-interface-ext"
+        )
+
+        interface_result = self._callback(request_interface, 'get')
+
+        for item in interface_result.findall('%sinterface' % urn):
+            interface_type = item.find('%sinterface-type' % urn).text
+            if "gigabitethernet" in interface_type:
+                interface_name = item.find('%sinterface-name' % urn).text
+                interface_role = item.find('%sport-role' % urn).text
+                interface_state = item.find('%sif-state' % urn).text
+                interface_proto_state = item.find('%sline-protocol-state' %
+                                                  urn).text
+                interface_mac = item.find(
+                    '%scurrent-hardware-address' % urn).text
+
+                item_results = {'interface-type': interface_type,
+                                'interface-name': interface_name,
+                                'interface-role': interface_role,
+                                'interface-state': interface_state,
+                                'interface-proto-state': interface_proto_state,
+                                'interface-mac': interface_mac}
+                result.append(item_results)
+
+        return result

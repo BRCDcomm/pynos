@@ -63,7 +63,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.52.9', '22')
+            >>> conn = ('10.24.39.203', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',
@@ -108,7 +108,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.52.9', '22')
+            >>> conn = ('10.24.39.203', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',
@@ -140,7 +140,7 @@ class BGP(object):
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
 
-        Returns:
+        # Returns:
             Return value of `callback`.
 
         Raises:
@@ -148,7 +148,7 @@ class BGP(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.52.9', '22')
+            >>> conn = ('10.24.39.203', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.bgp.local_asn(local_as='65535',

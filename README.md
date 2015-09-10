@@ -13,7 +13,7 @@ The following is an example usage of pynos. Full documentation can be found
 ```
 >>> from pprint import pprint
 >>> import pynos.device
->>> conn = ('10.24.48.225', '22')
+>>> conn = ('10.24.39.211', '22')
 >>> auth = ('admin', 'password')
 >>> dev = pynos.device.Device(conn=conn, auth=auth)
 >>> dev.connection
