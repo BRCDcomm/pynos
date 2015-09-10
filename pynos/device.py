@@ -93,7 +93,7 @@ class Device(object):
         Examples:
             >>> from pprint import pprint
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> dev.connection
@@ -281,7 +281,7 @@ class Device(object):
         Examples:
             >>> from pprint import pprint
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     x = dev.find_interface_by_mac(
@@ -307,7 +307,7 @@ class Device(object):
 
         Examples:
             >>> import pynos.device
-            >>> conn = ('10.24.48.225', '22')
+            >>> conn = ('10.24.39.211', '22')
             >>> auth = ('admin', 'password')
             >>> dev = pynos.device.Device(conn=conn, auth=auth)
             >>> dev.connection
