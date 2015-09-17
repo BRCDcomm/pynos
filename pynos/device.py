@@ -185,6 +185,7 @@ class Device(object):
             call: An Element Tree element containing the XML of the NETCONF
                 call you intend to make to the device.
             handler: Type of ncclient call to make.
+                get_config: NETCONF standard get config.
                 get: ncclient dispatch. For custom RPCs.
                 edit_config: NETCONF standard edit.
                 delete_config: NETCONF standard delete.
@@ -201,6 +202,10 @@ class Device(object):
             None
         """
         try:
+            if handler == 'get_config':
+                call = ET.tostring(call.getchildren()[0])
+                return self._mgr.get(filter=('subtree', call))
+
             call = ET.tostring(call)
             if handler == 'get':
                 call_element = xml_.to_ele(call)

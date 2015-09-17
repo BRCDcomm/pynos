@@ -351,6 +351,7 @@ class Interface(object):
                 specified.
             rbridge_id (str): rbridge-id for device. Only required when type is
                 `ve`.
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                  method.  The only parameter passed to `callback` will be the
                  ``ElementTree`` `config`.
@@ -435,7 +436,10 @@ class Interface(object):
         if delete:
             config.find('.//*address').set('operation', 'delete')
         try:
-            return callback(config)
+            if kwargs.pop('get', False):
+                return callback(config, handler='get_config')
+            else:
+                return callback(config)
         # TODO Setting IP on port channel is not done yet.
         except AttributeError:
             return None
@@ -752,6 +756,7 @@ class Interface(object):
             enabled (bool): Is the interface enabled? (True, False)
             rbridge_id (str): rbridge-id for device. Only required when type is
                 `ve`.
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -760,7 +765,8 @@ class Interface(object):
             Return value of `callback`.
 
         Raises:
-            KeyError: if `int_type`, `name`, or `enabled` is not passed.
+            KeyError: if `int_type`, `name`, or `enabled` is not passed and
+                `get` is not ``True``.
             ValueError: if `int_type`, `name`, or `enabled` are invalid.
 
         Examples:
@@ -786,7 +792,11 @@ class Interface(object):
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        enabled = kwargs.pop('enabled')
+        get = kwargs.pop('get', False)
+        if get:
+            enabled = None
+        else:
+            enabled = kwargs.pop('enabled')
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
@@ -797,7 +807,7 @@ class Interface(object):
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
 
-        if not isinstance(enabled, bool):
+        if not isinstance(enabled, bool) and not get:
             raise ValueError('`enabled` must be `True` or `False`.')
 
         state_args = dict(name=name)
@@ -818,7 +828,10 @@ class Interface(object):
         if enabled:
             config.find('.//*shutdown').set('operation', 'delete')
         try:
-            return callback(config)
+            if get:
+                return callback(config, handler='get_config')
+            else:
+                return callback(config)
         # TODO: Catch existing 'no shut'
         # This is in place because if the interface is already admin up,
         # `ncclient` will raise an error if you try to admin up the interface
@@ -1359,6 +1372,7 @@ class Interface(object):
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
             enabled (bool): Is fabric ISL state enabled? (True, False)
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1419,7 +1433,10 @@ class Interface(object):
             fabric_isl = config.find('.//*fabric-isl')
             fabric_isl.set('operation', 'delete')
 
-        return callback(config)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        else:
+            return callback(config)
 
     def fabric_trunk(self, **kwargs):
         """Set fabric trunk state.
@@ -1429,6 +1446,7 @@ class Interface(object):
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
             enabled (bool): Is Fabric trunk enabled? (True, False)
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -1486,7 +1504,10 @@ class Interface(object):
             fabric_trunk = config.find('.//*fabric-trunk')
             fabric_trunk.set('operation', 'delete')
 
-        return callback(config)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        else:
+            return callback(config)
 
     def v6_nd_suppress_ra(self, **kwargs):
         """Disable IPv6 Router Advertisements
@@ -2269,6 +2290,7 @@ class Interface(object):
                 tengigabitethernet, etc)
             name (str): Name of interface. (1/0/5, 1/0/10, etc)
             enabled (bool): Is the interface enabled? (True, False)
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -2318,7 +2340,10 @@ class Interface(object):
         config = switchport(**switchport_args)
         if not enabled:
             config.find('.//*switchport-basic').set('operation', 'delete')
-        return callback(config)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        else:
+            return callback(config)
 
     def acc_vlan(self, **kwargs):
         """Set access VLAN on a port.
