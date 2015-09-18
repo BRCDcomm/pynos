@@ -1308,7 +1308,7 @@ class TestInterface(unittest.TestCase):
             self.interface.channel_group(int_type=self.phys_int_type,
                                          name=self.phys_name, mode='active',
                                          channel_type='standard',
-                                         port_int='1234')
+                                         port_int='12345')
 
     def test_channel_group_name_value_error(self):
         with self.assertRaises(ValueError):
