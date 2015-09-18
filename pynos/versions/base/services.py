@@ -65,7 +65,7 @@ class Services(object):
 
         Examples:
             >>> import pynos.device
-            >>> switches = ['10.24.48.225', '10.24.52.9']
+            >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> for switch in switches:
             ...     conn = (switch, '22')

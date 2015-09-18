@@ -33,6 +33,8 @@ import pynos.versions.ver_6.ver_6_0_1.interface
 import pynos.versions.ver_6.ver_6_0_1.lldp
 import pynos.versions.ver_6.ver_6_0_1.system
 import pynos.versions.ver_6.ver_6_0_1.services
+import pynos.versions.ver_7.ver_7_0_0.bgp
+
 
 VERSIONS = {
     '5.0.1': {
@@ -45,6 +47,14 @@ VERSIONS = {
         },
     '6.0.1': {
         'bgp': pynos.versions.ver_6.ver_6_0_1.bgp.BGP,
+        'snmp': pynos.versions.ver_6.ver_6_0_1.snmp.SNMP,
+        'interface': pynos.versions.ver_6.ver_6_0_1.interface.Interface,
+        'lldp': pynos.versions.ver_6.ver_6_0_1.lldp.LLDP,
+        'system': pynos.versions.ver_6.ver_6_0_1.system.System,
+        'services': pynos.versions.ver_6.ver_6_0_1.services.Services,
+        },
+    '7.0.0': {
+        'bgp': pynos.versions.ver_7.ver_7_0_0.bgp.BGP,
         'snmp': pynos.versions.ver_6.ver_6_0_1.snmp.SNMP,
         'interface': pynos.versions.ver_6.ver_6_0_1.interface.Interface,
         'lldp': pynos.versions.ver_6.ver_6_0_1.lldp.LLDP,
@@ -285,7 +295,7 @@ class Device(object):
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     x = dev.find_interface_by_mac(
-            ...     mac_address='01:23:45:67:89:ab')
+            ...     mac_address='10:23:45:67:89:ab')
             ...     pprint(x) # doctest: +ELLIPSIS
             [{'interface'...'mac_address'...'state'...'type'...'vlan'...}]
         """
