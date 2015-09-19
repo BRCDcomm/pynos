@@ -51,6 +51,7 @@ class BGP(object):
             local_as (str): Local ASN of NOS deice.
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -87,6 +88,8 @@ class BGP(object):
                            'rbridge_id_router_router_bgp_router_bgp_attri'
                            'butes_local_as')
         config = local_as(**local_as_args)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
         return callback(config)
 
     def remove_bgp(self, **kwargs):
@@ -136,6 +139,7 @@ class BGP(object):
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
             delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
@@ -214,4 +218,6 @@ class BGP(object):
                                             'neighbor_address_holder_af_ipv6_'
                                             'neighbor_address_activate')
                 config = activate_neighbor(**activate_args)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
         return callback(config)
