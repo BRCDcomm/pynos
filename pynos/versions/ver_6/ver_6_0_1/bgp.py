@@ -73,7 +73,11 @@ class BGP(object):
             Traceback (most recent call last):
             KeyError
         """
-        local_as = kwargs.pop('local_as')
+        is_get_config = kwargs.pop('get', False)
+        if not is_get_config:
+            local_as = kwargs.pop('local_as')
+        else:
+            local_as = ''
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         local_as_args = dict(local_as=local_as,
@@ -88,7 +92,7 @@ class BGP(object):
                            'rbridge_id_router_router_bgp_router_bgp_attri'
                            'butes_local_as')
         config = local_as(**local_as_args)
-        if kwargs.pop('get', False):
+        if is_get_config:
             return callback(config, handler='get_config')
         return callback(config)
 

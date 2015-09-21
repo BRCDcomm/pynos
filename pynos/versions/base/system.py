@@ -88,3 +88,45 @@ class System(object):
         rid_args = dict(rbridge_id=rbridge_id, router_id=router_id)
         config = self._rbridge.rbridge_id_ip_rtm_config_router_id(**rid_args)
         return callback(config)
+
+    def rbridge_id(self, **kwargs):
+        """Configures device's rbridge ID. Setting this property will need
+        a switch reboot
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `rbridge_id` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.system.rbridge_id(rbridge_id='225')
+            ...     dev.system.rbridge_id() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        is_get_config = kwargs.pop('get', False)
+        if not is_get_config:
+            rbridge_id = kwargs.pop('rbridge_id')
+        else:
+            rbridge_id = ''
+        callback = kwargs.pop('callback', self._callback)
+        rid_args = dict(rbridge_id=rbridge_id)
+        rid = getattr(self._rbridge,
+                      'rbridge_id_rbridge_id')
+        config = rid(**rid_args)
+        if is_get_config:
+            return callback(config, handler='get_config')
+        return callback(config)

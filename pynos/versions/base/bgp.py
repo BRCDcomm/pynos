@@ -94,7 +94,11 @@ class BGP(object):
             KeyError
         """
         vrf = kwargs.pop('vrf', 'default')
-        local_as = kwargs.pop('local_as')
+        is_get_config = kwargs.pop('get', False)
+        if not is_get_config:
+            local_as = kwargs.pop('local_as')
+        else:
+            local_as = ''
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         bgp_args = dict(vrf_name=vrf, rbridge_id=rbridge_id)
@@ -107,7 +111,7 @@ class BGP(object):
                            'rbridge_id_router_bgp_router_bgp_cmds_holder_'
                            'router_bgp_attributes_local_as')
         config = local_as(**local_as_args)
-        if kwargs.pop('get', False):
+        if is_get_config:
             return callback(config, handler='get_config')
         return callback(config)
 
