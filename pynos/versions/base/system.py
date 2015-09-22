@@ -130,3 +130,50 @@ class System(object):
         if is_get_config:
             return callback(config, handler='get_config')
         return callback(config)
+
+    def host_name(self, **kwargs):
+        """Configures device's host name.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            host_name (str): The host name of the device.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `rbridge_id` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.system.host_name(rbridge_id='225',
+            ...     host_name='sw0')
+            ...     output = dev.system.host_name(rbridge_id='225', get=True)
+            ...     try:
+            ...         conf = output.data.find('.//{*}host-name').text
+            ...     except AttributeError:
+            ...         conf = None
+            ...     assert conf == 'sw0'
+        """
+        is_get_config = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id')
+        if not is_get_config:
+            host_name = kwargs.pop('host_name', 'sw0')
+        else:
+            host_name = ' '
+        callback = kwargs.pop('callback', self._callback)
+        rid_args = dict(rbridge_id=rbridge_id, host_name=host_name)
+        rid = getattr(self._rbridge,
+                      'rbridge_id_switch_attributes_host_name')
+        config = rid(**rid_args)
+        if is_get_config:
+            return callback(config, handler='get_config')
+        return callback(config)
