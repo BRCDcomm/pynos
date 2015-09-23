@@ -444,6 +444,99 @@ class Interface(object):
         except AttributeError:
             return None
 
+    def get_ip_addresses(self, **kwargs):
+        """
+        Get IP Addresses already set on an Interface.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                 tengigabitethernet etc).
+            name (str): Name of interface id.
+                 (For interface: 1/0/5, 1/0/10 etc).
+            version (int): 4 or 6 to represent IPv4 or IPv6 address
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+
+        Returns:
+            List of 0 or more IPs configure on the specified interface.
+
+        Raises:
+            KeyError: if `int_type` or `name` is not passed.
+            ValueError: if `int_type` or `name` are invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        int_type = 'tengigabitethernet'
+            ...        name = '225/0/3'
+            ...        ip_addr = '20.10.10.1/24'
+            ...        version = 4
+            ...        output = dev.interface.disable_switchport(inter_type=
+            ...        int_type, inter=name)
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr)
+            ...        result = dev.interface.get_ip_addresses(
+            ...        int_type=int_type, name=name, version=version)
+            ...        assert len(result) >= 1
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr, delete=True)
+            ...        ip_addr = 'fc00:1:3:1ad3:0:0:23:a/64'
+            ...        version = 6
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr)
+            ...        result = dev.interface.get_ip_addresses(
+            ...        int_type=int_type, name=name, version=version)
+            ...        assert len(result) >= 1
+            ...        output = dev.interface.ip_address(int_type=int_type,
+            ...        name=name, ip_addr=ip_addr, delete=True)
+        """
+
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        version = int(kwargs.pop('version'))
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['gigabitethernet', 'tengigabitethernet',
+                           'fortygigabitethernet', 'hundredgigabitethernet']
+        if int_type not in valid_int_types:
+            raise ValueError('int_type must be one of: %s' %
+                             repr(valid_int_types))
+        ip_addr = ''
+        method_name = None
+        method_class = self._interface
+        if version == 4:
+            method_name = 'interface_%s_ip_ip_config_address_' \
+                          'address' % int_type
+        elif version == 6:
+            method_name = 'interface_%s_ipv6_ipv6_config_address_ipv6_' \
+                          'address_address' % int_type
+
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces.')
+        ip_args = dict(name=name, address=ip_addr)
+        ip_address_attr = getattr(method_class, method_name)
+        config = ip_address_attr(**ip_args)
+
+        output = callback(config, handler='get_config')
+        result = []
+        if version == 4:
+            for item in output.data.findall(
+                    './/{*}address/{*}address'):
+                result.append(item.text)
+
+        elif version == 6:
+            for item in output.data.findall(
+                    './/{*}address/{*}ipv6-address/{'
+                    '*}address'):
+                result.append(item.text)
+        return result
+        # TODO Getting IP's from ve and vlan is not done yet.
+
     def del_ip(self, inter_type, inter, ip_addr):
         """
         Delete IP address from a L3 interface.
