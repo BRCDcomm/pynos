@@ -225,3 +225,90 @@ class BGP(object):
         if kwargs.pop('get', False):
             return callback(config, handler='get_config')
         return callback(config)
+
+    def get_bgp_neighbors(self, **kwargs):
+        """Get BGP neighbors configured on a device.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            vrf (str): The VRF for this BGP process.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            List of 0 or more BGP Neighbors on the specified
+            rbridge.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     result = dev.bgp.get_bgp_neighbors(rbridge_id='225')
+            ...     assert len(result) >= 1
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225')
+            ...     output = dev.bgp.neighbor(delete=True, rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        ip_addr = ''
+        remote_as = ''
+        vrf = kwargs.pop('vrf', 'default')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+
+        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
+                             remote_as=remote_as,
+                             vrf_name=vrf,
+                             rbridge_id=rbridge_id)
+
+        neighbor = getattr(self._rbridge,
+                           'rbridge_id_router_router_bgp_'
+                           'router_bgp_attributes_neighbor_neighbor_ips_'
+                           'neighbor_addr_remote_as')
+        config = neighbor(**neighbor_args)
+        output = callback(config, handler='get_config')
+        result = []
+        urn = "{urn:brocade.com:mgmt:brocade-bgp}"
+        # IPv4 BGP Neighbor Handling
+        for item in output.data.findall(
+                './/{*}neighbor-addr'):
+            neighbor_address = item.find(
+                '%srouter-bgp-neighbor-address' % urn).text
+            remote_as = item.find('%sremote-as' % urn).text
+
+            item_results = {'neighbor-address': neighbor_address,
+                            'remote-as': remote_as}
+            result.append(item_results)
+
+        # IPv6 BGP Neighbor handling
+        neighbor_args['router_bgp_neighbor_ipv6_address'] = ip_addr
+        neighbor = getattr(self._rbridge,
+                           'rbridge_id_router_router_bgp_'
+                           'router_bgp_attributes_neighbor_'
+                           'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
+        config = neighbor(**neighbor_args)
+        output = callback(config, handler='get_config')
+        for item in output.data.findall(
+                './/{*}neighbor-ipv6-addr'):
+            neighbor_address = item.find(
+                '%srouter-bgp-neighbor-ipv6-address' % urn).text
+            remote_as = item.find('%sremote-as' % urn).text
+
+            item_results = {'neighbor-address': neighbor_address,
+                            'remote-as': remote_as}
+            result.append(item_results)
+
+        return result
