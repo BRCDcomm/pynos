@@ -21,6 +21,7 @@ class FabricService(object):
     """
     FabricService class containing all VCS Fabric methods and attributes.
     """
+
     def __init__(self, callback):
         """FabricService init method.
 
@@ -67,4 +68,5 @@ class FabricService(object):
                                 'link-costcount': link_cost_count}
 
                 result.append(item_results)
+
         return result
