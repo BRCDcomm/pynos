@@ -2538,7 +2538,7 @@ class Interface(object):
                     item_results = {'interface-type': interface_type,
                                     'interface-name': interface_name,
                                     'interface-role': interface_role,
-                                    'interface-role': if_name,
+                                    'if-name': if_name,
                                     'interface-state': interface_state,
                                     'interface-proto-state':
                                         interface_proto_state,
@@ -2550,6 +2550,10 @@ class Interface(object):
     @staticmethod
     def get_interface_detail_request(last_interface_name,
                                      last_interface_type):
+        """ Creates a new Netconf request based on the last received
+        interface name and type when the hasMore flag is true
+        """
+
         request_interface = ET.Element(
             'get-interface-detail',
             xmlns="urn:brocade.com:mgmt:brocade-interface-ext"
