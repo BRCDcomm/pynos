@@ -119,6 +119,38 @@ def valid_vlan_id(vlan_id, extended=True):
 
 
 def valid_interface(int_type, name):
+    """Validates an interface type and name.
+
+    Args:
+        int_type (str): Interface type.  Examples: `gigabitethernet`,
+            `tengigabitethernet`, `port_channel`.
+        name (str): Port designator.  Examples: `225/0/1`, `1/0/1`, `1`.
+
+    Returns:
+        bool: ``True`` if it is a valid interface.  ``False`` if not.
+
+    Raises:
+        None
+
+    Examples:
+        >>> import pynos.utilities
+        >>> int_type = 'tengigabitethernet'
+        >>> name = '225/0/1'
+        >>> pynos.utilities.valid_interface(int_type, name)
+        True
+        >>> name = '5/0'
+        >>> pynos.utilities.valid_interface(int_type, name)
+        False
+        >>> int_type = 'port_channel'
+        >>> name = '1'
+        >>> pynos.utilities.valid_interface(int_type, name)
+        True
+        >>> int_type = 'port_channel'
+        >>> name = '1/0'
+        >>> pynos.utilities.valid_interface(int_type, name)
+        False
+    """
+
     if int_type == 'port_channel':
         return valid_port_channel_name(name)
     else:
@@ -126,8 +158,34 @@ def valid_interface(int_type, name):
 
 
 def valid_port_channel_name(name):
+    """Validates a Port-Channel.
+
+    Do not use this method directly.  Use ``valid_interface`` instead.
+
+    Args:
+        name (str): Port designator.  Examples: `1`, `768`, `3476`.
+
+    Returns:
+        bool: ``True`` if it is a valid port-channel.  ``False`` if not.
+
+    Raises:
+        None
+    """
     return re.search(r'^[0-9]{1,4}$', name) is not None
 
 
 def valid_physical_name(name):
+    """Validates a physical interface.
+
+    Do not use this method directly.  Use ``valid_interface`` instead.
+
+    Args:
+        name (str): Port designator.  Examples: `225/0/1`, `1/0/1`.
+
+    Returns:
+        bool: ``True`` if it is a valid physical interface.  ``False`` if not.
+
+    Raises:
+        None
+    """
     return re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is not None
