@@ -385,6 +385,12 @@ class Interface(object):
             ...        output = dev.interface.ip_address(int_type='ve',
             ...        name='86', ip_addr=ip_addr, delete=True,
             ...        rbridge_id='225')
+            ...        output = dev.interface.ip_address(int_type='loopback',
+            ...        name='225', ip_addr='10.225.225.225/32',
+            ...        rbridge_id='225')
+            ...        output = dev.interface.ip_address(int_type='loopback',
+            ...        name='225', ip_addr='10.225.225.225/32', delete=True,
+            ...        rbridge_id='225')
             ...        ip_addr = 'fc00:1:3:1ad3:0:0:23:a/64'
             ...        output = dev.interface.ip_address(int_type=int_type,
             ...        name=name, ip_addr=ip_addr)
@@ -404,7 +410,8 @@ class Interface(object):
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet', 've',
-                           'fortygigabitethernet', 'hundredgigabitethernet']
+                           'fortygigabitethernet', 'hundredgigabitethernet',
+                           'loopback']
 
         if int_type not in valid_int_types:
             raise ValueError('int_type must be one of: %s' %
@@ -427,6 +434,12 @@ class Interface(object):
             ip_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
+        elif int_type == 'loopback':
+            method_name = 'rbridge_id_interface_loopback_ip_ip_config_'\
+                          'address_address'
+            method_class = self._rbridge
+            ip_args['rbridge_id'] = rbridge_id
+            ip_args['id'] = name
         elif not pynos.utilities.valid_interface(int_type, name):
             raise ValueError('`name` must be in the format of x/y/z for '
                              'physical interfaces.')
@@ -882,6 +895,17 @@ class Interface(object):
             ...         name='87', enabled=True, rbridge_id='225')
             ...         output = dev.interface.admin_state(int_type='ve',
             ...         name='87', enabled=False, rbridge_id='225')
+            ...         output = dev.interface.ip_address(int_type='loopback',
+            ...         name='225', ip_addr='10.225.225.225/32',
+            ...         rbridge_id='225')
+            ...         output = dev.interface.admin_state(int_type='loopback',
+            ...         name='225', enabled=True, rbridge_id='225')
+            ...         output = dev.interface.admin_state(int_type='loopback',
+            ...         name='225', enabled=False, rbridge_id='225')
+            ...         output = dev.interface.ip_address(int_type='loopback',
+            ...         name='225', ip_addr='10.225.225.225/32',
+            ...         rbridge_id='225', delete=True)
+
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
@@ -894,7 +918,7 @@ class Interface(object):
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['gigabitethernet', 'tengigabitethernet',
                            'fortygigabitethernet', 'hundredgigabitethernet',
-                           'port_channel', 've']
+                           'port_channel', 've', 'loopback']
 
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
@@ -912,6 +936,12 @@ class Interface(object):
             state_args['rbridge_id'] = rbridge_id
             if not pynos.utilities.valid_vlan_id(name):
                 raise InvalidVlanId("`name` must be between `1` and `8191`")
+        elif int_type == 'loopback':
+            method_name = 'rbridge_id_interface_{0}_intf_'\
+                          '{0}_shutdown'.format(int_type)
+            method_class = self._rbridge
+            state_args['rbridge_id'] = rbridge_id
+            state_args['id'] = name
         elif not pynos.utilities.valid_interface(int_type, name):
             raise ValueError('`name` must be in the format of x/y/z for '
                              'physical interfaces or x for port channel.')
