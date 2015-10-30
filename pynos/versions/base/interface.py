@@ -2534,11 +2534,12 @@ class Interface(object):
         state of interfaces.
         This method currently only lists the Physical Interfaces (
         Gigabitethernet, tengigabitethernet, fortygigabitethernet,
-        hundredgigabitethernet) and
+        hundredgigabitethernet) and Loopback interfaces.  It currently
         excludes VLAN interfaces, FCoE, Port-Channels, Management and Fibre
         Channel ports.
         """
         urn = "{urn:brocade.com:mgmt:brocade-interface-ext}"
+        int_ns = 'urn:brocade.com:mgmt:brocade-interface-ext'
 
         result = []
         has_more = ''
@@ -2574,6 +2575,24 @@ class Interface(object):
                                         interface_proto_state,
                                     'interface-mac': interface_mac}
                     result.append(item_results)
+        # Loopback interfaces. Probably for other non-physical interfaces, too.
+        request_interface = ET.Element('get-ip-interface', xmlns=int_ns)
+        interface_result = self._callback(request_interface, 'get')
+        for interface in interface_result.findall('%sinterface' % urn):
+            int_type = interface.find('%sinterface-type' % urn).text
+            if 'loopback' in int_type:
+                int_name = interface.find('%sinterface-name' % urn).text
+                int_state = interface.find('%sif-state' % urn).text
+                int_proto_state = interface.find('%sline-protocol-state' %
+                                                 urn).text
+
+                results = {'interface-type': int_type,
+                           'interface-name': int_name,
+                           'interface-role': None,
+                           'interface-state': int_state,
+                           'interface-proto-state': int_proto_state,
+                           'interface-mac': None}
+                result.append(results)
 
         return result
 
