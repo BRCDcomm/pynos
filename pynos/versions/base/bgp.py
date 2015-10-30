@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Copyright 2015 Brocade Communications Systems, Inc.
 
@@ -294,16 +293,12 @@ class BGP(object):
             Traceback (most recent call last):
             KeyError
         """
-        ip_addr = ''
-        remote_as = ''
-        vrf = kwargs.pop('vrf', 'default')
-        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
 
-        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
-                             remote_as=remote_as,
-                             vrf_name=vrf,
-                             rbridge_id=rbridge_id)
+        neighbor_args = dict(router_bgp_neighbor_address='',
+                             remote_as='',
+                             vrf_name=kwargs.pop('vrf', 'default'),
+                             rbridge_id=kwargs.pop('rbridge_id', '1'))
 
         neighbor = getattr(self._rbridge,
                            'rbridge_id_router_bgp_router_bgp_cmds_holder_'
@@ -325,7 +320,7 @@ class BGP(object):
             result.append(item_results)
 
         # IPv6 BGP Neighbor handling
-        neighbor_args['router_bgp_neighbor_ipv6_address'] = ip_addr
+        neighbor_args['router_bgp_neighbor_ipv6_address'] = ''
         neighbor = getattr(self._rbridge,
                            'rbridge_id_router_bgp_router_bgp_cmds_holder_'
                            'router_bgp_attributes_neighbor_ipv6s_neighbor_'

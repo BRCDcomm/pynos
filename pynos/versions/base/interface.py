@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Copyright 2015 Brocade Communications Systems, Inc.
 
@@ -518,7 +517,6 @@ class Interface(object):
         if int_type not in valid_int_types:
             raise ValueError('int_type must be one of: %s' %
                              repr(valid_int_types))
-        ip_addr = ''
         method_name = None
         method_class = self._interface
         if version == 4:
@@ -531,7 +529,7 @@ class Interface(object):
         if not pynos.utilities.valid_interface(int_type, name):
             raise ValueError('`name` must be in the format of x/y/z for '
                              'physical interfaces.')
-        ip_args = dict(name=name, address=ip_addr)
+        ip_args = dict(name=name, address='')
         ip_address_attr = getattr(method_class, method_name)
         config = ip_address_attr(**ip_args)
 
