@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Copyright 2015 Brocade Communications Systems, Inc.
 
@@ -239,8 +238,7 @@ class BGP(object):
                 ``ElementTree`` `config`.
 
         Returns:
-            List of 0 or more BGP Neighbors on the specified
-            rbridge.
+            List of 0 or more BGP Neighbors on the specified rbridge.
 
         Examples:
             >>> import pynos.device
@@ -264,16 +262,11 @@ class BGP(object):
             Traceback (most recent call last):
             KeyError
         """
-        ip_addr = ''
-        remote_as = ''
-        vrf = kwargs.pop('vrf', 'default')
-        rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
-
-        neighbor_args = dict(router_bgp_neighbor_address=ip_addr,
-                             remote_as=remote_as,
-                             vrf_name=vrf,
-                             rbridge_id=rbridge_id)
+        neighbor_args = dict(router_bgp_neighbor_address='',
+                             remote_as='',
+                             vrf_name=kwargs.pop('vrf', 'default'),
+                             rbridge_id=kwargs.pop('rbridge_id', '1'))
 
         neighbor = getattr(self._rbridge,
                            'rbridge_id_router_router_bgp_'
@@ -284,30 +277,26 @@ class BGP(object):
         result = []
         urn = "{urn:brocade.com:mgmt:brocade-bgp}"
         # IPv4 BGP Neighbor Handling
-        for item in output.data.findall(
-                './/{*}neighbor-addr'):
+        for item in output.data.findall('.//{*}neighbor-addr'):
             neighbor_address = item.find(
                 '%srouter-bgp-neighbor-address' % urn).text
             remote_as = item.find('%sremote-as' % urn).text
-
             item_results = {'neighbor-address': neighbor_address,
                             'remote-as': remote_as}
             result.append(item_results)
 
         # IPv6 BGP Neighbor handling
-        neighbor_args['router_bgp_neighbor_ipv6_address'] = ip_addr
+        neighbor_args['router_bgp_neighbor_ipv6_address'] = ''
         neighbor = getattr(self._rbridge,
                            'rbridge_id_router_router_bgp_'
                            'router_bgp_attributes_neighbor_'
                            'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
         config = neighbor(**neighbor_args)
         output = callback(config, handler='get_config')
-        for item in output.data.findall(
-                './/{*}neighbor-ipv6-addr'):
+        for item in output.data.findall('.//{*}neighbor-ipv6-addr'):
             neighbor_address = item.find(
                 '%srouter-bgp-neighbor-ipv6-address' % urn).text
             remote_as = item.find('%sremote-as' % urn).text
-
             item_results = {'neighbor-address': neighbor_address,
                             'remote-as': remote_as}
             result.append(item_results)
