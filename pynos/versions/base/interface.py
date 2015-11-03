@@ -2699,3 +2699,88 @@ class Interface(object):
                                              "vlan-id")
             last_vlan_id_el.text = last_vlan_id
         return request_interface
+
+    @property
+    def port_channels(self):
+        """list[dict]: A list of dictionary items of port channels.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.202']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.channel_group(name='226/0/1',
+            ...         int_type='tengigabitethernet',
+            ...         port_int='1', channel_type='standard', mode='active')
+            ...         result = dev.interface.port_channels
+            ...         is_port_channel_exist = False
+            ...         for port_chann in result:
+            ...             if port_chann['interface-name']=='port-channel-1':
+            ...                 for interfaces in port_chann['interfaces']:
+            ...                     for keys, values in interfaces.items():
+            ...                         if '226/0/1' in values:
+            ...                             is_port_channel_exist = True
+            ...                             break
+            ...         output = dev.interface.remove_port_channel(
+            ...         port_int='1')
+            ...         assert is_port_channel_exist
+        """
+        pc_urn = "{urn:brocade.com:mgmt:brocade-lag}"
+        port_channel_ns = 'urn:brocade.com:mgmt:brocade-lag'
+        result = []
+        request_port_channel = ET.Element('get-port-channel-detail',
+                                          xmlns=port_channel_ns)
+        port_channel_result = self._callback(request_port_channel, 'get')
+
+        for item in port_channel_result.findall('%slacp' % pc_urn):
+            interface_list = []
+            aggregator_id = item.find('%saggregator-id' % pc_urn).text
+            aggregator_type = item.find('%saggregator-type' % pc_urn).text
+            is_vlag = item.find('%sisvlag' % pc_urn).text
+            aggregator_mode = item.find('%saggregator-mode' % pc_urn).text
+            system_priority = item.find('%ssystem-priority' % pc_urn).text
+            actor_system_id = item.find('%sactor-system-id' % pc_urn).text
+            partner_oper_priority = item.find(
+                                    '%spartner-oper-priority' % pc_urn).text
+            partner_system_id = item.find('%spartner-system-id' % pc_urn).text
+            admin_key = item.find('%sadmin-key' % pc_urn).text
+            oper_key = item.find('%soper-key' % pc_urn).text
+            partner_oper_key = item.find('%spartner-oper-key' % pc_urn).text
+            rx_link_count = item.find('%srx-link-count' % pc_urn).text
+            tx_link_count = item.find('%stx-link-count' % pc_urn).text
+            individual_agg = item.find('%sindividual-agg' % pc_urn).text
+            ready_agg = item.find('%sready-agg' % pc_urn).text
+            for item1 in item.findall('%saggr-member' %pc_urn):
+                rbridge_id = item1.find('%srbridge-id' % pc_urn).text
+                int_type = item1.find('%sinterface-type' % pc_urn).text
+                int_name = item1.find('%sinterface-name' % pc_urn).text
+                actor_port = item1.find('%sactor-port' % pc_urn).text
+                sync = item1.find('%ssync' % pc_urn).text
+                port_channel_interface = {'rbridge-id': rbridge_id,
+                                          'interface-type': int_type,
+                                          'interface-name': int_name,
+                                          'actor_port': actor_port,
+                                          'sync': sync}
+                interface_list.append(port_channel_interface)
+            results = {'interface-name': 'port-channel-' + aggregator_id,
+                       'interfaces': interface_list,
+                       'aggregator_id': aggregator_id,
+                       'aggregator_type': aggregator_type,
+                       'is_vlag': is_vlag,
+                       'aggregator_mode': aggregator_mode,
+                       'system_priority': system_priority,
+                       'actor_system_id': actor_system_id,
+                       'partner-oper-priority': partner_oper_priority,
+                       'partner-system-id': partner_system_id,
+                       'admin-key': admin_key,
+                       'oper-key': oper_key,
+                       'partner-oper-key': partner_oper_key,
+                       'rx-link-count': rx_link_count,
+                       'tx-link-count': tx_link_count,
+                       'individual-agg': individual_agg,
+                       'ready-agg': ready_agg}
+
+            result.append(results)
+        return result

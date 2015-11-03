@@ -43,6 +43,8 @@ class TestInterface(unittest.TestCase):
         self.ipv4_address = '20.10.10.1/24'
         self.ipv6_address = 'fc00:1:3:1ad3:0:0:23:a/64'
         self.ipv6_config_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-config'
+        self.port_channel_namespace = 'urn:brocade.com:mgmt:brocade-lag'
+        self.netconf_namespace = 'urn:ietf:params:xml:ns:netconf:base:1.0'
 
     def raise_exception(self, *args, **kwargs):
         raise Exception()
@@ -1482,3 +1484,59 @@ class TestInterface(unittest.TestCase):
         self.assertIsInstance(results, list)
         self.assertDictEqual(expected, results[0])
 
+    def port_channel_xml(self, *args):
+        message_id = 'urn:uuid:2ff00dc0-7d5d-11e5-991a-e06995e6af0a'
+        neighbor_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" '\
+                       'message-id="{2}"><ns1:lacp>'\
+                       '<ns1:aggregator-id>1</ns1:aggregator-id>'\
+                       '<ns1:aggregator-type>standard</ns1:aggregator-type>'\
+                       '<ns1:isvlag>false</ns1:isvlag>'\
+                       '<ns1:aggregator-mode>dynamic</ns1:aggregator-mode>'\
+                       '<ns1:system-priority>32768</ns1:system-priority>'\
+                       '<ns1:actor-system-id>01:e0:52:00:00:01' \
+                       '</ns1:actor-system-id><ns1:partner-oper-priority>0' \
+                       '</ns1:partner-oper-priority><ns1:partner-system-id>' \
+                       '00:00:00:00:00:00</ns1:partner-system-id>' \
+                       '<ns1:admin-key>1</ns1:admin-key><ns1:oper-key>1' \
+                       '</ns1:oper-key><ns1:partner-oper-key>0' \
+                       '</ns1:partner-oper-key><ns1:rx-link-count>0' \
+                       '</ns1:rx-link-count><ns1:tx-link-count>0' \
+                       '</ns1:tx-link-count><ns1:individual-agg>0' \
+                       '</ns1:individual-agg><ns1:ready-agg>0' \
+                       '</ns1:ready-agg><ns1:aggr-member><ns1:rbridge-id>'\
+                       '51</ns1:rbridge-id><ns1:interface-type>' \
+                       'tengigabitethernet</ns1:interface-type>' \
+                       '<ns1:interface-name>51/0/1</ns1:interface-name>' \
+                       '<ns1:actor-port>219446018048</ns1:actor-port>' \
+                       '<ns1:sync>0</ns1:sync></ns1:aggr-member></ns1:lacp>'\
+                       '</ns0:rpc-reply>'.format(self.netconf_namespace,
+                                                 self.port_channel_namespace,
+                                                 message_id)
+        return ET.fromstring(neighbor_xml)
+
+    def test_port_channels(self):
+        expected = {'interface-name': 'port-channel-1',
+                    'oper-key': '1',
+                    'aggregator_id': '1',
+                    'aggregator_type': 'standard',
+                    'interfaces': [{'interface-type': 'tengigabitethernet',
+                                    'rbridge-id': '51',
+                                    'interface-name': '51/0/1',
+                                    'sync': '0',
+                                    'actor_port': '219446018048'}],
+                    'aggregator_mode': 'dynamic',
+                    'partner-oper-priority': '0',
+                    'ready-agg': '0',
+                    'rx-link-count': '0',
+                    'tx-link-count': '0',
+                    'individual-agg': '0',
+                    'partner-oper-key': '0',
+                    'partner-system-id': '00:00:00:00:00:00',
+                    'actor_system_id': '01:e0:52:00:00:01',
+                    'is_vlag': 'false',
+                    'admin-key': '1',
+                    'system_priority': '32768'}
+        self.interface._callback = self.port_channel_xml
+        results = self.interface.port_channels
+        self.assertIsInstance(results, list)
+        self.assertDictEqual(expected, results[0])
