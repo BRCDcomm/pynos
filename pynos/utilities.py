@@ -16,6 +16,7 @@ limitations under the License.
 """
 from __future__ import print_function
 import xml.etree.ElementTree as ET
+import lxml
 import re
 
 
@@ -189,3 +190,44 @@ def valid_physical_name(name):
         None
     """
     return re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is not None
+
+
+def merge_xml(first_doc, second_doc):
+    """Merges two XML documents.
+
+    Args:
+        first_doc (str): First XML document.  `second_doc` is merged into this
+            document.
+        second_doc (str): Second XML document.  It is merged into the first.
+
+    Returns:
+        XML Document: The merged document.
+
+    Raises:
+        None
+    """
+    # Adapted from:
+    # http://stackoverflow.com/questions/27258013/merge-two-xml-files-python
+    # Maps each elements tag to the element from the first document
+    mapping = {element.tag: element for element in first_doc}
+    for element in second_doc:
+        if not len(element):
+            # Recursed fully.  This element has no children.
+            try:
+                # Update the first document's element's text
+                mapping[element.tag].text = element.text
+            except KeyError:
+                # The element doesn't exist
+                # add it to the mapping and the root document
+                mapping[element.tag] = element
+                first_doc.append(element)
+        else:
+            # This element has children.  Recurse.
+            try:
+                merge_xml(mapping[element.tag], element)
+            except KeyError:
+                # The element doesn't exist
+                # add it to the mapping and the root document
+                mapping[element.tag] = element
+                first_doc.append(element)
+    return lxml.etree.fromstring(ET.tostring(first_doc))
