@@ -2574,25 +2574,31 @@ class Interface(object):
                                     'interface-mac': interface_mac}
                     result.append(item_results)
         # Loopback interfaces. Probably for other non-physical interfaces, too.
+        ip_result = []
         request_interface = ET.Element('get-ip-interface', xmlns=int_ns)
         interface_result = self._callback(request_interface, 'get')
         for interface in interface_result.findall('%sinterface' % urn):
             int_type = interface.find('%sinterface-type' % urn).text
-            if 'loopback' in int_type:
-                int_name = interface.find('%sinterface-name' % urn).text
-                int_state = interface.find('%sif-state' % urn).text
-                int_proto_state = interface.find('%sline-protocol-state' %
-                                                 urn).text
-
-                results = {'interface-type': int_type,
-                           'interface-name': int_name,
-                           'interface-role': None,
-                           'interface-state': int_state,
-                           'interface-proto-state': int_proto_state,
-                           'interface-mac': None}
-                result.append(results)
-
-        return result
+            if int_type == 'unknown':
+                continue
+            int_name = interface.find('%sinterface-name' % urn).text
+            int_state = interface.find('%sif-state' % urn).text
+            int_proto_state = interface.find('%sline-protocol-state' %
+                                             urn).text
+            ip_address = interface.find('.//%sipv4' % urn).text
+            results = {'interface-type': int_type,
+                       'interface-name': int_name,
+                       'interface-role': None,
+                       'interface-state': int_state,
+                       'interface-proto-state': int_proto_state,
+                       'interface-mac': None,
+                       'ip-address': ip_address}
+            x = next((x for x in result if int_type == x['interface-type'] and
+                      int_name == x['interface-name']), None)
+            if x is not None:
+                results.update(x)
+            ip_result.append(results)
+        return ip_result
 
     @staticmethod
     def get_interface_detail_request(last_interface_name,
