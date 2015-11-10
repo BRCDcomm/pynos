@@ -209,6 +209,10 @@ def merge_xml(first_doc, second_doc):
     # Adapted from:
     # http://stackoverflow.com/questions/27258013/merge-two-xml-files-python
     # Maps each elements tag to the element from the first document
+    if isinstance(first_doc, lxml.etree._Element):
+        first_doc = ET.fromstring(lxml.etree.tostring(first_doc))
+    if isinstance(second_doc, lxml.etree._Element):
+        second_doc = ET.fromstring(lxml.etree.tostring(second_doc))
     mapping = {element.tag: element for element in first_doc}
     for element in second_doc:
         if not len(element):
