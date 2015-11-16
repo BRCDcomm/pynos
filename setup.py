@@ -11,7 +11,7 @@ setup(name='pynos',
       author_email='mstone@brocade.com',
       url='http://www.brocade.com/',
       packages=find_packages(),
-      install_requires=["ncclient", "ipaddress"],
+      install_requires=["ncclient==0.4.5", "ipaddress"],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
           'Intended Audience :: Developers',

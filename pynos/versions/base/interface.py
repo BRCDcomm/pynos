@@ -2493,7 +2493,7 @@ class Interface(object):
             >>> switches = ['10.24.39.211', '10.24.39.203']
             >>> auth = ('admin', 'password')
             >>> int_type = 'tengigabitethernet'
-            >>> name = '225/0/31'
+            >>> name = '225/0/30'
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
