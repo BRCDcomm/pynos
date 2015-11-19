@@ -3745,6 +3745,363 @@ class brocade_interface_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_speed(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        speed = ET.SubElement(qsfp28, "speed")
+        speed.text = kwargs.pop('speed')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_connector(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        connector = ET.SubElement(qsfp28, "connector")
+        connector.text = kwargs.pop('connector')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_encoding(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        encoding = ET.SubElement(qsfp28, "encoding")
+        encoding.text = kwargs.pop('encoding')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_name = ET.SubElement(qsfp28, "vendor-name")
+        vendor_name.text = kwargs.pop('vendor_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_oui(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_oui = ET.SubElement(qsfp28, "vendor-oui")
+        vendor_oui.text = kwargs.pop('vendor_oui')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_pn(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_pn = ET.SubElement(qsfp28, "vendor-pn")
+        vendor_pn.text = kwargs.pop('vendor_pn')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_rev(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_rev = ET.SubElement(qsfp28, "vendor-rev")
+        vendor_rev.text = kwargs.pop('vendor_rev')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_distance(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        distance = ET.SubElement(qsfp28, "distance")
+        distance.text = kwargs.pop('distance')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_media_form_factor(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        media_form_factor = ET.SubElement(qsfp28, "media-form-factor")
+        media_form_factor.text = kwargs.pop('media_form_factor')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_wavelength(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        wavelength = ET.SubElement(qsfp28, "wavelength")
+        wavelength.text = kwargs.pop('wavelength')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_serial_no(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        serial_no = ET.SubElement(qsfp28, "serial-no")
+        serial_no.text = kwargs.pop('serial_no')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_date_code(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        date_code = ET.SubElement(qsfp28, "date-code")
+        date_code.text = kwargs.pop('date_code')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_temperature(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        temperature = ET.SubElement(qsfp28, "temperature")
+        temperature.text = kwargs.pop('temperature')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_voltage(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        voltage = ET.SubElement(qsfp28, "voltage")
+        voltage.text = kwargs.pop('voltage')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_current(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        current = ET.SubElement(qsfp28, "current")
+        current.text = kwargs.pop('current')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_tx_power(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        tx_power = ET.SubElement(qsfp28, "tx-power")
+        tx_power.text = kwargs.pop('tx_power')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_rx_power(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        rx_power = ET.SubElement(qsfp28, "rx-power")
+        rx_power.text = kwargs.pop('rx_power')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def get_vlan_brief_input_request_type_get_request_vlan_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -7476,6 +7833,363 @@ class brocade_interface_ext(object):
         cfp2 = ET.SubElement(interface_identifier, "cfp2")
         cfp2 = ET.SubElement(cfp2, "cfp2")
         rx_power = ET.SubElement(cfp2, "rx-power")
+        rx_power.text = kwargs.pop('rx_power')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_speed(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        speed = ET.SubElement(qsfp28, "speed")
+        speed.text = kwargs.pop('speed')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_connector(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        connector = ET.SubElement(qsfp28, "connector")
+        connector.text = kwargs.pop('connector')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_encoding(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        encoding = ET.SubElement(qsfp28, "encoding")
+        encoding.text = kwargs.pop('encoding')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_name = ET.SubElement(qsfp28, "vendor-name")
+        vendor_name.text = kwargs.pop('vendor_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_oui(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_oui = ET.SubElement(qsfp28, "vendor-oui")
+        vendor_oui.text = kwargs.pop('vendor_oui')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_pn(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_pn = ET.SubElement(qsfp28, "vendor-pn")
+        vendor_pn.text = kwargs.pop('vendor_pn')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_vendor_rev(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        vendor_rev = ET.SubElement(qsfp28, "vendor-rev")
+        vendor_rev.text = kwargs.pop('vendor_rev')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_distance(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        distance = ET.SubElement(qsfp28, "distance")
+        distance.text = kwargs.pop('distance')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_media_form_factor(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        media_form_factor = ET.SubElement(qsfp28, "media-form-factor")
+        media_form_factor.text = kwargs.pop('media_form_factor')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_wavelength(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        wavelength = ET.SubElement(qsfp28, "wavelength")
+        wavelength.text = kwargs.pop('wavelength')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_serial_no(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        serial_no = ET.SubElement(qsfp28, "serial-no")
+        serial_no.text = kwargs.pop('serial_no')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_date_code(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        date_code = ET.SubElement(qsfp28, "date-code")
+        date_code.text = kwargs.pop('date_code')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_temperature(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        temperature = ET.SubElement(qsfp28, "temperature")
+        temperature.text = kwargs.pop('temperature')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_voltage(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        voltage = ET.SubElement(qsfp28, "voltage")
+        voltage.text = kwargs.pop('voltage')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_current(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        current = ET.SubElement(qsfp28, "current")
+        current.text = kwargs.pop('current')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_tx_power(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        tx_power = ET.SubElement(qsfp28, "tx-power")
+        tx_power.text = kwargs.pop('tx_power')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_media_detail_output_interface_interface_identifier_qsfp28_qsfp28_rx_power(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_media_detail = ET.Element("get_media_detail")
+        config = get_media_detail
+        output = ET.SubElement(get_media_detail, "output")
+        interface = ET.SubElement(output, "interface")
+        interface_type_key = ET.SubElement(interface, "interface-type")
+        interface_type_key.text = kwargs.pop('interface_type')
+        interface_name_key = ET.SubElement(interface, "interface-name")
+        interface_name_key.text = kwargs.pop('interface_name')
+        interface_identifier = ET.SubElement(interface, "interface-identifier")
+        qsfp28 = ET.SubElement(interface_identifier, "qsfp28")
+        qsfp28 = ET.SubElement(qsfp28, "qsfp28")
+        rx_power = ET.SubElement(qsfp28, "rx-power")
         rx_power.text = kwargs.pop('rx_power')
 
         callback = kwargs.pop('callback', self._callback)

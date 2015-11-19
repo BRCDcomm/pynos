@@ -786,6 +786,76 @@ class brocade_vcs(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def vcsNodeState_originator_switch_info_switchIdentifier(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIdentifier = ET.SubElement(originator_switch_info, "switchIdentifier")
+        switchIdentifier.text = kwargs.pop('switchIdentifier')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchVcsId(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchVcsId = ET.SubElement(originator_switch_info, "switchVcsId")
+        switchVcsId.text = kwargs.pop('switchVcsId')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchIpV4Address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIpV4Address = ET.SubElement(originator_switch_info, "switchIpV4Address")
+        switchIpV4Address.text = kwargs.pop('switchIpV4Address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchIpV6Address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIpV6Address = ET.SubElement(originator_switch_info, "switchIpV6Address")
+        switchIpV6Address.text = kwargs.pop('switchIpV6Address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_nodeRbridgeid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        nodeRbridgeid = ET.SubElement(vcsNodeState, "nodeRbridgeid")
+        nodeRbridgeid.text = kwargs.pop('nodeRbridgeid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_nodeState(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        nodeState = ET.SubElement(vcsNodeState, "nodeState")
+        nodeState.text = kwargs.pop('nodeState')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def vcsmode_vcs_mode(self, **kwargs):
         """Auto Generated Code
         """
@@ -1559,6 +1629,76 @@ class brocade_vcs(object):
         vcs = ET.SubElement(config, "vcs", xmlns="urn:brocade.com:mgmt:brocade-vcs")
         virtual_fabric = ET.SubElement(vcs, "virtual-fabric")
         vfab_enable = ET.SubElement(virtual_fabric, "vfab-enable")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchIdentifier(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIdentifier = ET.SubElement(originator_switch_info, "switchIdentifier")
+        switchIdentifier.text = kwargs.pop('switchIdentifier')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchVcsId(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchVcsId = ET.SubElement(originator_switch_info, "switchVcsId")
+        switchVcsId.text = kwargs.pop('switchVcsId')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchIpV4Address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIpV4Address = ET.SubElement(originator_switch_info, "switchIpV4Address")
+        switchIpV4Address.text = kwargs.pop('switchIpV4Address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_originator_switch_info_switchIpV6Address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        originator_switch_info = ET.SubElement(vcsNodeState, "originator-switch-info")
+        switchIpV6Address = ET.SubElement(originator_switch_info, "switchIpV6Address")
+        switchIpV6Address.text = kwargs.pop('switchIpV6Address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_nodeRbridgeid(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        nodeRbridgeid = ET.SubElement(vcsNodeState, "nodeRbridgeid")
+        nodeRbridgeid.text = kwargs.pop('nodeRbridgeid')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def vcsNodeState_nodeState(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        vcsNodeState = ET.SubElement(config, "vcsNodeState", xmlns="urn:brocade.com:mgmt:brocade-vcs")
+        nodeState = ET.SubElement(vcsNodeState, "nodeState")
+        nodeState.text = kwargs.pop('nodeState')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

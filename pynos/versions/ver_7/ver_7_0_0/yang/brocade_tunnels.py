@@ -857,6 +857,42 @@ class brocade_tunnels(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def ovsdb_server_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name = ET.SubElement(ovsdb_server, "name")
+        name.text = kwargs.pop('name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ovsdb_server_port(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name_key = ET.SubElement(ovsdb_server, "name")
+        name_key.text = kwargs.pop('name')
+        port = ET.SubElement(ovsdb_server, "port")
+        port.text = kwargs.pop('port')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ovsdb_server_activate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name_key = ET.SubElement(ovsdb_server, "name")
+        name_key.text = kwargs.pop('name')
+        activate = ET.SubElement(ovsdb_server, "activate")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def nsx_controller_name(self, **kwargs):
         """Auto Generated Code
         """
@@ -1701,6 +1737,42 @@ class brocade_tunnels(object):
         name_key = ET.SubElement(overlay_gateway, "name")
         name_key.text = kwargs.pop('name')
         activate = ET.SubElement(overlay_gateway, "activate")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ovsdb_server_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name = ET.SubElement(ovsdb_server, "name")
+        name.text = kwargs.pop('name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ovsdb_server_port(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name_key = ET.SubElement(ovsdb_server, "name")
+        name_key.text = kwargs.pop('name')
+        port = ET.SubElement(ovsdb_server, "port")
+        port.text = kwargs.pop('port')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ovsdb_server_activate(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ovsdb_server = ET.SubElement(config, "ovsdb-server", xmlns="urn:brocade.com:mgmt:brocade-tunnels")
+        name_key = ET.SubElement(ovsdb_server, "name")
+        name_key.text = kwargs.pop('name')
+        activate = ET.SubElement(ovsdb_server, "activate")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

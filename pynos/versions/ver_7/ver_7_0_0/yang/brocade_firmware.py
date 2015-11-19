@@ -68,14 +68,14 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_autoupgrade_params_pss(self, **kwargs):
+    def firmware_autoupgrade_params_pass(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware = ET.SubElement(config, "firmware", xmlns="urn:brocade.com:mgmt:brocade-firmware")
         autoupgrade_params = ET.SubElement(firmware, "autoupgrade-params")
-        pss = ET.SubElement(autoupgrade_params, "pass")
-        pss.text = kwargs.pop('pss')
+        pass_el = ET.SubElement(autoupgrade_params, "pass")
+        pass_el.text = kwargs.pop('pass')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -612,14 +612,30 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_download_input_coldboot(self, **kwargs):
+    def firmware_download_input_reboot_options_auto_activate_auto_activate(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware_download = ET.Element("firmware_download")
         config = firmware_download
         input = ET.SubElement(firmware_download, "input")
-        coldboot = ET.SubElement(input, "coldboot")
+        reboot_options = ET.SubElement(input, "reboot-options")
+        auto_activate = ET.SubElement(reboot_options, "auto-activate")
+        auto_activate = ET.SubElement(auto_activate, "auto-activate")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def firmware_download_input_reboot_options_coldboot_coldboot(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        firmware_download = ET.Element("firmware_download")
+        config = firmware_download
+        input = ET.SubElement(firmware_download, "input")
+        reboot_options = ET.SubElement(input, "reboot-options")
+        coldboot = ET.SubElement(reboot_options, "coldboot")
+        coldboot = ET.SubElement(coldboot, "coldboot")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1182,14 +1198,14 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_autoupgrade_params_pss(self, **kwargs):
+    def firmware_autoupgrade_params_pass(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware = ET.SubElement(config, "firmware", xmlns="urn:brocade.com:mgmt:brocade-firmware")
         autoupgrade_params = ET.SubElement(firmware, "autoupgrade-params")
-        pss = ET.SubElement(autoupgrade_params, "pass")
-        pss.text = kwargs.pop('pss')
+        pass_el = ET.SubElement(autoupgrade_params, "pass")
+        pass_el.text = kwargs.pop('pass')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1726,14 +1742,30 @@ class brocade_firmware(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def firmware_download_input_coldboot(self, **kwargs):
+    def firmware_download_input_reboot_options_auto_activate_auto_activate(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         firmware_download = ET.Element("firmware_download")
         config = firmware_download
         input = ET.SubElement(firmware_download, "input")
-        coldboot = ET.SubElement(input, "coldboot")
+        reboot_options = ET.SubElement(input, "reboot-options")
+        auto_activate = ET.SubElement(reboot_options, "auto-activate")
+        auto_activate = ET.SubElement(auto_activate, "auto-activate")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def firmware_download_input_reboot_options_coldboot_coldboot(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        firmware_download = ET.Element("firmware_download")
+        config = firmware_download
+        input = ET.SubElement(firmware_download, "input")
+        reboot_options = ET.SubElement(input, "reboot-options")
+        coldboot = ET.SubElement(reboot_options, "coldboot")
+        coldboot = ET.SubElement(coldboot, "coldboot")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

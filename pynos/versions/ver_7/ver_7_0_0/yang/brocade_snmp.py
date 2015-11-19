@@ -61,6 +61,34 @@ class brocade_snmp(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def snmp_server_community_ipv4_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        community = ET.SubElement(snmp_server, "community")
+        community_key = ET.SubElement(community, "community")
+        community_key.text = kwargs.pop('community')
+        ipv4_acl = ET.SubElement(community, "ipv4-acl")
+        ipv4_acl.text = kwargs.pop('ipv4_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_community_ipv6_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        community = ET.SubElement(snmp_server, "community")
+        community_key = ET.SubElement(community, "community")
+        community_key.text = kwargs.pop('community')
+        ipv6_acl = ET.SubElement(community, "ipv6-acl")
+        ipv6_acl.text = kwargs.pop('ipv6_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def snmp_server_user_username(self, **kwargs):
         """Auto Generated Code
         """
@@ -152,6 +180,34 @@ class brocade_snmp(object):
         username_key = ET.SubElement(user, "username")
         username_key.text = kwargs.pop('username')
         encrypted = ET.SubElement(user, "encrypted")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_user_ipv4_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        user = ET.SubElement(snmp_server, "user")
+        username_key = ET.SubElement(user, "username")
+        username_key.text = kwargs.pop('username')
+        ipv4_acl = ET.SubElement(user, "ipv4-acl")
+        ipv4_acl.text = kwargs.pop('ipv4_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_user_ipv6_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        user = ET.SubElement(snmp_server, "user")
+        username_key = ET.SubElement(user, "username")
+        username_key.text = kwargs.pop('username')
+        ipv6_acl = ET.SubElement(user, "ipv6-acl")
+        ipv6_acl.text = kwargs.pop('ipv6_acl')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -633,6 +689,34 @@ class brocade_snmp(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def snmp_server_community_ipv4_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        community = ET.SubElement(snmp_server, "community")
+        community_key = ET.SubElement(community, "community")
+        community_key.text = kwargs.pop('community')
+        ipv4_acl = ET.SubElement(community, "ipv4-acl")
+        ipv4_acl.text = kwargs.pop('ipv4_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_community_ipv6_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        community = ET.SubElement(snmp_server, "community")
+        community_key = ET.SubElement(community, "community")
+        community_key.text = kwargs.pop('community')
+        ipv6_acl = ET.SubElement(community, "ipv6-acl")
+        ipv6_acl.text = kwargs.pop('ipv6_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def snmp_server_user_username(self, **kwargs):
         """Auto Generated Code
         """
@@ -724,6 +808,34 @@ class brocade_snmp(object):
         username_key = ET.SubElement(user, "username")
         username_key.text = kwargs.pop('username')
         encrypted = ET.SubElement(user, "encrypted")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_user_ipv4_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        user = ET.SubElement(snmp_server, "user")
+        username_key = ET.SubElement(user, "username")
+        username_key.text = kwargs.pop('username')
+        ipv4_acl = ET.SubElement(user, "ipv4-acl")
+        ipv4_acl.text = kwargs.pop('ipv4_acl')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_user_ipv6_acl(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        user = ET.SubElement(snmp_server, "user")
+        username_key = ET.SubElement(user, "username")
+        username_key.text = kwargs.pop('username')
+        ipv6_acl = ET.SubElement(user, "ipv6-acl")
+        ipv6_acl.text = kwargs.pop('ipv6_acl')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

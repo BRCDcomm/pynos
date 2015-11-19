@@ -42,37 +42,57 @@ class LLDP(object):
         urn = "{urn:brocade.com:mgmt:brocade-lldp-ext}"
 
         result = []
+        has_more = ''
+        last_ifindex = ''
+
+        while (has_more == '') or (has_more == 'true'):
+            request_lldp = self.get_lldp_neighbors_request(last_ifindex)
+            lldp_result = self._callback(request_lldp, 'get')
+            has_more = lldp_result.find('%shas-more' % urn).text
+
+            for item in lldp_result.findall('%slldp-neighbor-detail' % urn):
+                local_int_name = item.find('%slocal-interface-name' % urn).text
+                local_int_mac = item.find('%slocal-interface-mac' % urn).text
+                last_ifindex = item.find(
+                    '%slocal-interface-ifindex' % urn).text
+                remote_int_name = item.find(
+                    '%sremote-interface-name' % urn).text
+                remote_int_mac = item.find('%sremote-interface-mac' % urn).text
+                remote_chas_id = item.find('%sremote-chassis-id' % urn).text
+                try:
+                    remote_sys_name = item.find(
+                        '%sremote-system-name' % urn).text
+                except AttributeError:
+                    remote_sys_name = ''
+                if 'Fo ' in local_int_name:
+                    local_int_name = local_int_name.replace(
+                        'Fo ',
+                        'FortyGigabitEthernet '
+                    )
+
+                item_results = {'local-int-name': local_int_name,
+                                'local-int-mac': local_int_mac,
+                                'remote-int-name': remote_int_name,
+                                'remote-int-mac': remote_int_mac,
+                                'remote-chassis-id': remote_chas_id,
+                                'remote-system-name': remote_sys_name}
+                result.append(item_results)
+
+        return result
+
+    @staticmethod
+    def get_lldp_neighbors_request(last_ifindex,):
+        """ Creates a new Netconf request based on the last received
+        ifindex when the hasMore flag is true
+        """
 
         request_lldp = ET.Element(
             'get-lldp-neighbor-detail',
             xmlns="urn:brocade.com:mgmt:brocade-lldp-ext"
         )
+        if last_ifindex != '':
+            last_received_int = ET.SubElement(request_lldp,
+                                              "last-rcvd-ifindex")
+            last_received_int.text = last_ifindex
 
-        lldp_result = self._callback(request_lldp, 'get')
-
-        for item in lldp_result.findall('%slldp-neighbor-detail' % urn):
-            local_int_name = item.find('%slocal-interface-name' % urn).text
-            local_int_mac = item.find('%slocal-interface-mac' % urn).text
-            remote_int_name = item.find('%sremote-interface-name' % urn).text
-            remote_int_mac = item.find('%sremote-interface-mac' % urn).text
-            remote_chas_id = item.find('%sremote-chassis-id' % urn).text
-            try:
-                remote_sys_name = item.find('%sremote-system-name' % urn).text
-            except AttributeError:
-                remote_sys_name = ''
-
-            if 'Fo ' in local_int_name:
-                local_int_name = local_int_name.replace(
-                    'Fo ',
-                    'FortyGigabitEthernet '
-                )
-
-            item_results = {'local-int-name': local_int_name,
-                            'local-int-mac': local_int_mac,
-                            'remote-int-name': remote_int_name,
-                            'remote-int-mac': remote_int_mac,
-                            'remote-chassis-id': remote_chas_id,
-                            'remote-system-name': remote_sys_name}
-            result.append(item_results)
-
-        return result
+        return request_lldp

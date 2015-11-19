@@ -34,6 +34,37 @@ class brocade_sec_services(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def telnet_sa_telnet_server_telnet_vrf_cont_use_vrf_use_vrf_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        telnet_sa = ET.SubElement(config, "telnet-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        telnet = ET.SubElement(telnet_sa, "telnet")
+        server = ET.SubElement(telnet, "server")
+        telnet_vrf_cont = ET.SubElement(server, "telnet-vrf-cont")
+        use_vrf = ET.SubElement(telnet_vrf_cont, "use-vrf")
+        use_vrf_name = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name.text = kwargs.pop('use_vrf_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def telnet_sa_telnet_server_telnet_vrf_cont_use_vrf_telnet_vrf_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        telnet_sa = ET.SubElement(config, "telnet-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        telnet = ET.SubElement(telnet_sa, "telnet")
+        server = ET.SubElement(telnet, "server")
+        telnet_vrf_cont = ET.SubElement(server, "telnet-vrf-cont")
+        use_vrf = ET.SubElement(telnet_vrf_cont, "use-vrf")
+        use_vrf_name_key = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name_key.text = kwargs.pop('use_vrf_name')
+        telnet_vrf_shutdown = ET.SubElement(use_vrf, "telnet-vrf-shutdown")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def ssh_sa_ssh_server_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -148,6 +179,37 @@ class brocade_sec_services(object):
         server = ET.SubElement(ssh, "server")
         key = ET.SubElement(server, "key")
         dsa = ET.SubElement(key, "dsa")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ssh_sa_ssh_server_ssh_vrf_cont_use_vrf_use_vrf_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ssh_sa = ET.SubElement(config, "ssh-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        ssh = ET.SubElement(ssh_sa, "ssh")
+        server = ET.SubElement(ssh, "server")
+        ssh_vrf_cont = ET.SubElement(server, "ssh-vrf-cont")
+        use_vrf = ET.SubElement(ssh_vrf_cont, "use-vrf")
+        use_vrf_name = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name.text = kwargs.pop('use_vrf_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ssh_sa_ssh_server_ssh_vrf_cont_use_vrf_ssh_vrf_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ssh_sa = ET.SubElement(config, "ssh-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        ssh = ET.SubElement(ssh_sa, "ssh")
+        server = ET.SubElement(ssh, "server")
+        ssh_vrf_cont = ET.SubElement(server, "ssh-vrf-cont")
+        use_vrf = ET.SubElement(ssh_vrf_cont, "use-vrf")
+        use_vrf_name_key = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name_key.text = kwargs.pop('use_vrf_name')
+        ssh_vrf_shutdown = ET.SubElement(use_vrf, "ssh-vrf-shutdown")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -216,6 +278,37 @@ class brocade_sec_services(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def telnet_sa_telnet_server_telnet_vrf_cont_use_vrf_use_vrf_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        telnet_sa = ET.SubElement(config, "telnet-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        telnet = ET.SubElement(telnet_sa, "telnet")
+        server = ET.SubElement(telnet, "server")
+        telnet_vrf_cont = ET.SubElement(server, "telnet-vrf-cont")
+        use_vrf = ET.SubElement(telnet_vrf_cont, "use-vrf")
+        use_vrf_name = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name.text = kwargs.pop('use_vrf_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def telnet_sa_telnet_server_telnet_vrf_cont_use_vrf_telnet_vrf_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        telnet_sa = ET.SubElement(config, "telnet-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        telnet = ET.SubElement(telnet_sa, "telnet")
+        server = ET.SubElement(telnet, "server")
+        telnet_vrf_cont = ET.SubElement(server, "telnet-vrf-cont")
+        use_vrf = ET.SubElement(telnet_vrf_cont, "use-vrf")
+        use_vrf_name_key = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name_key.text = kwargs.pop('use_vrf_name')
+        telnet_vrf_shutdown = ET.SubElement(use_vrf, "telnet-vrf-shutdown")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def ssh_sa_ssh_server_shutdown(self, **kwargs):
         """Auto Generated Code
         """
@@ -330,6 +423,37 @@ class brocade_sec_services(object):
         server = ET.SubElement(ssh, "server")
         key = ET.SubElement(server, "key")
         dsa = ET.SubElement(key, "dsa")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ssh_sa_ssh_server_ssh_vrf_cont_use_vrf_use_vrf_name(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ssh_sa = ET.SubElement(config, "ssh-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        ssh = ET.SubElement(ssh_sa, "ssh")
+        server = ET.SubElement(ssh, "server")
+        ssh_vrf_cont = ET.SubElement(server, "ssh-vrf-cont")
+        use_vrf = ET.SubElement(ssh_vrf_cont, "use-vrf")
+        use_vrf_name = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name.text = kwargs.pop('use_vrf_name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ssh_sa_ssh_server_ssh_vrf_cont_use_vrf_ssh_vrf_shutdown(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ssh_sa = ET.SubElement(config, "ssh-sa", xmlns="urn:brocade.com:mgmt:brocade-sec-services")
+        ssh = ET.SubElement(ssh_sa, "ssh")
+        server = ET.SubElement(ssh, "server")
+        ssh_vrf_cont = ET.SubElement(server, "ssh-vrf-cont")
+        use_vrf = ET.SubElement(ssh_vrf_cont, "use-vrf")
+        use_vrf_name_key = ET.SubElement(use_vrf, "use-vrf-name")
+        use_vrf_name_key.text = kwargs.pop('use_vrf_name')
+        ssh_vrf_shutdown = ET.SubElement(use_vrf, "ssh-vrf-shutdown")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

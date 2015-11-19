@@ -918,6 +918,38 @@ class brocade_fabric_service(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def show_fabric_trunk_info_output_show_trunk_list_trunk_list_groups_trunk_list_member_trunk_list_nbr_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
+        config = show_fabric_trunk_info
+        output = ET.SubElement(show_fabric_trunk_info, "output")
+        show_trunk_list = ET.SubElement(output, "show-trunk-list")
+        trunk_list_groups = ET.SubElement(show_trunk_list, "trunk-list-groups")
+        trunk_list_member = ET.SubElement(trunk_list_groups, "trunk-list-member")
+        trunk_list_nbr_interface_type = ET.SubElement(trunk_list_member, "trunk-list-nbr-interface-type")
+        trunk_list_nbr_interface_type.text = kwargs.pop('trunk_list_nbr_interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def show_fabric_trunk_info_output_show_trunk_list_trunk_list_groups_trunk_list_member_trunk_list_nbr_interface(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
+        config = show_fabric_trunk_info
+        output = ET.SubElement(show_fabric_trunk_info, "output")
+        show_trunk_list = ET.SubElement(output, "show-trunk-list")
+        trunk_list_groups = ET.SubElement(show_trunk_list, "trunk-list-groups")
+        trunk_list_member = ET.SubElement(trunk_list_groups, "trunk-list-member")
+        trunk_list_nbr_interface = ET.SubElement(trunk_list_member, "trunk-list-nbr-interface")
+        trunk_list_nbr_interface.text = kwargs.pop('trunk_list_nbr_interface')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def show_fabric_trunk_info_output_show_trunk_list_trunk_list_groups_trunk_list_member_trunk_list_nbr_wwn(self, **kwargs):
         """Auto Generated Code
         """
@@ -1885,6 +1917,38 @@ class brocade_fabric_service(object):
         trunk_list_member = ET.SubElement(trunk_list_groups, "trunk-list-member")
         trunk_list_nbr_port = ET.SubElement(trunk_list_member, "trunk-list-nbr-port")
         trunk_list_nbr_port.text = kwargs.pop('trunk_list_nbr_port')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def show_fabric_trunk_info_output_show_trunk_list_trunk_list_groups_trunk_list_member_trunk_list_nbr_interface_type(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
+        config = show_fabric_trunk_info
+        output = ET.SubElement(show_fabric_trunk_info, "output")
+        show_trunk_list = ET.SubElement(output, "show-trunk-list")
+        trunk_list_groups = ET.SubElement(show_trunk_list, "trunk-list-groups")
+        trunk_list_member = ET.SubElement(trunk_list_groups, "trunk-list-member")
+        trunk_list_nbr_interface_type = ET.SubElement(trunk_list_member, "trunk-list-nbr-interface-type")
+        trunk_list_nbr_interface_type.text = kwargs.pop('trunk_list_nbr_interface_type')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def show_fabric_trunk_info_output_show_trunk_list_trunk_list_groups_trunk_list_member_trunk_list_nbr_interface(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
+        config = show_fabric_trunk_info
+        output = ET.SubElement(show_fabric_trunk_info, "output")
+        show_trunk_list = ET.SubElement(output, "show-trunk-list")
+        trunk_list_groups = ET.SubElement(show_trunk_list, "trunk-list-groups")
+        trunk_list_member = ET.SubElement(trunk_list_groups, "trunk-list-member")
+        trunk_list_nbr_interface = ET.SubElement(trunk_list_member, "trunk-list-nbr-interface")
+        trunk_list_nbr_interface.text = kwargs.pop('trunk_list_nbr_interface')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

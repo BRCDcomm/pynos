@@ -21,6 +21,20 @@ class brocade_event_handler(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def event_handler_event_handler_list_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        event_handler = ET.SubElement(config, "event-handler", xmlns="urn:brocade.com:mgmt:brocade-event-handler")
+        event_handler_list = ET.SubElement(event_handler, "event-handler-list")
+        name_key = ET.SubElement(event_handler_list, "name")
+        name_key.text = kwargs.pop('name')
+        description = ET.SubElement(event_handler_list, "description")
+        description.text = kwargs.pop('description')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def event_handler_event_handler_list_trigger_trigger_id(self, **kwargs):
         """Auto Generated Code
         """
@@ -99,6 +113,20 @@ class brocade_event_handler(object):
         event_handler_list = ET.SubElement(event_handler, "event-handler-list")
         name = ET.SubElement(event_handler_list, "name")
         name.text = kwargs.pop('name')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def event_handler_event_handler_list_description(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        event_handler = ET.SubElement(config, "event-handler", xmlns="urn:brocade.com:mgmt:brocade-event-handler")
+        event_handler_list = ET.SubElement(event_handler, "event-handler-list")
+        name_key = ET.SubElement(event_handler_list, "name")
+        name_key.text = kwargs.pop('name')
+        description = ET.SubElement(event_handler_list, "description")
+        description.text = kwargs.pop('description')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

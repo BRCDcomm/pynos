@@ -37,15 +37,15 @@ class brocade_aaa(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def aaa_config_aaa_accounting_exc_defaultacc_start_stop_server_type(self, **kwargs):
+    def aaa_config_aaa_accounting_exec_defaultacc_start_stop_server_type(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         aaa_config = ET.SubElement(config, "aaa-config", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         aaa = ET.SubElement(aaa_config, "aaa")
         accounting = ET.SubElement(aaa, "accounting")
-        exc = ET.SubElement(accounting, "exec")
-        defaultacc = ET.SubElement(exc, "defaultacc")
+        exec_el = ET.SubElement(accounting, "exec")
+        defaultacc = ET.SubElement(exec_el, "defaultacc")
         start_stop = ET.SubElement(defaultacc, "start-stop")
         server_type = ET.SubElement(start_stop, "server-type")
         server_type.text = kwargs.pop('server_type')
@@ -200,8 +200,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         radius_server = ET.SubElement(config, "radius-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(radius_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def radius_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        radius_server = ET.SubElement(config, "radius-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(radius_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -214,6 +230,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         auth_port = ET.SubElement(host, "auth-port")
         auth_port.text = kwargs.pop('auth_port')
 
@@ -228,6 +246,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         protocol = ET.SubElement(host, "protocol")
         protocol.text = kwargs.pop('protocol')
 
@@ -242,6 +262,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         key = ET.SubElement(host, "key")
         key.text = kwargs.pop('key')
 
@@ -256,6 +278,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         encryption_level = ET.SubElement(host, "encryption-level")
         encryption_level.text = kwargs.pop('encryption_level')
 
@@ -270,6 +294,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -284,6 +310,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -296,8 +324,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         tacacs_server = ET.SubElement(config, "tacacs-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(tacacs_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def tacacs_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        tacacs_server = ET.SubElement(config, "tacacs-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(tacacs_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -310,6 +354,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         port = ET.SubElement(host, "port")
         port.text = kwargs.pop('port')
 
@@ -324,6 +370,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         protocol = ET.SubElement(host, "protocol")
         protocol.text = kwargs.pop('protocol')
 
@@ -338,6 +386,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         key = ET.SubElement(host, "key")
         key.text = kwargs.pop('key')
 
@@ -352,6 +402,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         encryption_level = ET.SubElement(host, "encryption-level")
         encryption_level.text = kwargs.pop('encryption_level')
 
@@ -366,6 +418,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -380,6 +434,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -403,8 +459,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         ldap_server = ET.SubElement(config, "ldap-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(ldap_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ldap_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ldap_server = ET.SubElement(config, "ldap-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(ldap_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -417,6 +489,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         port = ET.SubElement(host, "port")
         port.text = kwargs.pop('port')
 
@@ -431,6 +505,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -445,6 +521,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -459,6 +537,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         basedn = ET.SubElement(host, "basedn")
         basedn.text = kwargs.pop('basedn')
 
@@ -1002,15 +1082,15 @@ class brocade_aaa(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def aaa_config_aaa_accounting_exc_defaultacc_start_stop_server_type(self, **kwargs):
+    def aaa_config_aaa_accounting_exec_defaultacc_start_stop_server_type(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         aaa_config = ET.SubElement(config, "aaa-config", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         aaa = ET.SubElement(aaa_config, "aaa")
         accounting = ET.SubElement(aaa, "accounting")
-        exc = ET.SubElement(accounting, "exec")
-        defaultacc = ET.SubElement(exc, "defaultacc")
+        exec_el = ET.SubElement(accounting, "exec")
+        defaultacc = ET.SubElement(exec_el, "defaultacc")
         start_stop = ET.SubElement(defaultacc, "start-stop")
         server_type = ET.SubElement(start_stop, "server-type")
         server_type.text = kwargs.pop('server_type')
@@ -1165,8 +1245,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         radius_server = ET.SubElement(config, "radius-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(radius_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def radius_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        radius_server = ET.SubElement(config, "radius-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(radius_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1179,6 +1275,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         auth_port = ET.SubElement(host, "auth-port")
         auth_port.text = kwargs.pop('auth_port')
 
@@ -1193,6 +1291,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         protocol = ET.SubElement(host, "protocol")
         protocol.text = kwargs.pop('protocol')
 
@@ -1207,6 +1307,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         key = ET.SubElement(host, "key")
         key.text = kwargs.pop('key')
 
@@ -1221,6 +1323,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         encryption_level = ET.SubElement(host, "encryption-level")
         encryption_level.text = kwargs.pop('encryption_level')
 
@@ -1235,6 +1339,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -1249,6 +1355,8 @@ class brocade_aaa(object):
         host = ET.SubElement(radius_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -1261,8 +1369,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         tacacs_server = ET.SubElement(config, "tacacs-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(tacacs_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def tacacs_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        tacacs_server = ET.SubElement(config, "tacacs-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(tacacs_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1275,6 +1399,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         port = ET.SubElement(host, "port")
         port.text = kwargs.pop('port')
 
@@ -1289,6 +1415,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         protocol = ET.SubElement(host, "protocol")
         protocol.text = kwargs.pop('protocol')
 
@@ -1303,6 +1431,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         key = ET.SubElement(host, "key")
         key.text = kwargs.pop('key')
 
@@ -1317,6 +1447,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         encryption_level = ET.SubElement(host, "encryption-level")
         encryption_level.text = kwargs.pop('encryption_level')
 
@@ -1331,6 +1463,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -1345,6 +1479,8 @@ class brocade_aaa(object):
         host = ET.SubElement(tacacs_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -1368,8 +1504,24 @@ class brocade_aaa(object):
         config = ET.Element("config")
         ldap_server = ET.SubElement(config, "ldap-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
         host = ET.SubElement(ldap_server, "host")
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         hostname = ET.SubElement(host, "hostname")
         hostname.text = kwargs.pop('hostname')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def ldap_server_host_use_vrf(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        ldap_server = ET.SubElement(config, "ldap-server", xmlns="urn:brocade.com:mgmt:brocade-aaa")
+        host = ET.SubElement(ldap_server, "host")
+        hostname_key = ET.SubElement(host, "hostname")
+        hostname_key.text = kwargs.pop('hostname')
+        use_vrf = ET.SubElement(host, "use-vrf")
+        use_vrf.text = kwargs.pop('use_vrf')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1382,6 +1534,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         port = ET.SubElement(host, "port")
         port.text = kwargs.pop('port')
 
@@ -1396,6 +1550,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         retries = ET.SubElement(host, "retries")
         retries.text = kwargs.pop('retries')
 
@@ -1410,6 +1566,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         timeout = ET.SubElement(host, "timeout")
         timeout.text = kwargs.pop('timeout')
 
@@ -1424,6 +1582,8 @@ class brocade_aaa(object):
         host = ET.SubElement(ldap_server, "host")
         hostname_key = ET.SubElement(host, "hostname")
         hostname_key.text = kwargs.pop('hostname')
+        use_vrf_key = ET.SubElement(host, "use-vrf")
+        use_vrf_key.text = kwargs.pop('use_vrf')
         basedn = ET.SubElement(host, "basedn")
         basedn.text = kwargs.pop('basedn')
 

@@ -39,6 +39,7 @@ import pynos.versions.ver_6.ver_6_0_1.fabric_service
 import pynos.versions.ver_6.ver_6_0_1.vcs
 import pynos.versions.ver_7.ver_7_0_0.bgp
 import pynos.versions.ver_7.ver_7_0_0.interface
+import pynos.versions.ver_7.ver_7_0_0.lldp
 
 VERSIONS = {
     '5.0.1': {
@@ -67,7 +68,7 @@ VERSIONS = {
         'bgp': pynos.versions.ver_7.ver_7_0_0.bgp.BGP,
         'snmp': pynos.versions.ver_6.ver_6_0_1.snmp.SNMP,
         'interface': pynos.versions.ver_7.ver_7_0_0.interface.Interface,
-        'lldp': pynos.versions.ver_6.ver_6_0_1.lldp.LLDP,
+        'lldp': pynos.versions.ver_7.ver_7_0_0.lldp.LLDP,
         'system': pynos.versions.ver_6.ver_6_0_1.system.System,
         'services': pynos.versions.ver_6.ver_6_0_1.services.Services,
         'fabric_service': pynos.versions.ver_6.ver_6_0_1.fabric_service

@@ -154,15 +154,15 @@ class brocade_ras(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def logging_auditlog_clss_clss(self, **kwargs):
+    def logging_auditlog_class_class(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         logging = ET.SubElement(config, "logging", xmlns="urn:brocade.com:mgmt:brocade-ras")
         auditlog = ET.SubElement(logging, "auditlog")
-        clss = ET.SubElement(auditlog, "class")
-        clss = ET.SubElement(clss, "class")
-        clss.text = kwargs.pop('clss')
+        class_el = ET.SubElement(auditlog, "class")
+        class_el2 = ET.SubElement(class_el, "class")
+        class_el2.text = kwargs.pop('class')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -624,15 +624,15 @@ class brocade_ras(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def logging_auditlog_clss_clss(self, **kwargs):
+    def logging_auditlog_class_class(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         logging = ET.SubElement(config, "logging", xmlns="urn:brocade.com:mgmt:brocade-ras")
         auditlog = ET.SubElement(logging, "auditlog")
-        clss = ET.SubElement(auditlog, "class")
-        clss = ET.SubElement(clss, "class")
-        clss.text = kwargs.pop('clss')
+        class_el = ET.SubElement(auditlog, "class")
+        class_el2 = ET.SubElement(class_el, "class")
+        class_el2.text = kwargs.pop('class')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

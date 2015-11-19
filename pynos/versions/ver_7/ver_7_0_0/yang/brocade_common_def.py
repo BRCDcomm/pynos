@@ -482,6 +482,7 @@ class brocade_common_def(object):
         extcommunity_list_num_key = ET.SubElement(extcommunity_list, "extcommunity-list-num")
         extcommunity_list_num_key.text = kwargs.pop('extcommunity_list_num')
         ext_community_expr = ET.SubElement(extcommunity_list, "ext-community-expr")
+        ext_community_expr.text = kwargs.pop('ext_community_expr')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1676,6 +1677,7 @@ class brocade_common_def(object):
         extcommunity_list_num_key = ET.SubElement(extcommunity_list, "extcommunity-list-num")
         extcommunity_list_num_key.text = kwargs.pop('extcommunity_list_num')
         ext_community_expr = ET.SubElement(extcommunity_list, "ext-community-expr")
+        ext_community_expr.text = kwargs.pop('ext_community_expr')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

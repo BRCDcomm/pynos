@@ -36,26 +36,26 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_input_rbridge_id(self, **kwargs):
+    def maps_get_default_rules_input_rbridge_id(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        input = ET.SubElement(maps_get_rules, "input")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        input = ET.SubElement(maps_get_default_rules, "input")
         rbridge_id = ET.SubElement(input, "rbridge-id")
         rbridge_id.text = kwargs.pop('rbridge_id')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_rbridgeid(self, **kwargs):
+    def maps_get_default_rules_output_rules_rbridgeid(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         rbridgeid = ET.SubElement(rules, "rbridgeid")
         rbridgeid.text = kwargs.pop('rbridgeid')
@@ -63,13 +63,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_rulename(self, **kwargs):
+    def maps_get_default_rules_output_rules_rulename(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         rulename = ET.SubElement(rules, "rulename")
         rulename.text = kwargs.pop('rulename')
@@ -77,13 +77,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_groupname(self, **kwargs):
+    def maps_get_default_rules_output_rules_groupname(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         groupname = ET.SubElement(rules, "groupname")
         groupname.text = kwargs.pop('groupname')
@@ -91,13 +91,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_monitor(self, **kwargs):
+    def maps_get_default_rules_output_rules_monitor(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         monitor = ET.SubElement(rules, "monitor")
         monitor.text = kwargs.pop('monitor')
@@ -105,13 +105,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_op(self, **kwargs):
+    def maps_get_default_rules_output_rules_op(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         op = ET.SubElement(rules, "op")
         op.text = kwargs.pop('op')
@@ -119,13 +119,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_value(self, **kwargs):
+    def maps_get_default_rules_output_rules_value(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         value = ET.SubElement(rules, "value")
         value.text = kwargs.pop('value')
@@ -133,13 +133,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_action(self, **kwargs):
+    def maps_get_default_rules_output_rules_action(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         action = ET.SubElement(rules, "action")
         action.text = kwargs.pop('action')
@@ -147,13 +147,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_timebase(self, **kwargs):
+    def maps_get_default_rules_output_rules_timebase(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         timebase = ET.SubElement(rules, "timebase")
         timebase.text = kwargs.pop('timebase')
@@ -161,13 +161,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_policyname(self, **kwargs):
+    def maps_get_default_rules_output_rules_policyname(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         policyname = ET.SubElement(rules, "policyname")
         policyname.text = kwargs.pop('policyname')
@@ -202,26 +202,26 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_input_rbridge_id(self, **kwargs):
+    def maps_get_default_rules_input_rbridge_id(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        input = ET.SubElement(maps_get_rules, "input")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        input = ET.SubElement(maps_get_default_rules, "input")
         rbridge_id = ET.SubElement(input, "rbridge-id")
         rbridge_id.text = kwargs.pop('rbridge_id')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_rbridgeid(self, **kwargs):
+    def maps_get_default_rules_output_rules_rbridgeid(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         rbridgeid = ET.SubElement(rules, "rbridgeid")
         rbridgeid.text = kwargs.pop('rbridgeid')
@@ -229,13 +229,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_rulename(self, **kwargs):
+    def maps_get_default_rules_output_rules_rulename(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         rulename = ET.SubElement(rules, "rulename")
         rulename.text = kwargs.pop('rulename')
@@ -243,13 +243,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_groupname(self, **kwargs):
+    def maps_get_default_rules_output_rules_groupname(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         groupname = ET.SubElement(rules, "groupname")
         groupname.text = kwargs.pop('groupname')
@@ -257,13 +257,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_monitor(self, **kwargs):
+    def maps_get_default_rules_output_rules_monitor(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         monitor = ET.SubElement(rules, "monitor")
         monitor.text = kwargs.pop('monitor')
@@ -271,13 +271,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_op(self, **kwargs):
+    def maps_get_default_rules_output_rules_op(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         op = ET.SubElement(rules, "op")
         op.text = kwargs.pop('op')
@@ -285,13 +285,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_value(self, **kwargs):
+    def maps_get_default_rules_output_rules_value(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         value = ET.SubElement(rules, "value")
         value.text = kwargs.pop('value')
@@ -299,13 +299,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_action(self, **kwargs):
+    def maps_get_default_rules_output_rules_action(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         action = ET.SubElement(rules, "action")
         action.text = kwargs.pop('action')
@@ -313,13 +313,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_timebase(self, **kwargs):
+    def maps_get_default_rules_output_rules_timebase(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         timebase = ET.SubElement(rules, "timebase")
         timebase.text = kwargs.pop('timebase')
@@ -327,13 +327,13 @@ class brocade_maps_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def maps_get_rules_output_rules_policyname(self, **kwargs):
+    def maps_get_default_rules_output_rules_policyname(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
-        maps_get_rules = ET.Element("maps_get_rules")
-        config = maps_get_rules
-        output = ET.SubElement(maps_get_rules, "output")
+        maps_get_default_rules = ET.Element("maps_get_default_rules")
+        config = maps_get_default_rules
+        output = ET.SubElement(maps_get_default_rules, "output")
         rules = ET.SubElement(output, "rules")
         policyname = ET.SubElement(rules, "policyname")
         policyname.text = kwargs.pop('policyname')

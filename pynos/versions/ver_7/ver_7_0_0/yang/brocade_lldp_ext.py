@@ -155,6 +155,60 @@ class brocade_lldp_ext(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_management_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_management_address = ET.SubElement(lldp_neighbor_detail, "remote-management-address")
+        remote_management_address.text = kwargs.pop('remote_management_address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_unnum_interface_mac(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_unnum_interface_mac = ET.SubElement(lldp_neighbor_detail, "remote-unnum-interface-mac")
+        remote_unnum_interface_mac.text = kwargs.pop('remote_unnum_interface_mac')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_unnum_ip_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_unnum_ip_address = ET.SubElement(lldp_neighbor_detail, "remote-unnum-ip-address")
+        remote_unnum_ip_address.text = kwargs.pop('remote_unnum_ip_address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_port_description(self, **kwargs):
         """Auto Generated Code
         """
@@ -454,6 +508,60 @@ class brocade_lldp_ext(object):
         remote_interface_name_key.text = kwargs.pop('remote_interface_name')
         remote_interface_mac = ET.SubElement(lldp_neighbor_detail, "remote-interface-mac")
         remote_interface_mac.text = kwargs.pop('remote_interface_mac')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_management_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_management_address = ET.SubElement(lldp_neighbor_detail, "remote-management-address")
+        remote_management_address.text = kwargs.pop('remote_management_address')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_unnum_interface_mac(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_unnum_interface_mac = ET.SubElement(lldp_neighbor_detail, "remote-unnum-interface-mac")
+        remote_unnum_interface_mac.text = kwargs.pop('remote_unnum_interface_mac')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def get_lldp_neighbor_detail_output_lldp_neighbor_detail_remote_unnum_ip_address(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        get_lldp_neighbor_detail = ET.Element("get_lldp_neighbor_detail")
+        config = get_lldp_neighbor_detail
+        output = ET.SubElement(get_lldp_neighbor_detail, "output")
+        lldp_neighbor_detail = ET.SubElement(output, "lldp-neighbor-detail")
+        local_interface_name_key = ET.SubElement(lldp_neighbor_detail, "local-interface-name")
+        local_interface_name_key.text = kwargs.pop('local_interface_name')
+        remote_interface_name_key = ET.SubElement(lldp_neighbor_detail, "remote-interface-name")
+        remote_interface_name_key.text = kwargs.pop('remote_interface_name')
+        remote_unnum_ip_address = ET.SubElement(lldp_neighbor_detail, "remote-unnum-ip-address")
+        remote_unnum_ip_address.text = kwargs.pop('remote_unnum_ip_address')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
