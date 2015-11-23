@@ -2593,6 +2593,7 @@ class Interface(object):
             results = {'interface-type': int_type,
                        'interface-name': int_name,
                        'interface-role': None,
+                       'if-name': None,
                        'interface-state': int_state,
                        'interface-proto-state': int_proto_state,
                        'interface-mac': None,
