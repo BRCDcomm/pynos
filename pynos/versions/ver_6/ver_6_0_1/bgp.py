@@ -461,3 +461,58 @@ class BGP(object):
             tag = 'maximum-paths'
             config.find('.//*%s' % tag).set('operation', 'delete')
         return callback(config)
+
+    def recursion(self, **kwargs):
+        """Set BGP next hop recursion property.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            afi (str): Address family to configure. (ipv4, ipv6)
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            ``AttributeError``: When `afi` is not one of ['ipv4', 'ipv6']
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.recursion(rbridge_id='225')
+            ...     output = dev.bgp.recursion(rbridge_id='225', get=True)
+            ...     output = dev.bgp.recursion(rbridge_id='225', delete=True)
+            ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv6')
+            ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv6',
+            ...     get=True)
+            ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv6',
+            ...     delete=True)
+            ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv5')
+            ...     # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            AttributeError
+        """
+        afi = kwargs.pop('afi', 'ipv4')
+        callback = kwargs.pop('callback', self._callback)
+        if afi not in ['ipv4', 'ipv6']:
+            raise AttributeError('Invalid AFI.')
+        args = dict(vrf_name=kwargs.pop('vrf', 'default'),
+                    rbridge_id=kwargs.pop('rbridge_id', '1'))
+
+        recursion = getattr(self._rbridge,
+                            'rbridge_id_router_router_bgp_address_family_{0}_'
+                            '{0}_unicast_default_vrf_next_hop_'
+                            'recursion'.format(afi))
+        config = recursion(**args)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        if kwargs.pop('delete', False):
+            tag = 'next-hop-recursion'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+        return callback(config)
