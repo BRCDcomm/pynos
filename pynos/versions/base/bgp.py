@@ -630,3 +630,128 @@ class BGP(object):
             tag = 'graceful-restart'
             config.find('.//*%s' % tag).set('operation', 'delete')
         return callback(config)
+
+    def multihop(self, **kwargs):
+        """Set BGP multihop property for a neighbor.
+
+        Args:
+            vrf (str): The VRF for this BGP process.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            neighbor (str): Address family to configure. (ipv4, ipv6)
+            count (str): Number of hops to allow. (1-255)
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            ``AttributeError``: When `neighbor` is not a valid IPv4 or IPv6
+                address.
+            ``KeyError``: When `count` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.230']
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     auth = ('admin', 'password')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         dev.bgp.local_asn(local_as='65535', rbridge_id='225')
+            ...         dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...         remote_as='65535', rbridge_id='225')
+            ...         dev.bgp.neighbor(remote_as='65535', rbridge_id='225',
+            ...         ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...         dev.bgp.multihop(neighbor='10.10.10.10', count='5',
+            ...         rbridge_id='225')
+            ...         dev.bgp.multihop(get=True, neighbor='10.10.10.10',
+            ...         count='5', rbridge_id='225')
+            ...         dev.bgp.multihop(count='5', rbridge_id='225',
+            ...         neighbor='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...         dev.bgp.multihop(get=True, count='5', rbridge_id='225',
+            ...         neighbor='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...         dev.bgp.multihop(delete=True, neighbor='10.10.10.10',
+            ...         count='5', rbridge_id='225')
+            ...         dev.bgp.multihop(delete=True, count='5',
+            ...         rbridge_id='225',
+            ...         neighbor='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...         dev.bgp.neighbor(ip_addr='10.10.10.10', delete=True,
+            ...         rbridge_id='225')
+            ...         dev.bgp.neighbor(delete=True, rbridge_id='225',
+            ...         ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...         output = dev.bgp.multihop(rbridge_id='225', count='5')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        callback = kwargs.pop('callback', self._callback)
+        ip_addr = ip_interface(unicode(kwargs.pop('neighbor')))
+        config = self._multihop_xml(neighbor=ip_addr,
+                                    count=kwargs.pop('count'),
+                                    rbridge_id=kwargs.pop('rbridge_id', '1'),
+                                    vrf=kwargs.pop('vrf', 'default'))
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        if kwargs.pop('delete', False):
+            config.find('.//*ebgp-multihop').set('operation', 'delete')
+        return callback(config)
+
+    def _multihop_xml(self, **kwargs):
+        """Build BGP multihop XML.
+
+        Do not use this method directly.  You probably want ``multihop``.
+
+        Args:
+            vrf (str): The VRF for this BGP process.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            neighbor (ipaddress.ip_interface): `ip_interface` object containing
+                peer IP address (IPv4 or IPv6).
+            count (str): Number of hops to allow. (1-255)
+
+        Returns:
+            ``ElementTree``: XML for configuring BGP multihop.
+
+        Raises:
+            KeyError: if any arg is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> from ipaddress import ip_interface
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     dev.bgp._multihop_xml(neighbor=ip_interface(unicode(
+            ...     '10.10.10.10')), count='5', vrf='default', rbridge_id='1')
+            ...     dev.bgp._redistribute_builder(
+            ...     vrf='hodor') # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+
+        ip_addr = kwargs.pop('ip_addr')
+        ip = str(ip_addr.ip)
+        rbr_ns = 'urn:brocade.com:mgmt:brocade-rbridge'
+        bgp_ns = 'urn:brocade.com:mgmt:brocade-bgp'
+        config = ET.Element('config')
+        ele = ET.SubElement(config, 'rbridge-id', xmlns=rbr_ns)
+        ET.SubElement(ele, 'rbridge-id').text = kwargs.pop('rbridge_id')
+        ele = ET.SubElement(ele, 'router')
+        ele = ET.SubElement(ele, 'bgp', xmlns=bgp_ns)
+        ET.SubElement(ele, 'vrf-name').text = kwargs.pop('vrf')
+        ele = ET.SubElement(ele, 'router-bgp-cmds-holder')
+        ele = ET.SubElement(ele, 'router-bgp-attributes')
+        if ip_addr.version == 4:
+            ele = ET.SubElement(ele, 'neighbor-ips')
+            ele = ET.SubElement(ele, 'neighbor-addr')
+            ET.SubElement(ele, 'router-bgp-neighbor-address').text = ip
+        else:
+            ele = ET.SubElement(ele, 'neighbor-ipv6s')
+            ele = ET.SubElement(ele, 'neighbor-ipv6-addr')
+            ET.SubElement(ele, 'router-bgp-neighbor-ipv6-address').text = ip
+        ele = ET.SubElement(ele, 'ebgp-multihop')
+        ET.SubElement(ele, 'ebgp-multihop-count').text = kwargs.pop('count')
+        return config
