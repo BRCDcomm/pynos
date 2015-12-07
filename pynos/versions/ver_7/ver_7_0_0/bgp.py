@@ -57,6 +57,8 @@ class BGP(BaseBGP):
             ...        output = dev.bgp.bfd(rx='300', tx='300', multiplier='3',
             ...        rbridge_id='230')
             ...        output = dev.bgp.bfd(rx='300', tx='300', multiplier='3',
+            ...        rbridge_id='230', get=True)
+            ...        output = dev.bgp.bfd(rx='300', tx='300', multiplier='3',
             ...        rbridge_id='230', delete=True)
         """
         kwargs['min_tx'] = kwargs.pop('tx')

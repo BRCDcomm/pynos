@@ -181,7 +181,12 @@ class BGP(object):
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10', get=True,
+            ...     remote_as='65535', rbridge_id='225')
             ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     output = dev.bgp.neighbor(remote_as='65535', get=True,
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
@@ -383,6 +388,10 @@ class BGP(object):
             ...     afi='ipv4') # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             AttributeError
+            ...     output = dev.bgp.redistribute(source='connected', afi='x',
+            ...     rbridge_id='225') # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            AttributeError
         """
         source = kwargs.pop('source')
         afi = kwargs.pop('afi', 'ipv4')
@@ -534,6 +543,10 @@ class BGP(object):
             ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv6',
             ...     delete=True)
             ...     output = dev.bgp.max_paths(rbridge_id='225', afi='ipv5')
+            ...     # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            AttributeError
+            ...     output = dev.bgp.recursion(rbridge_id='225', afi='hodor')
             ...     # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             AttributeError

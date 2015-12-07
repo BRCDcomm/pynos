@@ -77,10 +77,18 @@ class Interface(InterfaceBase):
             ...        name=name, donor_type=donor_type, donor_name=donor_name)
             ...        output = dev.interface.ip_unnumbered(int_type=int_type,
             ...        name=name, donor_type=donor_type, donor_name=donor_name,
+            ...        get=True)
+            ...        output = dev.interface.ip_unnumbered(int_type=int_type,
+            ...        name=name, donor_type=donor_type, donor_name=donor_name,
             ...        delete=True)
             ...        output = dev.interface.ip_address(int_type='loopback',
             ...        name='1', ip_addr='4.4.4.4/32', rbridge_id='230',
             ...        delete=True)
+            ...        output = dev.interface.ip_unnumbered(int_type='hodor',
+            ...        donor_name=donor_name, donor_type=donor_type, name=name)
+            ...        # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            ValueError
         """
         kwargs['ip_donor_interface_name'] = kwargs.pop('donor_name')
         kwargs['ip_donor_interface_type'] = kwargs.pop('donor_type')

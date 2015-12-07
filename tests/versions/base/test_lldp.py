@@ -68,3 +68,10 @@ class TestLLDP(unittest.TestCase):
         results = self.lldp.neighbors
         self.assertIsInstance(results, list)
         self.assertDictEqual(expected, results[0])
+
+    def test_get_lldp_neighbors_request(self):
+        expected = ('<get-lldp-neighbor-detail xmlns="{0}"><last-rcvd-ifindex>'
+                    '1</last-rcvd-ifindex></get-lldp-neighbor-detail>'
+                    .format(self.namespace))
+        results = ET.tostring(self.lldp.get_lldp_neighbors_request('1'))
+        self.assertEqual(expected, results)

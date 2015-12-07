@@ -112,6 +112,7 @@ class System(object):
             >>> auth = ('admin', 'password')
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     output = dev.system.rbridge_id(rbridge_id='225')
+            ...     output = dev.system.rbridge_id(rbridge_id='225', get=True)
             ...     dev.system.rbridge_id() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError

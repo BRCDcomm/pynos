@@ -205,6 +205,14 @@ def merge_xml(first_doc, second_doc):
 
     Raises:
         None
+
+    Example:
+        >>> import pynos.utilities
+        >>> import lxml
+        >>> import xml
+        >>> x = xml.etree.ElementTree.fromstring('<config />')
+        >>> y = lxml.etree.fromstring('<config><hello /></config>')
+        >>> x = pynos.utilities.merge_xml(x, y)
     """
     # Adapted from:
     # http://stackoverflow.com/questions/27258013/merge-two-xml-files-python
