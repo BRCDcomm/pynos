@@ -15,6 +15,8 @@ limitations under the License.
 """
 from pynos.versions.ver_7.ver_7_0_0.yang.brocade_interface \
     import brocade_interface as brcd_intf
+from pynos.versions.ver_7.ver_7_0_0.yang.brocade_rbridge \
+    import brocade_rbridge as brcd_rbridge
 import pynos.utilities
 from pynos.versions.base.interface import Interface as InterfaceBase
 
@@ -30,6 +32,7 @@ class Interface(InterfaceBase):
     def __init__(self, callback):
         super(Interface, self).__init__(callback)
         self._interface = brcd_intf(callback=pynos.utilities.return_xml)
+        self._rbridge = brcd_rbridge(callback=pynos.utilities.return_xml)
 
     def ip_unnumbered(self, **kwargs):
         """Configure an unnumbered interface.
@@ -182,3 +185,63 @@ class Interface(InterfaceBase):
         unnumbered_type = pynos.utilities.return_xml(str(unnumbered_type))
         unnumbered_name = pynos.utilities.return_xml(str(unnumbered_name))
         return pynos.utilities.merge_xml(unnumbered_type, unnumbered_name)
+
+    def anycast_mac(self, **kwargs):
+        """Configure an anycast MAC address.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                 tengigabitethernet etc).
+             mac (str): MAC address to configure
+                 (example: '0011.2233.4455').
+            delete (bool): True is the IP address is added and False if its to
+                be deleted (True, False). Default value will be False if not
+                specified.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `mac` is not passed.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.230']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        output = dev.services.vrrp(ip_version='6',
+            ...        enabled=False, rbridge_id='230')
+            ...        output = dev.services.vrrp(enabled=False,
+            ...        rbridge_id='230')
+            ...        output = dev.interface.anycast_mac(rbridge_id='230',
+            ...        mac='0011.2233.4455')
+            ...        output = dev.interface.anycast_mac(rbridge_id='230',
+            ...        mac='0011.2233.4455', get=True)
+            ...        output = dev.interface.anycast_mac(rbridge_id='230',
+            ...        mac='0011.2233.4455', delete=True)
+            ...        output = dev.services.vrrp(ip_version='6', enabled=True,
+            ...        rbridge_id='230')
+            ...        output = dev.services.vrrp(enabled=True,
+            ...        rbridge_id='230')
+            ...        dev.interface.anycast_mac()
+            ...        # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        callback = kwargs.pop('callback', self._callback)
+        anycast_mac = getattr(self._rbridge, 'rbridge_id_ip_static_ag_ip_'
+                              'config_anycast_gateway_mac_ip_anycast_'
+                              'gateway_mac')
+        config = anycast_mac(rbridge_id=kwargs.pop('rbridge_id', '1'),
+                             ip_anycast_gateway_mac=kwargs.pop('mac'))
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        if kwargs.pop('delete', False):
+            config.find('.//*anycast-gateway-mac').set('operation', 'delete')
+        return callback(config)
