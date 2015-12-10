@@ -1447,3 +1447,38 @@ class TestInterface(unittest.TestCase):
                                     name=self.phys_name)
         result = ET.tostring(result)
         self.assertEquals(expected, result)
+
+    def vlan_xml(self, *args):
+        netconf_ns = "urn:ietf:params:xml:ns:netconf:base:1.0"
+        interface_ns = "urn:brocade.com:mgmt:brocade-interface-ext"
+        msg_id = "urn:uuid:7d752e80-8e8e-11e5-a4f1-005056c00008"
+        vlan_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" ' \
+                   'message-id="{2}">' \
+                   '<ns1:configured-vlans-count>3</ns1:configured-vlans-' \
+                   'count>' \
+                   '<ns1:provisioned-vlans-count>2</ns1:provisioned-vlans-' \
+                   'count>' \
+                   '<ns1:unprovisioned-vlans-count>1</ns1:unprovisioned-' \
+                   'vlans-count>' \
+                   '<ns1:vlan>' \
+                   '<ns1:vlan-id>1</ns1:vlan-id>' \
+                   '<ns1:vlan-type>static</ns1:vlan-type>' \
+                   '<ns1:vlan-name>default</ns1:vlan-name>' \
+                   '<ns1:vlan-state>suspend</ns1:vlan-state>' \
+                   '</ns1:vlan>' \
+                   '<ns1:last-vlan-id>1</ns1:last-vlan-id>' \
+                   '<ns1:has-more>false</ns1:has-more>' \
+                   '</ns0:rpc-reply>'.format(netconf_ns, interface_ns, msg_id)
+        return ET.fromstring(vlan_xml)
+
+    def test_vlans(self):
+        expected = {'vlan-id': '1',
+                    'vlan-type': 'static',
+                    'vlan-state': 'suspend',
+                    'interface': [],
+                    'interface-name': 'default'}
+        self.interface._callback = self.vlan_xml
+        results = self.interface.vlans
+        self.assertIsInstance(results, list)
+        self.assertDictEqual(expected, results[0])
+

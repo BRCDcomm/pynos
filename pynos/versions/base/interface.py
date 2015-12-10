@@ -2626,3 +2626,76 @@ class Interface(object):
                                              "interface-name")
             last_int_name_el.text = last_interface_name
         return request_interface
+
+    @property
+    def vlans(self):
+        """list[dict]: A list of dictionary items describing the details of
+        vlan interfaces.
+        This method fetches the VLAN interfaces
+        Examples:
+            >>> import pynos.device
+            >>> switch = '10.24.39.202'
+            >>> auth = ('admin', 'password')
+            >>> conn = (switch, '22')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.interface.add_vlan_int('736')
+            ...     interfaces = dev.interface.vlans
+            ...     is_vlan_interface_present = False
+            ...     for interface in interfaces:
+            ...         if interface['vlan-id'] == '736':
+            ...             is_vlan_interface_present = True
+            ...             break
+            ...     dev.interface.del_vlan_int('736')
+            ...     assert is_vlan_interface_present
+            True
+        """
+        urn = "{urn:brocade.com:mgmt:brocade-interface-ext}"
+
+        result = []
+        has_more = ''
+        last_vlan_id = ''
+        while (has_more == '') or (has_more == 'true'):
+            request_interface = self.get_vlan_brief_request(last_vlan_id)
+            interface_result = self._callback(request_interface, 'get')
+            has_more = interface_result.find('%shas-more' % urn).text
+            last_vlan_id = interface_result.find('%slast-vlan-id' % urn).text
+            for interface in interface_result.findall('%svlan' % urn):
+                vlan_id = interface.find('%svlan-id' % urn).text
+                vlan_type = interface.find('%svlan-type' % urn).text
+                vlan_name = interface.find('%svlan-name' % urn).text
+                vlan_state = interface.find('%svlan-state' % urn).text
+                ports = []
+                for intf in interface.findall('%sinterface' % urn):
+                    interface_type = intf.find('%sinterface-type' % urn).text
+                    interface_name = intf.find('%sinterface-name'
+                                                               % urn).text
+                    tag = intf.find('%stag' % urn).text
+                    port_results = {'interface-type': interface_type,
+                                    'interface-name': interface_name,
+                                    'tag': tag}
+                    ports.append(port_results)
+                results = {'interface-name': vlan_name,
+                           'vlan-state': vlan_state,
+                           'vlan-id': vlan_id,
+                           'vlan-type': vlan_type,
+                           'interface': ports}
+                result.append(results)
+        return result
+
+    @staticmethod
+    def get_vlan_brief_request(last_vlan_id):
+        """ Creates a new Netconf request based on the last received
+        vlan id when the hasMore flag is true
+        """
+
+        request_interface = ET.Element(
+            'get-vlan-brief',
+            xmlns="urn:brocade.com:mgmt:brocade-interface-ext"
+        )
+        if last_vlan_id != '':
+            last_received_int = ET.SubElement(request_interface,
+                                              "last-rcvd-vlan-id")
+            last_vlan_id_el = ET.SubElement(last_received_int,
+                                             "vlan-id")
+            last_vlan_id_el.text = last_vlan_id
+        return request_interface
