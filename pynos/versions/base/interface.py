@@ -436,6 +436,9 @@ class Interface(object):
         elif int_type == 'loopback':
             method_name = 'rbridge_id_interface_loopback_ip_ip_config_'\
                           'address_address'
+            if ipaddress.version == 6:
+                method_name = 'rbridge_id_interface_loopback_ipv6_ipv6_'\
+                              'config_address_ipv6_address_address'
             method_class = self._rbridge
             ip_args['rbridge_id'] = rbridge_id
             ip_args['id'] = name

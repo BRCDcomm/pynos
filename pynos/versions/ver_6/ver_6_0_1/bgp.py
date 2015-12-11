@@ -630,3 +630,56 @@ class BGP(BaseBGP):
         ele = ET.SubElement(ele, 'ebgp-multihop')
         ET.SubElement(ele, 'ebgp-multihop-count').text = kwargs.pop('count')
         return config
+
+    def _update_source_xml(self, **kwargs):
+        """Build BGP update source XML.
+
+        Do not use this method directly.  You probably want ``update_source``.
+        This currently only supports loopback interfaces.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            neighbor (ipaddress.ip_interface): `ip_interface` object containing
+                peer IP address (IPv4 or IPv6).
+            int_type (str): Interface type (loopback)
+            int_name (str): Interface identifier (1, 5, 7, etc)
+
+        Returns:
+            ``ElementTree``: XML for configuring BGP update source.
+
+        Raises:
+            KeyError: if any arg is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> from ipaddress import ip_interface
+            >>> conn = ('10.24.39.230', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp._update_source_xml(neighbor=ip_interface(
+            ...     unicode('10.10.10.10')), rbridge_id='1',
+            ...     int_type='loopback', int_name='1')
+        """
+        ip_addr = kwargs.pop('neighbor')
+        ip = str(ip_addr.ip)
+        rbr_ns = 'urn:brocade.com:mgmt:brocade-rbridge'
+        bgp_ns = 'urn:brocade.com:mgmt:brocade-bgp'
+        config = ET.Element('config')
+        ele = ET.SubElement(config, 'rbridge-id', xmlns=rbr_ns)
+        ET.SubElement(ele, 'rbridge-id').text = kwargs.pop('rbridge_id')
+        ele = ET.SubElement(ele, 'router')
+        ele = ET.SubElement(ele, 'router-bgp', xmlns=bgp_ns)
+        ele = ET.SubElement(ele, 'router-bgp-cmds-holder')
+        ele = ET.SubElement(ele, 'router-bgp-attributes')
+        if ip_addr.version == 4:
+            ele = ET.SubElement(ele, 'neighbor-ips')
+            ele = ET.SubElement(ele, 'neighbor-addr')
+            ET.SubElement(ele, 'router-bgp-neighbor-address').text = ip
+        else:
+            ele = ET.SubElement(ele, 'neighbor-ipv6s')
+            ele = ET.SubElement(ele, 'neighbor-ipv6-addr')
+            ET.SubElement(ele, 'router-bgp-neighbor-ipv6-address').text = ip
+        ele = ET.SubElement(ele, 'update-source')
+        ET.SubElement(ele, 'loopback').text = kwargs.pop('int_name')
+        return config
