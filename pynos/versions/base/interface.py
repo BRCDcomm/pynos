@@ -2696,11 +2696,9 @@ class Interface(object):
             xmlns="urn:brocade.com:mgmt:brocade-interface-ext"
         )
         if last_vlan_id != '':
-            last_received_int = ET.SubElement(request_interface,
+            last_received_int_el = ET.SubElement(request_interface,
                                               "last-rcvd-vlan-id")
-            last_vlan_id_el = ET.SubElement(last_received_int,
-                                             "vlan-id")
-            last_vlan_id_el.text = last_vlan_id
+            last_received_int_el.text = last_vlan_id
         return request_interface
 
     @property
