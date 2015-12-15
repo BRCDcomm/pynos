@@ -726,13 +726,13 @@ class BGP(object):
             >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...     dev.bgp._multihop_xml(neighbor=ip_interface(unicode(
             ...     '10.10.10.10')), count='5', vrf='default', rbridge_id='1')
-            ...     dev.bgp._redistribute_builder(
+            ...     dev.bgp._multihop_xml(
             ...     vrf='hodor') # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
         """
 
-        ip_addr = kwargs.pop('ip_addr')
+        ip_addr = kwargs.pop('neighbor')
         ip = str(ip_addr.ip)
         rbr_ns = 'urn:brocade.com:mgmt:brocade-rbridge'
         bgp_ns = 'urn:brocade.com:mgmt:brocade-bgp'

@@ -21,7 +21,6 @@ import pynos.utilities
 from pynos.versions.base.bgp import BGP as BaseBGP
 
 
-# TODO: Inherit from base BGP version.
 class BGP(BaseBGP):
     """
     The BGP class holds all relevent methods and attributes for the BGP
@@ -608,7 +607,7 @@ class BGP(BaseBGP):
             Traceback (most recent call last):
             KeyError
         """
-        ip_addr = kwargs.pop('ip_addr')
+        ip_addr = kwargs.pop('neighbor')
         ip = str(ip_addr.ip)
         rbr_ns = 'urn:brocade.com:mgmt:brocade-rbridge'
         bgp_ns = 'urn:brocade.com:mgmt:brocade-bgp'
@@ -617,8 +616,8 @@ class BGP(BaseBGP):
         ET.SubElement(ele, 'rbridge-id').text = kwargs.pop('rbridge_id')
         ele = ET.SubElement(ele, 'router')
         ele = ET.SubElement(ele, 'router-bgp', xmlns=bgp_ns)
-        ele = ET.SubElement(ele, 'router-bgp-cmds-holder')
         ele = ET.SubElement(ele, 'router-bgp-attributes')
+        ele = ET.SubElement(ele, 'neighbor')
         if ip_addr.version == 4:
             ele = ET.SubElement(ele, 'neighbor-ips')
             ele = ET.SubElement(ele, 'neighbor-addr')
@@ -670,8 +669,8 @@ class BGP(BaseBGP):
         ET.SubElement(ele, 'rbridge-id').text = kwargs.pop('rbridge_id')
         ele = ET.SubElement(ele, 'router')
         ele = ET.SubElement(ele, 'router-bgp', xmlns=bgp_ns)
-        ele = ET.SubElement(ele, 'router-bgp-cmds-holder')
         ele = ET.SubElement(ele, 'router-bgp-attributes')
+        ele = ET.SubElement(ele, 'neighbor')
         if ip_addr.version == 4:
             ele = ET.SubElement(ele, 'neighbor-ips')
             ele = ET.SubElement(ele, 'neighbor-addr')
