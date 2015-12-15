@@ -61,7 +61,7 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.local_asn(local_as='65535',
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     remote_as='65535', rbridge_id='225')
+            ...     remote_as='65535', rbridge_id='225', afis=['evpn'])
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
@@ -136,12 +136,17 @@ class BGP(BaseBGP):
 
     def _evpn_afi_activate(self, **kwargs):
         """Configure EVPN AFI for a peer."""
+        peer_ip = kwargs.pop('peer_ip')
         evpn_activate = getattr(self._rbridge,
                                 'rbridge_id_router_router_bgp_address_family_'
                                 'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
                                 'activate')
-        return evpn_activate(evpn_neighbor_ipv4_address=kwargs.pop('peer_ip'),
-                             rbridge_id=kwargs.pop('rbridge_id'))
+        args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
+                    rbridge_id=kwargs.pop('rbridge_id'))
+        evpn_activate = evpn_activate(**args)
+        args['callback'] = pynos.utilities.return_xml
+        evpn_nh_unchanged = self._next_hop_unchanged(**args)
+        return pynos.utilities.merge_xml(evpn_activate, evpn_nh_unchanged)
 
     def bfd(self, **kwargs):
         """Configure BFD for BGP globally.
@@ -293,3 +298,97 @@ class BGP(BaseBGP):
         multiplier = pynos.utilities.return_xml(str(multiplier))
         config = pynos.utilities.merge_xml(tx, rx)
         return pynos.utilities.merge_xml(config, multiplier)
+
+    def retain_rt_all(self, **kwargs):
+        """Retain route targets.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225')
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225', get=True)
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225',
+            ...     delete=True)
+        """
+        callback = kwargs.pop('callback', self._callback)
+        retain_rt_all = getattr(self._rbridge,
+                                'rbridge_id_router_router_bgp_address_family_'
+                                'l2vpn_evpn_retain_route_target_all')
+        config = retain_rt_all(rbridge_id=kwargs.pop('rbridge_id', '1'))
+        if kwargs.pop('delete', False):
+            config.find('.//*retain').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
+
+    def _next_hop_unchanged(self, **kwargs):
+        """Configure next hop unchanged for an EVPN neighbor.
+
+        You probably don't want this method.  You probably want to configure
+        an EVPN neighbor using `BGP.neighbor`.  That will configure next-hop
+        unchanged automatically.
+
+        Args:
+            ip_addr (str): IP Address of BGP neighbor.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     ip_addr='10.10.10.10')
+            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', get=True)
+            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', delete=True)
+        """
+        callback = kwargs.pop('callback', self._callback)
+        args = dict(rbridge_id=kwargs.pop('rbridge_id', '1'),
+                    evpn_neighbor_ipv4_address=kwargs.pop('ip_addr'))
+        next_hop_unchanged = getattr(self._rbridge,
+                                     'rbridge_id_router_router_bgp_address_'
+                                     'family_l2vpn_evpn_neighbor_evpn_'
+                                     'neighbor_ipv4_next_hop_unchanged')
+        config = next_hop_unchanged(**args)
+        if kwargs.pop('delete', False):
+            config.find('.//*next-hop-unchanged').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
