@@ -14,18 +14,135 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+from ipaddress import ip_interface
 from pynos.versions.ver_6.ver_6_0_1.bgp import BGP as BaseBGP
+from pynos.versions.ver_7.ver_7_0_0.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
 
 
 class BGP(BaseBGP):
-    """
-    The BGP class holds all relevent methods and attributes for the BGP
-    capabilities of the NOS device.
+    """Holds all relevent methods and attributes for the BGP on NOS devices.
 
     Attributes:
         None
     """
+    def __init__(self, callback):
+        super(BGP, self).__init__(callback)
+        self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
+
+    def neighbor(self, **kwargs):
+        """Experimental neighbor method.
+
+        Args:
+            ip_addr (str): IP Address of BGP neighbor.
+            remote_as (str): Remote ASN of BGP neighbor.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            afis (list): A list of AFIs to configure.  Do not include IPv4 or
+                IPv6 unicast as these are inferred from the `ip_addr`
+                parameter.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `remote_as` or `ip_addr` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225')
+            ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        ip_addr = ip_interface(unicode(kwargs.pop('ip_addr')))
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        delete = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
+                             remote_as=kwargs.pop('remote_as', None),
+                             rbridge_id=rbridge_id)
+
+        self._validate_neighbor_params(delete=delete,
+                                       ip_version=ip_addr.version)
+        neighbor, ip_addr_path = self._unicast_xml(ip_addr.version)
+        config = neighbor(**neighbor_args)
+        if ip_addr.version == 6:
+            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
+            config = self._build_ipv6(ip_addr, config, rbridge_id)
+        config = self._build_afis(config, kwargs.pop('afis', []), rbridge_id,
+                                  str(ip_addr.ip))
+        if delete:
+            neighbor = config.find(ip_addr_path)
+            neighbor.set('operation', 'delete')
+            neighbor.remove(neighbor.find('remote-as'))
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
+
+    def _validate_neighbor_params(self, **kwargs):
+        if kwargs.pop('delete') and kwargs.pop('ip_version') == 6:
+            raise NotImplementedError('IPv6 Neighbor removal on NOS 7.0.0 is '
+                                      'currently not supported.')
+
+    def _unicast_xml(self, ip_version):
+        if ip_version == 4:
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_neighbor_ips_'
+                               'neighbor_addr_remote_as')
+            ip_addr_path = './/*neighbor-addr'
+        else:
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_'
+                               'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
+            ip_addr_path = './/*neighbor-ipv6-addr'
+        return neighbor, ip_addr_path
+
+    def _build_ipv6(self, ip_addr, config, rbridge_id):
+        activate_args = dict(rbridge_id=rbridge_id,
+                             af_ipv6_neighbor_address=str(ip_addr.ip))
+        activate_neighbor = getattr(self._rbridge,
+                                    'rbridge_id_router_router_bgp_address_'
+                                    'family_ipv6_ipv6_unicast_default_vrf_'
+                                    'neighbor_af_ipv6_neighbor_address_'
+                                    'holder_af_ipv6_neighbor_address_activate')
+        activate_neighbor = activate_neighbor(**activate_args)
+        return pynos.utilities.merge_xml(config, activate_neighbor)
+
+    def _build_afis(self, config, afis, rbridge_id, peer_ip):
+        for afi in afis:
+            afi_config = getattr(self, '_{0}_afi_activate'.format(afi))
+            afi_config = afi_config(rbridge_id=rbridge_id, peer_ip=peer_ip)
+            config = pynos.utilities.merge_xml(config, afi_config)
+        return config
+
+    def _evpn_afi_activate(self, **kwargs):
+        """Configure EVPN AFI for a peer."""
+        evpn_activate = getattr(self._rbridge,
+                                'rbridge_id_router_router_bgp_address_family_'
+                                'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
+                                'activate')
+        return evpn_activate(evpn_neighbor_ipv4_address=kwargs.pop('peer_ip'),
+                             rbridge_id=kwargs.pop('rbridge_id'))
+
     def bfd(self, **kwargs):
         """Configure BFD for BGP globally.
 
