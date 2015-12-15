@@ -293,3 +293,44 @@ class BGP(BaseBGP):
         multiplier = pynos.utilities.return_xml(str(multiplier))
         config = pynos.utilities.merge_xml(tx, rx)
         return pynos.utilities.merge_xml(config, multiplier)
+
+    def retain_rt_all(self, **kwargs):
+        """Retain route targets.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225')
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225', get=True)
+            ...     output = dev.bgp.retain_rt_all(rbridge_id='225',
+            ...     delete=True)
+        """
+        callback = kwargs.pop('callback', self._callback)
+        retain_rt_all = getattr(self._rbridge,
+                                'rbridge_id_router_router_bgp_address_family_'
+                                'l2vpn_evpn_retain_route_target_all')
+        config = retain_rt_all(rbridge_id=kwargs.pop('rbridge_id', '1'))
+        if kwargs.pop('delete', False):
+            config.find('.//*retain').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
