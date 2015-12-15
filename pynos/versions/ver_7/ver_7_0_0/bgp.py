@@ -61,7 +61,7 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.local_asn(local_as='65535',
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     remote_as='65535', rbridge_id='225')
+            ...     remote_as='65535', rbridge_id='225', afis=['evpn'])
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
