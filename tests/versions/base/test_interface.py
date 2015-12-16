@@ -45,6 +45,7 @@ class TestInterface(unittest.TestCase):
         self.ipv6_config_namespace = 'urn:brocade.com:mgmt:brocade-ipv6-config'
         self.port_channel_namespace = 'urn:brocade.com:mgmt:brocade-lag'
         self.netconf_namespace = 'urn:ietf:params:xml:ns:netconf:base:1.0'
+        self.count = 0
 
     def raise_exception(self, *args, **kwargs):
         raise Exception()
@@ -1454,6 +1455,7 @@ class TestInterface(unittest.TestCase):
         netconf_ns = "urn:ietf:params:xml:ns:netconf:base:1.0"
         interface_ns = "urn:brocade.com:mgmt:brocade-interface-ext"
         msg_id = "urn:uuid:7d752e80-8e8e-11e5-a4f1-005056c00008"
+        vlans_xml = []
         vlan_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" ' \
                    'message-id="{2}">' \
                    '<ns1:configured-vlans-count>3</ns1:configured-vlans-' \
@@ -1467,25 +1469,66 @@ class TestInterface(unittest.TestCase):
                    '<ns1:vlan-type>static</ns1:vlan-type>' \
                    '<ns1:vlan-name>default</ns1:vlan-name>' \
                    '<ns1:vlan-state>suspend</ns1:vlan-state>' \
+                   '<ns1:interface>' \
+                   '<ns1:interface-type>tengigabitethernet</ns1:interface-' \
+                   'type>' \
+                   '<ns1:interface-name>226/0/11</ns1:interface-name>' \
+                   '<ns1:tag>tagged</ns1:tag>' \
+                   '</ns1:interface>' \
                    '</ns1:vlan>' \
                    '<ns1:last-vlan-id>1</ns1:last-vlan-id>' \
+                   '<ns1:has-more>true</ns1:has-more>' \
+                   '</ns0:rpc-reply>'.format(netconf_ns, interface_ns, msg_id)
+        vlans_xml.append(ET.fromstring(vlan_xml))
+        vlan_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" ' \
+                   'message-id="{2}">' \
+                   '<ns1:configured-vlans-count>3</ns1:configured-vlans-' \
+                   'count>' \
+                   '<ns1:provisioned-vlans-count>2</ns1:provisioned-vlans-' \
+                   'count>' \
+                   '<ns1:unprovisioned-vlans-count>1</ns1:unprovisioned-' \
+                   'vlans-count>' \
+                   '<ns1:vlan>' \
+                   '<ns1:vlan-id>2</ns1:vlan-id>' \
+                   '<ns1:vlan-type>static</ns1:vlan-type>' \
+                   '<ns1:vlan-name>default</ns1:vlan-name>' \
+                   '<ns1:vlan-state>suspend</ns1:vlan-state>' \
+                   '</ns1:vlan>' \
+                   '<ns1:last-vlan-id>2</ns1:last-vlan-id>' \
                    '<ns1:has-more>false</ns1:has-more>' \
                    '</ns0:rpc-reply>'.format(netconf_ns, interface_ns, msg_id)
-        return ET.fromstring(vlan_xml)
+        vlans_xml.append(ET.fromstring(vlan_xml))
+        return vlans_xml
 
     def test_vlans(self):
-        expected = {'vlan-id': '1',
-                    'vlan-type': 'static',
-                    'vlan-state': 'suspend',
-                    'interface': [],
-                    'interface-name': 'default'}
-        self.interface._callback = self.vlan_xml
+        expected_1 = {'vlan-id': '1',
+                      'vlan-type': 'static',
+                      'vlan-state': 'suspend',
+                      'interface': [{'interface-name': '226/0/11',
+                                     'interface-type': 'tengigabitethernet',
+                                     'tag': 'tagged'}],
+                      'interface-name': 'default'}
+        expected_2 = {'vlan-id': '2',
+                      'vlan-type': 'static',
+                      'vlan-state': 'suspend',
+                      'interface': [],
+                      'interface-name': 'default'}
+        self.interface._callback = self.vlan_side_effect
         results = self.interface.vlans
         self.assertIsInstance(results, list)
-        self.assertDictEqual(expected, results[0])
+        self.assertDictEqual(expected_1, results[0])
+        self.assertDictEqual(expected_2, results[1])
+        self.count = 0
+
+    def vlan_side_effect(self, call, handler='edit_config', target='running',
+                         source='startup'):
+        vlan_xml = self.vlan_xml()[self.count]
+        self.count += 1
+        return vlan_xml
 
     def port_channel_xml(self, *args):
         message_id = 'urn:uuid:2ff00dc0-7d5d-11e5-991a-e06995e6af0a'
+        result_xml = []
         neighbor_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" '\
                        'message-id="{2}"><ns1:lacp>'\
                        '<ns1:aggregator-id>1</ns1:aggregator-id>'\
@@ -1509,34 +1552,93 @@ class TestInterface(unittest.TestCase):
                        '<ns1:interface-name>51/0/1</ns1:interface-name>' \
                        '<ns1:actor-port>219446018048</ns1:actor-port>' \
                        '<ns1:sync>0</ns1:sync></ns1:aggr-member></ns1:lacp>'\
+                       '<ns1:has-more>true</ns1:has-more>' \
                        '</ns0:rpc-reply>'.format(self.netconf_namespace,
                                                  self.port_channel_namespace,
                                                  message_id)
-        return ET.fromstring(neighbor_xml)
+        result_xml.append(ET.fromstring(neighbor_xml))
+        neighbor_xml = '<ns0:rpc-reply xmlns:ns0="{0}" xmlns:ns1="{1}" '\
+                       'message-id="{2}"><ns1:lacp>'\
+                       '<ns1:aggregator-id>2</ns1:aggregator-id>'\
+                       '<ns1:aggregator-type>standard</ns1:aggregator-type>'\
+                       '<ns1:isvlag>false</ns1:isvlag>'\
+                       '<ns1:aggregator-mode>dynamic</ns1:aggregator-mode>'\
+                       '<ns1:system-priority>32769</ns1:system-priority>'\
+                       '<ns1:actor-system-id>01:e0:52:00:00:01' \
+                       '</ns1:actor-system-id><ns1:partner-oper-priority>0' \
+                       '</ns1:partner-oper-priority><ns1:partner-system-id>' \
+                       '00:00:00:00:00:00</ns1:partner-system-id>' \
+                       '<ns1:admin-key>1</ns1:admin-key><ns1:oper-key>1' \
+                       '</ns1:oper-key><ns1:partner-oper-key>0' \
+                       '</ns1:partner-oper-key><ns1:rx-link-count>0' \
+                       '</ns1:rx-link-count><ns1:tx-link-count>0' \
+                       '</ns1:tx-link-count><ns1:individual-agg>0' \
+                       '</ns1:individual-agg><ns1:ready-agg>0' \
+                       '</ns1:ready-agg><ns1:aggr-member><ns1:rbridge-id>'\
+                       '51</ns1:rbridge-id><ns1:interface-type>' \
+                       'tengigabitethernet</ns1:interface-type>' \
+                       '<ns1:interface-name>51/0/2</ns1:interface-name>' \
+                       '<ns1:actor-port>219446018049</ns1:actor-port>' \
+                       '<ns1:sync>0</ns1:sync></ns1:aggr-member></ns1:lacp>'\
+                       '<ns1:has-more>false</ns1:has-more>' \
+                       '</ns0:rpc-reply>'.format(self.netconf_namespace,
+                                                 self.port_channel_namespace,
+                                                 message_id)
+        result_xml.append(ET.fromstring(neighbor_xml))
+        return result_xml
 
     def test_port_channels(self):
-        expected = {'interface-name': 'port-channel-1',
-                    'oper-key': '1',
-                    'aggregator_id': '1',
-                    'aggregator_type': 'standard',
-                    'interfaces': [{'interface-type': 'tengigabitethernet',
-                                    'rbridge-id': '51',
-                                    'interface-name': '51/0/1',
-                                    'sync': '0',
-                                    'actor_port': '219446018048'}],
-                    'aggregator_mode': 'dynamic',
-                    'partner-oper-priority': '0',
-                    'ready-agg': '0',
-                    'rx-link-count': '0',
-                    'tx-link-count': '0',
-                    'individual-agg': '0',
-                    'partner-oper-key': '0',
-                    'partner-system-id': '00:00:00:00:00:00',
-                    'actor_system_id': '01:e0:52:00:00:01',
-                    'is_vlag': 'false',
-                    'admin-key': '1',
-                    'system_priority': '32768'}
-        self.interface._callback = self.port_channel_xml
+        expected_1 = {'interface-name': 'port-channel-1',
+                      'oper-key': '1',
+                      'aggregator_id': '1',
+                      'aggregator_type': 'standard',
+                      'interfaces': [{'interface-type': 'tengigabitethernet',
+                                      'rbridge-id': '51',
+                                      'interface-name': '51/0/1',
+                                      'sync': '0',
+                                      'actor_port': '219446018048'}],
+                      'aggregator_mode': 'dynamic',
+                      'partner-oper-priority': '0',
+                      'ready-agg': '0',
+                      'rx-link-count': '0',
+                      'tx-link-count': '0',
+                      'individual-agg': '0',
+                      'partner-oper-key': '0',
+                      'partner-system-id': '00:00:00:00:00:00',
+                      'actor_system_id': '01:e0:52:00:00:01',
+                      'is_vlag': 'false',
+                      'admin-key': '1',
+                      'system_priority': '32768'}
+        expected_2 = {'interface-name': 'port-channel-2',
+                      'oper-key': '1',
+                      'aggregator_id': '2',
+                      'aggregator_type': 'standard',
+                      'interfaces': [{'interface-type': 'tengigabitethernet',
+                                      'rbridge-id': '51',
+                                      'interface-name': '51/0/2',
+                                      'sync': '0',
+                                      'actor_port': '219446018049'}],
+                      'aggregator_mode': 'dynamic',
+                      'partner-oper-priority': '0',
+                      'ready-agg': '0',
+                      'rx-link-count': '0',
+                      'tx-link-count': '0',
+                      'individual-agg': '0',
+                      'partner-oper-key': '0',
+                      'partner-system-id': '00:00:00:00:00:00',
+                      'actor_system_id': '01:e0:52:00:00:01',
+                      'is_vlag': 'false',
+                      'admin-key': '1',
+                      'system_priority': '32769'}
+        self.interface._callback = self.port_channel_side_effect
         results = self.interface.port_channels
         self.assertIsInstance(results, list)
-        self.assertDictEqual(expected, results[0])
+        self.assertDictEqual(expected_1, results[0])
+        self.assertDictEqual(expected_2, results[1])
+        self.count = 0
+
+    def port_channel_side_effect(self, call, handler='edit_config',
+                                 target='running', source='startup'):
+        port_channel_xml = self.port_channel_xml()[self.count]
+        self.count += 1
+        return port_channel_xml

@@ -2671,7 +2671,7 @@ class Interface(object):
                 for intf in interface.findall('%sinterface' % urn):
                     interface_type = intf.find('%sinterface-type' % urn).text
                     interface_name = intf.find('%sinterface-name'
-                                                               % urn).text
+                                               % urn).text
                     tag = intf.find('%stag' % urn).text
                     port_results = {'interface-type': interface_type,
                                     'interface-name': interface_name,
@@ -2697,7 +2697,7 @@ class Interface(object):
         )
         if last_vlan_id != '':
             last_received_int_el = ET.SubElement(request_interface,
-                                              "last-rcvd-vlan-id")
+                                                 "last-rcvd-vlan-id")
             last_received_int_el.text = last_vlan_id
         return request_interface
 
@@ -2729,59 +2729,85 @@ class Interface(object):
             ...         assert is_port_channel_exist
         """
         pc_urn = "{urn:brocade.com:mgmt:brocade-lag}"
-        port_channel_ns = 'urn:brocade.com:mgmt:brocade-lag'
         result = []
+        has_more = ''
+        last_aggregator_id = ''
+
+        while (has_more == '') or (has_more == 'true'):
+            request_port_channel = self.get_port_chann_detail_request(
+                last_aggregator_id)
+            port_channel_result = self._callback(request_port_channel, 'get')
+            has_more = port_channel_result.find('%shas-more' % pc_urn).text
+            if has_more == 'true':
+                for x in port_channel_result.findall('%slacp' % pc_urn):
+                    last_aggregator_id = x.find('%saggregator-id'
+                                                % pc_urn).text
+
+            for item in port_channel_result.findall('%slacp' % pc_urn):
+                interface_list = []
+                aggregator_id = item.find('%saggregator-id' % pc_urn).text
+                aggregator_type = item.find('%saggregator-type' % pc_urn).text
+                is_vlag = item.find('%sisvlag' % pc_urn).text
+                aggregator_mode = item.find('%saggregator-mode' % pc_urn).text
+                system_priority = item.find('%ssystem-priority' % pc_urn).text
+                actor_system_id = item.find('%sactor-system-id' % pc_urn).text
+                partner_oper_priority = item.find('%spartner-oper-priority'
+                                                  % pc_urn).text
+                partner_system_id = item.find('%spartner-system-id'
+                                              % pc_urn).text
+                admin_key = item.find('%sadmin-key' % pc_urn).text
+                oper_key = item.find('%soper-key' % pc_urn).text
+                partner_oper_key = item.find('%spartner-oper-key'
+                                             % pc_urn).text
+                rx_link_count = item.find('%srx-link-count' % pc_urn).text
+                tx_link_count = item.find('%stx-link-count' % pc_urn).text
+                individual_agg = item.find('%sindividual-agg' % pc_urn).text
+                ready_agg = item.find('%sready-agg' % pc_urn).text
+                for item1 in item.findall('%saggr-member' % pc_urn):
+                    rbridge_id = item1.find('%srbridge-id' % pc_urn).text
+                    int_type = item1.find('%sinterface-type' % pc_urn).text
+                    int_name = item1.find('%sinterface-name' % pc_urn).text
+                    actor_port = item1.find('%sactor-port' % pc_urn).text
+                    sync = item1.find('%ssync' % pc_urn).text
+                    port_channel_interface = {'rbridge-id': rbridge_id,
+                                              'interface-type': int_type,
+                                              'interface-name': int_name,
+                                              'actor_port': actor_port,
+                                              'sync': sync}
+                    interface_list.append(port_channel_interface)
+                results = {'interface-name': 'port-channel-' + aggregator_id,
+                           'interfaces': interface_list,
+                           'aggregator_id': aggregator_id,
+                           'aggregator_type': aggregator_type,
+                           'is_vlag': is_vlag,
+                           'aggregator_mode': aggregator_mode,
+                           'system_priority': system_priority,
+                           'actor_system_id': actor_system_id,
+                           'partner-oper-priority': partner_oper_priority,
+                           'partner-system-id': partner_system_id,
+                           'admin-key': admin_key,
+                           'oper-key': oper_key,
+                           'partner-oper-key': partner_oper_key,
+                           'rx-link-count': rx_link_count,
+                           'tx-link-count': tx_link_count,
+                           'individual-agg': individual_agg,
+                           'ready-agg': ready_agg}
+
+                result.append(results)
+        return result
+
+    @staticmethod
+    def get_port_chann_detail_request(last_aggregator_id):
+        """ Creates a new Netconf request based on the last received
+        aggregator id when the hasMore flag is true
+        """
+
+        port_channel_ns = 'urn:brocade.com:mgmt:brocade-lag'
         request_port_channel = ET.Element('get-port-channel-detail',
                                           xmlns=port_channel_ns)
-        port_channel_result = self._callback(request_port_channel, 'get')
 
-        for item in port_channel_result.findall('%slacp' % pc_urn):
-            interface_list = []
-            aggregator_id = item.find('%saggregator-id' % pc_urn).text
-            aggregator_type = item.find('%saggregator-type' % pc_urn).text
-            is_vlag = item.find('%sisvlag' % pc_urn).text
-            aggregator_mode = item.find('%saggregator-mode' % pc_urn).text
-            system_priority = item.find('%ssystem-priority' % pc_urn).text
-            actor_system_id = item.find('%sactor-system-id' % pc_urn).text
-            partner_oper_priority = item.find(
-                                    '%spartner-oper-priority' % pc_urn).text
-            partner_system_id = item.find('%spartner-system-id' % pc_urn).text
-            admin_key = item.find('%sadmin-key' % pc_urn).text
-            oper_key = item.find('%soper-key' % pc_urn).text
-            partner_oper_key = item.find('%spartner-oper-key' % pc_urn).text
-            rx_link_count = item.find('%srx-link-count' % pc_urn).text
-            tx_link_count = item.find('%stx-link-count' % pc_urn).text
-            individual_agg = item.find('%sindividual-agg' % pc_urn).text
-            ready_agg = item.find('%sready-agg' % pc_urn).text
-            for item1 in item.findall('%saggr-member' %pc_urn):
-                rbridge_id = item1.find('%srbridge-id' % pc_urn).text
-                int_type = item1.find('%sinterface-type' % pc_urn).text
-                int_name = item1.find('%sinterface-name' % pc_urn).text
-                actor_port = item1.find('%sactor-port' % pc_urn).text
-                sync = item1.find('%ssync' % pc_urn).text
-                port_channel_interface = {'rbridge-id': rbridge_id,
-                                          'interface-type': int_type,
-                                          'interface-name': int_name,
-                                          'actor_port': actor_port,
-                                          'sync': sync}
-                interface_list.append(port_channel_interface)
-            results = {'interface-name': 'port-channel-' + aggregator_id,
-                       'interfaces': interface_list,
-                       'aggregator_id': aggregator_id,
-                       'aggregator_type': aggregator_type,
-                       'is_vlag': is_vlag,
-                       'aggregator_mode': aggregator_mode,
-                       'system_priority': system_priority,
-                       'actor_system_id': actor_system_id,
-                       'partner-oper-priority': partner_oper_priority,
-                       'partner-system-id': partner_system_id,
-                       'admin-key': admin_key,
-                       'oper-key': oper_key,
-                       'partner-oper-key': partner_oper_key,
-                       'rx-link-count': rx_link_count,
-                       'tx-link-count': tx_link_count,
-                       'individual-agg': individual_agg,
-                       'ready-agg': ready_agg}
-
-            result.append(results)
-        return result
+        if last_aggregator_id != '':
+            last_received_port_chann_el = ET.SubElement(request_port_channel,
+                                                        "last-aggregator-id")
+            last_received_port_chann_el.text = last_aggregator_id
+        return request_port_channel
