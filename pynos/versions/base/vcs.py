@@ -52,12 +52,19 @@ class VCS(object):
                 rbridge_id = item.find('%snode-rbridge-id' % urn).text
                 switch_mac = item.find('%snode-switch-mac' % urn).text
                 switch_wwn = item.find('%snode-switch-wwn' % urn).text
+                switch_ip = ''
+                for switch_ip_addr in item.findall(
+                        '%snode-public-ip-addresses' % urn):
+                    switch_ip = switch_ip_addr.find(
+                        '%snode-public-ip-address' % urn).text
+                    break
                 item_results = {'node-serial-num': serial_number,
                                 'node-status': node_status,
                                 'node-vcs-id': vcs_id,
                                 'node-rbridge-id': rbridge_id,
                                 'node-switch-mac': switch_mac,
-                                'node-switch-wwn': switch_wwn}
+                                'node-switch-wwn': switch_wwn,
+                                'node-switch-ip': switch_ip}
 
                 result.append(item_results)
 

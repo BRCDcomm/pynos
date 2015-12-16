@@ -86,7 +86,8 @@ class TestVCS(unittest.TestCase):
 
     def test_neighbors(self):
         expected = {'node-rbridge-id': '225', 'node-serial-num': 'CGS0301J001',
-                    'node-status': 'Co-ordinator', 'node-vcs-id': '211',
+                    'node-status': 'Co-ordinator', 'node-switch-ip':
+                        '10.24.39.211', 'node-vcs-id': '211',
                     'node-switch-mac': '00:05:33:65:09:d8',
                     'node-switch-wwn': '10:00:00:05:33:65:09:D8'}
         self.vcs._callback = self.vcs_nodes_xml
