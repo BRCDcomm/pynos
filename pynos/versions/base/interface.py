@@ -1740,6 +1740,10 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.services.vrrp(ip_version='6',
+            ...         enabled=True, rbridge_id='225')
+            ...         output = dev.services.vrrp(enabled=True,
+            ...         rbridge_id='225')
             ...         output = dev.interface.set_ip('tengigabitethernet',
             ...         '225/0/18', '10.1.1.2/24')
             ...         output = dev.interface.ip_address(name='225/0/18',
@@ -1767,6 +1771,10 @@ class Interface(object):
             ...         rbridge_id='225')
             ...         dev.interface.vrrp_vip(int_type='ve', name='89',
             ...         vrid='1', vip='2002:4818:f000:1ab:cafe:beef:1000:1/64',
+            ...         rbridge_id='225')
+            ...         output = dev.services.vrrp(ip_version='6',
+            ...         enabled=False, rbridge_id='225')
+            ...         output = dev.services.vrrp(enabled=False,
             ...         rbridge_id='225')
         """
         int_type = kwargs.pop('int_type').lower()
@@ -1869,6 +1877,10 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.services.vrrp(ip_version='6',
+            ...         enabled=True, rbridge_id='225')
+            ...         output = dev.services.vrrp(enabled=True,
+            ...         rbridge_id='225')
             ...         output = dev.interface.set_ip('tengigabitethernet',
             ...         '225/0/18', '10.1.1.2/24')
             ...         output = dev.interface.ip_address(name='225/0/18',
@@ -1910,6 +1922,10 @@ class Interface(object):
             ...         dev.interface.vrrp_priority(int_type='ve', name='88',
             ...         rbridge_id='225', vrid='1', ip_version='6',
             ...         priority='77')
+            ...         output = dev.services.vrrp(ip_version='6',
+            ...         enabled=False, rbridge_id='225')
+            ...         output = dev.services.vrrp(enabled=False,
+            ...         rbridge_id='225')
         """
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
