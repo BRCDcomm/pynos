@@ -85,6 +85,11 @@ class LLDP(BaseLLDP):
                         'Fo ',
                         'FortyGigabitEthernet '
                     )
+                if 'Te ' in local_int_name:
+                    local_int_name = local_int_name.replace(
+                        'Te ',
+                        'TenGigabitEthernet '
+                    )
 
                 item_results = {'local-int-name': local_int_name,
                                 'local-int-mac': local_int_mac,
