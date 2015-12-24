@@ -89,7 +89,9 @@ class TestVCS(unittest.TestCase):
                     'node-status': 'Co-ordinator', 'node-switch-ip':
                         '10.24.39.211', 'node-vcs-id': '211',
                     'node-switch-mac': '00:05:33:65:09:d8',
-                    'node-switch-wwn': '10:00:00:05:33:65:09:D8'}
+                    'node-switch-wwn': '10:00:00:05:33:65:09:D8',
+                    'node-switchname': 'sw0',
+                    'node-is-principal': 'true'}
         self.vcs._callback = self.vcs_nodes_xml
         results = self.vcs.vcs_nodes
         self.assertIsInstance(results, list)

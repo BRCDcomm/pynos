@@ -52,6 +52,8 @@ class VCS(object):
                 rbridge_id = item.find('%snode-rbridge-id' % urn).text
                 switch_mac = item.find('%snode-switch-mac' % urn).text
                 switch_wwn = item.find('%snode-switch-wwn' % urn).text
+                switch_name = item.find('%snode-switchname' % urn).text
+                node_is_principal = item.find('%snode-is-principal' % urn).text
                 switch_ip = ''
                 for switch_ip_addr in item.findall(
                         '%snode-public-ip-addresses' % urn):
@@ -64,7 +66,9 @@ class VCS(object):
                                 'node-rbridge-id': rbridge_id,
                                 'node-switch-mac': switch_mac,
                                 'node-switch-wwn': switch_wwn,
-                                'node-switch-ip': switch_ip}
+                                'node-switch-ip': switch_ip,
+                                'node-switchname': switch_name,
+                                'node-is-principal': node_is_principal}
 
                 result.append(item_results)
 
