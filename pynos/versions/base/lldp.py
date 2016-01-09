@@ -34,8 +34,8 @@ class LLDP(object):
         """
         self._callback = callback
 
-    @property
-    def neighbors(self):
+    def neighbors(self, **kwargs):
+
         """list[dict]: A list of dictionary items describing the operational
         state of LLDP.
         """
@@ -44,9 +44,12 @@ class LLDP(object):
         result = []
         has_more = ''
         last_ifindex = ''
-
+        rbridge_id = None
+        if 'rbridge_id' in kwargs:
+            rbridge_id = kwargs.pop('rbridge_id')
         while (has_more == '') or (has_more == 'true'):
-            request_lldp = self.get_lldp_neighbors_request(last_ifindex)
+            request_lldp = self.get_lldp_neighbors_request(last_ifindex,
+                                                           rbridge_id)
             lldp_result = self._callback(request_lldp, 'get')
             has_more = lldp_result.find('%shas-more' % urn).text
 
@@ -86,8 +89,9 @@ class LLDP(object):
         return result
 
     @staticmethod
-    def get_lldp_neighbors_request(last_ifindex,):
-        """ Creates a new Netconf request based on the last received
+    def get_lldp_neighbors_request(last_ifindex, rbridge_id):
+        """ Creates a new Netconf request based on the last received or if
+        rbridge_id is specifed
         ifindex when the hasMore flag is true
         """
 
@@ -95,7 +99,10 @@ class LLDP(object):
             'get-lldp-neighbor-detail',
             xmlns="urn:brocade.com:mgmt:brocade-lldp-ext"
         )
-        if last_ifindex != '':
+        if rbridge_id is not None:
+            rbridge_el = ET.SubElement(request_lldp, "rbridge-id")
+            rbridge_el.text = rbridge_id
+        elif last_ifindex != '':
             last_received_int = ET.SubElement(request_lldp,
                                               "last-rcvd-ifindex")
             last_received_int.text = last_ifindex

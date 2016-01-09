@@ -65,7 +65,7 @@ class TestLLDP(unittest.TestCase):
                     'remote-chassis-id': '8c7c.ff02.f100',
                     'remote-system-name': ''}
         self.lldp._callback = self.lldp_neighbors_xml
-        results = self.lldp.neighbors
+        results = self.lldp.neighbors()
         self.assertIsInstance(results, list)
         self.assertDictEqual(expected, results[0])
 
@@ -73,5 +73,5 @@ class TestLLDP(unittest.TestCase):
         expected = ('<get-lldp-neighbor-detail xmlns="{0}"><last-rcvd-ifindex>'
                     '1</last-rcvd-ifindex></get-lldp-neighbor-detail>'
                     .format(self.namespace))
-        results = ET.tostring(self.lldp.get_lldp_neighbors_request('1'))
+        results = ET.tostring(self.lldp.get_lldp_neighbors_request('1', None))
         self.assertEqual(expected, results)
