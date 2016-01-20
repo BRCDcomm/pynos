@@ -53,6 +53,41 @@ class System(object):
                                                   namespace).text)
         return system_uptime
 
+    def chassis_name(self, **kwargs):
+        """Get device's chassis name/Model.
+
+        Args:
+            rbridge_id (str): The rbridge ID of the device
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `rbridge_id` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.system.chassis_name(rbridge_id='225')
+            ...     assert output == 'VDX6740'
+        """
+        namespace = "urn:brocade.com:mgmt:brocade-rbridge"
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        chassis_name = ' '
+        callback = kwargs.pop('callback', self._callback)
+        rid_args = dict(rbridge_id=rbridge_id, chassis_name=chassis_name)
+        rid = getattr(self._rbridge,
+                      'rbridge_id_switch_attributes_chassis_name')
+        config = rid(**rid_args)
+        output = callback(config, handler='get_config')
+        chassis_name = output.data.find('.//{%s}chassis-name' % namespace).text
+        return chassis_name
+
     def router_id(self, **kwargs):
         """Configures device's Router ID.
 
