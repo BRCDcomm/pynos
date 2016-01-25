@@ -189,7 +189,8 @@ def valid_physical_name(name):
     Raises:
         None
     """
-    return re.search(r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}$', name) is not None
+    pattern = r'^[0-9]{1,3}/[0-9]{1,3}/[0-9]{1,3}(:[1-4])?$'
+    return re.search(pattern, name) is not None
 
 
 def merge_xml(first_doc, second_doc):
