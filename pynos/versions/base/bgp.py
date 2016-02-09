@@ -104,7 +104,8 @@ class BGP(object):
         callback = kwargs.pop('callback', self._callback)
         bgp_args = dict(vrf_name=vrf, rbridge_id=rbridge_id)
         config = self._rbridge.rbridge_id_router_bgp_vrf_name(**bgp_args)
-        callback(config)
+        if not is_get_config:
+            callback(config)
         local_as_args = dict(vrf_name=vrf,
                              local_as=local_as,
                              rbridge_id=rbridge_id)

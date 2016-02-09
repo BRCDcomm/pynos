@@ -88,7 +88,8 @@ class BGP(BaseBGP):
                              'attributes_local_as')(**local_as_args)
         bgp = enable_bgp.find('.//*.//*.//*')
         bgp.remove(bgp.find('.//*'))
-        callback(enable_bgp)
+        if not is_get_config:
+            callback(enable_bgp)
         local_as = getattr(self._rbridge,
                            'rbridge_id_router_router_bgp_router_bgp_attri'
                            'butes_local_as')
