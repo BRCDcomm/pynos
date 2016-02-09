@@ -5,7 +5,7 @@ Setup for pynos
 from setuptools import setup, find_packages
 
 setup(name='pynos',
-      version='1.3.0',
+      version='1.3.1',
       description='Brocade NOS Library.',
       author='Brocade Communications Systems, Inc.',
       author_email='mstone@brocade.com',
