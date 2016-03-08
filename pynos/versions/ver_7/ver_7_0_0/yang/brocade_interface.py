@@ -11542,6 +11542,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_tengigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -18339,6 +18353,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_fortygigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -25014,6 +25042,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_hundredgigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -26957,6 +26999,21 @@ class brocade_interface(object):
         name_key.text = kwargs.pop('name')
         minimum_links = ET.SubElement(port_channel, "minimum-links")
         minimum_links.text = kwargs.pop('minimum_links')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_snmp_trap_link_snmp_trap_status(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        snmp = ET.SubElement(port_channel, "snmp")
+        trap = ET.SubElement(snmp, "trap")
+        link_snmp_trap_status = ET.SubElement(trap, "link-snmp-trap-status")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -30837,340 +30894,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid = ET.SubElement(vrrpv3e, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        virtual_ip = ET.SubElement(vrrpv3e, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        enable = ET.SubElement(vrrpv3e, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        hold_time = ET.SubElement(vrrpv3e, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        preempt_mode = ET.SubElement(vrrpv3e, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        priority = ET.SubElement(vrrpv3e, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        description = ET.SubElement(vrrpv3e, "description")
-        description.text = kwargs.pop('description')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_advertise_backup(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        advertise_backup = ET.SubElement(vrrpv3e, "advertise-backup")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_nd_advertisement_timer(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        nd_advertisement_timer = ET.SubElement(vrrpv3e, "nd-advertisement-timer")
-        nd_advertisement_timer.text = kwargs.pop('nd_advertisement_timer')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_advertisement_interval_scale(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        advertisement_interval_scale = ET.SubElement(vrrpv3e, "advertisement-interval-scale")
-        advertisement_interval_scale.text = kwargs.pop('advertisement_interval_scale')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_backup_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        backup_advertisement_interval = ET.SubElement(vrrpv3e, "backup-advertisement-interval")
-        backup_advertisement_interval.text = kwargs.pop('backup_advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_vrrpe_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        vrrpe_advertisement_interval = ET.SubElement(vrrpv3e, "vrrpe-advertisement-interval")
-        vrrpe_advertisement_interval.text = kwargs.pop('vrrpe_advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_short_path_forwarding_basic(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        short_path_forwarding = ET.SubElement(vrrpv3e, "short-path-forwarding")
-        basic = ET.SubElement(short_path_forwarding, "basic")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_short_path_forwarding_revert_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        short_path_forwarding = ET.SubElement(vrrpv3e, "short-path-forwarding")
-        revert_priority = ET.SubElement(short_path_forwarding, "revert-priority")
-        revert_priority.text = kwargs.pop('revert_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_port_channel_track_track_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -31306,6 +31029,20 @@ class brocade_interface(object):
         fcoeport = ET.SubElement(port_channel, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
         fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
         fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(port_channel, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -31656,7 +31393,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_esi_auto_auto_value_assignee(self, **kwargs):
+    def interface_port_channel_esi_auto(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -31666,8 +31403,7 @@ class brocade_interface(object):
         name_key.text = kwargs.pop('name')
         esi = ET.SubElement(port_channel, "esi", xmlns="urn:brocade.com:mgmt:brocade-bgp")
         auto = ET.SubElement(esi, "auto")
-        auto_value_assignee = ET.SubElement(auto, "auto-value-assignee")
-        auto_value_assignee.text = kwargs.pop('auto_value_assignee')
+        auto.text = kwargs.pop('auto')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -47730,6 +47466,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_tengigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        tengigabitethernet = ET.SubElement(interface, "tengigabitethernet")
+        name_key = ET.SubElement(tengigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(tengigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_tengigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -54527,6 +54277,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_fortygigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        fortygigabitethernet = ET.SubElement(interface, "fortygigabitethernet")
+        name_key = ET.SubElement(fortygigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(fortygigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_fortygigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -61202,6 +60966,20 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def interface_hundredgigabitethernet_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        hundredgigabitethernet = ET.SubElement(interface, "hundredgigabitethernet")
+        name_key = ET.SubElement(hundredgigabitethernet, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(hundredgigabitethernet, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def interface_hundredgigabitethernet_mac_access_group_mac_access_list(self, **kwargs):
         """Auto Generated Code
         """
@@ -63145,6 +62923,21 @@ class brocade_interface(object):
         name_key.text = kwargs.pop('name')
         minimum_links = ET.SubElement(port_channel, "minimum-links")
         minimum_links.text = kwargs.pop('minimum_links')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_snmp_trap_link_snmp_trap_status(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        snmp = ET.SubElement(port_channel, "snmp")
+        trap = ET.SubElement(snmp, "trap")
+        link_snmp_trap_status = ET.SubElement(trap, "link-snmp-trap-status")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -67025,340 +66818,6 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_vrid(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid = ET.SubElement(vrrpv3e, "vrid")
-        vrid.text = kwargs.pop('vrid')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_virtual_ip_virtual_ipaddr(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        virtual_ip = ET.SubElement(vrrpv3e, "virtual-ip")
-        virtual_ipaddr = ET.SubElement(virtual_ip, "virtual-ipaddr")
-        virtual_ipaddr.text = kwargs.pop('virtual_ipaddr')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_interface_type(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        interface_type = ET.SubElement(interface, "interface-type")
-        interface_type.text = kwargs.pop('interface_type')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_interface_name(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name = ET.SubElement(interface, "interface-name")
-        interface_name.text = kwargs.pop('interface_name')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_track_interface_track_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        track = ET.SubElement(vrrpv3e, "track")
-        interface = ET.SubElement(track, "interface")
-        interface_type_key = ET.SubElement(interface, "interface-type")
-        interface_type_key.text = kwargs.pop('interface_type')
-        interface_name_key = ET.SubElement(interface, "interface-name")
-        interface_name_key.text = kwargs.pop('interface_name')
-        track_priority = ET.SubElement(interface, "track-priority")
-        track_priority.text = kwargs.pop('track_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_enable(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        enable = ET.SubElement(vrrpv3e, "enable")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_hold_time(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        hold_time = ET.SubElement(vrrpv3e, "hold-time")
-        hold_time.text = kwargs.pop('hold_time')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_preempt_mode(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        preempt_mode = ET.SubElement(vrrpv3e, "preempt-mode")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        priority = ET.SubElement(vrrpv3e, "priority")
-        priority.text = kwargs.pop('priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_description(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        description = ET.SubElement(vrrpv3e, "description")
-        description.text = kwargs.pop('description')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_advertise_backup(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        advertise_backup = ET.SubElement(vrrpv3e, "advertise-backup")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_nd_advertisement_timer(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        nd_advertisement_timer = ET.SubElement(vrrpv3e, "nd-advertisement-timer")
-        nd_advertisement_timer.text = kwargs.pop('nd_advertisement_timer')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_advertisement_interval_scale(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        advertisement_interval_scale = ET.SubElement(vrrpv3e, "advertisement-interval-scale")
-        advertisement_interval_scale.text = kwargs.pop('advertisement_interval_scale')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_backup_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        backup_advertisement_interval = ET.SubElement(vrrpv3e, "backup-advertisement-interval")
-        backup_advertisement_interval.text = kwargs.pop('backup_advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_vrrpe_advertisement_interval(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        vrrpe_advertisement_interval = ET.SubElement(vrrpv3e, "vrrpe-advertisement-interval")
-        vrrpe_advertisement_interval.text = kwargs.pop('vrrpe_advertisement_interval')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_short_path_forwarding_basic(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        short_path_forwarding = ET.SubElement(vrrpv3e, "short-path-forwarding")
-        basic = ET.SubElement(short_path_forwarding, "basic")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def interface_port_channel_ipv6_hide_vrrpv3_holder_vrrpv3e_short_path_forwarding_revert_priority(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
-        port_channel = ET.SubElement(interface, "port-channel")
-        name_key = ET.SubElement(port_channel, "name")
-        name_key.text = kwargs.pop('name')
-        ipv6 = ET.SubElement(port_channel, "ipv6")
-        hide_vrrpv3_holder = ET.SubElement(ipv6, "hide-vrrpv3-holder", xmlns="urn:brocade.com:mgmt:brocade-vrrpv3")
-        vrrpv3e = ET.SubElement(hide_vrrpv3_holder, "vrrpv3e")
-        vrid_key = ET.SubElement(vrrpv3e, "vrid")
-        vrid_key.text = kwargs.pop('vrid')
-        short_path_forwarding = ET.SubElement(vrrpv3e, "short-path-forwarding")
-        revert_priority = ET.SubElement(short_path_forwarding, "revert-priority")
-        revert_priority.text = kwargs.pop('revert_priority')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def interface_port_channel_track_track_enable(self, **kwargs):
         """Auto Generated Code
         """
@@ -67494,6 +66953,20 @@ class brocade_interface(object):
         fcoeport = ET.SubElement(port_channel, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
         fcoeport_map = ET.SubElement(fcoeport, "fcoeport-map")
         fcoeport_map.text = kwargs.pop('fcoeport_map')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def interface_port_channel_fcoeport_ns_ip_registration(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        interface = ET.SubElement(config, "interface", xmlns="urn:brocade.com:mgmt:brocade-interface")
+        port_channel = ET.SubElement(interface, "port-channel")
+        name_key = ET.SubElement(port_channel, "name")
+        name_key.text = kwargs.pop('name')
+        fcoeport = ET.SubElement(port_channel, "fcoeport", xmlns="urn:brocade.com:mgmt:brocade-fcoe")
+        ns_ip_registration = ET.SubElement(fcoeport, "ns-ip-registration")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -67844,7 +67317,7 @@ class brocade_interface(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def interface_port_channel_esi_auto_auto_value_assignee(self, **kwargs):
+    def interface_port_channel_esi_auto(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
@@ -67854,8 +67327,7 @@ class brocade_interface(object):
         name_key.text = kwargs.pop('name')
         esi = ET.SubElement(port_channel, "esi", xmlns="urn:brocade.com:mgmt:brocade-bgp")
         auto = ET.SubElement(esi, "auto")
-        auto_value_assignee = ET.SubElement(auto, "auto-value-assignee")
-        auto_value_assignee.text = kwargs.pop('auto_value_assignee')
+        auto.text = kwargs.pop('auto')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

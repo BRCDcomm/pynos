@@ -67,18 +67,6 @@ class ietf_netconf(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def get_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        get_config = ET.Element("get_config")
-        config = get_config
-        input = ET.SubElement(get_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def edit_config_input_target_config_target_candidate_candidate(self, **kwargs):
         """Auto Generated Code
         """
@@ -159,18 +147,6 @@ class ietf_netconf(object):
         url = ET.SubElement(edit_content, "url")
         url = ET.SubElement(url, "url")
         url.text = kwargs.pop('url')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def edit_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        edit_config = ET.Element("edit_config")
-        config = edit_config
-        input = ET.SubElement(edit_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -310,18 +286,6 @@ class ietf_netconf(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def copy_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        copy_config = ET.Element("copy_config")
-        config = copy_config
-        input = ET.SubElement(copy_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def delete_config_input_target_config_target_startup_startup(self, **kwargs):
         """Auto Generated Code
         """
@@ -452,18 +416,6 @@ class ietf_netconf(object):
         input = ET.SubElement(get, "input")
         with_defaults = ET.SubElement(input, "with-defaults", xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults")
         with_defaults.text = kwargs.pop('with_defaults')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def get_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        get = ET.Element("get")
-        config = get
-        input = ET.SubElement(get, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -664,18 +616,6 @@ class ietf_netconf(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def get_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        get_config = ET.Element("get_config")
-        config = get_config
-        input = ET.SubElement(get_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def edit_config_input_target_config_target_candidate_candidate(self, **kwargs):
         """Auto Generated Code
         """
@@ -756,18 +696,6 @@ class ietf_netconf(object):
         url = ET.SubElement(edit_content, "url")
         url = ET.SubElement(url, "url")
         url.text = kwargs.pop('url')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def edit_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        edit_config = ET.Element("edit_config")
-        config = edit_config
-        input = ET.SubElement(edit_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -907,18 +835,6 @@ class ietf_netconf(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def copy_config_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        copy_config = ET.Element("copy_config")
-        config = copy_config
-        input = ET.SubElement(copy_config, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
     def delete_config_input_target_config_target_startup_startup(self, **kwargs):
         """Auto Generated Code
         """
@@ -1049,18 +965,6 @@ class ietf_netconf(object):
         input = ET.SubElement(get, "input")
         with_defaults = ET.SubElement(input, "with-defaults", xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults")
         with_defaults.text = kwargs.pop('with_defaults')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def get_input_with_inactive(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        get = ET.Element("get")
-        config = get
-        input = ET.SubElement(get, "input")
-        with_inactive = ET.SubElement(input, "with-inactive", xmlns="http://tail-f.com/ns/netconf/inactive/1.0")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

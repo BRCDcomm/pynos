@@ -320,6 +320,44 @@ class brocade_snmp(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def snmp_server_v3host_source_interface_source_interface_type_loopback_loopback(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        v3host = ET.SubElement(snmp_server, "v3host")
+        hostip_key = ET.SubElement(v3host, "hostip")
+        hostip_key.text = kwargs.pop('hostip')
+        username_key = ET.SubElement(v3host, "username")
+        username_key.text = kwargs.pop('username')
+        source_interface = ET.SubElement(v3host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        loopback = ET.SubElement(source_interface_type, "loopback")
+        loopback = ET.SubElement(loopback, "loopback")
+        loopback.text = kwargs.pop('loopback')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_v3host_source_interface_source_interface_type_ve_ve(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        v3host = ET.SubElement(snmp_server, "v3host")
+        hostip_key = ET.SubElement(v3host, "hostip")
+        hostip_key.text = kwargs.pop('hostip')
+        username_key = ET.SubElement(v3host, "username")
+        username_key.text = kwargs.pop('username')
+        source_interface = ET.SubElement(v3host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        ve = ET.SubElement(source_interface_type, "ve")
+        ve = ET.SubElement(ve, "ve")
+        ve.text = kwargs.pop('ve')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def snmp_server_host_ip(self, **kwargs):
         """Auto Generated Code
         """
@@ -408,6 +446,44 @@ class brocade_snmp(object):
         community_key.text = kwargs.pop('community')
         use_vrf = ET.SubElement(host, "use-vrf")
         use_vrf.text = kwargs.pop('use_vrf')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_host_source_interface_source_interface_type_loopback_loopback(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        host = ET.SubElement(snmp_server, "host")
+        ip_key = ET.SubElement(host, "ip")
+        ip_key.text = kwargs.pop('ip')
+        community_key = ET.SubElement(host, "community")
+        community_key.text = kwargs.pop('community')
+        source_interface = ET.SubElement(host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        loopback = ET.SubElement(source_interface_type, "loopback")
+        loopback = ET.SubElement(loopback, "loopback")
+        loopback.text = kwargs.pop('loopback')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_host_source_interface_source_interface_type_ve_ve(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        host = ET.SubElement(snmp_server, "host")
+        ip_key = ET.SubElement(host, "ip")
+        ip_key.text = kwargs.pop('ip')
+        community_key = ET.SubElement(host, "community")
+        community_key.text = kwargs.pop('community')
+        source_interface = ET.SubElement(host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        ve = ET.SubElement(source_interface_type, "ve")
+        ve = ET.SubElement(ve, "ve")
+        ve.text = kwargs.pop('ve')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -948,6 +1024,44 @@ class brocade_snmp(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
+    def snmp_server_v3host_source_interface_source_interface_type_loopback_loopback(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        v3host = ET.SubElement(snmp_server, "v3host")
+        hostip_key = ET.SubElement(v3host, "hostip")
+        hostip_key.text = kwargs.pop('hostip')
+        username_key = ET.SubElement(v3host, "username")
+        username_key.text = kwargs.pop('username')
+        source_interface = ET.SubElement(v3host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        loopback = ET.SubElement(source_interface_type, "loopback")
+        loopback = ET.SubElement(loopback, "loopback")
+        loopback.text = kwargs.pop('loopback')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_v3host_source_interface_source_interface_type_ve_ve(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        v3host = ET.SubElement(snmp_server, "v3host")
+        hostip_key = ET.SubElement(v3host, "hostip")
+        hostip_key.text = kwargs.pop('hostip')
+        username_key = ET.SubElement(v3host, "username")
+        username_key.text = kwargs.pop('username')
+        source_interface = ET.SubElement(v3host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        ve = ET.SubElement(source_interface_type, "ve")
+        ve = ET.SubElement(ve, "ve")
+        ve.text = kwargs.pop('ve')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
     def snmp_server_host_ip(self, **kwargs):
         """Auto Generated Code
         """
@@ -1036,6 +1150,44 @@ class brocade_snmp(object):
         community_key.text = kwargs.pop('community')
         use_vrf = ET.SubElement(host, "use-vrf")
         use_vrf.text = kwargs.pop('use_vrf')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_host_source_interface_source_interface_type_loopback_loopback(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        host = ET.SubElement(snmp_server, "host")
+        ip_key = ET.SubElement(host, "ip")
+        ip_key.text = kwargs.pop('ip')
+        community_key = ET.SubElement(host, "community")
+        community_key.text = kwargs.pop('community')
+        source_interface = ET.SubElement(host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        loopback = ET.SubElement(source_interface_type, "loopback")
+        loopback = ET.SubElement(loopback, "loopback")
+        loopback.text = kwargs.pop('loopback')
+
+        callback = kwargs.pop('callback', self._callback)
+        return callback(config)
+        
+    def snmp_server_host_source_interface_source_interface_type_ve_ve(self, **kwargs):
+        """Auto Generated Code
+        """
+        config = ET.Element("config")
+        snmp_server = ET.SubElement(config, "snmp-server", xmlns="urn:brocade.com:mgmt:brocade-snmp")
+        host = ET.SubElement(snmp_server, "host")
+        ip_key = ET.SubElement(host, "ip")
+        ip_key.text = kwargs.pop('ip')
+        community_key = ET.SubElement(host, "community")
+        community_key.text = kwargs.pop('community')
+        source_interface = ET.SubElement(host, "source-interface")
+        source_interface_type = ET.SubElement(source_interface, "source-interface-type")
+        ve = ET.SubElement(source_interface_type, "ve")
+        ve = ET.SubElement(ve, "ve")
+        ve.text = kwargs.pop('ve')
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)

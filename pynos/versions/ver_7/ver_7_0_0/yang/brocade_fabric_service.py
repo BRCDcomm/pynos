@@ -794,31 +794,15 @@ class brocade_fabric_service(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def show_fabric_trunk_info_input_rbridge_id_or_all_rbridge_id_rbridge_id(self, **kwargs):
+    def show_fabric_trunk_info_input_rbridge_id(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
         config = show_fabric_trunk_info
         input = ET.SubElement(show_fabric_trunk_info, "input")
-        rbridge_id_or_all = ET.SubElement(input, "rbridge-id-or-all")
-        rbridge_id = ET.SubElement(rbridge_id_or_all, "rbridge-id")
-        rbridge_id = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id = ET.SubElement(input, "rbridge-id")
         rbridge_id.text = kwargs.pop('rbridge_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def show_fabric_trunk_info_input_rbridge_id_or_all_all_all(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
-        config = show_fabric_trunk_info
-        input = ET.SubElement(show_fabric_trunk_info, "input")
-        rbridge_id_or_all = ET.SubElement(input, "rbridge-id-or-all")
-        all = ET.SubElement(rbridge_id_or_all, "all")
-        all = ET.SubElement(all, "all")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
@@ -1797,31 +1781,15 @@ class brocade_fabric_service(object):
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
         
-    def show_fabric_trunk_info_input_rbridge_id_or_all_rbridge_id_rbridge_id(self, **kwargs):
+    def show_fabric_trunk_info_input_rbridge_id(self, **kwargs):
         """Auto Generated Code
         """
         config = ET.Element("config")
         show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
         config = show_fabric_trunk_info
         input = ET.SubElement(show_fabric_trunk_info, "input")
-        rbridge_id_or_all = ET.SubElement(input, "rbridge-id-or-all")
-        rbridge_id = ET.SubElement(rbridge_id_or_all, "rbridge-id")
-        rbridge_id = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id = ET.SubElement(input, "rbridge-id")
         rbridge_id.text = kwargs.pop('rbridge_id')
-
-        callback = kwargs.pop('callback', self._callback)
-        return callback(config)
-        
-    def show_fabric_trunk_info_input_rbridge_id_or_all_all_all(self, **kwargs):
-        """Auto Generated Code
-        """
-        config = ET.Element("config")
-        show_fabric_trunk_info = ET.Element("show_fabric_trunk_info")
-        config = show_fabric_trunk_info
-        input = ET.SubElement(show_fabric_trunk_info, "input")
-        rbridge_id_or_all = ET.SubElement(input, "rbridge-id-or-all")
-        all = ET.SubElement(rbridge_id_or_all, "all")
-        all = ET.SubElement(all, "all")
 
         callback = kwargs.pop('callback', self._callback)
         return callback(config)
