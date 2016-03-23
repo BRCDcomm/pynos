@@ -2676,19 +2676,22 @@ class Interface(object):
         while (has_more == '') or (has_more == 'true'):
             request_interface = self.get_vlan_brief_request(last_vlan_id)
             interface_result = self._callback(request_interface, 'get')
-            has_more = interface_result.find('%shas-more' % urn).text
-            last_vlan_id = interface_result.find('%slast-vlan-id' % urn).text
+            has_more = self.get_node_value(interface_result, '%shas-more', urn)
+            last_vlan_id = self.get_node_value(
+                interface_result, '%slast-vlan-id', urn)
             for interface in interface_result.findall('%svlan' % urn):
-                vlan_id = interface.find('%svlan-id' % urn).text
-                vlan_type = interface.find('%svlan-type' % urn).text
-                vlan_name = interface.find('%svlan-name' % urn).text
-                vlan_state = interface.find('%svlan-state' % urn).text
+                vlan_id = self.get_node_value(interface, '%svlan-id', urn)
+                vlan_type = self.get_node_value(interface, '%svlan-type', urn)
+                vlan_name = self.get_node_value(interface, '%svlan-name', urn)
+                vlan_state = self.get_node_value(
+                    interface, '%svlan-state', urn)
                 ports = []
                 for intf in interface.findall('%sinterface' % urn):
-                    interface_type = intf.find('%sinterface-type' % urn).text
-                    interface_name = intf.find('%sinterface-name'
-                                               % urn).text
-                    tag = intf.find('%stag' % urn).text
+                    interface_type = self.get_node_value(
+                        intf, '%sinterface-type', urn)
+                    interface_name = self.get_node_value(
+                        intf, '%sinterface-name', urn)
+                    tag = self.get_node_value(intf, '%stag', urn)
                     port_results = {'interface-type': interface_type,
                                     'interface-name': interface_name,
                                     'tag': tag}
@@ -2748,43 +2751,57 @@ class Interface(object):
         result = []
         has_more = ''
         last_aggregator_id = ''
-
         while (has_more == '') or (has_more == 'true'):
             request_port_channel = self.get_port_chann_detail_request(
                 last_aggregator_id)
             port_channel_result = self._callback(request_port_channel, 'get')
-            has_more = port_channel_result.find('%shas-more' % pc_urn).text
+            has_more = self.get_node_value(port_channel_result,
+                                           '%shas-more', pc_urn)
             if has_more == 'true':
                 for x in port_channel_result.findall('%slacp' % pc_urn):
-                    last_aggregator_id = x.find('%saggregator-id'
-                                                % pc_urn).text
+                    last_aggregator_id = self.get_node_value(
+                            x, '%saggregator-id', pc_urn)
 
             for item in port_channel_result.findall('%slacp' % pc_urn):
                 interface_list = []
-                aggregator_id = item.find('%saggregator-id' % pc_urn).text
-                aggregator_type = item.find('%saggregator-type' % pc_urn).text
-                is_vlag = item.find('%sisvlag' % pc_urn).text
-                aggregator_mode = item.find('%saggregator-mode' % pc_urn).text
-                system_priority = item.find('%ssystem-priority' % pc_urn).text
-                actor_system_id = item.find('%sactor-system-id' % pc_urn).text
-                partner_oper_priority = item.find('%spartner-oper-priority'
-                                                  % pc_urn).text
-                partner_system_id = item.find('%spartner-system-id'
-                                              % pc_urn).text
-                admin_key = item.find('%sadmin-key' % pc_urn).text
-                oper_key = item.find('%soper-key' % pc_urn).text
-                partner_oper_key = item.find('%spartner-oper-key'
-                                             % pc_urn).text
-                rx_link_count = item.find('%srx-link-count' % pc_urn).text
-                tx_link_count = item.find('%stx-link-count' % pc_urn).text
-                individual_agg = item.find('%sindividual-agg' % pc_urn).text
-                ready_agg = item.find('%sready-agg' % pc_urn).text
+                aggregator_id = self.get_node_value(
+                    item, '%saggregator-id', pc_urn)
+                aggregator_type = self.get_node_value(
+                    item, '%saggregator-type', pc_urn)
+                is_vlag = self.get_node_value(item, '%sisvlag', pc_urn)
+                aggregator_mode = self.get_node_value(
+                    item, '%saggregator-mode', pc_urn)
+                system_priority = self.get_node_value(
+                    item, '%ssystem-priority', pc_urn)
+                actor_system_id = self.get_node_value(
+                    item, '%sactor-system-id', pc_urn)
+                partner_oper_priority = self.get_node_value(
+                    item, '%spartner-oper-priority', pc_urn)
+                partner_system_id = self.get_node_value(
+                    item, '%spartner-system-id', pc_urn)
+                admin_key = self.get_node_value(
+                    item, '%sadmin-key', pc_urn)
+                oper_key = self.get_node_value(item, '%soper-key', pc_urn)
+                partner_oper_key = self.get_node_value(
+                    item, '%spartner-oper-key', pc_urn)
+                rx_link_count = self.get_node_value(
+                    item, '%srx-link-count', pc_urn)
+                tx_link_count = self.get_node_value(
+                    item, '%stx-link-count', pc_urn)
+                individual_agg = self.get_node_value(
+                    item, '%sindividual-agg', pc_urn)
+                ready_agg = self.get_node_value(
+                    item, '%sready-agg', pc_urn)
                 for item1 in item.findall('%saggr-member' % pc_urn):
-                    rbridge_id = item1.find('%srbridge-id' % pc_urn).text
-                    int_type = item1.find('%sinterface-type' % pc_urn).text
-                    int_name = item1.find('%sinterface-name' % pc_urn).text
-                    actor_port = item1.find('%sactor-port' % pc_urn).text
-                    sync = item1.find('%ssync' % pc_urn).text
+                    rbridge_id = self.get_node_value(
+                        item1, '%srbridge-id', pc_urn)
+                    int_type = self.get_node_value(
+                        item1, '%sinterface-type', pc_urn)
+                    int_name = self.get_node_value(
+                        item1, '%sinterface-name', pc_urn)
+                    actor_port = self.get_node_value(
+                        item1, '%sactor-port', pc_urn)
+                    sync = self.get_node_value(item1, '%ssync',  pc_urn)
                     port_channel_interface = {'rbridge-id': rbridge_id,
                                               'interface-type': int_type,
                                               'interface-name': int_name,
@@ -2811,6 +2828,14 @@ class Interface(object):
 
                 result.append(results)
         return result
+
+    @staticmethod
+    def get_node_value(node, node_name, urn):
+        value = node.find(node_name % urn)
+        if value is not None:
+            return value.text
+        else:
+            return ''
 
     @staticmethod
     def get_port_chann_detail_request(last_aggregator_id):
