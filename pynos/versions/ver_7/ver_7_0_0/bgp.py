@@ -65,8 +65,8 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     delete=True, rbridge_id='225')
+            ...     #output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     #delete=True, rbridge_id='225')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -75,20 +75,22 @@ class BGP(BaseBGP):
         rbridge_id = kwargs.pop('rbridge_id', '1')
         delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
+        allowas_in = kwargs.pop('allowas_in', '5')
         neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
                              remote_as=kwargs.pop('remote_as', None),
                              rbridge_id=rbridge_id)
+        if ip_addr.version == 6:
+            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
 
         self._validate_neighbor_params(delete=delete,
                                        ip_version=ip_addr.version)
         neighbor, ip_addr_path = self._unicast_xml(ip_addr.version)
         config = neighbor(**neighbor_args)
         if ip_addr.version == 6:
-            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
             config = self._build_ipv6(ip_addr, config, rbridge_id)
         config = self._build_afis(config, kwargs.pop('afis', []), rbridge_id,
-                                  str(ip_addr.ip))
-        if delete:
+                                  str(ip_addr.ip), allowas_in)
+        if delete and config.find(ip_addr_path) is not None:
             neighbor = config.find(ip_addr_path)
             neighbor.set('operation', 'delete')
             neighbor.remove(neighbor.find('remote-as'))
@@ -127,10 +129,11 @@ class BGP(BaseBGP):
         activate_neighbor = activate_neighbor(**activate_args)
         return pynos.utilities.merge_xml(config, activate_neighbor)
 
-    def _build_afis(self, config, afis, rbridge_id, peer_ip):
+    def _build_afis(self, config, afis, rbridge_id, peer_ip, allowas_in):
         for afi in afis:
             afi_config = getattr(self, '_{0}_afi_activate'.format(afi))
-            afi_config = afi_config(rbridge_id=rbridge_id, peer_ip=peer_ip)
+            afi_config = afi_config(rbridge_id=rbridge_id, peer_ip=peer_ip,
+                                    allowas_in=allowas_in)
             config = pynos.utilities.merge_xml(config, afi_config)
         return config
 
@@ -142,11 +145,17 @@ class BGP(BaseBGP):
                                 'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
                                 'activate')
         args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
-                    rbridge_id=kwargs.pop('rbridge_id'))
+                    rbridge_id=kwargs.pop('rbridge_id'),
+                    allowas_in=kwargs.pop('allowas_in'),
+                    afi='evpn')
         evpn_activate = evpn_activate(**args)
         args['callback'] = pynos.utilities.return_xml
         evpn_nh_unchanged = self._next_hop_unchanged(**args)
-        return pynos.utilities.merge_xml(evpn_activate, evpn_nh_unchanged)
+        evpn_config = pynos.utilities.merge_xml(evpn_activate,
+                                                evpn_nh_unchanged)
+        evpn_allowas_in = self.evpn_allowas_in(**args)
+        evpn_config = pynos.utilities.merge_xml(evpn_config, evpn_allowas_in)
+        return evpn_config
 
     def bfd(self, **kwargs):
         """Configure BFD for BGP globally.
@@ -391,4 +400,192 @@ class BGP(BaseBGP):
             config.find('.//*next-hop-unchanged').set('operation', 'delete')
         if kwargs.pop('get', False):
             return callback(config, handler='get_config')
+        return callback(config)
+
+    def graceful_restart(self, **kwargs):
+        """Set BGP graceful restart
+
+        Args:
+            vrf (str): The VRF for this BGP process.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            afi (str): Address family to configure. (ipv4, ipv6, evpn)
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            ``AttributeError``: When `afi` is not one of ['ipv4', 'ipv6',
+            evpn]
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225')
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225',
+            ...     get=True)
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225',
+            ...     delete=True)
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225',
+            ...     afi='ipv6')
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225',
+            ...     afi='ipv6', get=True)
+            ...     output = dev.bgp.graceful_restart(rbridge_id='225',
+            ...     afi='ipv6', delete=True)
+        """
+        # TODO: Add support for timers
+        afi = kwargs.pop('afi', 'ipv4')
+        callback = kwargs.pop('callback', self._callback)
+        if afi not in ['ipv4', 'ipv6', 'evpn']:
+            raise AttributeError('Invalid AFI.')
+        args = dict(vrf_name=kwargs.pop('vrf', 'default'),
+                    rbridge_id=kwargs.pop('rbridge_id', '1'))
+        graceful = None
+        if 'evpn' not in afi:
+            graceful = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_address_family_'
+                               '{0}_{0}_unicast_default_vrf_af_common_cmds_'
+                               'holder_graceful_restart_graceful_restart_'
+                               'status'.format(afi))
+        else:
+            graceful = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_address_'
+                               'family_l2vpn_evpn_graceful_restart_'
+                               'graceful_restart_status'.format(afi))
+        config = graceful(**args)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        if kwargs.pop('delete', False):
+            tag = 'graceful-restart'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+        return callback(config)
+
+    def evpn_allowas_in(self, **kwargs):
+        """Configure allowas_in for an EVPN neighbor.
+
+        You probably don't want this method.  You probably want to configure
+        an EVPN neighbor using `BGP.neighbor`.  That will configure next-hop
+        unchanged automatically.
+
+        Args:
+            ip_addr (str): IP Address of BGP neighbor.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.evpn_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10')
+            ...     output = dev.bgp.evpn_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', get=True)
+            ...     output = dev.bgp.evpn_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', delete=True)
+        """
+        callback = kwargs.pop('callback', self._callback)
+        args = dict(rbridge_id=kwargs.pop('rbridge_id', '1'),
+                    evpn_neighbor_ipv4_address=kwargs.pop('ip_addr'),
+                    allowas_in=kwargs.pop('allowas_in', '5'))
+        allowas_in = getattr(self._rbridge,
+                             'rbridge_id_router_router_bgp_address_'
+                             'family_l2vpn_evpn_neighbor_evpn_'
+                             'neighbor_ipv4_allowas_in')
+        config = allowas_in(**args)
+        if kwargs.pop('delete', False):
+            config.find('.//*allowas-in').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
+
+    def af_ip_allowas_in(self, **kwargs):
+        """Set BGP allowas-in for IPV4 and IPV6
+
+        Args:
+            vrf (str): The VRF for this BGP process.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            allowas_in (str): Values for allowas_in (default: 5).
+            afi (str): Address family to configure. (ipv4, ipv6)
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.l
+
+        Raises:
+            ``AttributeError``: When `afi` is not one of ['ipv4', 'ipv6']
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10')
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', get=True)
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='10.10.10.10', delete=True)
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1', afi='ipv6')
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1', get=True,
+            ...     afi='ipv6')
+            ...     output = dev.bgp.af_ip_allowas_in(rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1', delete=True,
+            ...     afi='ipv6')
+        """
+        afi = kwargs.pop('afi', 'ipv4')
+        callback = kwargs.pop('callback', self._callback)
+        if afi not in ['ipv4', 'ipv6']:
+            raise AttributeError('Invalid AFI.')
+        args = dict(vrf_name=kwargs.pop('vrf', 'default'),
+                    rbridge_id=kwargs.pop('rbridge_id', '1'),
+                    allowas_in=kwargs.pop('allowas_in', '5'))
+        args['af_{0}_neighbor_address'.format(afi)] = kwargs.pop('ip_addr')
+        allowas_in = getattr(self._rbridge,
+                             'rbridge_id_router_router_bgp_address_family_'
+                             '{0}_{0}_unicast_default_vrf_neighbor_'
+                             'af_{0}_neighbor_address_holder_'
+                             'af_{0}_neighbor_address_allowas_in'.format(afi))
+
+        config = allowas_in(**args)
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        if kwargs.pop('delete', False):
+            config.find('.//*allowas-in').set('operation', 'delete')
         return callback(config)

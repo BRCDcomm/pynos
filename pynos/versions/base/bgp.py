@@ -196,6 +196,7 @@ class BGP(object):
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
+            NotImplementedError
             KeyError
         """
         ip_addr = kwargs.pop('ip_addr')
@@ -299,6 +300,7 @@ class BGP(object):
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
+            NotImplementedError
             KeyError
         """
         callback = kwargs.pop('callback', self._callback)
@@ -686,6 +688,7 @@ class BGP(object):
             ...         output = dev.bgp.multihop(rbridge_id='225', count='5')
             ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
+            NotImplementedError
             KeyError
         """
         callback = kwargs.pop('callback', self._callback)
@@ -827,6 +830,7 @@ class BGP(object):
             ...         int_type='loopback')
             ...         # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
+            NotImplementedError
             KeyError
         """
         callback = kwargs.pop('callback', self._callback)

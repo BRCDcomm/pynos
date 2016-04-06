@@ -168,8 +168,8 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     delete=True, rbridge_id='225')
+            ...     #output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     #delete=True, rbridge_id='225')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -262,6 +262,7 @@ class BGP(BaseBGP):
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
+            NotImplementedError
             KeyError
         """
         callback = kwargs.pop('callback', self._callback)
