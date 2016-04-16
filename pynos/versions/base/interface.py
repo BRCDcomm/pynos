@@ -2118,7 +2118,8 @@ class Interface(object):
             port_int (str): port-channel number (1, 2, 3, etc).
             channel_type (str): tiype of port-channel (standard, brocade)
             mode (str): mode of channel group (active, on, passive).
-            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            delete (bool): Removes channel group configuration from this
+                interface if `delete` is ``True``.
             callback (function): a function executed upon completion of the
                 method.  the only parameter passed to `callback` will be the
                 ``elementtree`` `config`.
