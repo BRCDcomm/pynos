@@ -160,7 +160,8 @@ class TestBGP(unittest.TestCase):
                   '<ns2:ipv6><ns2:ipv6-unicast><ns2:af-common-cmds-holder>'\
                   '<ns2:client-to-client-reflection />'\
                   '</ns2:af-common-cmds-holder></ns2:ipv6-unicast></ns2:ipv6>'\
-                  '</ns2:address-family></ns2:router-bgp-cmds-holder></ns2:bgp>'\
+                  '</ns2:address-family></ns2:router-bgp-cmds-holder>'\
+                  '</ns2:bgp>'\
                   '</ns1:router></ns1:rbridge-id></ns0:data>'\
                   '</ns0:rpc-reply>'.format(ietf_namespace, rbridge_namespace,
                                             bgp_namespace, rbridge_id)

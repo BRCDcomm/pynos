@@ -61,7 +61,8 @@ class TestVCS(unittest.TestCase):
             '<ns1:node-vcs-id>{5}</ns1:node-vcs-id><ns1:node-rbridge-id>{6}'\
             '</ns1:node-rbridge-id><ns1:node-is-principal>true'\
             '</ns1:node-is-principal><ns1:co-ordinator>true'\
-            '</ns1:co-ordinator><ns1:node-switch-mac>{7}</ns1:node-switch-mac>'\
+            '</ns1:co-ordinator><ns1:node-switch-mac>{7}'\
+            '</ns1:node-switch-mac>'\
             '<ns1:node-switch-wwn>{3}</ns1:node-switch-wwn>'\
             '<ns1:switch-fcf-mac>{8}</ns1:switch-fcf-mac>'\
             '<ns1:node-internal-ip-address>{9}</ns1:node-internal-ip-address>'\
