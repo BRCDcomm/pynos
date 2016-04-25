@@ -80,6 +80,18 @@ VERSIONS = {
                           .FabricService,
         'vcs': pynos.versions.ver_6.ver_6_0_1.vcs.VCS,
         'firmware': pynos.versions.ver_7.ver_7_0_0.firmware.Firmware,
+    },
+    '7.0.1': {
+        'bgp': pynos.versions.ver_7.ver_7_0_0.bgp.BGP,
+        'snmp': pynos.versions.ver_6.ver_6_0_1.snmp.SNMP,
+        'interface': pynos.versions.ver_7.ver_7_0_0.interface.Interface,
+        'lldp': pynos.versions.ver_7.ver_7_0_0.lldp.LLDP,
+        'system': pynos.versions.ver_6.ver_6_0_1.system.System,
+        'services': pynos.versions.ver_6.ver_6_0_1.services.Services,
+        'fabric_service': pynos.versions.ver_6.ver_6_0_1.fabric_service
+                          .FabricService,
+        'vcs': pynos.versions.ver_6.ver_6_0_1.vcs.VCS,
+        'firmware': pynos.versions.ver_7.ver_7_0_0.firmware.Firmware,
     }
 }
 

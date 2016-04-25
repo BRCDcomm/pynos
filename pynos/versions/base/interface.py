@@ -1740,6 +1740,8 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.anycast_mac(rbridge_id='225',
+            ...         mac='aabb.ccdd.eeff', delete=True)
             ...         output = dev.services.vrrp(ip_version='6',
             ...         enabled=True, rbridge_id='225')
             ...         output = dev.services.vrrp(enabled=True,
@@ -1877,6 +1879,8 @@ class Interface(object):
             >>> for switch in switches:
             ...     conn = (switch, '22')
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.anycast_mac(rbridge_id='225',
+            ...         mac='aabb.ccdd.eeff', delete=True)
             ...         output = dev.services.vrrp(ip_version='6',
             ...         enabled=True, rbridge_id='225')
             ...         output = dev.services.vrrp(enabled=True,

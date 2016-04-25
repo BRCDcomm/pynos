@@ -216,6 +216,10 @@ class Interface(InterfaceBase):
             ...    conn = (switch, '22')
             ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...        output = dev.services.vrrp(ip_version='6',
+            ...        enabled=True, rbridge_id='230')
+            ...        output = dev.services.vrrp(enabled=True,
+            ...        rbridge_id='230')
+            ...        output = dev.services.vrrp(ip_version='6',
             ...        enabled=False, rbridge_id='230')
             ...        output = dev.services.vrrp(enabled=False,
             ...        rbridge_id='230')
