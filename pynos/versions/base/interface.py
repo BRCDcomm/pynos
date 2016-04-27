@@ -2764,8 +2764,9 @@ class Interface(object):
                                            '%shas-more', pc_urn)
             if has_more == 'true':
                 for x in port_channel_result.findall('%slacp' % pc_urn):
-                    last_aggregator_id = self.get_node_value(
-                            x, '%saggregator-id', pc_urn)
+                    last_aggregator_id = self.get_node_value(x,
+                                                             '%saggregator-id',
+                                                             pc_urn)
 
             for item in port_channel_result.findall('%slacp' % pc_urn):
                 interface_list = []
