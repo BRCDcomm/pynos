@@ -57,7 +57,8 @@ class Firmware(object):
 
     def download_status(self, ip_address, session_id=None):
         urn = "{urn:brocade.com:mgmt:brocade-firmware}"
-        status_request = ET.Element("fwdl-status", xmlns=urn)
+        status_request = ET.Element(
+            "fwdl-status", xmlns="urn:brocade.com:mgmt:brocade-firmware")
         response = self._callback(status_request, 'get')
         fwdl_status = ''
         for item in response.findall('%sfwdl-entries' % urn):
