@@ -62,6 +62,10 @@ class BGP(BaseBGP):
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ...     remote_as='65535', rbridge_id='225', afis=['evpn'])
+            ...     output = dev.bgp.evpn_afi_deactivate(peer_ip='10.10.10.10',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.evpn_afi_activate(peer_ip='10.10.10.10',
+            ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
@@ -156,6 +160,55 @@ class BGP(BaseBGP):
         evpn_allowas_in = self.evpn_allowas_in(**args)
         evpn_config = pynos.utilities.merge_xml(evpn_config, evpn_allowas_in)
         return evpn_config
+
+    def evpn_afi_deactivate(self, **kwargs):
+        """
+            Deactivate EVPN AFI for a peer.
+
+        Args:
+            **kwargs:
+
+        Returns:
+
+        """
+        peer_ip = kwargs.pop('peer_ip')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_activate = getattr(self._rbridge,
+                                'rbridge_id_router_router_bgp_address_family_'
+                                'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
+                                'activate')
+        args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
+                    rbridge_id=kwargs.pop('rbridge_id'),
+                    afi='evpn')
+        evpn_activate = evpn_activate(**args)
+
+        evpn_activate.find('.//*activate').set('operation', 'delete')
+        return callback(evpn_activate)
+
+
+    def evpn_afi_activate(self, **kwargs):
+        """
+        Activate EVPN AFI for a peer. Added this public method since
+        _evpn_afi_activate configures next_hop_unchanged and also
+        allow_as_in apart from evpn_afi_neighbor.
+
+        Args:
+            **kwargs:
+
+        Returns:
+
+        """
+        peer_ip = kwargs.pop('peer_ip')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_activate = getattr(self._rbridge,
+                                'rbridge_id_router_router_bgp_address_family_'
+                                'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
+                                'activate')
+        args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
+                    rbridge_id=kwargs.pop('rbridge_id'),
+                    afi='evpn')
+        evpn_activate = evpn_activate(**args)
+        return callback(evpn_activate)
 
     def bfd(self, **kwargs):
         """Configure BFD for BGP globally.
