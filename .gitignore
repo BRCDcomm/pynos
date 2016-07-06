@@ -57,4 +57,7 @@ target/
 
 .DS_Store
 
+#Pycharm directory
+.idea
+
 pub.rsa

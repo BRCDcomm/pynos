@@ -185,7 +185,6 @@ class BGP(BaseBGP):
         evpn_activate.find('.//*activate').set('operation', 'delete')
         return callback(evpn_activate)
 
-
     def evpn_afi_activate(self, **kwargs):
         """
         Activate EVPN AFI for a peer. Added this public method since
