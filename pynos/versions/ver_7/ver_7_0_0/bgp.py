@@ -18,6 +18,7 @@ from ipaddress import ip_interface
 from pynos.versions.ver_6.ver_6_0_1.bgp import BGP as BaseBGP
 from pynos.versions.ver_7.ver_7_0_0.yang.brocade_rbridge import brocade_rbridge
 import pynos.utilities
+import xml.etree.ElementTree as ET
 
 
 class BGP(BaseBGP):
@@ -92,8 +93,7 @@ class BGP(BaseBGP):
         config = neighbor(**neighbor_args)
         if ip_addr.version == 6:
             config = self._build_ipv6(ip_addr, config, rbridge_id)
-        config = self._build_afis(config, kwargs.pop('afis', []), rbridge_id,
-                                  str(ip_addr.ip), allowas_in)
+
         if delete and config.find(ip_addr_path) is not None:
             neighbor = config.find(ip_addr_path)
             neighbor.set('operation', 'delete')
@@ -133,42 +133,94 @@ class BGP(BaseBGP):
         activate_neighbor = activate_neighbor(**activate_args)
         return pynos.utilities.merge_xml(config, activate_neighbor)
 
-    def _build_afis(self, config, afis, rbridge_id, peer_ip, allowas_in):
-        for afi in afis:
-            afi_config = getattr(self, '_{0}_afi_activate'.format(afi))
-            afi_config = afi_config(rbridge_id=rbridge_id, peer_ip=peer_ip,
-                                    allowas_in=allowas_in)
-            config = pynos.utilities.merge_xml(config, afi_config)
-        return config
-
-    def _evpn_afi_activate(self, **kwargs):
-        """Configure EVPN AFI for a peer."""
-        peer_ip = kwargs.pop('peer_ip')
-        evpn_activate = getattr(self._rbridge,
-                                'rbridge_id_router_router_bgp_address_family_'
-                                'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
-                                'activate')
-        args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
-                    rbridge_id=kwargs.pop('rbridge_id'),
-                    allowas_in=kwargs.pop('allowas_in'),
-                    afi='evpn')
-        evpn_activate = evpn_activate(**args)
-        args['callback'] = pynos.utilities.return_xml
-        evpn_nh_unchanged = self._next_hop_unchanged(**args)
-        evpn_config = pynos.utilities.merge_xml(evpn_activate,
-                                                evpn_nh_unchanged)
-        evpn_allowas_in = self.evpn_allowas_in(**args)
-        evpn_config = pynos.utilities.merge_xml(evpn_config, evpn_allowas_in)
-        return evpn_config
-
-    def evpn_afi_deactivate(self, **kwargs):
-        """
-            Deactivate EVPN AFI for a peer.
+    def evpn_afi(self, **kwargs):
+        """EVPN AFI. This method just enables/disables or gets the EVPN AFI.
 
         Args:
-            **kwargs:
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
 
         Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.evpn_afi(rbridge_id='225')
+            ...     output = dev.bgp.evpn_afi(rbridge_id='225', get=True)
+            ...     output = dev.bgp.evpn_afi(rbridge_id='225',
+            ...     delete=True)
+        """
+        callback = kwargs.pop('callback', self._callback)
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        router = ET.SubElement(rbridge_id, "router")
+        router_bgp = ET.SubElement(router, "router-bgp", xmlns="urn:brocade.com:mgmt:brocade-bgp")
+        address_family = ET.SubElement(router_bgp, "address-family")
+        l2vpn = ET.SubElement(address_family, "l2vpn")
+        ET.SubElement(l2vpn, "evpn")
+
+        if kwargs.pop('delete', False):
+            config.find('.//*l2vpn').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
+
+    def evpn_afi_peer_activate(self, **kwargs):
+        """
+        Activate EVPN AFI for a peer.
+
+        Args:
+            ip_addr (str): IP Address of BGP neighbor.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            delete (bool): Deletes the neighbor if `delete` is ``True``. Deactivate
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.evpn_afi(rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.11',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
+            ...                                             peer_ip='10.10.10.11')
+            ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
+            ...                                             peer_ip='10.10.10.11',
+            ...                                             get=True)
+            ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
+            ...                                             peer_ip='10.10.10.11',
+            ...                                             delete=True)
+            ...     output = dev.bgp.evpn_afi(rbridge_id='225',
+            ...     delete=True)
+            ...     output = dev.bgp.remove_bgp(rbridge_id='225')
 
         """
         peer_ip = kwargs.pop('peer_ip')
@@ -181,32 +233,10 @@ class BGP(BaseBGP):
                     rbridge_id=kwargs.pop('rbridge_id'),
                     afi='evpn')
         evpn_activate = evpn_activate(**args)
-
-        evpn_activate.find('.//*activate').set('operation', 'delete')
-        return callback(evpn_activate)
-
-    def evpn_afi_activate(self, **kwargs):
-        """
-        Activate EVPN AFI for a peer. Added this public method since
-        _evpn_afi_activate configures next_hop_unchanged and also
-        allow_as_in apart from evpn_afi_neighbor.
-
-        Args:
-            **kwargs:
-
-        Returns:
-
-        """
-        peer_ip = kwargs.pop('peer_ip')
-        callback = kwargs.pop('callback', self._callback)
-        evpn_activate = getattr(self._rbridge,
-                                'rbridge_id_router_router_bgp_address_family_'
-                                'l2vpn_evpn_neighbor_evpn_neighbor_ipv4_'
-                                'activate')
-        args = dict(evpn_neighbor_ipv4_address=peer_ip, ip_addr=peer_ip,
-                    rbridge_id=kwargs.pop('rbridge_id'),
-                    afi='evpn')
-        evpn_activate = evpn_activate(**args)
+        if kwargs.pop('delete', False):
+            evpn_activate.find('.//*activate').set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(evpn_activate, handler='get_config')
         return callback(evpn_activate)
 
     def bfd(self, **kwargs):
@@ -401,7 +431,7 @@ class BGP(BaseBGP):
             return callback(config, handler='get_config')
         return callback(config)
 
-    def _next_hop_unchanged(self, **kwargs):
+    def evpn_next_hop_unchanged(self, **kwargs):
         """Configure next hop unchanged for an EVPN neighbor.
 
         You probably don't want this method.  You probably want to configure
