@@ -463,11 +463,11 @@ class BGP(BaseBGP):
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
             ...     remote_as='65535', rbridge_id='225')
-            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     output = dev.bgp.evpn_next_hop_unchanged(rbridge_id='225',
             ...     ip_addr='10.10.10.10')
-            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     output = dev.bgp.evpn_next_hop_unchanged(rbridge_id='225',
             ...     ip_addr='10.10.10.10', get=True)
-            ...     output = dev.bgp._next_hop_unchanged(rbridge_id='225',
+            ...     output = dev.bgp.evpn_next_hop_unchanged(rbridge_id='225',
             ...     ip_addr='10.10.10.10', delete=True)
         """
         callback = kwargs.pop('callback', self._callback)
