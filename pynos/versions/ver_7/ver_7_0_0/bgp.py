@@ -62,50 +62,48 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.local_asn(local_as='65535',
             ...     rbridge_id='225')
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     remote_as='65535', rbridge_id='225', afis=['evpn'])
-            ...     output = dev.bgp.evpn_afi_deactivate(peer_ip='10.10.10.10',
-            ...     rbridge_id='225')
-            ...     output = dev.bgp.evpn_afi_activate(peer_ip='10.10.10.10',
-            ...     rbridge_id='225')
+            ...     remote_as='65535', rbridge_id='225')
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            ...     #output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     #delete=True, rbridge_id='225')
-            ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
-            Traceback (most recent call last):
-            KeyError
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225', remote_as='65535')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225', delete=True,
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
         """
         ip_addr = ip_interface(unicode(kwargs.pop('ip_addr')))
         rbridge_id = kwargs.pop('rbridge_id', '1')
         delete = kwargs.pop('delete', False)
         callback = kwargs.pop('callback', self._callback)
-        allowas_in = kwargs.pop('allowas_in', '5')
+        remote_as = kwargs.pop('remote_as', None)
+        get_config = kwargs.pop('get', False)
+        if not get_config and remote_as is None:
+            raise ValueError('When configuring a neighbor, you must specify '
+                             'its remote-as.')
         neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
-                             remote_as=kwargs.pop('remote_as', None),
+                             remote_as=remote_as,
                              rbridge_id=rbridge_id)
         if ip_addr.version == 6:
             neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
 
-        self._validate_neighbor_params(delete=delete,
-                                       ip_version=ip_addr.version)
         neighbor, ip_addr_path = self._unicast_xml(ip_addr.version)
         config = neighbor(**neighbor_args)
-        if ip_addr.version == 6:
+        if ip_addr.version == 6 and not delete:
             config = self._build_ipv6(ip_addr, config, rbridge_id)
 
         if delete and config.find(ip_addr_path) is not None:
-            neighbor = config.find(ip_addr_path)
-            neighbor.set('operation', 'delete')
-            neighbor.remove(neighbor.find('remote-as'))
-        if kwargs.pop('get', False):
+            if ip_addr.version == 4:
+                config.find(ip_addr_path).set('operation', 'delete')
+                config.find('.//*router-bgp-neighbor-address').set('operation',
+                                                                   'delete')
+            elif ip_addr.version == 6:
+                config.find(ip_addr_path).set('operation', 'delete')
+                config.find('.//*router-bgp-neighbor-ipv6-address').set(
+                    'operation', 'delete')
+        if get_config:
             return callback(config, handler='get_config')
         return callback(config)
-
-    def _validate_neighbor_params(self, **kwargs):
-        if kwargs.pop('delete') and kwargs.pop('ip_version') == 6:
-            raise NotImplementedError('IPv6 Neighbor removal on NOS 7.0.0 is '
-                                      'currently not supported.')
 
     def _unicast_xml(self, ip_version):
         if ip_version == 4:
@@ -113,13 +111,13 @@ class BGP(BaseBGP):
                                'rbridge_id_router_router_bgp_'
                                'router_bgp_attributes_neighbor_neighbor_ips_'
                                'neighbor_addr_remote_as')
-            ip_addr_path = './/*neighbor-addr'
+            ip_addr_path = './/*remote-as'
         else:
             neighbor = getattr(self._rbridge,
                                'rbridge_id_router_router_bgp_'
                                'router_bgp_attributes_neighbor_'
                                'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
-            ip_addr_path = './/*neighbor-ipv6-addr'
+            ip_addr_path = './/*remote-as'
         return neighbor, ip_addr_path
 
     def _build_ipv6(self, ip_addr, config, rbridge_id):
@@ -165,11 +163,14 @@ class BGP(BaseBGP):
         """
         callback = kwargs.pop('callback', self._callback)
         config = ET.Element("config")
-        rbridge_id = ET.SubElement(config, "rbridge-id", xmlns="urn:brocade.com:mgmt:brocade-rbridge")
+        rbridge_id = ET.SubElement(config, "rbridge-id",
+                                   xmlns="urn:brocade.com:mgmt:"
+                                         "brocade-rbridge")
         rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
         rbridge_id_key.text = kwargs.pop('rbridge_id')
         router = ET.SubElement(rbridge_id, "router")
-        router_bgp = ET.SubElement(router, "router-bgp", xmlns="urn:brocade.com:mgmt:brocade-bgp")
+        router_bgp = ET.SubElement(router, "router-bgp",
+                                   xmlns="urn:brocade.com:mgmt:brocade-bgp")
         address_family = ET.SubElement(router_bgp, "address-family")
         l2vpn = ET.SubElement(address_family, "l2vpn")
         ET.SubElement(l2vpn, "evpn")
@@ -188,7 +189,8 @@ class BGP(BaseBGP):
             ip_addr (str): IP Address of BGP neighbor.
             rbridge_id (str): The rbridge ID of the device on which BGP will be
                 configured in a VCS fabric.
-            delete (bool): Deletes the neighbor if `delete` is ``True``. Deactivate
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+                Deactivate
             get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
@@ -211,13 +213,11 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.neighbor(ip_addr='10.10.10.11',
             ...     remote_as='65535', rbridge_id='225')
             ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
-            ...                                             peer_ip='10.10.10.11')
+            ...     peer_ip='10.10.10.11')
             ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
-            ...                                             peer_ip='10.10.10.11',
-            ...                                             get=True)
+            ...     peer_ip='10.10.10.11', get=True)
             ...     output = dev.bgp.evpn_afi_peer_activate(rbridge_id='225',
-            ...                                             peer_ip='10.10.10.11',
-            ...                                             delete=True)
+            ...     peer_ip='10.10.10.11', delete=True)
             ...     output = dev.bgp.evpn_afi(rbridge_id='225',
             ...     delete=True)
             ...     output = dev.bgp.remove_bgp(rbridge_id='225')
