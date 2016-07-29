@@ -79,9 +79,10 @@ class TestBGP(unittest.TestCase):
         expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>{1}'\
                    '</rbridge-id><router><router-bgp xmlns="{2}">'\
                    '<router-bgp-attributes><neighbor><neighbor-ips>'\
-                   '<neighbor-addr operation="delete">'\
-                   '<router-bgp-neighbor-address>10.10.10.10'\
-                   '</router-bgp-neighbor-address></neighbor-addr>'\
+                   '<neighbor-addr>'\
+                   '<router-bgp-neighbor-address operation="delete">10.10.10.10'\
+                   '</router-bgp-neighbor-address><remote-as ' \
+                   'operation="delete">65535</remote-as></neighbor-addr>'\
                    '</neighbor-ips></neighbor></router-bgp-attributes>'\
                    '</router-bgp></router></rbridge-id>'\
                    '</config>'.format(self.rbridge_namespace, self.rbridge_id,
@@ -113,10 +114,24 @@ class TestBGP(unittest.TestCase):
         self.assertEquals(expected, result)
 
     def test_neighbor_ipv6_disable(self):
-        with self.assertRaises(NotImplementedError):
-            self.bgp.neighbor(remote_as='65535',
-                              rbridge_id=self.rbridge_id,
-                              ip_addr='2001::1', delete=True)
+        expected = '<config><rbridge-id xmlns="{0}"><rbridge-id>{1}' \
+                   '</rbridge-id><router><router-bgp xmlns="{2}">' \
+                   '<router-bgp-attributes><neighbor><neighbor-ipv6s' \
+                   '><neighbor-ipv6-addr><router-bgp-neighbor-ipv6-address ' \
+                   'operation="delete">2001::1</router-bgp-neighbor-ipv6' \
+                   '-address><remote-as ' \
+                   'operation="delete">65535</remote-as></neighbor-ipv6-addr' \
+                   '></neighbor-ipv6s></neighbor></router-bgp-attributes>' \
+                   '</router-bgp></router></rbridge-id>' \
+                   '</config>'.format(self.rbridge_namespace,
+                                      self.rbridge_id,
+                                      self.bgp_namespace)
+
+        result = self.bgp.neighbor(remote_as='65535',
+                                   rbridge_id=self.rbridge_id,
+                                   ip_addr='2001::1', delete=True)
+        result = ET.tostring(result)
+        self.assertEquals(expected, result)
 
     def test_neighbor_exception(self):
         with self.assertRaises(KeyError):

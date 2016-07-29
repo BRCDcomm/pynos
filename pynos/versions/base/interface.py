@@ -1490,6 +1490,71 @@ class Interface(object):
         )(**mtu_args)
         return callback(config)
 
+    def ip_mtu(self, **kwargs):
+        """Set interface mtu.
+
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            mtu (str): Value between 1300 and 9018
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `int_type`, `name`, or `mtu` is not specified.
+            ValueError: if `int_type`, `name`, or `mtu` is invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.ip_mtu(mtu='1666',
+            ...         int_type='tengigabitethernet', name='225/0/38')
+            ...         dev.interface.ip_mtu() # doctest:
+            +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        mtu = kwargs.pop('mtu')
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'gigabitethernet',
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet'
+        ]
+
+        if int_type not in int_types:
+            raise ValueError("Incorrect int_type value.")
+
+        minimum_mtu = 1300
+        maximum_mtu = 9018
+        if int(mtu) < minimum_mtu or int(mtu) > maximum_mtu:
+            raise ValueError("Incorrect mtu value 1300-9018")
+
+        mtu_args = dict(name=name, mtu=mtu)
+
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError('`name` must be in the format of x/y/z for '
+                             'physical interfaces.')
+
+        config = getattr(
+            self._interface,
+            'interface_%s_ip_ip_config_mtu' % int_type
+        )(**mtu_args)
+        return callback(config)
+
     def fabric_isl(self, **kwargs):
         """Set fabric ISL state.
 

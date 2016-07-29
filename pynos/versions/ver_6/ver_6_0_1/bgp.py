@@ -98,6 +98,59 @@ class BGP(BaseBGP):
             return callback(config, handler='get_config')
         return callback(config)
 
+    def as4_capability(self, **kwargs):
+        """Set Spanning Tree state.
+
+        Args:
+            enabled (bool): Is AS4 Capability enabled? (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+
+            ValueError: if `enabled` are invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.bgp.local_asn(local_as='65535',
+            ...         rbridge_id='225')
+            ...         output = dev.bgp.as4_capability(
+            ...         rbridge_id='225', enabled=True)
+            ...         output = dev.bgp.as4_capability(
+            ...         rbridge_id='225', enabled=False)
+        """
+        enabled = kwargs.pop('enabled', True)
+        callback = kwargs.pop('callback', self._callback)
+
+        if not isinstance(enabled, bool):
+            raise ValueError('%s must be `True` or `False`.' % repr(enabled))
+
+        as4_capability_args = dict(vrf_name=kwargs.pop('vrf', 'default'),
+                                   rbridge_id=kwargs.pop('rbridge_id', '1'))
+
+        as4_capability = getattr(self._rbridge,
+                                 'rbridge_id_router_router_bgp_router_bgp'
+                                 '_attributes_capability_as4_enable')
+
+        config = as4_capability(**as4_capability_args)
+
+        if not enabled:
+            capability = config.find('.//*capability')
+            capability.set('operation', 'delete')
+            # shutdown = capability.find('.//*as4-enable')
+            # shutdown.set('operation', 'delete')
+
+        return callback(config)
+
     def remove_bgp(self, **kwargs):
         """Remove BGP process completely.
 
@@ -168,8 +221,12 @@ class BGP(BaseBGP):
             ...     output = dev.bgp.neighbor(remote_as='65535',
             ...     rbridge_id='225',
             ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
-            ...     #output = dev.bgp.neighbor(ip_addr='10.10.10.10',
-            ...     #delete=True, rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1',
+            ...     delete=True)
             ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
             Traceback (most recent call last):
             KeyError
@@ -184,34 +241,37 @@ class BGP(BaseBGP):
         if not delete and remote_as is None:
             raise ValueError('When configuring a neighbor, you must specify '
                              'its remote-as.')
-        if delete and ip_addr.version == 6:
-            raise NotImplementedError('IPv6 Neighbor removal on NOS 6.0.1 is '
-                                      'currently not supported.')
 
         neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
                              remote_as=remote_as,
                              rbridge_id=rbridge_id)
+        if ip_addr.version == 6:
+            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
 
         if ip_addr.version == 4:
             neighbor = getattr(self._rbridge,
                                'rbridge_id_router_router_bgp_'
                                'router_bgp_attributes_neighbor_neighbor_ips_'
                                'neighbor_addr_remote_as')
-            ip_addr_path = './/*neighbor-addr'
+            ip_addr_path = './/*remote-as'
         else:
-            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
             neighbor = getattr(self._rbridge,
                                'rbridge_id_router_router_bgp_'
                                'router_bgp_attributes_neighbor_'
                                'neighbor_ipv6s_neighbor_ipv6_addr_remote_as')
-            ip_addr_path = './/*neighbor-ipv6-addr'
+            ip_addr_path = './/*remote-as'
 
         config = neighbor(**neighbor_args)
 
-        if delete:
-            neighbor = config.find(ip_addr_path)
-            neighbor.set('operation', 'delete')
-            neighbor.remove(neighbor.find('remote-as'))
+        if delete and config.find(ip_addr_path) is not None:
+            if ip_addr.version == 4:
+                config.find(ip_addr_path).set('operation', 'delete')
+                config.find('.//*router-bgp-neighbor-address').set('operation',
+                                                                   'delete')
+            elif ip_addr.version == 6:
+                config.find(ip_addr_path).set('operation', 'delete')
+                config.find('.//*router-bgp-neighbor-ipv6-address').set(
+                    'operation', 'delete')
         else:
             if ip_addr.version == 6:
                 callback(config)
@@ -225,6 +285,114 @@ class BGP(BaseBGP):
                                             'neighbor_address_activate')
                 config = activate_neighbor(**activate_args)
         if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        return callback(config)
+
+    def neighbor_password(self, **kwargs):
+        """Add BGP neighbor.
+
+        Args:
+            ip_addr (str): IP Address of BGP neighbor.
+            remote_as (str): Remote ASN of BGP neighbor.
+            rbridge_id (str): The rbridge ID of the device on which BGP will be
+                configured in a VCS fabric.
+            password (str): Password to be used between the peers for MD5
+            authentication
+            delete (bool): Deletes the neighbor if `delete` is ``True``.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+
+        # Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `remote_as` or `ip_addr` is not specified.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.203', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.bgp.local_asn(local_as='65535',
+            ...     rbridge_id='225')
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225')
+            ...     output = dev.bgp.neighbor_password(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225', password='test')
+            ...     output = dev.bgp.neighbor_password(ip_addr='10.10.10.10',
+            ...     remote_as='65535', rbridge_id='225', password='test',
+            ...     delete=True)
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1')
+            ...     output = dev.bgp.neighbor_password(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1',
+            ...     password='test')
+            ...     output = dev.bgp.neighbor_password(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1',
+            ...     delete=True)
+            ...     output = dev.bgp.neighbor(ip_addr='10.10.10.10',
+            ...     delete=True, rbridge_id='225')
+            ...     output = dev.bgp.neighbor(remote_as='65535',
+            ...     rbridge_id='225',
+            ...     ip_addr='2001:4818:f000:1ab:cafe:beef:1000:1',
+            ...     delete=True)
+            ...     dev.bgp.neighbor() # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        ip_addr = kwargs.pop('ip_addr')
+        remote_as = kwargs.pop('remote_as', None)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        delete = kwargs.pop('delete', False)
+        password = kwargs.pop('password', '')
+        callback = kwargs.pop('callback', self._callback)
+        ip_addr = ip_interface(unicode(ip_addr))
+        get_config = kwargs.pop('get', False)
+
+        if password == '' and not delete and not get_config:
+            raise ValueError('When configuring a neighbor password, you must '
+                             'specify a non empty password')
+        if not delete and remote_as is None:
+            raise ValueError('When configuring a neighbor, you must specify '
+                             'its remote-as.')
+
+        neighbor_args = dict(router_bgp_neighbor_address=str(ip_addr.ip),
+                             remote_as=remote_as,
+                             rbridge_id=rbridge_id,
+                             password=password)
+
+        if ip_addr.version == 4:
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_neighbor_ips_'
+                               'neighbor_addr_password')
+            ip_addr_path = './/*password'
+        else:
+            neighbor_args['router_bgp_neighbor_ipv6_address'] = str(ip_addr.ip)
+            neighbor = getattr(self._rbridge,
+                               'rbridge_id_router_router_bgp_'
+                               'router_bgp_attributes_neighbor_'
+                               'neighbor_ipv6s_neighbor_ipv6_addr_password')
+            ip_addr_path = './/*password'
+
+        config = neighbor(**neighbor_args)
+
+        if delete:
+            if ip_addr.version == 4:
+                config.find('.//*router-bgp-neighbor-address').set('operation',
+                                                                   'delete')
+                config.find(ip_addr_path).set('operation', 'delete')
+            elif ip_addr.version == 6:
+                config.find('.//*router-bgp-neighbor-ipv6-address').set(
+                    'operation', 'delete')
+                config.find(ip_addr_path).set('operation', 'delete')
+
+        if get_config:
             return callback(config, handler='get_config')
         return callback(config)
 
