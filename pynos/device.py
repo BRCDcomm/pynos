@@ -179,17 +179,24 @@ class Device(object):
         self._hostkey_verify = kwargs.pop('hostkey_verify', None)
         self._auth_method = kwargs.pop('auth_method', 'userpass')
         self._auth_key = kwargs.pop('auth_key', None)
+        self._test = kwargs.pop('test', False)
+        self._callback = kwargs.pop('callback', None)
+        if self._callback is None:
+            self._callback = self._callback_main
+
         self._mgr = None
 
-        self.reconnect()
-
-        ver = self.firmware_version
+        if self._test is False:
+            self.reconnect()
+            ver = self.firmware_version
+        else:
+            ver = '5.0.1'
 
         for nos_attr in NOS_ATTRS:
             setattr(self, nos_attr, VERSIONS[ver][nos_attr](self._callback))
 
     def __enter__(self):
-        if not self.connection:
+        if not self.connection and self._test is False:
             self.reconnect()
         return self
 
@@ -245,7 +252,7 @@ class Device(object):
         ver = self._callback(request_ver, handler='get')
         return ver.find('.//*{%s}os-version' % namespace).text
 
-    def _callback(self, call, handler='edit_config', target='running',
+    def _callback_main(self, call, handler='edit_config', target='running',
                   source='startup'):
         """
         Callback for NETCONF calls.
@@ -307,7 +314,10 @@ class Device(object):
         Raises:
             None
         """
-        return self._mgr.connected
+        if self._test is False:
+            return self._mgr.connected
+        else:
+            return False
 
     def reconnect(self):
         """
