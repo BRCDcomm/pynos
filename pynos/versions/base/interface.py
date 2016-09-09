@@ -2923,3 +2923,6 @@ class Interface(object):
                                                         "last-aggregator-id")
             last_received_port_chann_el.text = last_aggregator_id
         return request_port_channel
+
+    def bfd(self, **kwargs):
+        raise NotImplementedError

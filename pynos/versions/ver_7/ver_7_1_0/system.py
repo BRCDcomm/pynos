@@ -29,7 +29,7 @@ class System(BaseSystem):
         self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
 
     def maintenance_mode(self, **kwargs):
-        """Configures device's host name.
+        """Configures maintenance mode on the device
 
         Args:
             rbridge_id (str): The rbridge ID of the device on which

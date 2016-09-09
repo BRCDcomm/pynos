@@ -5,12 +5,12 @@ Setup for pynos
 from setuptools import setup, find_packages
 
 setup(name='pynos',
-      version='1.3.14',
+      version='1.3.15',
       description='Brocade NOS Library.',
       author='Brocade Communications Systems, Inc.',
       author_email='mstone@brocade.com, ssavla@brocade.com',
       url='http://www.brocade.com/',
-      packages=find_packages(),
+      packages=find_packages(exclude=['templates']),
       install_requires=["ncclient==0.4.5", "ipaddress"],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
