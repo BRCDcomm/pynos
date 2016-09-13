@@ -671,3 +671,166 @@ class BGP(BaseBGP):
         if kwargs.pop('delete', False):
             config.find('.//*allowas-in').set('operation', 'delete')
         return callback(config)
+
+    def peer_bfd(self, **kwargs):
+        """Configure BFD for BGP globally.
+
+        Args:
+            rbridge_id (str): Rbridge to configure.  (1, 225, etc)
+            peer_ip (str): Peer IPv4 address for BFD setting.
+            tx (str): BFD transmit interval in milliseconds (300, 500, etc)
+            rx (str): BFD receive interval in milliseconds (300, 500, etc)
+            multiplier (str): BFD multiplier.  (3, 7, 5, etc)
+            delete (bool): True if BFD configuration should be deleted.
+                Default value will be False if not specified.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+
+        Returns:
+            Return value of `callback`.
+
+        Raises:
+            KeyError: if `tx`, `rx`, or `multiplier` is not passed.
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.230']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
+            ...        remote_as='65535', rbridge_id='230')
+            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        rx='300', tx='300', multiplier='3', rbridge_id='230')
+            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        rx='300', tx='300', multiplier='3', rbridge_id='230',
+            ...        get=True)
+            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        rx='300', tx='300', multiplier='3',
+            ...        rbridge_id='230', delete=True)
+            ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
+            ...        delete=True, rbridge_id='230', remote_as='65535')
+        """
+        kwargs['min_tx'] = kwargs.pop('tx')
+        kwargs['min_rx'] = kwargs.pop('rx')
+        kwargs['router_bgp_neighbor_address'] = kwargs.pop('peer_ip')
+        kwargs['delete'] = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        bfd_tx = self._peer_bfd_tx(**kwargs)
+        bfd_rx = self._peer_bfd_rx(**kwargs)
+        bfd_multiplier = self._peer_bfd_multiplier(**kwargs)
+        if kwargs.pop('get', False):
+            return self._peer_get_bfd(bfd_tx, bfd_rx, bfd_multiplier)
+        config = pynos.utilities.merge_xml(bfd_tx, bfd_rx)
+        config = pynos.utilities.merge_xml(config, bfd_multiplier)
+        return callback(config)
+
+    def _peer_bfd_tx(self, **kwargs):
+        """Return the BFD minimum transmit interval XML.
+
+        You should not use this method.
+        You probably want `BGP.bfd`.
+
+        Args:
+            peer_ip (str): Peer IPv4 address for BFD setting.
+            min_tx (str): BFD transmit interval in milliseconds (300, 500, etc)
+            delete (bool): Remove the configuration if ``True``.
+
+        Returns:
+            XML to be passed to the switch.
+
+        Raises:
+            None
+        """
+        method_name = 'rbridge_id_router_router_bgp_router_bgp_attributes_'\
+            'neighbor_neighbor_ips_neighbor_addr_bfd_interval_min_tx'
+        bfd_tx = getattr(self._rbridge, method_name)
+        config = bfd_tx(**kwargs)
+        if kwargs['delete']:
+            tag = 'min-tx'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+        return config
+
+    def _peer_bfd_rx(self, **kwargs):
+        """Return the BFD minimum receive interval XML.
+
+        You should not use this method.
+        You probably want `BGP.bfd`.
+
+        Args:
+            peer_ip (str): Peer IPv4 address for BFD setting.
+            min_rx (str): BFD receive interval in milliseconds (300, 500, etc)
+            delete (bool): Remove the configuration if ``True``.
+
+        Returns:
+            XML to be passed to the switch.
+
+        Raises:
+            None
+        """
+        method_name = 'rbridge_id_router_router_bgp_router_bgp_attributes_'\
+            'neighbor_neighbor_ips_neighbor_addr_bfd_interval_min_rx'
+        bfd_rx = getattr(self._rbridge, method_name)
+        config = bfd_rx(**kwargs)
+        if kwargs['delete']:
+            tag = 'min-rx'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+            pass
+        return config
+
+    def _peer_bfd_multiplier(self, **kwargs):
+        """Return the BFD multiplier XML.
+
+        You should not use this method.
+        You probably want `BGP.bfd`.
+
+        Args:
+            peer_ip (str): Peer IPv4 address for BFD setting.
+            min_tx (str): BFD transmit interval in milliseconds (300, 500, etc)
+            delete (bool): Remove the configuration if ``True``.
+
+        Returns:
+            XML to be passed to the switch.
+
+        Raises:
+            None
+        """
+        method_name = 'rbridge_id_router_router_bgp_router_bgp_attributes_'\
+            'neighbor_neighbor_ips_neighbor_addr_bfd_interval_multiplier'
+
+        bfd_multiplier = getattr(self._rbridge, method_name)
+        config = bfd_multiplier(**kwargs)
+        if kwargs['delete']:
+            tag = 'multiplier'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+        return config
+
+    def _peer_get_bfd(self, tx, rx, multiplier):
+        """Get and merge the `bfd` config from global BGP.
+
+        You should not use this method.
+        You probably want `BGP.bfd`.
+
+        Args:
+            tx: XML document with the XML to get the transmit interval.
+            rx: XML document with the XML to get the receive interval.
+            multiplier: XML document with the XML to get the interval
+                multiplier.
+
+        Returns:
+            Merged XML document.
+
+        Raises:
+            None
+        """
+        tx = self._callback(tx, handler='get_config')
+        rx = self._callback(rx, handler='get_config')
+        multiplier = self._callback(multiplier, handler='get_config')
+        tx = pynos.utilities.return_xml(str(tx))
+        rx = pynos.utilities.return_xml(str(rx))
+        multiplier = pynos.utilities.return_xml(str(multiplier))
+        config = pynos.utilities.merge_xml(tx, rx)
+        return pynos.utilities.merge_xml(config, multiplier)
