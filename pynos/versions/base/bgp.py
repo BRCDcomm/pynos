@@ -901,3 +901,9 @@ class BGP(object):
         ele = ET.SubElement(ele, 'update-source')
         ET.SubElement(ele, 'loopback').text = kwargs.pop('int_name')
         return config
+
+    def peer_bfd(self, **kwargs):
+        raise NotImplementedError
+
+    def enable_peer_bfd(self, **kwargs):
+        raise NotImplementedError

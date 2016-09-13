@@ -672,7 +672,7 @@ class BGP(BaseBGP):
             config.find('.//*allowas-in').set('operation', 'delete')
         return callback(config)
 
-    def peer_bfd(self, **kwargs):
+    def peer_bfd_timers(self, **kwargs):
         """Configure BFD for BGP globally.
 
         Args:
@@ -703,12 +703,12 @@ class BGP(BaseBGP):
             ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
             ...        remote_as='65535', rbridge_id='230')
-            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        output = dev.bgp.peer_bfd_timers(peer_ip='10.10.10.20',
             ...        rx='300', tx='300', multiplier='3', rbridge_id='230')
-            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        output = dev.bgp.peer_bfd_timers(peer_ip='10.10.10.20',
             ...        rx='300', tx='300', multiplier='3', rbridge_id='230',
             ...        get=True)
-            ...        output = dev.bgp.peer_bfd(peer_ip='10.10.10.20',
+            ...        output = dev.bgp.peer_bfd_timers(peer_ip='10.10.10.20',
             ...        rx='300', tx='300', multiplier='3',
             ...        rbridge_id='230', delete=True)
             ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
@@ -727,6 +727,56 @@ class BGP(BaseBGP):
         config = pynos.utilities.merge_xml(bfd_tx, bfd_rx)
         config = pynos.utilities.merge_xml(config, bfd_multiplier)
         return callback(config)
+
+    def enable_peer_bfd(self, **kwargs):
+        """BFD enable for each specified peer.
+
+        Args:
+            rbridge_id (str): Rbridge to configure.  (1, 225, etc)
+            peer_ip (str): Peer IPv4 address for BFD setting.
+            delete (bool): True if BFD configuration should be deleted.
+                Default value will be False if not specified.
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                 method.  The only parameter passed to `callback` will be the
+                 ``ElementTree`` `config`.
+        Returns:
+            XML to be passed to the switch.
+
+        Raises:
+            None
+
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.230']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...    conn = (switch, '22')
+            ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
+            ...        remote_as='65535', rbridge_id='230')
+            ...        output = dev.bgp.enable_peer_bfd(peer_ip='10.10.10.20',
+            ...        rbridge_id='230')
+            ...        output = dev.bgp.enable_peer_bfd(peer_ip='10.10.10.20',
+            ...        rbridge_id='230',get=True)
+            ...        output = dev.bgp.enable_peer_bfd(peer_ip='10.10.10.20',
+            ...        rbridge_id='230', delete=True)
+            ...        output = dev.bgp.neighbor(ip_addr='10.10.10.20',
+            ...        delete=True, rbridge_id='230', remote_as='65535')
+        """
+        method_name = 'rbridge_id_router_router_bgp_router_bgp_attributes_'\
+            'neighbor_neighbor_ips_neighbor_addr_bfd_bfd_enable'
+        bfd_enable = getattr(self._rbridge, method_name)
+        kwargs['router_bgp_neighbor_address'] = kwargs.pop('peer_ip')
+        callback = kwargs.pop('callback', self._callback)
+        config = bfd_enable(**kwargs)
+        if kwargs.pop('delete', False):
+            tag = 'bfd-enable'
+            config.find('.//*%s' % tag).set('operation', 'delete')
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        else:
+            return callback(config)
 
     def _peer_bfd_tx(self, **kwargs):
         """Return the BFD minimum transmit interval XML.
