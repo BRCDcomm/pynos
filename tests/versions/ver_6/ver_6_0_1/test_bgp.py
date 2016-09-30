@@ -80,7 +80,8 @@ class TestBGP(unittest.TestCase):
                    '</rbridge-id><router><router-bgp xmlns="{2}">'\
                    '<router-bgp-attributes><neighbor><neighbor-ips>'\
                    '<neighbor-addr>'\
-                   '<router-bgp-neighbor-address operation="delete">10.10.10.10'\
+                   '<router-bgp-neighbor-address operation="delete">' \
+                   '10.10.10.10'\
                    '</router-bgp-neighbor-address><remote-as ' \
                    'operation="delete">65535</remote-as></neighbor-addr>'\
                    '</neighbor-ips></neighbor></router-bgp-attributes>'\

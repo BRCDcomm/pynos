@@ -253,7 +253,7 @@ class Device(object):
         return ver.find('.//*{%s}os-version' % namespace).text
 
     def _callback_main(self, call, handler='edit_config', target='running',
-                  source='startup'):
+                       source='startup'):
         """
         Callback for NETCONF calls.
 

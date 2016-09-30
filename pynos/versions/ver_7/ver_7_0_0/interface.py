@@ -251,7 +251,7 @@ class Interface(InterfaceBase):
 
         Args:
             name (str): name of the interface to configure (230/0/1 etc)
-            int_type (str): interface type (gigabitethernet, tengigabitethernet etc)
+            int_type (str): interface type (gigabitethernet etc)
             tx (str): BFD transmit interval in milliseconds (300, 500, etc)
             rx (str): BFD receive interval in milliseconds (300, 500, etc)
             multiplier (str): BFD multiplier.  (3, 7, 5, etc)
@@ -275,12 +275,14 @@ class Interface(InterfaceBase):
             >>> for switch in switches:
             ...    conn = (switch, '22')
             ...    with pynos.device.Device(conn=conn, auth=auth) as dev:
-            ...        output = dev.interface.bfd(name='230/0/4', rx='300', tx='300',
-            ...        multiplier='3', int_type='tengigabitethernet')
-            ...        output = dev.interface.bfd(name='230/0/4', rx='300', tx='300',
-            ...        multiplier='3', int_type='tengigabitethernet', get=True)
-            ...        output = dev.interface.bfd(name='230/0/4', rx='300', tx='300',
-            ...        multiplier='3', int_type='tengigabitethernet', delete=True)
+            ...        output = dev.interface.bfd(name='230/0/4', rx='300',
+            ...        tx='300', multiplier='3', int_type='tengigabitethernet')
+            ...        output = dev.interface.bfd(name='230/0/4', rx='300',
+            ...        tx='300', multiplier='3',
+            ...        int_type='tengigabitethernet', get=True)
+            ...        output = dev.interface.bfd(name='230/0/4', rx='300',
+            ...        tx='300', multiplier='3',
+            ...        int_type='tengigabitethernet', delete=True)
         """
         int_type = str(kwargs.pop('int_type').lower())
         kwargs['name'] = str(kwargs.pop('name'))
