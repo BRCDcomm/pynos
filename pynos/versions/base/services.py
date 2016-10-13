@@ -14,8 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
+import xml.etree.ElementTree as ET
+
 import pynos.utilities
+from pynos.versions.base.yang.brocade_rbridge import brocade_rbridge
 
 
 class Services(object):
@@ -41,6 +43,33 @@ class Services(object):
         """
         self._callback = callback
         self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
+
+    @property
+    def arp(self):
+        """dict: trill link details
+                """
+        xmlns = 'urn:brocade.com:mgmt:brocade-arp'
+        get_arp_info = ET.Element('get-arp', xmlns=xmlns)
+        results = self._callback(get_arp_info, handler='get')
+        result = []
+        for item in results.findall('{%s}arp-entry' % xmlns):
+            ip_address = item.find('{%s}ip-address' % xmlns).text
+            mac_address = item.find('{%s}mac-address' % xmlns).text
+            interface_type = item.find('{%s}interface-type' % xmlns).text
+            interface_name = item.find('{%s}interface-name' % xmlns).text
+            is_resolved = item.find('{%s}is-resolved' % xmlns).text
+            age = item.find('{%s}age' % xmlns).text
+            entry_type = item.find('{%s}entry-type' % xmlns).text
+            item_results = {'ip-address': ip_address,
+                            'mac-address': mac_address,
+                            'interface-type': interface_type,
+                            'interface-name': interface_name,
+                            'is-resolved': is_resolved,
+                            'age': age,
+                            'entry-type': entry_type
+                            }
+            result.append(item_results)
+        return result
 
     def vrrp(self, **kwargs):
         """Enable or Disable VRRP.

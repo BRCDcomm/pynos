@@ -1779,7 +1779,6 @@ class Interface(object):
 
     def vrrp_vip(self, **kwargs):
         """Set VRRP VIP.
-
         Args:
             int_type (str): Type of interface. (gigabitethernet,
                 tengigabitethernet, etc).
@@ -1791,14 +1790,11 @@ class Interface(object):
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
-
         Returns:
             Return value of `callback`.
-
         Raises:
             KeyError: if `int_type`, `name`, `vrid`, or `vip` is not passed.
             ValueError: if `int_type`, `name`, `vrid`, or `vip` is invalid.
-
         Examples:
             >>> import pynos.device
             >>> switches = ['10.24.39.211', '10.24.39.203']
@@ -1867,10 +1863,10 @@ class Interface(object):
 
         if ipaddress.version == 4:
             vrrp_args['version'] = '3'
-            method_name = 'interface_%s_vrrp_virtual_ip_virtual_'\
+            method_name = 'interface_%s_vrrp_virtual_ip_virtual_' \
                           'ipaddr' % int_type
         elif ipaddress.version == 6:
-            method_name = 'interface_%s_ipv6_vrrpv3_group_virtual_ip_'\
+            method_name = 'interface_%s_ipv6_vrrpv3_group_virtual_ip_' \
                           'virtual_ipaddr' % int_type
 
         if int_type == 've':
@@ -2673,9 +2669,10 @@ class Interface(object):
         interface_result = self._callback(request_interface, 'get')
         for interface in interface_result.findall('%sinterface' % urn):
             int_type = interface.find('%sinterface-type' % urn).text
+            int_name = interface.find('%sinterface-name' % urn).text
             if int_type == 'unknown':
                 continue
-            int_name = interface.find('%sinterface-name' % urn).text
+
             int_state = interface.find('%sif-state' % urn).text
             int_proto_state = interface.find('%sline-protocol-state' %
                                              urn).text
@@ -2716,6 +2713,57 @@ class Interface(object):
                                              "interface-name")
             last_int_name_el.text = last_interface_name
         return request_interface
+
+    @property
+    def interface_detail(self):
+        """list[dict]: A list of dictionary items describing the
+        interface type, name, role, mac, admin and operational
+        state of interfaces of all rbridges.
+        This method currently only lists the Physical Interfaces (
+        Gigabitethernet, tengigabitethernet, fortygigabitethernet,
+        hundredgigabitethernet) and port-channel
+        """
+        urn = "{urn:brocade.com:mgmt:brocade-interface-ext}"
+
+        result = []
+        has_more = ''
+        last_interface_name = ''
+        last_interface_type = ''
+
+        while (has_more == '') or (has_more == 'true'):
+            request_interface = self.get_interface_detail_request(
+                last_interface_name, last_interface_type)
+            interface_result = self._callback(request_interface, 'get')
+            has_more = interface_result.find('%shas-more' % urn).text
+
+            for item in interface_result.findall('%sinterface' % urn):
+                interface_type = item.find('%sinterface-type' % urn).text
+                interface_name = item.find('%sinterface-name' % urn).text
+                last_interface_type = interface_type
+                last_interface_name = interface_name
+                if "gigabitethernet" in interface_type or "port-channel" in \
+                        interface_type:
+                    if "gigabitethernet" in interface_type:
+                        interface_role = item.find('%sport-role' % urn).text
+                    else:
+                        interface_role = "None"
+                    if_name = item.find('%sif-name' % urn).text
+                    interface_state = item.find('%sif-state' % urn).text
+                    interface_proto_state = item.find('%sline-protocol-state' %
+                                                      urn).text
+                    interface_mac = item.find(
+                        '%scurrent-hardware-address' % urn).text
+                    item_results = {'interface-type': interface_type,
+                                    'interface-name': interface_name,
+                                    'interface-role': interface_role,
+                                    'if-name': if_name,
+                                    'interface-state': interface_state,
+                                    'interface-proto-state':
+                                        interface_proto_state,
+                                    'interface-mac': interface_mac}
+                result.append(item_results)
+
+        return result
 
     @property
     def vlans(self):
@@ -3234,3 +3282,31 @@ class Interface(object):
         if not enable:
             config.find('.//*virtual-mac').set('operation', 'delete')
         return callback(config)
+
+    @property
+    def ve_interfaces(self):
+        """list[dict]: A list of dictionary items describing the operational
+        state of ve interfaces along with the ip address associations.
+        """
+        urn = "{urn:brocade.com:mgmt:brocade-interface-ext}"
+        int_ns = 'urn:brocade.com:mgmt:brocade-interface-ext'
+
+        ip_result = []
+        request_interface = ET.Element('get-ip-interface', xmlns=int_ns)
+        interface_result = self._callback(request_interface, 'get')
+        for interface in interface_result.findall('%sinterface' % urn):
+            int_type = interface.find('%sinterface-type' % urn).text
+            int_name = interface.find('%sinterface-name' % urn).text
+            int_state = interface.find('%sif-state' % urn).text
+            int_proto_state = interface.find('%sline-protocol-state' %
+                                             urn).text
+            ip_address = interface.find('.//%sipv4' % urn).text
+            if_name = interface.find('%sif-name' % urn).text
+            results = {'interface-type': int_type,
+                       'interface-name': int_name,
+                       'if-name': if_name,
+                       'interface-state': int_state,
+                       'interface-proto-state': int_proto_state,
+                       'ip-address': ip_address}
+            ip_result.append(results)
+        return ip_result
