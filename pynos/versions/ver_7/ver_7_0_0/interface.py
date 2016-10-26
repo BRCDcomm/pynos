@@ -19,6 +19,8 @@ from pynos.versions.ver_7.ver_7_0_0.yang.brocade_rbridge \
     import brocade_rbridge as brcd_rbridge
 import pynos.utilities
 from pynos.versions.base.interface import Interface as InterfaceBase
+from pynos.exceptions import InvalidVlanId
+from ipaddress import ip_interface
 
 
 class Interface(InterfaceBase):
@@ -409,3 +411,526 @@ class Interface(InterfaceBase):
         multiplier = pynos.utilities.return_xml(str(multiplier))
         config = pynos.utilities.merge_xml(tx, rx)
         return pynos.utilities.merge_xml(config, multiplier)
+
+    def vrf(self, **kwargs):
+        """Create a vrf.
+        Args:
+            vrf_name (str): Name of the vrf (vrf101, vrf-1 etc).
+            get (bool): Get config instead of editing config. (True, False)
+            delete (bool): False, the vrf is created and True if its to
+                be deleted (True, False). Default value will be False if not
+                specified.
+            rbridge_id (str): rbridge-id for device.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `rbridge_id`,`vrf_name` is not passed.
+            ValueError: if `rbridge_id`, `vrf_name` is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.vrf(vrf_name=vrf1,
+            ...         rbridge_id='225')
+            ...         output = dev.interface.vrf(rbridge_id='225',
+            ...         get=True)
+            ...         output = dev.interface.vrf(vrf_name=vrf1,
+            ...         rbridge_id='225',delete=True)
+
+        """
+        rbridge_id = kwargs['rbridge_id']
+        get_config = kwargs.pop('get', False)
+        delete = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        result = []
+        method_class = self._rbridge
+        method_name = 'rbridge_id_vrf_vrf_name'
+        vrf = getattr(method_class, method_name)
+
+        if not get_config:
+            vrf_name = kwargs['vrf_name']
+            vrf_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name)
+            config = vrf(**vrf_args)
+
+            if delete:
+                config.find('.//*vrf').set('operation', 'delete')
+            result = callback(config)
+
+        elif get_config:
+            vrf_args = dict(rbridge_id=rbridge_id, vrf_name='')
+            config = vrf(**vrf_args)
+            output = callback(config, handler='get_config')
+            for item in output.data.findall('.//{*}vrf'):
+                vrfname = item.find('.//{*}vrf-name').text
+                tmp = {'rbridge_id': rbridge_id, 'vrf_name': vrfname}
+                result.append(tmp)
+        return result
+
+    def vrf_route_distiniguisher(self, **kwargs):
+        """Configure Route distiniguisher.
+        Args:
+            rbridge_id (str): rbridge-id for device.
+            vrf_name (str): Name of the vrf (vrf101, vrf-1 etc).
+            rd (str): Route distiniguisher <ASN:nn or IP-address:nn>
+            get (bool): Get config instead of editing config. (True, False)
+            delete (bool): False, the vrf rd is configured and True if its to
+                be deleted (True, False). Default value will be False if not
+                specified.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `rbridge_id`,`vrf_name`, 'rd' is not passed.
+            ValueError: if `rbridge_id`, `vrf_name`, 'rd' is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.vrf_route_distiniguisher(
+            ...         vrf_name=vrf1, rbridge_id='2', rd='10.0.1.1:101')
+            ...         output = dev.interface.vrf_route_distiniguisher(
+            ...         vrf_name=vrf1, rbridge_id='2', rd='100:101')
+            ...         output = dev.interface.vrf_route_distiniguisher(
+            ...         rbridge_id='2', get=True)
+            ...         output = dev.interface.vrf_route_distiniguisher(
+            ...         rbridge_id='2', vrf_name='vrf2', get=True)
+            ...         output = dev.interface.vrf_route_distiniguisher(
+            ...         vrf_name=vrf1, rbridge_id='2', rd='100:101',
+            ...         delete=True)
+
+        """
+        rbridge_id = kwargs['rbridge_id']
+        get_config = kwargs.pop('get', False)
+        delete = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        result = []
+
+        method_class = self._rbridge
+        method_name = 'rbridge_id_vrf_route_distiniguisher'
+        vrf_rd = getattr(method_class, method_name)
+
+        if not get_config:
+            vrf_name = kwargs['vrf_name']
+            rd = kwargs['rd']
+            rd_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                           route_distiniguisher=rd)
+            config = vrf_rd(**rd_args)
+
+            if delete:
+                config.find('.//*route-distiniguisher').set('operation',
+                                                            'delete')
+            result = callback(config)
+
+        elif get_config:
+            vrf_name = kwargs.pop('vrf_name', '')
+            rd_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                           route_distiniguisher='')
+            config = vrf_rd(**rd_args)
+            output = callback(config, handler='get_config')
+            for item in output.data.findall('.//{*}vrf'):
+                vrfname = item.find('.//{*}vrf-name').text
+                if item.find('.//{*}route-distiniguisher') is not None:
+                    vrfrd = item.find('.//{*}route-distiniguisher').text
+                else:
+                    vrfrd = ''
+
+                tmp = {'rbridge_id': rbridge_id, 'vrf_name': vrfname,
+                       'rd': vrfrd}
+                result.append(tmp)
+        return result
+
+    def vrf_l3vni(self, **kwargs):
+        """Configure Layer3 vni under vrf.
+        Args:
+            rbridge_id (str): rbridge-id for device.
+            vrf_name (str): Name of the vrf (vrf101, vrf-1 etc).
+            l3vni (str): <NUMBER:1-16777215>   Layer 3 VNI.
+            get (bool): Get config instead of editing config. (True, False)
+            delete (bool): False the L3 vni is configured and True if its to
+                be deleted (True, False). Default value will be False if not
+                specified.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `rbridge_id`,`vrf_name`, 'l3vni' is not passed.
+            ValueError: if `rbridge_id`, `vrf_name`, 'l3vni'  is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.vrf_vni(
+            ...         vrf_name=vrf1, rbridge_id='2', l3vni ='7201')
+            ...         output = dev.interface.vrf_vni(rbridge_id='2',
+            ...         get=True)
+            ...         output = dev.interface.vrf_vni(rbridge_id='2',
+            ...         , vrf_name='vrf2' get=True)
+            ...         output = dev.interface.vrf_vni(vrf_name=vrf1,
+            ...         rbridge_id='2', l3vni ='7201', delete=True)
+
+        """
+        rbridge_id = kwargs['rbridge_id']
+        get_config = kwargs.pop('get', False)
+        delete = kwargs.pop('delete', False)
+        callback = kwargs.pop('callback', self._callback)
+        result = []
+
+        method_class = self._rbridge
+        method_name = 'rbridge_id_vrf_vni'
+        vrf_vni = getattr(method_class, method_name)
+
+        if not get_config:
+            vrf_name = kwargs['vrf_name']
+            l3vni = kwargs['l3vni']
+            vni_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                            vni=l3vni)
+            config = vrf_vni(**vni_args)
+
+            if delete:
+                config.find('.//*vni').set('operation', 'delete')
+            result = callback(config)
+
+        elif get_config:
+            vrf_name = kwargs.pop('vrf_name', '')
+            vni_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                            vni='')
+            config = vrf_vni(**vni_args)
+            output = callback(config, handler='get_config')
+            for item in output.data.findall('.//{*}vrf'):
+                vrfname = item.find('.//{*}vrf-name').text
+                if item.find('.//{*}vni') is not None:
+                    vrfvni = item.find('.//{*}vni').text
+                else:
+                    vrfvni = ''
+
+                tmp = {'rbridge_id': rbridge_id, 'vrf_name': vrfname,
+                       'l3vni': vrfvni}
+                result.append(tmp)
+        return result
+
+    def vrf_afi_rt_evpn(self, **kwargs):
+        """Configure Target VPN Extended Communities
+        Args:
+            rbridge_id (str): rbridge-id for device.
+            vrf_name (str): Name of the vrf (vrf101, vrf-1 etc).
+            rt (str): Route Target(import/export/both).
+            rt_value (str): Route Target Value  ASN:nn Target
+                            VPN Extended Community.
+            afi (str): Address family (ip/ipv6).
+            get (bool): Get config instead of editing config.
+                        List all the details of
+                        all afi under all vrf(True, False)
+            delete_rt (bool): True to delete the route-target under
+                              address family (True, False).
+                              Default value will be False if not
+                              specified.
+            delete_afi (bool): True to delet the ip/ipv6 address family
+                Default value will be False if not specified.
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `rbridge_id`,`vrf_name`, 'afi', 'rt', 'rt_value'
+                      is not passed.
+            ValueError: if `rbridge_id`, `vrf_name`, 'afi', 'rt', rt_value
+                        is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.vrf_vni(rbridge_id="1",
+            ...         afi="ip", rt='import', rt_value='101:101',
+            ...         vrf_name="vrf1")
+            ...         output = dev.interface.vrf_vni(rbridge_id="1",
+            ...         afi="ip", rt='import', rt_value='101:101',
+            ...         vrf_name="vrf1",delete_rt=True)
+            ...         output = dev.interface.vrf_vni(rbridge_id="1",
+            ...         afi="ip", rt='import', rt_value='101:101',
+            ...         vrf_name="vrf1",delete_afi=True)
+            ...         output = dev.interface.vrf_vni(rbridge_id="1",
+            ...         afi="ip", get=True)
+            ...         output = dev.interface.vrf_vni(rbridge_id="1",
+            ...         afi="ip", vrf_name="vrf2", get=True)
+
+        """
+        rbridge_id = kwargs['rbridge_id']
+        afi = kwargs['afi']
+        get_config = kwargs.pop('get', False)
+        delete_rt = kwargs.pop('delete_rt', False)
+        delete_afi = kwargs.pop('delete_afi', False)
+        callback = kwargs.pop('callback', self._callback)
+        result = []
+
+        method_class = self._rbridge
+        method_name = 'rbridge_id_vrf_address_family_%s_unicast_' \
+                      'route_target_evpn' % afi
+        vrf_rt = getattr(method_class, method_name)
+
+        if not get_config:
+            vrf_name = kwargs['vrf_name']
+            rt = kwargs['rt']
+            rt_value = kwargs['rt_value']
+            rt_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                           action=rt, target_community=rt_value)
+            config = vrf_rt(**rt_args)
+
+            if delete_afi is True:
+                if config.find('.//*ipv6') is not None:
+                    config.find('.//*ipv6').set('operation', 'delete')
+                if config.find('.//*ip') is not None:
+                    config.find('.//*ip').set('operation', 'delete')
+            if delete_rt is True:
+                config.find('.//*route-target').set('operation', 'delete')
+            result = callback(config)
+
+        elif get_config:
+            vrf_name = kwargs.pop('vrf_name', '')
+
+            rt_args = dict(rbridge_id=rbridge_id, vrf_name=vrf_name,
+                           action='', target_community='')
+            config = vrf_rt(**rt_args)
+            output = callback(config, handler='get_config')
+            for vrf_node in output.data.findall('.//{*}vrf'):
+                afi = ''
+                vrfrt = []
+                vrfrtval = []
+                vrfname = vrf_node.find('.//{*}vrf-name').text
+                if vrf_node.find('.//{*}ip') is not None:
+                    afi = "ip"
+                    if vrf_node.find('.//{*}route-target') is not None:
+                        for ipv4_action in vrf_node.findall('.//{*}action'):
+                            rttemp = ipv4_action.text
+                            vrfrt.append(rttemp)
+                        for ipv4_rt in vrf_node.findall('.//{'
+                                                        '*}target-community'):
+                            valtemp = ipv4_rt.text
+                            vrfrtval.append(valtemp)
+                if vrf_node.find('.//{*}ipv6') is not None:
+                    afi = "ipv6"
+                    if vrf_node.find('.//{*}route-target') is not None:
+                        for ipv6_action in vrf_node.findall('.//{*}action'):
+                            rttemp = ipv6_action.text
+                            vrfrt.append(rttemp)
+                        for ipv6_rt in vrf_node.findall('.//{'
+                                                        '*}target-community'):
+                            valtemp = ipv6_rt.text
+                            vrfrtval.append(valtemp)
+
+                tmp = {'rbridge_id': rbridge_id, 'vrf_name': vrfname,
+                       'afi': afi, 'rt': vrfrt, 'rtvalue': vrfrtval}
+                result.append(tmp)
+
+        return result
+
+    def conversational_arp(self, **kwargs):
+        """Enable conversational arp learning on VDX switches
+
+        Args:
+            rbridge_id (str): rbridge-id for device.
+            get (bool): Get config instead of editing config. (True, False)
+            delete (bool): True, delete the conversation arp learning.
+                          (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `rbridge_id` is not passed.
+            ValueError: if `rbridge_id` is invalid.
+
+        Examples:
+            >>> import pynos.device
+            >>> conn = ('10.24.39.211', '22')
+            >>> auth = ('admin', 'password')
+            >>> with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...     output = dev.interface.conversational_arp(rbridge_id="1")
+            ...     output = dev.interface.conversational_arp(rbridge_id="1",
+                             get=True)
+            ...     output = dev.interface.conversational_arp(rbridge_id="1",
+                             delete=True)
+        """
+
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        arp_config = getattr(self._rbridge,
+                             'rbridge_id_host_table_aging_mode_conversational')
+
+        arp_args = dict(rbridge_id=rbridge_id)
+        config = arp_config(**arp_args)
+        if kwargs.pop('get', False):
+            output = callback(config, handler='get_config')
+            item = output.data.find('.//{*}aging-mode')
+            if item is not None:
+                return True
+        if kwargs.pop('delete', False):
+            config.find('.//*aging-mode').set('operation', 'delete')
+        return callback(config)
+
+    def ip_anycast_gateway(self, **kwargs):
+        """
+        Add anycast gateway under interface ve.
+
+        Args:
+            int_type: L3 interface type on which the anycast ip
+               needs to be configured.
+            name:L3 interface name on which the anycast ip
+               needs to be configured.
+            anycast_ip: Anycast ip which the L3 interface
+               needs to be associated.
+            enable (bool): If ip anycast gateway should be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `int_type`, `name`, `anycast_ip` is not passed.
+            ValueError: if `int_type`, `name`, `anycast_ip` is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.ip_anycast_gateway(
+            ...         int_type='ve',
+            ...         name='89',
+            ...         anycast_ip='10.20.1.1/24',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.ip_anycast_gateway(
+            ...         get=True,int_type='ve',
+            ...         name='89',
+            ...         anycast_ip='10.20.1.1/24',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.ip_anycast_gateway(
+            ...         enable=False,int_type='ve',
+            ...         name='89',
+            ...         anycast_ip='10.20.1.1/24',
+            ...         rbridge_id='1')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        int_type = kwargs.pop('int_type').lower()
+        name = kwargs.pop('name')
+        anycast_ip = kwargs.pop('anycast_ip')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        valid_int_types = ['ve']
+        method_class = self._rbridge
+
+        if get:
+            enable = None
+        ipaddress = ip_interface(unicode(anycast_ip))
+        if int_type not in valid_int_types:
+            raise ValueError('`int_type` must be one of: %s' %
+                             repr(valid_int_types))
+        if ipaddress.version == 4:
+            anycast_args = dict(name=name, ip_address=anycast_ip)
+            method_name = 'interface_%s_ip_ip_anycast_'\
+                          'address_ip_address' % int_type
+        elif ipaddress.version == 6:
+            anycast_args = dict(name=name, ipv6_address=anycast_ip)
+            method_name = 'interface_%s_ipv6_ipv6_'\
+                          'anycast_address_ipv6_address' % int_type
+        method_name = 'rbridge_id_%s' % method_name
+        anycast_args['rbridge_id'] = rbridge_id
+        if not pynos.utilities.valid_vlan_id(name):
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
+        ip_anycast_gateway = getattr(method_class, method_name)
+        config = ip_anycast_gateway(**anycast_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            if ipaddress.version == 4:
+                config.find('.//*ip-anycast-address').\
+                  set('operation', 'delete')
+            elif ipaddress.version == 6:
+                config.find('.//*ipv6-anycast-address').\
+                  set('operation', 'delete')
+        return callback(config)
+
+    def arp_suppression(self, **kwargs):
+        """
+        Enable Arp Suppression on a Vlan.
+
+        Args:
+            name:Vlan name on which the Arp suppression needs to be enabled.
+            enable (bool): If arp suppression should be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `name` is not passed.
+            ValueError: if `name` is invalid.
+           output2 = dev.interface.arp_suppression(name='89')
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.arp_suppression(
+            ...         name='89')
+            ...         output = dev.interface.arp_suppression(
+            ...         get=True,name='89')
+            ...         output = dev.interface.arp_suppression(
+            ...         enable=False,name='89')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        name = kwargs.pop('name')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        callback = kwargs.pop('callback', self._callback)
+        method_class = self._interface
+        arp_args = dict(name=name)
+        if name:
+            if not pynos.utilities.valid_vlan_id(name):
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
+        arp_suppression = getattr(method_class,
+                                  'interface_vlan_interface_vlan_suppress_'
+                                  'arp_suppress_arp_enable')
+        config = arp_suppression(**arp_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+                config.find('.//*suppress-arp').set('operation', 'delete')
+        return callback(config)

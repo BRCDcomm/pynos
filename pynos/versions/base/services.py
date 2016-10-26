@@ -136,10 +136,13 @@ class Services(object):
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
+
         Returns:
             Return value of `callback`.
+
         Raises:
             None
+
         Examples:
             >>> import pynos.device
             >>> switches = ['10.24.39.211', '10.24.39.203']

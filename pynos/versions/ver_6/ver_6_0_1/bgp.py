@@ -638,7 +638,7 @@ class BGP(BaseBGP):
 
         Args:
             rbridge_id (str): The rbridge ID of the device on which BGP will be
-                configured in a VCS fabric.
+             afi   configured in a VCS fabric.
             afi (str): Address family to configure. (ipv4, ipv6)
             get (bool): Get config instead of editing config. (True, False)
             callback (function): A function executed upon completion of the

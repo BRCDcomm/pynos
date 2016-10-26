@@ -77,6 +77,7 @@ class VCS(object):
 
     def vcs_vip(self, **kwargs):
         """Set VCS Virtual IP.
+
         Args:
             vip (str): IPv4/IPv6 Virtual IP Address.
             rbridge_id (str): rbridge-id for device. Only required when type is
@@ -86,11 +87,13 @@ class VCS(object):
             callback (function): A function executed upon completion of the
                 method.  The only parameter passed to `callback` will be the
                 ``ElementTree`` `config`.
+
         Returns:
             Return value of `callback`.
         Raises:
             KeyError: if `vip` is not passed.
             ValueError: if `vip` is invalid.
+
         Examples:
             >>> import pynos.device
             >>> switches = ['10.24.39.211', '10.24.39.203']
@@ -100,12 +103,17 @@ class VCS(object):
             ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
             ...         dev.interface.vcs_vip(vip='10.1.1.1/24')
             ...         dev.interface.vcs_vip(vip='fe80::cafe:beef:1000:1/64')
-            ...         dev.interface.vcs_vip(vip='10.1.1.1/24',delete=True)
+            ...         dev.interface.vcs_vip(vip='10.1.1.1/24',get=True)
+            ...         dev.interface.vcs_vip(vip='fe80::cafe:beef:1000:1/64',
+            ...                               get=True)
             ...         dev.interface.vcs_vip(vip='fe80::cafe:beef:1000:1/64',
             ...                               delete=True)
             ...         dev.interface.vcs_vip(vip='10.1.1.1/24',get=True)
             ...         dev.interface.vcs_vip(vip='fe80::cafe:beef:1000:1/64',
             ...                               get=True)
+            ...         dev.interface.vcs_vip(vip='10.1.1.1/24',delete=True)
+            ...         dev.interface.vcs_vip(vip='fe80::cafe:beef:1000:1/64',
+            ...                               delete=True)
         """
 
         get_config = kwargs.pop('get', False)
@@ -136,6 +144,7 @@ class VCS(object):
                 elif ipaddress.version == 6:
                     config = vcs_vip(**vcs_args)
                     config.find('.//*ipv6address').set('operation', 'delete')
+
         elif get_config:
             vip_info = {}
 
