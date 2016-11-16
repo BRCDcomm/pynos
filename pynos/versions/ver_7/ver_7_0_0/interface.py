@@ -21,6 +21,7 @@ import pynos.utilities
 from pynos.versions.base.interface import Interface as InterfaceBase
 from pynos.exceptions import InvalidVlanId
 from ipaddress import ip_interface
+import xml.etree.ElementTree as ET
 
 
 class Interface(InterfaceBase):
@@ -784,6 +785,8 @@ class Interface(InterfaceBase):
             item = output.data.find('.//{*}aging-mode')
             if item is not None:
                 return True
+            else:
+                return None
         if kwargs.pop('delete', False):
             config.find('.//*aging-mode').set('operation', 'delete')
         return callback(config)
@@ -841,28 +844,53 @@ class Interface(InterfaceBase):
 
         int_type = kwargs.pop('int_type').lower()
         name = kwargs.pop('name')
-        anycast_ip = kwargs.pop('anycast_ip')
+        anycast_ip = kwargs.pop('anycast_ip', '')
         enable = kwargs.pop('enable', True)
         get = kwargs.pop('get', False)
         rbridge_id = kwargs.pop('rbridge_id', '1')
         callback = kwargs.pop('callback', self._callback)
         valid_int_types = ['ve']
         method_class = self._rbridge
-
-        if get:
+        if get and anycast_ip == '':
+            enable = None
+            if int_type not in valid_int_types:
+                raise ValueError('`int_type` must be one of: %s' %
+                                 repr(valid_int_types))
+            anycast_args = dict(name=name, ip_address=anycast_ip,
+                                ipv6_address=anycast_ip)
+            method_name1 = 'interface_%s_ip_ip_anycast_'\
+                           'address_ip_address' % int_type
+            method_name2 = 'interface_%s_ipv6_ipv6_'\
+                           'anycast_address_ipv6_address' % int_type
+            method_name1 = 'rbridge_id_%s' % method_name1
+            method_name2 = 'rbridge_id_%s' % method_name2
+            anycast_args['rbridge_id'] = rbridge_id
+            if not pynos.utilities.valid_vlan_id(name):
+                raise InvalidVlanId("`name` must be between `1` and `8191`")
+            ip_anycast_gateway1 = getattr(method_class, method_name1)
+            ip_anycast_gateway2 = getattr(method_class, method_name2)
+            config1 = ip_anycast_gateway1(**anycast_args)
+            config2 = ip_anycast_gateway2(**anycast_args)
+            result = []
+            result.append(callback(config1, handler='get_config'))
+            result.append(callback(config2, handler='get_config'))
+            return result
+        elif get:
             enable = None
         ipaddress = ip_interface(unicode(anycast_ip))
         if int_type not in valid_int_types:
             raise ValueError('`int_type` must be one of: %s' %
                              repr(valid_int_types))
-        if ipaddress.version == 4:
-            anycast_args = dict(name=name, ip_address=anycast_ip)
-            method_name = 'interface_%s_ip_ip_anycast_'\
-                          'address_ip_address' % int_type
-        elif ipaddress.version == 6:
-            anycast_args = dict(name=name, ipv6_address=anycast_ip)
-            method_name = 'interface_%s_ipv6_ipv6_'\
-                          'anycast_address_ipv6_address' % int_type
+        if anycast_ip != '':
+            ipaddress = ip_interface(unicode(anycast_ip))
+            if ipaddress.version == 4:
+                anycast_args = dict(name=name, ip_address=anycast_ip)
+                method_name = 'interface_%s_ip_ip_anycast_'\
+                              'address_ip_address' % int_type
+            elif ipaddress.version == 6:
+                anycast_args = dict(name=name, ipv6_address=anycast_ip)
+                method_name = 'interface_%s_ipv6_ipv6_'\
+                              'anycast_address_ipv6_address' % int_type
         method_name = 'rbridge_id_%s' % method_name
         anycast_args['rbridge_id'] = rbridge_id
         if not pynos.utilities.valid_vlan_id(name):
@@ -933,4 +961,321 @@ class Interface(InterfaceBase):
             return callback(config, handler='get_config')
         if not enable:
                 config.find('.//*suppress-arp').set('operation', 'delete')
+        return callback(config)
+
+    def create_evpn_instance(self, **kwargs):
+        """
+        Add evpn instance.
+
+        Args:
+            evpn_instance_name: Instance name for evpn
+            enable (bool): If evpn instance needs to be configured
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if 'evpn_instance_name' is not passed.
+            ValueError: if 'evpn_instance_name' is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.create_evpn_instance(
+            ...         evpn_instance_name='100',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_evpn_instance(
+            ...         get=True,
+            ...         evpn_instance_name='100',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_evpn_instance(
+            ...         enable=False,
+            ...         evpn_instance_name='101',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_evpn_instance(
+            ...         get=True,
+            ...         rbridge_id='1')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        evpn_instance_name = kwargs.pop('evpn_instance_name', '')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_args = dict(instance_name=evpn_instance_name)
+        if get:
+            enable = None
+        method_name = 'rbridge_id_evpn_instance_instance_name'
+        method_class = self._rbridge
+        evpn_args['rbridge_id'] = rbridge_id
+        create_evpn_instance = getattr(method_class, method_name)
+        config = create_evpn_instance(**evpn_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            config.find('.//*/evpn-instance').set('operation', 'delete')
+        return callback(config)
+
+    def evpn_instance_rt_both_ignore_as(self, **kwargs):
+        """
+        Add evpn instance route target ignore AS.
+
+        Args:
+            evpn_instance_name: Instance name for evpn
+            enable (bool): If target community needs to be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if 'evpn_instance_name' is not passed.
+            ValueError: if 'evpn_instance_name' is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...conn = (switch, '22')
+            ...with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ... output=dev.interface.evpn_instance_rt_both_ignore_as(
+            ... evpn_instance_name='100',
+            ... rbridge_id='1')
+            ... output=dev.interface.evpn_instance_rt_both_ignore_as(
+            ... get=True,
+            ... evpn_instance_name='100',
+            ... rbridge_id='1')
+            ... output=dev.interface.evpn_instance_rt_both_ignore_as(
+            ... enable=False,
+            ... evpn_instance_name='101',
+            ... rbridge_id='1')
+            ... output=dev.interface.evpn_instance_rt_both_ignore_as(
+            ... get=True,
+            ... rbridge_id='1')
+            ...   # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        evpn_instance_name = kwargs.pop('evpn_instance_name', '')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_args = dict(instance_name=evpn_instance_name,
+                         target_community='auto')
+        if get:
+            enable = None
+        method_name = 'rbridge_id_evpn_instance_route_target_imprt_ignore_as'
+        method_class = self._rbridge
+        evpn_args['rbridge_id'] = rbridge_id
+        evpn_instance_rt_both_ignore_as = getattr(method_class,
+                                                  method_name)
+        config = evpn_instance_rt_both_ignore_as(**evpn_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            config.find('.//*target-community').set('operation', 'delete')
+        return callback(config)
+
+    def evpn_instance_duplicate_mac_timer(self, **kwargs):
+        """
+        Add "Duplicate MAC timer value" under evpn instance.
+
+        Args:
+            evpn_instance_name: Instance name for evpn
+            duplicate_mac_timer_value: Duplicate MAC timer value.
+            enable (bool): If target community needs to be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if 'evpn_instance_name' is not passed.
+            ValueError: if 'evpn_instance_name' is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output=dev.interface.evpn_instance_duplicate_mac_timer(
+            ...         evpn_instance_name='100',
+            ...         duplicate_mac_timer_value='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_duplicate_mac_timer(
+            ...         get=True,
+            ...         evpn_instance_name='100',
+            ...         duplicate_mac_timer_value='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_duplicate_mac_timer(
+            ...         enable=False,
+            ...         evpn_instance_name='101',
+            ...         duplicate_mac_timer_value='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_duplicate_mac_timer(
+            ...         get=True,
+            ...         evpn_instance_name='101',
+            ...         rbridge_id='1')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        evpn_instance_name = kwargs.pop('evpn_instance_name', '')
+        duplicate_mac_timer_value = kwargs.pop('duplicate_mac_timer_value',
+                                               '180')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_args = dict(instance_name=evpn_instance_name,
+                         duplicate_mac_timer_value=duplicate_mac_timer_value)
+        if get:
+            enable = None
+        method_name = 'rbridge_id_evpn_instance_duplicate'\
+                      '_mac_timer_duplicate_mac_timer_value'
+        method_class = self._rbridge
+        evpn_args['rbridge_id'] = rbridge_id
+        evpn_instance_duplicate_mac_timer = getattr(method_class, method_name)
+        config = evpn_instance_duplicate_mac_timer(**evpn_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            config.find('.//*duplicate-mac-timer').set('operation', 'delete')
+        return callback(config)
+
+    def evpn_instance_mac_timer_max_count(self, **kwargs):
+        """
+        Add "Duplicate MAC max count" under evpn instance.
+
+        Args:
+            evpn_instance_name: Instance name for evpn
+            max_count: Duplicate MAC max count.
+            enable (bool): If target community needs to be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device. Only required when type is
+                `ve`.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if 'evpn_instance_name' is not passed.
+            ValueError: if 'evpn_instance_name' is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output=dev.interface.evpn_instance_mac_timer_max_count(
+            ...         evpn_instance_name='100',
+            ...         max_count='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_mac_timer_max_count(
+            ...         get=True,
+            ...         evpn_instance_name='100',
+            ...         max_count='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_mac_timer_max_count(
+            ...         enable=False,
+            ...         evpn_instance_name='101',
+            ...         max_count='10'
+            ...         rbridge_id='1')
+            ...         output=dev.interface.evpn_instance_mac_timer_max_count(
+            ...         get=True,
+            ...         evpn_instance_name='101',
+            ...         rbridge_id='1')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        evpn_instance_name = kwargs.pop('evpn_instance_name', '')
+        max_count = kwargs.pop('max_count', '5')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        callback = kwargs.pop('callback', self._callback)
+        evpn_args = dict(instance_name=evpn_instance_name,
+                         max_count=max_count)
+        if get:
+            enable = None
+        method_name = 'rbridge_id_evpn_instance_duplicate_'\
+                      'mac_timer_max_count'
+        method_class = self._rbridge
+        evpn_args['rbridge_id'] = rbridge_id
+        evpn_instance_mac_timer_max_count = getattr(method_class, method_name)
+        config = evpn_instance_mac_timer_max_count(**evpn_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            config.find('.//*duplicate-mac-timer').set('operation', 'delete')
+        return callback(config)
+
+    def evpn_instance_rd_auto(self, **kwargs):
+
+        """
+        Add RD auto under EVPN instance.
+
+        Args:
+            rbridge_id: Rbrdige id .
+            instance_name: EVPN instance name.
+
+        Returns:
+            True if command completes successfully or False if not.
+
+        Raises:
+            None
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output=dev.interface.evpn_instance_rd_auto(
+            ...         evpn_instance_name='100',
+            ...         rbridge_id='1')
+         """
+        config = ET.Element("config")
+        rbridge_id = ET.SubElement(config, "rbridge-id",
+                                   xmlns="urn:brocade.com"
+                                         ":mgmt:brocade-rbridge")
+        rbridge_id_key = ET.SubElement(rbridge_id, "rbridge-id")
+        rbridge_id_key.text = kwargs.pop('rbridge_id')
+        evpn_instance = ET.SubElement(rbridge_id, "evpn-instance",
+                                      xmlns="urn:brocade.com:mgmt:brocade-bgp")
+        instance_name_key = ET.SubElement(evpn_instance, "instance-name")
+        instance_name_key.text = kwargs.pop('instance_name')
+        route_distinguisher = ET.SubElement(evpn_instance,
+                                            "route-distinguisher")
+        ET.SubElement(route_distinguisher, "auto")
+
+        callback = kwargs.pop('callback', self._callback)
         return callback(config)
