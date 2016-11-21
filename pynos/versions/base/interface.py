@@ -4001,3 +4001,77 @@ class Interface(object):
         if kwargs.pop('delete', False):
             config.find('.//*use-link-local-only').set('operation', 'delete')
         return callback(config)
+
+    def fabric_neighbor(self, **kwargs):
+        """Set fabric neighbor discovery state.
+        Args:
+            int_type (str): Type of interface. (gigabitethernet,
+                tengigabitethernet, etc)
+            name (str): Name of interface. (1/0/5, 1/0/10, etc)
+            enabled (bool): Is fabric neighbor discovery enabled? (True, False)
+            get (bool): Get config instead of editing config. (True, False)
+            callback (function): A function executed upon completion of the
+                method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            KeyError: if `int_type`, `name`, or `enabled` is not specified.
+            ValueError: if `int_type`,`name`, or `enabled` is not a valid value
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.fabric_neighbor(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/40')
+            ...         output = dev.interface.fabric_neighbor(
+            ...         int_type='tengigabitethernet',
+            ...         name='225/0/40',
+            ...         enabled=False)
+            ...         output = dev.interface.fabric_neighbor(
+            ...         get=True, int_type='tengigabitethernet',
+            ...         name='225/0/40',
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+        """
+        int_type = str(kwargs.pop('int_type').lower())
+        name = str(kwargs.pop('name'))
+        enabled = kwargs.pop('enabled', True)
+        callback = kwargs.pop('callback', self._callback)
+
+        int_types = [
+            'tengigabitethernet',
+            'fortygigabitethernet',
+            'hundredgigabitethernet'
+        ]
+
+        if int_type not in int_types:
+            raise ValueError("`int_type` must be one of: %s" %
+                             repr(int_types))
+
+        if not isinstance(enabled, bool):
+            raise ValueError('`enabled` must be `True` or `False`.')
+
+        fabric_isl_args = dict(name=name)
+
+        if not pynos.utilities.valid_interface(int_type, name):
+            raise ValueError("`name` must match `^[0-9]{1,3}/[0-9]{1,3}/[0-9]"
+                             "{1,3}$`")
+        config = getattr(
+            self._interface,
+            'interface_%s_fabric_neighbor_discovery_disable' % int_type
+        )(**fabric_isl_args)
+
+        if not enabled:
+            fabric_isl = config.find('.//*neighbor-discovery')
+            fabric_isl.set('operation', 'delete')
+
+        if kwargs.pop('get', False):
+            return callback(config, handler='get_config')
+        else:
+            return callback(config)
