@@ -1383,4 +1383,3 @@ class Interface(InterfaceBase):
             else:
                 limit_default = "20"
                 return limit_default
-
