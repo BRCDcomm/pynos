@@ -4075,3 +4075,64 @@ class Interface(object):
             return callback(config, handler='get_config')
         else:
             return callback(config)
+
+    def create_ve(self, **kwargs):
+        """
+        Add Ve Interface .
+        Args:
+            ve_name: Ve name with which the Ve interface needs to be
+             created.
+            enable (bool): If vrf fowarding should be enabled
+                or disabled.Default:``True``.
+            get (bool) : Get config instead of editing config. (True, False)
+            rbridge_id (str): rbridge-id for device.
+            callback (function): A function executed upon completion of the
+               method.  The only parameter passed to `callback` will be the
+                ``ElementTree`` `config`.
+        Returns:
+            Return value of `callback`.
+        Raises:
+            ValueError: if `ve_name` is invalid.
+        Examples:
+            >>> import pynos.device
+            >>> switches = ['10.24.39.211', '10.24.39.203']
+            >>> auth = ('admin', 'password')
+            >>> for switch in switches:
+            ...     conn = (switch, '22')
+            ...     with pynos.device.Device(conn=conn, auth=auth) as dev:
+            ...         output = dev.interface.create_ve(
+             ...         ve_name='100',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_ve(
+            ...         get=True,
+            ...         ve_name='100',
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_ve(
+            ...         get=True,
+            ...         rbridge_id='1')
+            ...         output = dev.interface.create_ve(
+            ...         enable=False,
+            ...         ve_name='101',
+            ...         rbridge_id='1')
+            ...         # doctest: +IGNORE_EXCEPTION_DETAIL
+            Traceback (most recent call last):
+            KeyError
+         """
+
+        ve_name = kwargs.pop('ve_name', '')
+        rbridge_id = kwargs.pop('rbridge_id', '1')
+        enable = kwargs.pop('enable', True)
+        get = kwargs.pop('get', False)
+        callback = kwargs.pop('callback', self._callback)
+        ve_args = dict(name=ve_name, rbridge_id=rbridge_id)
+        if get:
+            enable = None
+        method_class = self._rbridge
+        method_name = 'rbridge_id_interface_ve_name'
+        create_ve = getattr(method_class, method_name)
+        config = create_ve(**ve_args)
+        if get:
+            return callback(config, handler='get_config')
+        if not enable:
+            config.find('.//*ve').set('operation', 'delete')
+        return callback(config)

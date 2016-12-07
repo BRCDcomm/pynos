@@ -42,7 +42,7 @@ class BGP(BaseBGP):
         Raises:
             None
         """
-        self._callback = callback
+        super(BGP, self).__init__(callback)
         self._rbridge = brocade_rbridge(callback=pynos.utilities.return_xml)
 
     def local_asn(self, **kwargs):

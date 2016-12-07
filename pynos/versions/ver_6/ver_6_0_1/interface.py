@@ -35,7 +35,7 @@ class Interface(InterfaceBase):
         Raises:
             None
         """
-        self._callback = callback
+        super(Interface, self).__init__(callback)
         self._mac_address_table = brocade_mac_address_table(
             callback=pynos.utilities.return_xml
         )
