@@ -329,7 +329,7 @@ class Interface(object):
         port_int = kwargs.pop('port_int')
         callback = kwargs.pop('callback', self._callback)
 
-        if re.search('^[0-9]{1,3}$', port_int) is None:
+        if re.search('^[0-9]{1,4}$', port_int) is None:
             raise ValueError('%s must be in the format of x for port channel '
                              'interfaces.' % repr(port_int))
 
